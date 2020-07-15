@@ -90,14 +90,13 @@ func resourceIBMISInstanceGroupCreate(d *schema.ResourceData, meta interface{}) 
 	instanceTemplate := d.Get("instance_template").(string)
 	membershipCount := d.Get("membership_count").(int)
 	subnets := d.Get("subnets")
-	//lbID := d.Get("load_balancer_id").(string)
-	//lbPoolID := d.Get("load_balancer_pool_id").(string)
+	lbID := d.Get("load_balancer_id").(string)
+	lbPoolID := d.Get("load_balancer_pool_id").(string)
 
 	sess, err := myvpcClient(meta)
 	if err != nil {
 		return err
 	}
-	// return nil
 
 	var subnetIDs []vpcv1.SubnetIdentityIntf
 	for _, s := range subnets.([]interface{}) {
@@ -109,14 +108,15 @@ func resourceIBMISInstanceGroupCreate(d *schema.ResourceData, meta interface{}) 
 		InstanceTemplate: &vpcv1.InstanceTemplateIdentity{
 			ID: &instanceTemplate,
 		},
-		Subnets:         subnetIDs,
-		Name:            &name,
-		MembershipCount: &mc,
-		//LoadBalancer:     &vpcv1.LoadBalancerIdentity{ID: &lbID},
-		//LoadBalancerPool: &vpcv1.LoadBalancerPoolIdentity{ID: &lbPoolID},
-		// ResourceGroup: &vpcv1.ResourceGroupIdentity{
-		// 	ID: &,
-		// }
+		Subnets:          subnetIDs,
+		Name:             &name,
+		MembershipCount:  &mc,
+		LoadBalancer:     &vpcv1.LoadBalancerIdentity{ID: &lbID},
+		LoadBalancerPool: &vpcv1.LoadBalancerPoolIdentity{ID: &lbPoolID},
+	}
+	if v, ok := d.GetOk("resource_group"); ok {
+		resourceGroup := v.(string)
+		instanceGroupOptions.ResourceGroup = &vpcv1.ResourceGroupIdentity{ID: &resourceGroup}
 	}
 	instanceGroup, response, err := sess.CreateInstanceGroup(&instanceGroupOptions)
 	if err != nil {
@@ -227,18 +227,18 @@ func resourceIBMISInstanceGroupRead(d *schema.ResourceData, meta interface{}) er
 	d.Set("instance_template", *instanceGroup.InstanceTemplate)
 	d.Set("membership_count", *instanceGroup.MembershipCount)
 	d.Set("resource_group", *instanceGroup.ResourceGroup)
-	// if *instanceGroup.ApplicationPort != nil {
-	// 	d.Set("application_port", *instanceGroup.ApplicationPort)
-	// }
+	if instanceGroup.ApplicationPort != nil {
+		d.Set("application_port", *instanceGroup.ApplicationPort)
+	}
 
 	subnets := make([]string, 0)
 
 	for i := 0; i < len(instanceGroup.Subnets); i++ {
 		subnets = append(subnets, string(*(instanceGroup.Subnets[i].ID)))
 	}
-	// if *instanceGroup.LoadBalancerPool != nil {
-	// 	d.Set("load_balancer_pool_id", *instanceGroup.LoadBalancerPool)
-	// }
+	if instanceGroup.LoadBalancerPool != nil {
+		d.Set("load_balancer_pool_id", *instanceGroup.LoadBalancerPool)
+	}
 	d.Set("subnets", subnets)
 	managers := make([]string, 0)
 
