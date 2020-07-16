@@ -50,13 +50,7 @@ func dataSourceIBMISInstanceGroup() *schema.Resource {
 				Description: "Used by the instance group when scaling up instances to supply the port for the load balancer pool member.",
 			},
 
-			"load_balancer_id": {
-				Type:        schema.TypeString,
-				Computed:    true,
-				Description: "load balancer ID",
-			},
-
-			"load_balancer_pool_id": {
+			"load_balancer_pool": {
 				Type:        schema.TypeString,
 				Computed:    true,
 				Description: "load balancer pool ID",
@@ -73,6 +67,12 @@ func dataSourceIBMISInstanceGroup() *schema.Resource {
 				Type:        schema.TypeString,
 				Computed:    true,
 				Description: "vpc instance",
+			},
+
+			"status": {
+				Type:        schema.TypeString,
+				Computed:    true,
+				Description: "Instance group status - deleting, healthy, scaling, unhealthy",
 			},
 		},
 	}
@@ -108,9 +108,7 @@ func dataSourceIBMISInstanceGroupRead(d *schema.ResourceData, meta interface{}) 
 			for i := 0; i < len(instanceGroup.Subnets); i++ {
 				subnets = append(subnets, string(*(instanceGroup.Subnets[i].ID)))
 			}
-			if instanceGroup.LoadBalancerPool != nil {
-				d.Set("load_balancer_pool_id", *instanceGroup.LoadBalancerPool)
-			}
+			d.Set("load_balancer_pool", *instanceGroup.LoadBalancerPool)
 			d.Set("subnets", subnets)
 			managers := make([]string, 0)
 			for i := 0; i < len(instanceGroup.Managers); i++ {
@@ -118,6 +116,7 @@ func dataSourceIBMISInstanceGroupRead(d *schema.ResourceData, meta interface{}) 
 			}
 			d.Set("managers", managers)
 			d.Set("vpc", *instanceGroup.VPC.ID)
+			d.Set("status", *instanceGroup.Status)
 		}
 	}
 	return nil

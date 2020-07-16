@@ -14,13 +14,13 @@ func dataSourceIBMISInstanceGroupManagerPolicies() *schema.Resource {
 
 		Schema: map[string]*schema.Schema{
 
-			"instance_group_id": {
+			"instance_group": {
 				Type:        schema.TypeString,
 				Required:    true,
 				Description: "instance group ID",
 			},
 
-			"instance_group_manager_id": {
+			"instance_group_manager": {
 				Type:        schema.TypeString,
 				Required:    true,
 				Description: "Instance group manager ID",
@@ -75,8 +75,8 @@ func dataSourceIBMISInstanceGroupManagerPolicyRead(d *schema.ResourceData, meta 
 		return err
 	}
 
-	instanceGroupManagerID := d.Get("instance_group_manager_id").(string)
-	instanceGroupID := d.Get("instance_group_id").(string)
+	instanceGroupManagerID := d.Get("instance_group_manager").(string)
+	instanceGroupID := d.Get("instance_group").(string)
 
 	listInstanceGroupManagerPoliciesOptions := vpcv1.ListInstanceGroupManagerPoliciesOptions{
 		InstanceGroupID:        &instanceGroupID,

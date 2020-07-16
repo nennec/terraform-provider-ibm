@@ -2,9 +2,16 @@ package ibm
 
 import (
 	"fmt"
+	"time"
 
+	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.ibm.com/ibmcloud/vpc-go-sdk-scoped/vpcv1"
+)
+
+const (
+	SCALING = "scaling"
+	HEALTHY = "healthy"
 )
 
 func resourceIBMISInstanceGroup() *schema.Resource {
@@ -15,6 +22,11 @@ func resourceIBMISInstanceGroup() *schema.Resource {
 		Delete:   resourceIBMISInstanceGroupDelete,
 		Exists:   resourceIBMISInstanceGroupExists,
 		Importer: &schema.ResourceImporter{},
+
+		Timeouts: &schema.ResourceTimeout{
+			Create: schema.DefaultTimeout(10 * time.Minute),
+			Delete: schema.DefaultTimeout(5 * time.Minute),
+		},
 
 		Schema: map[string]*schema.Schema{
 
@@ -31,7 +43,7 @@ func resourceIBMISInstanceGroup() *schema.Resource {
 				Description: "instance template ID",
 			},
 
-			"membership_count": {
+			"instance_count": {
 				Type:        schema.TypeInt,
 				Required:    true,
 				Description: "The number of instances in the instance group",
@@ -56,13 +68,13 @@ func resourceIBMISInstanceGroup() *schema.Resource {
 				Description: "Used by the instance group when scaling up instances to supply the port for the load balancer pool member.",
 			},
 
-			"load_balancer_id": {
+			"load_balancer": {
 				Type:        schema.TypeString,
 				Optional:    true,
 				Description: "load balancer ID",
 			},
 
-			"load_balancer_pool_id": {
+			"load_balancer_pool": {
 				Type:        schema.TypeString,
 				Optional:    true,
 				Description: "load balancer pool ID",
@@ -80,6 +92,12 @@ func resourceIBMISInstanceGroup() *schema.Resource {
 				Computed:    true,
 				Description: "vpc instance",
 			},
+
+			"status": {
+				Type:        schema.TypeString,
+				Computed:    true,
+				Description: "Instance group status - deleting, healthy, scaling, unhealthy",
+			},
 		},
 	}
 }
@@ -88,10 +106,10 @@ func resourceIBMISInstanceGroupCreate(d *schema.ResourceData, meta interface{}) 
 
 	name := d.Get("name").(string)
 	instanceTemplate := d.Get("instance_template").(string)
-	membershipCount := d.Get("membership_count").(int)
+	membershipCount := d.Get("instance_count").(int)
 	subnets := d.Get("subnets")
-	lbID := d.Get("load_balancer_id").(string)
-	lbPoolID := d.Get("load_balancer_pool_id").(string)
+	lbID := d.Get("load_balancer").(string)
+	lbPoolID := d.Get("load_balancer_pool").(string)
 
 	sess, err := myvpcClient(meta)
 	if err != nil {
@@ -114,10 +132,17 @@ func resourceIBMISInstanceGroupCreate(d *schema.ResourceData, meta interface{}) 
 		LoadBalancer:     &vpcv1.LoadBalancerIdentity{ID: &lbID},
 		LoadBalancerPool: &vpcv1.LoadBalancerPoolIdentity{ID: &lbPoolID},
 	}
+
 	if v, ok := d.GetOk("resource_group"); ok {
 		resourceGroup := v.(string)
 		instanceGroupOptions.ResourceGroup = &vpcv1.ResourceGroupIdentity{ID: &resourceGroup}
 	}
+
+	if v, ok := d.GetOk("application_port"); ok {
+		applicatioPort := int64(v.(int))
+		instanceGroupOptions.ApplicationPort = &applicatioPort
+	}
+
 	instanceGroup, response, err := sess.CreateInstanceGroup(&instanceGroupOptions)
 	if err != nil {
 		if response != nil && response.StatusCode == 404 {
@@ -127,6 +152,11 @@ func resourceIBMISInstanceGroupCreate(d *schema.ResourceData, meta interface{}) 
 		return fmt.Errorf("Error Creating InstanceGroup: %s\n%s", err, response)
 	}
 	d.SetId(*instanceGroup.ID)
+
+	_, helthError := waitForHealthyInstanceGroup(d, meta)
+	if helthError != nil {
+		return helthError
+	}
 
 	return resourceIBMISInstanceGroupUpdate(d, meta)
 
@@ -155,8 +185,8 @@ func resourceIBMISInstanceGroupUpdate(d *schema.ResourceData, meta interface{}) 
 		changed = true
 	}
 
-	if d.HasChange("membership_count") && !d.IsNewResource() {
-		membershipCount := d.Get("membership_count").(int)
+	if d.HasChange("instance_count") && !d.IsNewResource() {
+		membershipCount := d.Get("instance_count").(int)
 		mc := int64(membershipCount)
 		instanceGroupUpdateOptions.MembershipCount = &mc
 		changed = true
@@ -164,7 +194,6 @@ func resourceIBMISInstanceGroupUpdate(d *schema.ResourceData, meta interface{}) 
 
 	if d.HasChange("subnets") && !d.IsNewResource() {
 		subnets := d.Get("subnets")
-		//oldList, newList := d.GetChange("subnets")
 		var subnetIDs []vpcv1.SubnetIdentityIntf
 		for _, s := range subnets.([]interface{}) {
 			subnet := s.(string)
@@ -174,20 +203,12 @@ func resourceIBMISInstanceGroupUpdate(d *schema.ResourceData, meta interface{}) 
 		changed = true
 	}
 
-	if d.HasChange("application_port") && !d.IsNewResource() {
-		lbID := d.Get("application_port").(int64)
-		instanceGroupUpdateOptions.ApplicationPort = &lbID
-		changed = true
-	}
-
-	if d.HasChange("load_balancer_id") && !d.IsNewResource() {
-		lbID := d.Get("load_balancer_id").(string)
+	if (d.HasChange("application_port") || d.HasChange("load_balancer") || d.HasChange("load_balancer_pool")) && !d.IsNewResource() {
+		applicationPort := int64(d.Get("application_port").(int))
+		lbID := d.Get("load_balancer").(string)
+		lbPoolID := d.Get("load_balancer_pool").(string)
+		instanceGroupUpdateOptions.ApplicationPort = &applicationPort
 		instanceGroupUpdateOptions.LoadBalancer = &vpcv1.LoadBalancerIdentity{ID: &lbID}
-		changed = true
-	}
-
-	if d.HasChange("load_balancer_pool_id") && !d.IsNewResource() {
-		lbPoolID := d.Get("load_balancer_pool_id").(string)
 		instanceGroupUpdateOptions.LoadBalancerPool = &vpcv1.LoadBalancerPoolIdentity{ID: &lbPoolID}
 		changed = true
 	}
@@ -202,6 +223,10 @@ func resourceIBMISInstanceGroupUpdate(d *schema.ResourceData, meta interface{}) 
 				return nil
 			}
 			return fmt.Errorf("Error Updating InstanceGroup: %s\n%s", err, response)
+		}
+		_, helthError := waitForHealthyInstanceGroup(d, meta)
+		if helthError != nil {
+			return helthError
 		}
 	}
 	return resourceIBMISInstanceGroupRead(d, meta)
@@ -225,7 +250,7 @@ func resourceIBMISInstanceGroupRead(d *schema.ResourceData, meta interface{}) er
 	}
 	d.Set("name", *instanceGroup.Name)
 	d.Set("instance_template", *instanceGroup.InstanceTemplate)
-	d.Set("membership_count", *instanceGroup.MembershipCount)
+	d.Set("instance_count", *instanceGroup.MembershipCount)
 	d.Set("resource_group", *instanceGroup.ResourceGroup)
 	if instanceGroup.ApplicationPort != nil {
 		d.Set("application_port", *instanceGroup.ApplicationPort)
@@ -237,7 +262,7 @@ func resourceIBMISInstanceGroupRead(d *schema.ResourceData, meta interface{}) er
 		subnets = append(subnets, string(*(instanceGroup.Subnets[i].ID)))
 	}
 	if instanceGroup.LoadBalancerPool != nil {
-		d.Set("load_balancer_pool_id", *instanceGroup.LoadBalancerPool)
+		d.Set("load_balancer_pool", *instanceGroup.LoadBalancerPool)
 	}
 	d.Set("subnets", subnets)
 	managers := make([]string, 0)
@@ -247,6 +272,7 @@ func resourceIBMISInstanceGroupRead(d *schema.ResourceData, meta interface{}) er
 	}
 	d.Set("managers", managers)
 
+	d.Set("status", *instanceGroup.Status)
 	d.Set("vpc", *instanceGroup.VPC.ID)
 
 	return nil
@@ -290,4 +316,33 @@ func resourceIBMISInstanceGroupExists(d *schema.ResourceData, meta interface{}) 
 func myvpcClient(meta interface{}) (*vpcv1.VpcV1, error) {
 	sess, err := meta.(ClientSession).VpcV1APIScoped()
 	return sess, err
+}
+
+func waitForHealthyInstanceGroup(d *schema.ResourceData, meta interface{}) (interface{}, error) {
+	sess, err := myvpcClient(meta)
+	if err != nil {
+		return nil, err
+	}
+
+	instanceGroupID := d.Id()
+	getInstanceGroupOptions := vpcv1.GetInstanceGroupOptions{ID: &instanceGroupID}
+
+	healthStateConf := &resource.StateChangeConf{
+		Pending: []string{SCALING},
+		Target:  []string{HEALTHY},
+		Refresh: func() (interface{}, string, error) {
+			instanceGroup, response, err := sess.GetInstanceGroup(&getInstanceGroupOptions)
+			if err != nil {
+				return instanceGroup, *instanceGroup.Status, fmt.Errorf("Error Getting InstanceGroup: %s\n%s", err, response)
+			}
+			return instanceGroup, *instanceGroup.Status, nil
+		},
+		Timeout:      d.Timeout(schema.TimeoutDelete),
+		Delay:        10 * time.Second,
+		MinTimeout:   5 * time.Second,
+		PollInterval: 5 * time.Second,
+	}
+
+	return healthStateConf.WaitForState()
+
 }

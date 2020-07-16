@@ -24,7 +24,14 @@ func resourceIBMISInstanceGroupManager() *schema.Resource {
 				Description: "instance group manager name",
 			},
 
-			"instance_group_id": {
+			"enable_manager": {
+				Type:        schema.TypeBool,
+				Optional:    true,
+				Default:     true,
+				Description: "enable instance group manager",
+			},
+
+			"instance_group": {
 				Type:        schema.TypeString,
 				Required:    true,
 				Description: "instance group ID",
@@ -76,7 +83,7 @@ func resourceIBMISInstanceGroupManager() *schema.Resource {
 
 func resourceIBMISInstanceGroupManagerCreate(d *schema.ResourceData, meta interface{}) error {
 
-	instanceGroupID := d.Get("instance_group_id").(string)
+	instanceGroupID := d.Get("instance_group").(string)
 	maxMembershipCount := int64(d.Get("max_membership_count").(int))
 
 	sess, err := myvpcClient(meta)
@@ -85,7 +92,6 @@ func resourceIBMISInstanceGroupManagerCreate(d *schema.ResourceData, meta interf
 	}
 
 	instanceGroupManagerPrototype := vpcv1.InstanceGroupManagerPrototype{}
-	//instanceGroupManagerPrototype.ManagerType = &managerType
 	instanceGroupManagerPrototype.MaxMembershipCount = &maxMembershipCount
 
 	if v, ok := d.GetOk("name"); ok {
@@ -113,7 +119,11 @@ func resourceIBMISInstanceGroupManagerCreate(d *schema.ResourceData, meta interf
 		instanceGroupManagerPrototype.AggregationWindow = &aggregationWindow
 	}
 
-	//managerPrototype := &vpcv1.InstanceGroupManagerPrototypeIntf{}
+	if v, ok := d.GetOk("enable_manager"); ok {
+		enableManager := v.(bool)
+		instanceGroupManagerPrototype.ManagementEnabled = &enableManager
+	}
+
 	createInstanceGroupManagerOptions := vpcv1.CreateInstanceGroupManagerOptions{
 		InstanceGroupID:               &instanceGroupID,
 		InstanceGroupManagerPrototype: &instanceGroupManagerPrototype,
@@ -171,9 +181,15 @@ func resourceIBMISInstanceGroupManagerUpdate(d *schema.ResourceData, meta interf
 		changed = true
 	}
 
+	if d.HasChange("enable_manager") && !d.IsNewResource() {
+		enableManager := d.Get("enable_manager").(bool)
+		updateInstanceGroupManagerOptions.ManagementEnabled = &enableManager
+		changed = true
+	}
+
 	if changed {
 		instanceGroupManagerID := d.Id()
-		instanceGroupID := d.Get("instance_group_id").(string)
+		instanceGroupID := d.Get("instance_group").(string)
 		updateInstanceGroupManagerOptions.ID = &instanceGroupManagerID
 		updateInstanceGroupManagerOptions.InstanceGroupID = &instanceGroupID
 		_, response, err := sess.UpdateInstanceGroupManager(&updateInstanceGroupManagerOptions)
@@ -195,7 +211,7 @@ func resourceIBMISInstanceGroupManagerRead(d *schema.ResourceData, meta interfac
 	}
 
 	instanceGroupManagerID := d.Id()
-	instanceGroupID := d.Get("instance_group_id").(string)
+	instanceGroupID := d.Get("instance_group").(string)
 
 	getInstanceGroupManagerOptions := vpcv1.GetInstanceGroupManagerOptions{
 		ID:              &instanceGroupManagerID,
@@ -214,6 +230,7 @@ func resourceIBMISInstanceGroupManagerRead(d *schema.ResourceData, meta interfac
 	d.Set("cooldown", *instanceGroupManager.Cooldown)
 	d.Set("max_membership_count", *instanceGroupManager.MaxMembershipCount)
 	d.Set("min_membership_count", *instanceGroupManager.MinMembershipCount)
+	d.Set("enable_manager", *instanceGroupManager.ManagementEnabled)
 
 	policies := make([]string, 0)
 
@@ -230,7 +247,7 @@ func resourceIBMISInstanceGroupManagerDelete(d *schema.ResourceData, meta interf
 		return err
 	}
 	instanceGroupManagerID := d.Id()
-	instanceGroupID := d.Get("instance_group_id").(string)
+	instanceGroupID := d.Get("instance_group").(string)
 	deleteInstanceGroupManagerOptions := vpcv1.DeleteInstanceGroupManagerOptions{
 		ID:              &instanceGroupManagerID,
 		InstanceGroupID: &instanceGroupID,
@@ -253,7 +270,7 @@ func resourceIBMISInstanceGroupManagerExists(d *schema.ResourceData, meta interf
 	}
 
 	instanceGroupManagerID := d.Id()
-	instanceGroupID := d.Get("instance_group_id").(string)
+	instanceGroupID := d.Get("instance_group").(string)
 
 	getInstanceGroupManagerOptions := vpcv1.GetInstanceGroupManagerOptions{
 		ID:              &instanceGroupManagerID,

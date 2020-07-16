@@ -117,8 +117,8 @@ func NewVpcV1(options *VpcV1Options) (service *VpcV1, err error) {
 	}
 
 	service = &VpcV1{
-		Service: baseService,
-		Version: options.Version,
+		Service:    baseService,
+		Version:    options.Version,
 		generation: core.Int64Ptr(2),
 	}
 
@@ -14238,9 +14238,9 @@ type AddInstanceNetworkInterfaceFloatingIPOptions struct {
 // NewAddInstanceNetworkInterfaceFloatingIPOptions : Instantiate AddInstanceNetworkInterfaceFloatingIPOptions
 func (*VpcV1) NewAddInstanceNetworkInterfaceFloatingIPOptions(instanceID string, networkInterfaceID string, id string) *AddInstanceNetworkInterfaceFloatingIPOptions {
 	return &AddInstanceNetworkInterfaceFloatingIPOptions{
-		InstanceID: core.StringPtr(instanceID),
+		InstanceID:         core.StringPtr(instanceID),
 		NetworkInterfaceID: core.StringPtr(networkInterfaceID),
-		ID: core.StringPtr(id),
+		ID:                 core.StringPtr(id),
 	}
 }
 
@@ -14284,7 +14284,7 @@ type AddSecurityGroupNetworkInterfaceOptions struct {
 func (*VpcV1) NewAddSecurityGroupNetworkInterfaceOptions(securityGroupID string, id string) *AddSecurityGroupNetworkInterfaceOptions {
 	return &AddSecurityGroupNetworkInterfaceOptions{
 		SecurityGroupID: core.StringPtr(securityGroupID),
-		ID: core.StringPtr(id),
+		ID:              core.StringPtr(id),
 	}
 }
 
@@ -14328,8 +14328,8 @@ type AddVPNGatewayConnectionLocalCIDROptions struct {
 func (*VpcV1) NewAddVPNGatewayConnectionLocalCIDROptions(vpnGatewayID string, id string, cidrPrefix string, prefixLength string) *AddVPNGatewayConnectionLocalCIDROptions {
 	return &AddVPNGatewayConnectionLocalCIDROptions{
 		VPNGatewayID: core.StringPtr(vpnGatewayID),
-		ID: core.StringPtr(id),
-		CIDRPrefix: core.StringPtr(cidrPrefix),
+		ID:           core.StringPtr(id),
+		CIDRPrefix:   core.StringPtr(cidrPrefix),
 		PrefixLength: core.StringPtr(prefixLength),
 	}
 }
@@ -14386,8 +14386,8 @@ type AddVPNGatewayConnectionPeerCIDROptions struct {
 func (*VpcV1) NewAddVPNGatewayConnectionPeerCIDROptions(vpnGatewayID string, id string, cidrPrefix string, prefixLength string) *AddVPNGatewayConnectionPeerCIDROptions {
 	return &AddVPNGatewayConnectionPeerCIDROptions{
 		VPNGatewayID: core.StringPtr(vpnGatewayID),
-		ID: core.StringPtr(id),
-		CIDRPrefix: core.StringPtr(cidrPrefix),
+		ID:           core.StringPtr(id),
+		CIDRPrefix:   core.StringPtr(cidrPrefix),
 		PrefixLength: core.StringPtr(prefixLength),
 	}
 }
@@ -14451,7 +14451,6 @@ type AddressPrefix struct {
 	Zone *ZoneReference `json:"zone" validate:"required"`
 }
 
-
 // UnmarshalAddressPrefix unmarshals an instance of AddressPrefix from the specified map of raw messages.
 func UnmarshalAddressPrefix(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(AddressPrefix)
@@ -14510,7 +14509,6 @@ type AddressPrefixCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalAddressPrefixCollection unmarshals an instance of AddressPrefixCollection from the specified map of raw messages.
 func UnmarshalAddressPrefixCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(AddressPrefixCollection)
@@ -14544,7 +14542,6 @@ type AddressPrefixCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalAddressPrefixCollectionFirst unmarshals an instance of AddressPrefixCollectionFirst from the specified map of raw messages.
 func UnmarshalAddressPrefixCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(AddressPrefixCollectionFirst)
@@ -14561,7 +14558,6 @@ type AddressPrefixCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalAddressPrefixCollectionNext unmarshals an instance of AddressPrefixCollectionNext from the specified map of raw messages.
 func UnmarshalAddressPrefixCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -14607,7 +14603,6 @@ type CertificateInstanceReference struct {
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // UnmarshalCertificateInstanceReference unmarshals an instance of CertificateInstanceReference from the specified map of raw messages.
 func UnmarshalCertificateInstanceReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(CertificateInstanceReference)
@@ -14641,8 +14636,8 @@ type CheckVPNGatewayConnectionLocalCIDROptions struct {
 func (*VpcV1) NewCheckVPNGatewayConnectionLocalCIDROptions(vpnGatewayID string, id string, cidrPrefix string, prefixLength string) *CheckVPNGatewayConnectionLocalCIDROptions {
 	return &CheckVPNGatewayConnectionLocalCIDROptions{
 		VPNGatewayID: core.StringPtr(vpnGatewayID),
-		ID: core.StringPtr(id),
-		CIDRPrefix: core.StringPtr(cidrPrefix),
+		ID:           core.StringPtr(id),
+		CIDRPrefix:   core.StringPtr(cidrPrefix),
 		PrefixLength: core.StringPtr(prefixLength),
 	}
 }
@@ -14699,8 +14694,8 @@ type CheckVPNGatewayConnectionPeerCIDROptions struct {
 func (*VpcV1) NewCheckVPNGatewayConnectionPeerCIDROptions(vpnGatewayID string, id string, cidrPrefix string, prefixLength string) *CheckVPNGatewayConnectionPeerCIDROptions {
 	return &CheckVPNGatewayConnectionPeerCIDROptions{
 		VPNGatewayID: core.StringPtr(vpnGatewayID),
-		ID: core.StringPtr(id),
-		CIDRPrefix: core.StringPtr(cidrPrefix),
+		ID:           core.StringPtr(id),
+		CIDRPrefix:   core.StringPtr(cidrPrefix),
 		PrefixLength: core.StringPtr(prefixLength),
 	}
 }
@@ -14767,7 +14762,6 @@ type CloudObjectStorageBucketReference struct {
 	// The globally unique name of this COS bucket.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // UnmarshalCloudObjectStorageBucketReference unmarshals an instance of CloudObjectStorageBucketReference from the specified map of raw messages.
 func UnmarshalCloudObjectStorageBucketReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -14852,7 +14846,7 @@ type CreateDedicatedHostOptions struct {
 // NewCreateDedicatedHostOptions : Instantiate CreateDedicatedHostOptions
 func (*VpcV1) NewCreateDedicatedHostOptions(group DedicatedHostPrototypeGroupIntf, profile DedicatedHostPrototypeProfileIntf) *CreateDedicatedHostOptions {
 	return &CreateDedicatedHostOptions{
-		Group: group,
+		Group:   group,
 		Profile: profile,
 	}
 }
@@ -14920,7 +14914,7 @@ type CreateEndpointGatewayOptions struct {
 func (*VpcV1) NewCreateEndpointGatewayOptions(target EndpointGatewayTargetPrototypeIntf, vpc VPCIdentityIntf) *CreateEndpointGatewayOptions {
 	return &CreateEndpointGatewayOptions{
 		Target: target,
-		VPC: vpc,
+		VPC:    vpc,
 	}
 }
 
@@ -15020,7 +15014,7 @@ type CreateFlowLogCollectorOptions struct {
 func (*VpcV1) NewCreateFlowLogCollectorOptions(storageBucket CloudObjectStorageBucketIdentityIntf, target FlowLogCollectorPrototypeTargetIntf) *CreateFlowLogCollectorOptions {
 	return &CreateFlowLogCollectorOptions{
 		StorageBucket: storageBucket,
-		Target: target,
+		Target:        target,
 	}
 }
 
@@ -15091,16 +15085,16 @@ type CreateIkePolicyOptions struct {
 // Constants associated with the CreateIkePolicyOptions.AuthenticationAlgorithm property.
 // The authentication algorithm.
 const (
-	CreateIkePolicyOptionsAuthenticationAlgorithmMd5Const = "md5"
-	CreateIkePolicyOptionsAuthenticationAlgorithmSha1Const = "sha1"
+	CreateIkePolicyOptionsAuthenticationAlgorithmMd5Const    = "md5"
+	CreateIkePolicyOptionsAuthenticationAlgorithmSha1Const   = "sha1"
 	CreateIkePolicyOptionsAuthenticationAlgorithmSha256Const = "sha256"
 )
 
 // Constants associated with the CreateIkePolicyOptions.EncryptionAlgorithm property.
 // The encryption algorithm.
 const (
-	CreateIkePolicyOptionsEncryptionAlgorithmAes128Const = "aes128"
-	CreateIkePolicyOptionsEncryptionAlgorithmAes256Const = "aes256"
+	CreateIkePolicyOptionsEncryptionAlgorithmAes128Const    = "aes128"
+	CreateIkePolicyOptionsEncryptionAlgorithmAes256Const    = "aes256"
 	CreateIkePolicyOptionsEncryptionAlgorithmTripleDesConst = "triple_des"
 )
 
@@ -15108,9 +15102,9 @@ const (
 func (*VpcV1) NewCreateIkePolicyOptions(authenticationAlgorithm string, dhGroup int64, encryptionAlgorithm string, ikeVersion int64) *CreateIkePolicyOptions {
 	return &CreateIkePolicyOptions{
 		AuthenticationAlgorithm: core.StringPtr(authenticationAlgorithm),
-		DhGroup: core.Int64Ptr(dhGroup),
-		EncryptionAlgorithm: core.StringPtr(encryptionAlgorithm),
-		IkeVersion: core.Int64Ptr(ikeVersion),
+		DhGroup:                 core.Int64Ptr(dhGroup),
+		EncryptionAlgorithm:     core.StringPtr(encryptionAlgorithm),
+		IkeVersion:              core.Int64Ptr(ikeVersion),
 	}
 }
 
@@ -15209,15 +15203,15 @@ type CreateInstanceActionOptions struct {
 // The type of action.
 const (
 	CreateInstanceActionOptionsTypeRebootConst = "reboot"
-	CreateInstanceActionOptionsTypeStartConst = "start"
-	CreateInstanceActionOptionsTypeStopConst = "stop"
+	CreateInstanceActionOptionsTypeStartConst  = "start"
+	CreateInstanceActionOptionsTypeStopConst   = "stop"
 )
 
 // NewCreateInstanceActionOptions : Instantiate CreateInstanceActionOptions
 func (*VpcV1) NewCreateInstanceActionOptions(instanceID string, typeVar string) *CreateInstanceActionOptions {
 	return &CreateInstanceActionOptions{
 		InstanceID: core.StringPtr(instanceID),
-		Type: core.StringPtr(typeVar),
+		Type:       core.StringPtr(typeVar),
 	}
 }
 
@@ -15260,7 +15254,7 @@ type CreateInstanceGroupManagerOptions struct {
 // NewCreateInstanceGroupManagerOptions : Instantiate CreateInstanceGroupManagerOptions
 func (*VpcV1) NewCreateInstanceGroupManagerOptions(instanceGroupID string, instanceGroupManagerPrototype InstanceGroupManagerPrototypeIntf) *CreateInstanceGroupManagerOptions {
 	return &CreateInstanceGroupManagerOptions{
-		InstanceGroupID: core.StringPtr(instanceGroupID),
+		InstanceGroupID:               core.StringPtr(instanceGroupID),
 		InstanceGroupManagerPrototype: instanceGroupManagerPrototype,
 	}
 }
@@ -15301,8 +15295,8 @@ type CreateInstanceGroupManagerPolicyOptions struct {
 // NewCreateInstanceGroupManagerPolicyOptions : Instantiate CreateInstanceGroupManagerPolicyOptions
 func (*VpcV1) NewCreateInstanceGroupManagerPolicyOptions(instanceGroupID string, instanceGroupManagerID string, instanceGroupManagerPolicyPrototype InstanceGroupManagerPolicyPrototypeIntf) *CreateInstanceGroupManagerPolicyOptions {
 	return &CreateInstanceGroupManagerPolicyOptions{
-		InstanceGroupID: core.StringPtr(instanceGroupID),
-		InstanceGroupManagerID: core.StringPtr(instanceGroupManagerID),
+		InstanceGroupID:                     core.StringPtr(instanceGroupID),
+		InstanceGroupManagerID:              core.StringPtr(instanceGroupManagerID),
 		InstanceGroupManagerPolicyPrototype: instanceGroupManagerPolicyPrototype,
 	}
 }
@@ -15371,7 +15365,7 @@ type CreateInstanceGroupOptions struct {
 func (*VpcV1) NewCreateInstanceGroupOptions(instanceTemplate InstanceTemplateIdentityIntf, subnets []SubnetIdentityIntf) *CreateInstanceGroupOptions {
 	return &CreateInstanceGroupOptions{
 		InstanceTemplate: instanceTemplate,
-		Subnets: subnets,
+		Subnets:          subnets,
 	}
 }
 
@@ -15460,7 +15454,7 @@ type CreateInstanceNetworkInterfaceOptions struct {
 func (*VpcV1) NewCreateInstanceNetworkInterfaceOptions(instanceID string, subnet SubnetIdentityIntf) *CreateInstanceNetworkInterfaceOptions {
 	return &CreateInstanceNetworkInterfaceOptions{
 		InstanceID: core.StringPtr(instanceID),
-		Subnet: subnet,
+		Subnet:     subnet,
 	}
 }
 
@@ -15585,7 +15579,7 @@ type CreateInstanceVolumeAttachmentOptions struct {
 func (*VpcV1) NewCreateInstanceVolumeAttachmentOptions(instanceID string, volume VolumeIdentityIntf) *CreateInstanceVolumeAttachmentOptions {
 	return &CreateInstanceVolumeAttachmentOptions{
 		InstanceID: core.StringPtr(instanceID),
-		Volume: volume,
+		Volume:     volume,
 	}
 }
 
@@ -15647,16 +15641,16 @@ type CreateIpsecPolicyOptions struct {
 // Constants associated with the CreateIpsecPolicyOptions.AuthenticationAlgorithm property.
 // The authentication algorithm.
 const (
-	CreateIpsecPolicyOptionsAuthenticationAlgorithmMd5Const = "md5"
-	CreateIpsecPolicyOptionsAuthenticationAlgorithmSha1Const = "sha1"
+	CreateIpsecPolicyOptionsAuthenticationAlgorithmMd5Const    = "md5"
+	CreateIpsecPolicyOptionsAuthenticationAlgorithmSha1Const   = "sha1"
 	CreateIpsecPolicyOptionsAuthenticationAlgorithmSha256Const = "sha256"
 )
 
 // Constants associated with the CreateIpsecPolicyOptions.EncryptionAlgorithm property.
 // The encryption algorithm.
 const (
-	CreateIpsecPolicyOptionsEncryptionAlgorithmAes128Const = "aes128"
-	CreateIpsecPolicyOptionsEncryptionAlgorithmAes256Const = "aes256"
+	CreateIpsecPolicyOptionsEncryptionAlgorithmAes128Const    = "aes128"
+	CreateIpsecPolicyOptionsEncryptionAlgorithmAes256Const    = "aes256"
 	CreateIpsecPolicyOptionsEncryptionAlgorithmTripleDesConst = "triple_des"
 )
 
@@ -15664,17 +15658,17 @@ const (
 // Perfect Forward Secrecy.
 const (
 	CreateIpsecPolicyOptionsPfsDisabledConst = "disabled"
-	CreateIpsecPolicyOptionsPfsGroup14Const = "group_14"
-	CreateIpsecPolicyOptionsPfsGroup2Const = "group_2"
-	CreateIpsecPolicyOptionsPfsGroup5Const = "group_5"
+	CreateIpsecPolicyOptionsPfsGroup14Const  = "group_14"
+	CreateIpsecPolicyOptionsPfsGroup2Const   = "group_2"
+	CreateIpsecPolicyOptionsPfsGroup5Const   = "group_5"
 )
 
 // NewCreateIpsecPolicyOptions : Instantiate CreateIpsecPolicyOptions
 func (*VpcV1) NewCreateIpsecPolicyOptions(authenticationAlgorithm string, encryptionAlgorithm string, pfs string) *CreateIpsecPolicyOptions {
 	return &CreateIpsecPolicyOptions{
 		AuthenticationAlgorithm: core.StringPtr(authenticationAlgorithm),
-		EncryptionAlgorithm: core.StringPtr(encryptionAlgorithm),
-		Pfs: core.StringPtr(pfs),
+		EncryptionAlgorithm:     core.StringPtr(encryptionAlgorithm),
+		Pfs:                     core.StringPtr(pfs),
 	}
 }
 
@@ -15817,17 +15811,17 @@ type CreateLoadBalancerListenerOptions struct {
 // The listener protocol. Load balancers in the `network` family support `tcp`. Load balancers in the `application`
 // family support `tcp`, `http`, and `https`.
 const (
-	CreateLoadBalancerListenerOptionsProtocolHTTPConst = "http"
+	CreateLoadBalancerListenerOptionsProtocolHTTPConst  = "http"
 	CreateLoadBalancerListenerOptionsProtocolHTTPSConst = "https"
-	CreateLoadBalancerListenerOptionsProtocolTCPConst = "tcp"
+	CreateLoadBalancerListenerOptionsProtocolTCPConst   = "tcp"
 )
 
 // NewCreateLoadBalancerListenerOptions : Instantiate CreateLoadBalancerListenerOptions
 func (*VpcV1) NewCreateLoadBalancerListenerOptions(loadBalancerID string, port int64, protocol string) *CreateLoadBalancerListenerOptions {
 	return &CreateLoadBalancerListenerOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		Port: core.Int64Ptr(port),
-		Protocol: core.StringPtr(protocol),
+		Port:           core.Int64Ptr(port),
+		Protocol:       core.StringPtr(protocol),
 	}
 }
 
@@ -15912,18 +15906,18 @@ type CreateLoadBalancerListenerPolicyOptions struct {
 // Constants associated with the CreateLoadBalancerListenerPolicyOptions.Action property.
 // The policy action.
 const (
-	CreateLoadBalancerListenerPolicyOptionsActionForwardConst = "forward"
+	CreateLoadBalancerListenerPolicyOptionsActionForwardConst  = "forward"
 	CreateLoadBalancerListenerPolicyOptionsActionRedirectConst = "redirect"
-	CreateLoadBalancerListenerPolicyOptionsActionRejectConst = "reject"
+	CreateLoadBalancerListenerPolicyOptionsActionRejectConst   = "reject"
 )
 
 // NewCreateLoadBalancerListenerPolicyOptions : Instantiate CreateLoadBalancerListenerPolicyOptions
 func (*VpcV1) NewCreateLoadBalancerListenerPolicyOptions(loadBalancerID string, listenerID string, action string, priority int64) *CreateLoadBalancerListenerPolicyOptions {
 	return &CreateLoadBalancerListenerPolicyOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ListenerID: core.StringPtr(listenerID),
-		Action: core.StringPtr(action),
-		Priority: core.Int64Ptr(priority),
+		ListenerID:     core.StringPtr(listenerID),
+		Action:         core.StringPtr(action),
+		Priority:       core.Int64Ptr(priority),
 	}
 }
 
@@ -16005,28 +15999,28 @@ type CreateLoadBalancerListenerPolicyRuleOptions struct {
 // Constants associated with the CreateLoadBalancerListenerPolicyRuleOptions.Condition property.
 // The condition of the rule.
 const (
-	CreateLoadBalancerListenerPolicyRuleOptionsConditionContainsConst = "contains"
-	CreateLoadBalancerListenerPolicyRuleOptionsConditionEqualsConst = "equals"
+	CreateLoadBalancerListenerPolicyRuleOptionsConditionContainsConst     = "contains"
+	CreateLoadBalancerListenerPolicyRuleOptionsConditionEqualsConst       = "equals"
 	CreateLoadBalancerListenerPolicyRuleOptionsConditionMatchesRegexConst = "matches_regex"
 )
 
 // Constants associated with the CreateLoadBalancerListenerPolicyRuleOptions.Type property.
 // The type of the rule.
 const (
-	CreateLoadBalancerListenerPolicyRuleOptionsTypeHeaderConst = "header"
+	CreateLoadBalancerListenerPolicyRuleOptionsTypeHeaderConst   = "header"
 	CreateLoadBalancerListenerPolicyRuleOptionsTypeHostnameConst = "hostname"
-	CreateLoadBalancerListenerPolicyRuleOptionsTypePathConst = "path"
+	CreateLoadBalancerListenerPolicyRuleOptionsTypePathConst     = "path"
 )
 
 // NewCreateLoadBalancerListenerPolicyRuleOptions : Instantiate CreateLoadBalancerListenerPolicyRuleOptions
 func (*VpcV1) NewCreateLoadBalancerListenerPolicyRuleOptions(loadBalancerID string, listenerID string, policyID string, condition string, typeVar string, value string) *CreateLoadBalancerListenerPolicyRuleOptions {
 	return &CreateLoadBalancerListenerPolicyRuleOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ListenerID: core.StringPtr(listenerID),
-		PolicyID: core.StringPtr(policyID),
-		Condition: core.StringPtr(condition),
-		Type: core.StringPtr(typeVar),
-		Value: core.StringPtr(value),
+		ListenerID:     core.StringPtr(listenerID),
+		PolicyID:       core.StringPtr(policyID),
+		Condition:      core.StringPtr(condition),
+		Type:           core.StringPtr(typeVar),
+		Value:          core.StringPtr(value),
 	}
 }
 
@@ -16111,7 +16105,7 @@ type CreateLoadBalancerOptions struct {
 func (*VpcV1) NewCreateLoadBalancerOptions(isPublic bool, subnets []SubnetIdentityIntf) *CreateLoadBalancerOptions {
 	return &CreateLoadBalancerOptions{
 		IsPublic: core.BoolPtr(isPublic),
-		Subnets: subnets,
+		Subnets:  subnets,
 	}
 }
 
@@ -16191,9 +16185,9 @@ type CreateLoadBalancerPoolMemberOptions struct {
 func (*VpcV1) NewCreateLoadBalancerPoolMemberOptions(loadBalancerID string, poolID string, port int64, target LoadBalancerPoolMemberTargetPrototypeIntf) *CreateLoadBalancerPoolMemberOptions {
 	return &CreateLoadBalancerPoolMemberOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		PoolID: core.StringPtr(poolID),
-		Port: core.Int64Ptr(port),
-		Target: target,
+		PoolID:         core.StringPtr(poolID),
+		Port:           core.Int64Ptr(port),
+		Target:         target,
 	}
 }
 
@@ -16269,8 +16263,8 @@ type CreateLoadBalancerPoolOptions struct {
 // Constants associated with the CreateLoadBalancerPoolOptions.Algorithm property.
 // The load balancing algorithm.
 const (
-	CreateLoadBalancerPoolOptionsAlgorithmLeastConnectionsConst = "least_connections"
-	CreateLoadBalancerPoolOptionsAlgorithmRoundRobinConst = "round_robin"
+	CreateLoadBalancerPoolOptionsAlgorithmLeastConnectionsConst   = "least_connections"
+	CreateLoadBalancerPoolOptionsAlgorithmRoundRobinConst         = "round_robin"
 	CreateLoadBalancerPoolOptionsAlgorithmWeightedRoundRobinConst = "weighted_round_robin"
 )
 
@@ -16281,18 +16275,18 @@ const (
 // for and log unknown values. Optionally halt processing and surface the error, or bypass the pool on which the
 // unexpected property value was encountered.
 const (
-	CreateLoadBalancerPoolOptionsProtocolHTTPConst = "http"
+	CreateLoadBalancerPoolOptionsProtocolHTTPConst  = "http"
 	CreateLoadBalancerPoolOptionsProtocolHTTPSConst = "https"
-	CreateLoadBalancerPoolOptionsProtocolTCPConst = "tcp"
+	CreateLoadBalancerPoolOptionsProtocolTCPConst   = "tcp"
 )
 
 // NewCreateLoadBalancerPoolOptions : Instantiate CreateLoadBalancerPoolOptions
 func (*VpcV1) NewCreateLoadBalancerPoolOptions(loadBalancerID string, algorithm string, healthMonitor *LoadBalancerPoolHealthMonitorPrototype, protocol string) *CreateLoadBalancerPoolOptions {
 	return &CreateLoadBalancerPoolOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		Algorithm: core.StringPtr(algorithm),
-		HealthMonitor: healthMonitor,
-		Protocol: core.StringPtr(protocol),
+		Algorithm:      core.StringPtr(algorithm),
+		HealthMonitor:  healthMonitor,
+		Protocol:       core.StringPtr(protocol),
 	}
 }
 
@@ -16385,7 +16379,7 @@ type CreateNetworkACLRuleOptions struct {
 // NewCreateNetworkACLRuleOptions : Instantiate CreateNetworkACLRuleOptions
 func (*VpcV1) NewCreateNetworkACLRuleOptions(networkACLID string, networkACLRulePrototype NetworkACLRulePrototypeIntf) *CreateNetworkACLRuleOptions {
 	return &CreateNetworkACLRuleOptions{
-		NetworkACLID: core.StringPtr(networkACLID),
+		NetworkACLID:            core.StringPtr(networkACLID),
 		NetworkACLRulePrototype: networkACLRulePrototype,
 	}
 }
@@ -16424,7 +16418,7 @@ type CreatePrivateEndpointOptions struct {
 func (*VpcV1) NewCreatePrivateEndpointOptions(endpointGatewayID string, id string) *CreatePrivateEndpointOptions {
 	return &CreatePrivateEndpointOptions{
 		EndpointGatewayID: core.StringPtr(endpointGatewayID),
-		ID: core.StringPtr(id),
+		ID:                core.StringPtr(id),
 	}
 }
 
@@ -16471,7 +16465,7 @@ type CreatePublicGatewayOptions struct {
 // NewCreatePublicGatewayOptions : Instantiate CreatePublicGatewayOptions
 func (*VpcV1) NewCreatePublicGatewayOptions(vpc VPCIdentityIntf, zone ZoneIdentityIntf) *CreatePublicGatewayOptions {
 	return &CreatePublicGatewayOptions{
-		VPC: vpc,
+		VPC:  vpc,
 		Zone: zone,
 	}
 }
@@ -16585,7 +16579,7 @@ type CreateSecurityGroupRuleOptions struct {
 // NewCreateSecurityGroupRuleOptions : Instantiate CreateSecurityGroupRuleOptions
 func (*VpcV1) NewCreateSecurityGroupRuleOptions(securityGroupID string, securityGroupRulePrototype SecurityGroupRulePrototypeIntf) *CreateSecurityGroupRuleOptions {
 	return &CreateSecurityGroupRuleOptions{
-		SecurityGroupID: core.StringPtr(securityGroupID),
+		SecurityGroupID:            core.StringPtr(securityGroupID),
 		SecurityGroupRulePrototype: securityGroupRulePrototype,
 	}
 }
@@ -16752,8 +16746,8 @@ type CreateVPCAddressPrefixOptions struct {
 func (*VpcV1) NewCreateVPCAddressPrefixOptions(vpcID string, cidr string, zone ZoneIdentityIntf) *CreateVPCAddressPrefixOptions {
 	return &CreateVPCAddressPrefixOptions{
 		VPCID: core.StringPtr(vpcID),
-		CIDR: core.StringPtr(cidr),
-		Zone: zone,
+		CIDR:  core.StringPtr(cidr),
+		Zone:  zone,
 	}
 }
 
@@ -16820,7 +16814,7 @@ type CreateVPCOptions struct {
 // Indicates whether a default address prefix should be automatically created for each zone in this VPC. If `manual`,
 // this VPC will be created with no default address prefixes.
 const (
-	CreateVPCOptionsAddressPrefixManagementAutoConst = "auto"
+	CreateVPCOptionsAddressPrefixManagementAutoConst   = "auto"
 	CreateVPCOptionsAddressPrefixManagementManualConst = "manual"
 )
 
@@ -16897,16 +16891,16 @@ type CreateVPCRouteOptions struct {
 // - `drop`: drop the packet.
 const (
 	CreateVPCRouteOptionsActionDelegateConst = "delegate"
-	CreateVPCRouteOptionsActionDeliverConst = "deliver"
-	CreateVPCRouteOptionsActionDropConst = "drop"
+	CreateVPCRouteOptionsActionDeliverConst  = "deliver"
+	CreateVPCRouteOptionsActionDropConst     = "drop"
 )
 
 // NewCreateVPCRouteOptions : Instantiate CreateVPCRouteOptions
 func (*VpcV1) NewCreateVPCRouteOptions(vpcID string, destination string, zone ZoneIdentityIntf) *CreateVPCRouteOptions {
 	return &CreateVPCRouteOptions{
-		VPCID: core.StringPtr(vpcID),
+		VPCID:       core.StringPtr(vpcID),
 		Destination: core.StringPtr(destination),
-		Zone: zone,
+		Zone:        zone,
 	}
 }
 
@@ -17041,17 +17035,17 @@ type CreateVPCRoutingTableRouteOptions struct {
 // - `drop`: drop the packet.
 const (
 	CreateVPCRoutingTableRouteOptionsActionDelegateConst = "delegate"
-	CreateVPCRoutingTableRouteOptionsActionDeliverConst = "deliver"
-	CreateVPCRoutingTableRouteOptionsActionDropConst = "drop"
+	CreateVPCRoutingTableRouteOptionsActionDeliverConst  = "deliver"
+	CreateVPCRoutingTableRouteOptionsActionDropConst     = "drop"
 )
 
 // NewCreateVPCRoutingTableRouteOptions : Instantiate CreateVPCRoutingTableRouteOptions
 func (*VpcV1) NewCreateVPCRoutingTableRouteOptions(vpcID string, routingTableID string, destination string, zone ZoneIdentityIntf) *CreateVPCRoutingTableRouteOptions {
 	return &CreateVPCRoutingTableRouteOptions{
-		VPCID: core.StringPtr(vpcID),
+		VPCID:          core.StringPtr(vpcID),
 		RoutingTableID: core.StringPtr(routingTableID),
-		Destination: core.StringPtr(destination),
-		Zone: zone,
+		Destination:    core.StringPtr(destination),
+		Zone:           zone,
 	}
 }
 
@@ -17144,8 +17138,8 @@ type CreateVPNGatewayConnectionOptions struct {
 func (*VpcV1) NewCreateVPNGatewayConnectionOptions(vpnGatewayID string, peerAddress string, psk string) *CreateVPNGatewayConnectionOptions {
 	return &CreateVPNGatewayConnectionOptions{
 		VPNGatewayID: core.StringPtr(vpnGatewayID),
-		PeerAddress: core.StringPtr(peerAddress),
-		Psk: core.StringPtr(psk),
+		PeerAddress:  core.StringPtr(peerAddress),
+		Psk:          core.StringPtr(psk),
 	}
 }
 
@@ -17238,7 +17232,7 @@ type CreateVPNGatewayOptions struct {
 // The mode of the VPN gateway.
 const (
 	CreateVPNGatewayOptionsModePolicyConst = "policy"
-	CreateVPNGatewayOptionsModeRouteConst = "route"
+	CreateVPNGatewayOptionsModeRouteConst  = "route"
 )
 
 // NewCreateVPNGatewayOptions : Instantiate CreateVPNGatewayOptions
@@ -17330,8 +17324,8 @@ type DedicatedHost struct {
 // Constants associated with the DedicatedHost.AdminState property.
 // The administrative state of the dedicated host.
 const (
-	DedicatedHostAdminStateAvailableConst = "available"
-	DedicatedHostAdminStateMigratingConst = "migrating"
+	DedicatedHostAdminStateAvailableConst   = "available"
+	DedicatedHostAdminStateMigratingConst   = "migrating"
 	DedicatedHostAdminStateUnavailableConst = "unavailable"
 )
 
@@ -17339,13 +17333,12 @@ const (
 // The lifecycle state of the dedicated host resource.
 const (
 	DedicatedHostLifecycleStateDeletingConst = "deleting"
-	DedicatedHostLifecycleStateFailedConst = "failed"
-	DedicatedHostLifecycleStatePendingConst = "pending"
-	DedicatedHostLifecycleStateStableConst = "stable"
+	DedicatedHostLifecycleStateFailedConst   = "failed"
+	DedicatedHostLifecycleStatePendingConst  = "pending"
+	DedicatedHostLifecycleStateStableConst   = "stable"
 	DedicatedHostLifecycleStateUpdatingConst = "updating"
-	DedicatedHostLifecycleStateWaitingConst = "waiting"
+	DedicatedHostLifecycleStateWaitingConst  = "waiting"
 )
-
 
 // UnmarshalDedicatedHost unmarshals an instance of DedicatedHost from the specified map of raw messages.
 func UnmarshalDedicatedHost(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -17423,7 +17416,6 @@ type DedicatedHostAvailableVcpu struct {
 	Count *int64 `json:"count" validate:"required"`
 }
 
-
 // UnmarshalDedicatedHostAvailableVcpu unmarshals an instance of DedicatedHostAvailableVcpu from the specified map of raw messages.
 func UnmarshalDedicatedHostAvailableVcpu(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(DedicatedHostAvailableVcpu)
@@ -17458,7 +17450,6 @@ type DedicatedHostCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalDedicatedHostCollection unmarshals an instance of DedicatedHostCollection from the specified map of raw messages.
 func UnmarshalDedicatedHostCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(DedicatedHostCollection)
@@ -17492,7 +17483,6 @@ type DedicatedHostCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalDedicatedHostCollectionFirst unmarshals an instance of DedicatedHostCollectionFirst from the specified map of raw messages.
 func UnmarshalDedicatedHostCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(DedicatedHostCollectionFirst)
@@ -17509,7 +17499,6 @@ type DedicatedHostCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalDedicatedHostCollectionNext unmarshals an instance of DedicatedHostCollectionNext from the specified map of raw messages.
 func UnmarshalDedicatedHostCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -17549,7 +17538,6 @@ type DedicatedHostGroup struct {
 	// The zone the dedicated host group resides in.
 	Zone *DedicatedHostGroupZone `json:"zone" validate:"required"`
 }
-
 
 // UnmarshalDedicatedHostGroup unmarshals an instance of DedicatedHostGroup from the specified map of raw messages.
 func UnmarshalDedicatedHostGroup(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -17609,7 +17597,6 @@ type DedicatedHostGroupCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalDedicatedHostGroupCollection unmarshals an instance of DedicatedHostGroupCollection from the specified map of raw messages.
 func UnmarshalDedicatedHostGroupCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(DedicatedHostGroupCollection)
@@ -17643,7 +17630,6 @@ type DedicatedHostGroupCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalDedicatedHostGroupCollectionFirst unmarshals an instance of DedicatedHostGroupCollectionFirst from the specified map of raw messages.
 func UnmarshalDedicatedHostGroupCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(DedicatedHostGroupCollectionFirst)
@@ -17660,7 +17646,6 @@ type DedicatedHostGroupCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalDedicatedHostGroupCollectionNext unmarshals an instance of DedicatedHostGroupCollectionNext from the specified map of raw messages.
 func UnmarshalDedicatedHostGroupCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -17688,7 +17673,6 @@ type DedicatedHostGroupReference struct {
 	// randomly-selected words.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // UnmarshalDedicatedHostGroupReference unmarshals an instance of DedicatedHostGroupReference from the specified map of raw messages.
 func UnmarshalDedicatedHostGroupReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -17721,7 +17705,6 @@ type DedicatedHostGroupZone struct {
 	// The name for this zone.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // UnmarshalDedicatedHostGroupZone unmarshals an instance of DedicatedHostGroupZone from the specified map of raw messages.
 func UnmarshalDedicatedHostGroupZone(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -17756,7 +17739,6 @@ type DedicatedHostProfile struct {
 
 	VcpuCount DedicatedHostProfileVcpuIntf `json:"vcpu_count" validate:"required"`
 }
-
 
 // UnmarshalDedicatedHostProfile unmarshals an instance of DedicatedHostProfile from the specified map of raw messages.
 func UnmarshalDedicatedHostProfile(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -17812,7 +17794,6 @@ type DedicatedHostProfileCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalDedicatedHostProfileCollection unmarshals an instance of DedicatedHostProfileCollection from the specified map of raw messages.
 func UnmarshalDedicatedHostProfileCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(DedicatedHostProfileCollection)
@@ -17846,7 +17827,6 @@ type DedicatedHostProfileCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalDedicatedHostProfileCollectionFirst unmarshals an instance of DedicatedHostProfileCollectionFirst from the specified map of raw messages.
 func UnmarshalDedicatedHostProfileCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(DedicatedHostProfileCollectionFirst)
@@ -17863,7 +17843,6 @@ type DedicatedHostProfileCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalDedicatedHostProfileCollectionNext unmarshals an instance of DedicatedHostProfileCollectionNext from the specified map of raw messages.
 func UnmarshalDedicatedHostProfileCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -18003,7 +17982,6 @@ type DedicatedHostProfileReference struct {
 	// The name for this dedicated host profile.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // UnmarshalDedicatedHostProfileReference unmarshals an instance of DedicatedHostProfileReference from the specified map of raw messages.
 func UnmarshalDedicatedHostProfileReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -18191,7 +18169,6 @@ const (
 	DedicatedHostProfileVcpuArchitectureTypeFixedConst = "fixed"
 )
 
-
 // UnmarshalDedicatedHostProfileVcpuArchitecture unmarshals an instance of DedicatedHostProfileVcpuArchitecture from the specified map of raw messages.
 func UnmarshalDedicatedHostProfileVcpuArchitecture(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(DedicatedHostProfileVcpuArchitecture)
@@ -18301,7 +18278,6 @@ type DedicatedHostReference struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // UnmarshalDedicatedHostReference unmarshals an instance of DedicatedHostReference from the specified map of raw messages.
 func UnmarshalDedicatedHostReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(DedicatedHostReference)
@@ -18357,7 +18333,6 @@ type DefaultNetworkACL struct {
 	// The VPC this network ACL is a part of.
 	VPC *VPCReference `json:"vpc" validate:"required"`
 }
-
 
 // UnmarshalDefaultNetworkACL unmarshals an instance of DefaultNetworkACL from the specified map of raw messages.
 func UnmarshalDefaultNetworkACL(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -18437,14 +18412,14 @@ type DefaultRoutingTable struct {
 // Constants associated with the DefaultRoutingTable.LifecycleState property.
 // The lifecycle state of the routing table.
 const (
-	DefaultRoutingTableLifecycleStateDeletedConst = "deleted"
-	DefaultRoutingTableLifecycleStateDeletingConst = "deleting"
-	DefaultRoutingTableLifecycleStateFailedConst = "failed"
-	DefaultRoutingTableLifecycleStatePendingConst = "pending"
-	DefaultRoutingTableLifecycleStateStableConst = "stable"
+	DefaultRoutingTableLifecycleStateDeletedConst   = "deleted"
+	DefaultRoutingTableLifecycleStateDeletingConst  = "deleting"
+	DefaultRoutingTableLifecycleStateFailedConst    = "failed"
+	DefaultRoutingTableLifecycleStatePendingConst   = "pending"
+	DefaultRoutingTableLifecycleStateStableConst    = "stable"
 	DefaultRoutingTableLifecycleStateSuspendedConst = "suspended"
-	DefaultRoutingTableLifecycleStateUpdatingConst = "updating"
-	DefaultRoutingTableLifecycleStateWaitingConst = "waiting"
+	DefaultRoutingTableLifecycleStateUpdatingConst  = "updating"
+	DefaultRoutingTableLifecycleStateWaitingConst   = "waiting"
 )
 
 // Constants associated with the DefaultRoutingTable.ResourceType property.
@@ -18452,7 +18427,6 @@ const (
 const (
 	DefaultRoutingTableResourceTypeRoutingTableConst = "routing_table"
 )
-
 
 // UnmarshalDefaultRoutingTable unmarshals an instance of DefaultRoutingTable from the specified map of raw messages.
 func UnmarshalDefaultRoutingTable(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -18526,7 +18500,6 @@ type DefaultSecurityGroup struct {
 	// The VPC this security group is a part of.
 	VPC *VPCReference `json:"vpc" validate:"required"`
 }
-
 
 // UnmarshalDefaultSecurityGroup unmarshals an instance of DefaultSecurityGroup from the specified map of raw messages.
 func UnmarshalDefaultSecurityGroup(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -18807,7 +18780,7 @@ type DeleteInstanceGroupManagerOptions struct {
 func (*VpcV1) NewDeleteInstanceGroupManagerOptions(instanceGroupID string, id string) *DeleteInstanceGroupManagerOptions {
 	return &DeleteInstanceGroupManagerOptions{
 		InstanceGroupID: core.StringPtr(instanceGroupID),
-		ID: core.StringPtr(id),
+		ID:              core.StringPtr(id),
 	}
 }
 
@@ -18847,9 +18820,9 @@ type DeleteInstanceGroupManagerPolicyOptions struct {
 // NewDeleteInstanceGroupManagerPolicyOptions : Instantiate DeleteInstanceGroupManagerPolicyOptions
 func (*VpcV1) NewDeleteInstanceGroupManagerPolicyOptions(instanceGroupID string, instanceGroupManagerID string, id string) *DeleteInstanceGroupManagerPolicyOptions {
 	return &DeleteInstanceGroupManagerPolicyOptions{
-		InstanceGroupID: core.StringPtr(instanceGroupID),
+		InstanceGroupID:        core.StringPtr(instanceGroupID),
 		InstanceGroupManagerID: core.StringPtr(instanceGroupManagerID),
-		ID: core.StringPtr(id),
+		ID:                     core.StringPtr(id),
 	}
 }
 
@@ -18893,7 +18866,7 @@ type DeleteInstanceGroupMembershipOptions struct {
 func (*VpcV1) NewDeleteInstanceGroupMembershipOptions(instanceGroupID string, id string) *DeleteInstanceGroupMembershipOptions {
 	return &DeleteInstanceGroupMembershipOptions{
 		InstanceGroupID: core.StringPtr(instanceGroupID),
-		ID: core.StringPtr(id),
+		ID:              core.StringPtr(id),
 	}
 }
 
@@ -18987,7 +18960,7 @@ type DeleteInstanceNetworkInterfaceOptions struct {
 func (*VpcV1) NewDeleteInstanceNetworkInterfaceOptions(instanceID string, id string) *DeleteInstanceNetworkInterfaceOptions {
 	return &DeleteInstanceNetworkInterfaceOptions{
 		InstanceID: core.StringPtr(instanceID),
-		ID: core.StringPtr(id),
+		ID:         core.StringPtr(id),
 	}
 }
 
@@ -19081,7 +19054,7 @@ type DeleteInstanceVolumeAttachmentOptions struct {
 func (*VpcV1) NewDeleteInstanceVolumeAttachmentOptions(instanceID string, id string) *DeleteInstanceVolumeAttachmentOptions {
 	return &DeleteInstanceVolumeAttachmentOptions{
 		InstanceID: core.StringPtr(instanceID),
-		ID: core.StringPtr(id),
+		ID:         core.StringPtr(id),
 	}
 }
 
@@ -19175,7 +19148,7 @@ type DeleteLoadBalancerListenerOptions struct {
 func (*VpcV1) NewDeleteLoadBalancerListenerOptions(loadBalancerID string, id string) *DeleteLoadBalancerListenerOptions {
 	return &DeleteLoadBalancerListenerOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ID: core.StringPtr(id),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -19216,8 +19189,8 @@ type DeleteLoadBalancerListenerPolicyOptions struct {
 func (*VpcV1) NewDeleteLoadBalancerListenerPolicyOptions(loadBalancerID string, listenerID string, id string) *DeleteLoadBalancerListenerPolicyOptions {
 	return &DeleteLoadBalancerListenerPolicyOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ListenerID: core.StringPtr(listenerID),
-		ID: core.StringPtr(id),
+		ListenerID:     core.StringPtr(listenerID),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -19267,9 +19240,9 @@ type DeleteLoadBalancerListenerPolicyRuleOptions struct {
 func (*VpcV1) NewDeleteLoadBalancerListenerPolicyRuleOptions(loadBalancerID string, listenerID string, policyID string, id string) *DeleteLoadBalancerListenerPolicyRuleOptions {
 	return &DeleteLoadBalancerListenerPolicyRuleOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ListenerID: core.StringPtr(listenerID),
-		PolicyID: core.StringPtr(policyID),
-		ID: core.StringPtr(id),
+		ListenerID:     core.StringPtr(listenerID),
+		PolicyID:       core.StringPtr(policyID),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -19350,8 +19323,8 @@ type DeleteLoadBalancerPoolMemberOptions struct {
 func (*VpcV1) NewDeleteLoadBalancerPoolMemberOptions(loadBalancerID string, poolID string, id string) *DeleteLoadBalancerPoolMemberOptions {
 	return &DeleteLoadBalancerPoolMemberOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		PoolID: core.StringPtr(poolID),
-		ID: core.StringPtr(id),
+		PoolID:         core.StringPtr(poolID),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -19395,7 +19368,7 @@ type DeleteLoadBalancerPoolOptions struct {
 func (*VpcV1) NewDeleteLoadBalancerPoolOptions(loadBalancerID string, id string) *DeleteLoadBalancerPoolOptions {
 	return &DeleteLoadBalancerPoolOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ID: core.StringPtr(id),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -19461,7 +19434,7 @@ type DeleteNetworkACLRuleOptions struct {
 func (*VpcV1) NewDeleteNetworkACLRuleOptions(networkACLID string, id string) *DeleteNetworkACLRuleOptions {
 	return &DeleteNetworkACLRuleOptions{
 		NetworkACLID: core.StringPtr(networkACLID),
-		ID: core.StringPtr(id),
+		ID:           core.StringPtr(id),
 	}
 }
 
@@ -19499,7 +19472,7 @@ type DeletePrivateEndpointOptions struct {
 func (*VpcV1) NewDeletePrivateEndpointOptions(endpointGatewayID string, id string) *DeletePrivateEndpointOptions {
 	return &DeletePrivateEndpointOptions{
 		EndpointGatewayID: core.StringPtr(endpointGatewayID),
-		ID: core.StringPtr(id),
+		ID:                core.StringPtr(id),
 	}
 }
 
@@ -19593,7 +19566,7 @@ type DeleteSecurityGroupRuleOptions struct {
 func (*VpcV1) NewDeleteSecurityGroupRuleOptions(securityGroupID string, id string) *DeleteSecurityGroupRuleOptions {
 	return &DeleteSecurityGroupRuleOptions{
 		SecurityGroupID: core.StringPtr(securityGroupID),
-		ID: core.StringPtr(id),
+		ID:              core.StringPtr(id),
 	}
 }
 
@@ -19659,7 +19632,7 @@ type DeleteSubnetReservedIPOptions struct {
 func (*VpcV1) NewDeleteSubnetReservedIPOptions(subnetID string, id string) *DeleteSubnetReservedIPOptions {
 	return &DeleteSubnetReservedIPOptions{
 		SubnetID: core.StringPtr(subnetID),
-		ID: core.StringPtr(id),
+		ID:       core.StringPtr(id),
 	}
 }
 
@@ -19725,7 +19698,7 @@ type DeleteVPCAddressPrefixOptions struct {
 func (*VpcV1) NewDeleteVPCAddressPrefixOptions(vpcID string, id string) *DeleteVPCAddressPrefixOptions {
 	return &DeleteVPCAddressPrefixOptions{
 		VPCID: core.StringPtr(vpcID),
-		ID: core.StringPtr(id),
+		ID:    core.StringPtr(id),
 	}
 }
 
@@ -19791,7 +19764,7 @@ type DeleteVPCRouteOptions struct {
 func (*VpcV1) NewDeleteVPCRouteOptions(vpcID string, id string) *DeleteVPCRouteOptions {
 	return &DeleteVPCRouteOptions{
 		VPCID: core.StringPtr(vpcID),
-		ID: core.StringPtr(id),
+		ID:    core.StringPtr(id),
 	}
 }
 
@@ -19829,7 +19802,7 @@ type DeleteVPCRoutingTableOptions struct {
 func (*VpcV1) NewDeleteVPCRoutingTableOptions(vpcID string, id string) *DeleteVPCRoutingTableOptions {
 	return &DeleteVPCRoutingTableOptions{
 		VPCID: core.StringPtr(vpcID),
-		ID: core.StringPtr(id),
+		ID:    core.StringPtr(id),
 	}
 }
 
@@ -19869,9 +19842,9 @@ type DeleteVPCRoutingTableRouteOptions struct {
 // NewDeleteVPCRoutingTableRouteOptions : Instantiate DeleteVPCRoutingTableRouteOptions
 func (*VpcV1) NewDeleteVPCRoutingTableRouteOptions(vpcID string, routingTableID string, id string) *DeleteVPCRoutingTableRouteOptions {
 	return &DeleteVPCRoutingTableRouteOptions{
-		VPCID: core.StringPtr(vpcID),
+		VPCID:          core.StringPtr(vpcID),
 		RoutingTableID: core.StringPtr(routingTableID),
-		ID: core.StringPtr(id),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -19915,7 +19888,7 @@ type DeleteVPNGatewayConnectionOptions struct {
 func (*VpcV1) NewDeleteVPNGatewayConnectionOptions(vpnGatewayID string, id string) *DeleteVPNGatewayConnectionOptions {
 	return &DeleteVPNGatewayConnectionOptions{
 		VPNGatewayID: core.StringPtr(vpnGatewayID),
-		ID: core.StringPtr(id),
+		ID:           core.StringPtr(id),
 	}
 }
 
@@ -20002,7 +19975,6 @@ type EncryptionKeyReference struct {
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // UnmarshalEncryptionKeyReference unmarshals an instance of EncryptionKeyReference from the specified map of raw messages.
 func UnmarshalEncryptionKeyReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(EncryptionKeyReference)
@@ -20032,7 +20004,6 @@ type EndpointGatewayCollection struct {
 	// The total number of resources across all pages.
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
-
 
 // UnmarshalEndpointGatewayCollection unmarshals an instance of EndpointGatewayCollection from the specified map of raw messages.
 func UnmarshalEndpointGatewayCollection(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -20067,7 +20038,6 @@ type EndpointGatewayCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalEndpointGatewayCollectionFirst unmarshals an instance of EndpointGatewayCollectionFirst from the specified map of raw messages.
 func UnmarshalEndpointGatewayCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(EndpointGatewayCollectionFirst)
@@ -20084,7 +20054,6 @@ type EndpointGatewayCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalEndpointGatewayCollectionNext unmarshals an instance of EndpointGatewayCollectionNext from the specified map of raw messages.
 func UnmarshalEndpointGatewayCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -20229,7 +20198,7 @@ type EndpointGatewayTargetPrototype struct {
 // Constants associated with the EndpointGatewayTargetPrototype.ResourceType property.
 // The type of target for this endpoint gateway.
 const (
-	EndpointGatewayTargetPrototypeResourceTypeProviderCloudServiceConst = "provider_cloud_service"
+	EndpointGatewayTargetPrototypeResourceTypeProviderCloudServiceConst          = "provider_cloud_service"
 	EndpointGatewayTargetPrototypeResourceTypeProviderInfrastructureServiceConst = "provider_infrastructure_service"
 )
 
@@ -20301,11 +20270,10 @@ type FloatingIP struct {
 // The status of the floating IP.
 const (
 	FloatingIPStatusAvailableConst = "available"
-	FloatingIPStatusDeletingConst = "deleting"
-	FloatingIPStatusFailedConst = "failed"
-	FloatingIPStatusPendingConst = "pending"
+	FloatingIPStatusDeletingConst  = "deleting"
+	FloatingIPStatusFailedConst    = "failed"
+	FloatingIPStatusPendingConst   = "pending"
 )
-
 
 // UnmarshalFloatingIP unmarshals an instance of FloatingIP from the specified map of raw messages.
 func UnmarshalFloatingIP(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -20408,7 +20376,6 @@ type FloatingIPCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalFloatingIPCollection unmarshals an instance of FloatingIPCollection from the specified map of raw messages.
 func UnmarshalFloatingIPCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(FloatingIPCollection)
@@ -20442,7 +20409,6 @@ type FloatingIPCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalFloatingIPCollectionFirst unmarshals an instance of FloatingIPCollectionFirst from the specified map of raw messages.
 func UnmarshalFloatingIPCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(FloatingIPCollectionFirst)
@@ -20459,7 +20425,6 @@ type FloatingIPCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalFloatingIPCollectionNext unmarshals an instance of FloatingIPCollectionNext from the specified map of raw messages.
 func UnmarshalFloatingIPCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -20577,7 +20542,6 @@ type FloatingIPReference struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // UnmarshalFloatingIPReference unmarshals an instance of FloatingIPReference from the specified map of raw messages.
 func UnmarshalFloatingIPReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(FloatingIPReference)
@@ -20680,7 +20644,6 @@ type FloatingIPUnpaginatedCollection struct {
 	FloatingIps []FloatingIP `json:"floating_ips" validate:"required"`
 }
 
-
 // UnmarshalFloatingIPUnpaginatedCollection unmarshals an instance of FloatingIPUnpaginatedCollection from the specified map of raw messages.
 func UnmarshalFloatingIPUnpaginatedCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(FloatingIPUnpaginatedCollection)
@@ -20736,16 +20699,15 @@ type FlowLogCollector struct {
 // Constants associated with the FlowLogCollector.LifecycleState property.
 // The lifecycle state of the flow log collector.
 const (
-	FlowLogCollectorLifecycleStateDeletedConst = "deleted"
-	FlowLogCollectorLifecycleStateDeletingConst = "deleting"
-	FlowLogCollectorLifecycleStateFailedConst = "failed"
-	FlowLogCollectorLifecycleStatePendingConst = "pending"
-	FlowLogCollectorLifecycleStateStableConst = "stable"
+	FlowLogCollectorLifecycleStateDeletedConst   = "deleted"
+	FlowLogCollectorLifecycleStateDeletingConst  = "deleting"
+	FlowLogCollectorLifecycleStateFailedConst    = "failed"
+	FlowLogCollectorLifecycleStatePendingConst   = "pending"
+	FlowLogCollectorLifecycleStateStableConst    = "stable"
 	FlowLogCollectorLifecycleStateSuspendedConst = "suspended"
-	FlowLogCollectorLifecycleStateUpdatingConst = "updating"
-	FlowLogCollectorLifecycleStateWaitingConst = "waiting"
+	FlowLogCollectorLifecycleStateUpdatingConst  = "updating"
+	FlowLogCollectorLifecycleStateWaitingConst   = "waiting"
 )
-
 
 // UnmarshalFlowLogCollector unmarshals an instance of FlowLogCollector from the specified map of raw messages.
 func UnmarshalFlowLogCollector(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -20821,7 +20783,6 @@ type FlowLogCollectorCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalFlowLogCollectorCollection unmarshals an instance of FlowLogCollectorCollection from the specified map of raw messages.
 func UnmarshalFlowLogCollectorCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(FlowLogCollectorCollection)
@@ -20855,7 +20816,6 @@ type FlowLogCollectorCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalFlowLogCollectorCollectionFirst unmarshals an instance of FlowLogCollectorCollectionFirst from the specified map of raw messages.
 func UnmarshalFlowLogCollectorCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(FlowLogCollectorCollectionFirst)
@@ -20872,7 +20832,6 @@ type FlowLogCollectorCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalFlowLogCollectorCollectionNext unmarshals an instance of FlowLogCollectorCollectionNext from the specified map of raw messages.
 func UnmarshalFlowLogCollectorCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -21237,7 +21196,7 @@ type GetInstanceDiskOptions struct {
 func (*VpcV1) NewGetInstanceDiskOptions(instanceID string, id string) *GetInstanceDiskOptions {
 	return &GetInstanceDiskOptions{
 		InstanceID: core.StringPtr(instanceID),
-		ID: core.StringPtr(id),
+		ID:         core.StringPtr(id),
 	}
 }
 
@@ -21275,7 +21234,7 @@ type GetInstanceGroupManagerOptions struct {
 func (*VpcV1) NewGetInstanceGroupManagerOptions(instanceGroupID string, id string) *GetInstanceGroupManagerOptions {
 	return &GetInstanceGroupManagerOptions{
 		InstanceGroupID: core.StringPtr(instanceGroupID),
-		ID: core.StringPtr(id),
+		ID:              core.StringPtr(id),
 	}
 }
 
@@ -21315,9 +21274,9 @@ type GetInstanceGroupManagerPolicyOptions struct {
 // NewGetInstanceGroupManagerPolicyOptions : Instantiate GetInstanceGroupManagerPolicyOptions
 func (*VpcV1) NewGetInstanceGroupManagerPolicyOptions(instanceGroupID string, instanceGroupManagerID string, id string) *GetInstanceGroupManagerPolicyOptions {
 	return &GetInstanceGroupManagerPolicyOptions{
-		InstanceGroupID: core.StringPtr(instanceGroupID),
+		InstanceGroupID:        core.StringPtr(instanceGroupID),
 		InstanceGroupManagerID: core.StringPtr(instanceGroupManagerID),
-		ID: core.StringPtr(id),
+		ID:                     core.StringPtr(id),
 	}
 }
 
@@ -21361,7 +21320,7 @@ type GetInstanceGroupMembershipOptions struct {
 func (*VpcV1) NewGetInstanceGroupMembershipOptions(instanceGroupID string, id string) *GetInstanceGroupMembershipOptions {
 	return &GetInstanceGroupMembershipOptions{
 		InstanceGroupID: core.StringPtr(instanceGroupID),
-		ID: core.StringPtr(id),
+		ID:              core.StringPtr(id),
 	}
 }
 
@@ -21457,9 +21416,9 @@ type GetInstanceNetworkInterfaceFloatingIPOptions struct {
 // NewGetInstanceNetworkInterfaceFloatingIPOptions : Instantiate GetInstanceNetworkInterfaceFloatingIPOptions
 func (*VpcV1) NewGetInstanceNetworkInterfaceFloatingIPOptions(instanceID string, networkInterfaceID string, id string) *GetInstanceNetworkInterfaceFloatingIPOptions {
 	return &GetInstanceNetworkInterfaceFloatingIPOptions{
-		InstanceID: core.StringPtr(instanceID),
+		InstanceID:         core.StringPtr(instanceID),
 		NetworkInterfaceID: core.StringPtr(networkInterfaceID),
-		ID: core.StringPtr(id),
+		ID:                 core.StringPtr(id),
 	}
 }
 
@@ -21503,7 +21462,7 @@ type GetInstanceNetworkInterfaceOptions struct {
 func (*VpcV1) NewGetInstanceNetworkInterfaceOptions(instanceID string, id string) *GetInstanceNetworkInterfaceOptions {
 	return &GetInstanceNetworkInterfaceOptions{
 		InstanceID: core.StringPtr(instanceID),
-		ID: core.StringPtr(id),
+		ID:         core.StringPtr(id),
 	}
 }
 
@@ -21625,7 +21584,7 @@ type GetInstanceVolumeAttachmentOptions struct {
 func (*VpcV1) NewGetInstanceVolumeAttachmentOptions(instanceID string, id string) *GetInstanceVolumeAttachmentOptions {
 	return &GetInstanceVolumeAttachmentOptions{
 		InstanceID: core.StringPtr(instanceID),
-		ID: core.StringPtr(id),
+		ID:         core.StringPtr(id),
 	}
 }
 
@@ -21719,7 +21678,7 @@ type GetLoadBalancerListenerOptions struct {
 func (*VpcV1) NewGetLoadBalancerListenerOptions(loadBalancerID string, id string) *GetLoadBalancerListenerOptions {
 	return &GetLoadBalancerListenerOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ID: core.StringPtr(id),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -21760,8 +21719,8 @@ type GetLoadBalancerListenerPolicyOptions struct {
 func (*VpcV1) NewGetLoadBalancerListenerPolicyOptions(loadBalancerID string, listenerID string, id string) *GetLoadBalancerListenerPolicyOptions {
 	return &GetLoadBalancerListenerPolicyOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ListenerID: core.StringPtr(listenerID),
-		ID: core.StringPtr(id),
+		ListenerID:     core.StringPtr(listenerID),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -21811,9 +21770,9 @@ type GetLoadBalancerListenerPolicyRuleOptions struct {
 func (*VpcV1) NewGetLoadBalancerListenerPolicyRuleOptions(loadBalancerID string, listenerID string, policyID string, id string) *GetLoadBalancerListenerPolicyRuleOptions {
 	return &GetLoadBalancerListenerPolicyRuleOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ListenerID: core.StringPtr(listenerID),
-		PolicyID: core.StringPtr(policyID),
-		ID: core.StringPtr(id),
+		ListenerID:     core.StringPtr(listenerID),
+		PolicyID:       core.StringPtr(policyID),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -21894,8 +21853,8 @@ type GetLoadBalancerPoolMemberOptions struct {
 func (*VpcV1) NewGetLoadBalancerPoolMemberOptions(loadBalancerID string, poolID string, id string) *GetLoadBalancerPoolMemberOptions {
 	return &GetLoadBalancerPoolMemberOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		PoolID: core.StringPtr(poolID),
-		ID: core.StringPtr(id),
+		PoolID:         core.StringPtr(poolID),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -21939,7 +21898,7 @@ type GetLoadBalancerPoolOptions struct {
 func (*VpcV1) NewGetLoadBalancerPoolOptions(loadBalancerID string, id string) *GetLoadBalancerPoolOptions {
 	return &GetLoadBalancerPoolOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ID: core.StringPtr(id),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -22061,7 +22020,7 @@ type GetNetworkACLRuleOptions struct {
 func (*VpcV1) NewGetNetworkACLRuleOptions(networkACLID string, id string) *GetNetworkACLRuleOptions {
 	return &GetNetworkACLRuleOptions{
 		NetworkACLID: core.StringPtr(networkACLID),
-		ID: core.StringPtr(id),
+		ID:           core.StringPtr(id),
 	}
 }
 
@@ -22127,7 +22086,7 @@ type GetPrivateEndpointOptions struct {
 func (*VpcV1) NewGetPrivateEndpointOptions(endpointGatewayID string, id string) *GetPrivateEndpointOptions {
 	return &GetPrivateEndpointOptions{
 		EndpointGatewayID: core.StringPtr(endpointGatewayID),
-		ID: core.StringPtr(id),
+		ID:                core.StringPtr(id),
 	}
 }
 
@@ -22221,7 +22180,7 @@ type GetRegionZoneOptions struct {
 func (*VpcV1) NewGetRegionZoneOptions(regionName string, zoneName string) *GetRegionZoneOptions {
 	return &GetRegionZoneOptions{
 		RegionName: core.StringPtr(regionName),
-		ZoneName: core.StringPtr(zoneName),
+		ZoneName:   core.StringPtr(zoneName),
 	}
 }
 
@@ -22259,7 +22218,7 @@ type GetSecurityGroupNetworkInterfaceOptions struct {
 func (*VpcV1) NewGetSecurityGroupNetworkInterfaceOptions(securityGroupID string, id string) *GetSecurityGroupNetworkInterfaceOptions {
 	return &GetSecurityGroupNetworkInterfaceOptions{
 		SecurityGroupID: core.StringPtr(securityGroupID),
-		ID: core.StringPtr(id),
+		ID:              core.StringPtr(id),
 	}
 }
 
@@ -22325,7 +22284,7 @@ type GetSecurityGroupRuleOptions struct {
 func (*VpcV1) NewGetSecurityGroupRuleOptions(securityGroupID string, id string) *GetSecurityGroupRuleOptions {
 	return &GetSecurityGroupRuleOptions{
 		SecurityGroupID: core.StringPtr(securityGroupID),
-		ID: core.StringPtr(id),
+		ID:              core.StringPtr(id),
 	}
 }
 
@@ -22447,7 +22406,7 @@ type GetSubnetReservedIPOptions struct {
 func (*VpcV1) NewGetSubnetReservedIPOptions(subnetID string, id string) *GetSubnetReservedIPOptions {
 	return &GetSubnetReservedIPOptions{
 		SubnetID: core.StringPtr(subnetID),
-		ID: core.StringPtr(id),
+		ID:       core.StringPtr(id),
 	}
 }
 
@@ -22569,7 +22528,7 @@ type GetVPCAddressPrefixOptions struct {
 func (*VpcV1) NewGetVPCAddressPrefixOptions(vpcID string, id string) *GetVPCAddressPrefixOptions {
 	return &GetVPCAddressPrefixOptions{
 		VPCID: core.StringPtr(vpcID),
-		ID: core.StringPtr(id),
+		ID:    core.StringPtr(id),
 	}
 }
 
@@ -22719,7 +22678,7 @@ type GetVPCRouteOptions struct {
 func (*VpcV1) NewGetVPCRouteOptions(vpcID string, id string) *GetVPCRouteOptions {
 	return &GetVPCRouteOptions{
 		VPCID: core.StringPtr(vpcID),
-		ID: core.StringPtr(id),
+		ID:    core.StringPtr(id),
 	}
 }
 
@@ -22757,7 +22716,7 @@ type GetVPCRoutingTableOptions struct {
 func (*VpcV1) NewGetVPCRoutingTableOptions(vpcID string, id string) *GetVPCRoutingTableOptions {
 	return &GetVPCRoutingTableOptions{
 		VPCID: core.StringPtr(vpcID),
-		ID: core.StringPtr(id),
+		ID:    core.StringPtr(id),
 	}
 }
 
@@ -22797,9 +22756,9 @@ type GetVPCRoutingTableRouteOptions struct {
 // NewGetVPCRoutingTableRouteOptions : Instantiate GetVPCRoutingTableRouteOptions
 func (*VpcV1) NewGetVPCRoutingTableRouteOptions(vpcID string, routingTableID string, id string) *GetVPCRoutingTableRouteOptions {
 	return &GetVPCRoutingTableRouteOptions{
-		VPCID: core.StringPtr(vpcID),
+		VPCID:          core.StringPtr(vpcID),
 		RoutingTableID: core.StringPtr(routingTableID),
-		ID: core.StringPtr(id),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -22843,7 +22802,7 @@ type GetVPNGatewayConnectionOptions struct {
 func (*VpcV1) NewGetVPNGatewayConnectionOptions(vpnGatewayID string, id string) *GetVPNGatewayConnectionOptions {
 	return &GetVPNGatewayConnectionOptions{
 		VPNGatewayID: core.StringPtr(vpnGatewayID),
-		ID: core.StringPtr(id),
+		ID:           core.StringPtr(id),
 	}
 }
 
@@ -22903,7 +22862,6 @@ func (options *GetVPNGatewayOptions) SetHeaders(param map[string]string) *GetVPN
 type HealthState struct {
 }
 
-
 // UnmarshalHealthState unmarshals an instance of HealthState from the specified map of raw messages.
 func UnmarshalHealthState(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(HealthState)
@@ -22953,16 +22911,16 @@ type IkePolicy struct {
 // Constants associated with the IkePolicy.AuthenticationAlgorithm property.
 // The authentication algorithm.
 const (
-	IkePolicyAuthenticationAlgorithmMd5Const = "md5"
-	IkePolicyAuthenticationAlgorithmSha1Const = "sha1"
+	IkePolicyAuthenticationAlgorithmMd5Const    = "md5"
+	IkePolicyAuthenticationAlgorithmSha1Const   = "sha1"
 	IkePolicyAuthenticationAlgorithmSha256Const = "sha256"
 )
 
 // Constants associated with the IkePolicy.EncryptionAlgorithm property.
 // The encryption algorithm.
 const (
-	IkePolicyEncryptionAlgorithmAes128Const = "aes128"
-	IkePolicyEncryptionAlgorithmAes256Const = "aes256"
+	IkePolicyEncryptionAlgorithmAes128Const    = "aes128"
+	IkePolicyEncryptionAlgorithmAes256Const    = "aes256"
 	IkePolicyEncryptionAlgorithmTripleDesConst = "triple_des"
 )
 
@@ -22971,7 +22929,6 @@ const (
 const (
 	IkePolicyNegotiationModeMainConst = "main"
 )
-
 
 // UnmarshalIkePolicy unmarshals an instance of IkePolicy from the specified map of raw messages.
 func UnmarshalIkePolicy(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -23047,7 +23004,6 @@ type IkePolicyCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalIkePolicyCollection unmarshals an instance of IkePolicyCollection from the specified map of raw messages.
 func UnmarshalIkePolicyCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(IkePolicyCollection)
@@ -23118,7 +23074,6 @@ type IP struct {
 	Address *string `json:"address" validate:"required"`
 }
 
-
 // UnmarshalIP unmarshals an instance of IP from the specified map of raw messages.
 func UnmarshalIP(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(IP)
@@ -23172,8 +23127,8 @@ type IPsecPolicy struct {
 // Constants associated with the IPsecPolicy.AuthenticationAlgorithm property.
 // The authentication algorithm.
 const (
-	IPsecPolicyAuthenticationAlgorithmMd5Const = "md5"
-	IPsecPolicyAuthenticationAlgorithmSha1Const = "sha1"
+	IPsecPolicyAuthenticationAlgorithmMd5Const    = "md5"
+	IPsecPolicyAuthenticationAlgorithmSha1Const   = "sha1"
 	IPsecPolicyAuthenticationAlgorithmSha256Const = "sha256"
 )
 
@@ -23186,8 +23141,8 @@ const (
 // Constants associated with the IPsecPolicy.EncryptionAlgorithm property.
 // The encryption algorithm.
 const (
-	IPsecPolicyEncryptionAlgorithmAes128Const = "aes128"
-	IPsecPolicyEncryptionAlgorithmAes256Const = "aes256"
+	IPsecPolicyEncryptionAlgorithmAes128Const    = "aes128"
+	IPsecPolicyEncryptionAlgorithmAes256Const    = "aes256"
 	IPsecPolicyEncryptionAlgorithmTripleDesConst = "triple_des"
 )
 
@@ -23195,9 +23150,9 @@ const (
 // Perfect Forward Secrecy.
 const (
 	IPsecPolicyPfsDisabledConst = "disabled"
-	IPsecPolicyPfsGroup14Const = "group_14"
-	IPsecPolicyPfsGroup2Const = "group_2"
-	IPsecPolicyPfsGroup5Const = "group_5"
+	IPsecPolicyPfsGroup14Const  = "group_14"
+	IPsecPolicyPfsGroup2Const   = "group_2"
+	IPsecPolicyPfsGroup5Const   = "group_5"
 )
 
 // Constants associated with the IPsecPolicy.TransformProtocol property.
@@ -23205,7 +23160,6 @@ const (
 const (
 	IPsecPolicyTransformProtocolEspConst = "esp"
 )
-
 
 // UnmarshalIPsecPolicy unmarshals an instance of IPsecPolicy from the specified map of raw messages.
 func UnmarshalIPsecPolicy(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -23281,7 +23235,6 @@ type IPsecPolicyCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalIPsecPolicyCollection unmarshals an instance of IPsecPolicyCollection from the specified map of raw messages.
 func UnmarshalIPsecPolicyCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(IPsecPolicyCollection)
@@ -23315,7 +23268,6 @@ type IPsecPolicyCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalIPsecPolicyCollectionFirst unmarshals an instance of IPsecPolicyCollectionFirst from the specified map of raw messages.
 func UnmarshalIPsecPolicyCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(IPsecPolicyCollectionFirst)
@@ -23332,7 +23284,6 @@ type IPsecPolicyCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalIPsecPolicyCollectionNext unmarshals an instance of IPsecPolicyCollectionNext from the specified map of raw messages.
 func UnmarshalIPsecPolicyCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -23386,7 +23337,6 @@ type IkePolicyCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalIkePolicyCollectionFirst unmarshals an instance of IkePolicyCollectionFirst from the specified map of raw messages.
 func UnmarshalIkePolicyCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(IkePolicyCollectionFirst)
@@ -23403,7 +23353,6 @@ type IkePolicyCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalIkePolicyCollectionNext unmarshals an instance of IkePolicyCollectionNext from the specified map of raw messages.
 func UnmarshalIkePolicyCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -23458,21 +23407,20 @@ type Image struct {
 // Constants associated with the Image.Status property.
 // The status of this image.
 const (
-	ImageStatusAvailableConst = "available"
-	ImageStatusDeletingConst = "deleting"
+	ImageStatusAvailableConst  = "available"
+	ImageStatusDeletingConst   = "deleting"
 	ImageStatusDeprecatedConst = "deprecated"
-	ImageStatusFailedConst = "failed"
-	ImageStatusPendingConst = "pending"
-	ImageStatusTentativeConst = "tentative"
+	ImageStatusFailedConst     = "failed"
+	ImageStatusPendingConst    = "pending"
+	ImageStatusTentativeConst  = "tentative"
 )
 
 // Constants associated with the Image.Visibility property.
 // Whether the image is publicly visible or private to the account.
 const (
 	ImageVisibilityPrivateConst = "private"
-	ImageVisibilityPublicConst = "public"
+	ImageVisibilityPublicConst  = "public"
 )
-
 
 // UnmarshalImage unmarshals an instance of Image from the specified map of raw messages.
 func UnmarshalImage(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -23541,7 +23489,6 @@ type ImageCollection struct {
 	Next *ImageCollectionNext `json:"next,omitempty"`
 }
 
-
 // UnmarshalImageCollection unmarshals an instance of ImageCollection from the specified map of raw messages.
 func UnmarshalImageCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(ImageCollection)
@@ -23571,7 +23518,6 @@ type ImageCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalImageCollectionFirst unmarshals an instance of ImageCollectionFirst from the specified map of raw messages.
 func UnmarshalImageCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(ImageCollectionFirst)
@@ -23588,7 +23534,6 @@ type ImageCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalImageCollectionNext unmarshals an instance of ImageCollectionNext from the specified map of raw messages.
 func UnmarshalImageCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -23610,7 +23555,6 @@ type ImageFile struct {
 	Size *int64 `json:"size,omitempty"`
 }
 
-
 // UnmarshalImageFile unmarshals an instance of ImageFile from the specified map of raw messages.
 func UnmarshalImageFile(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(ImageFile)
@@ -23627,7 +23571,6 @@ type ImageFilePrototype struct {
 	// The Cloud Object Store (COS) location of the image file.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // NewImageFilePrototype : Instantiate ImageFilePrototype (Generic Model Constructor)
 func (*VpcV1) NewImageFilePrototype(href string) (model *ImageFilePrototype, err error) {
@@ -23757,7 +23700,6 @@ type ImageReference struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // UnmarshalImageReference unmarshals an instance of ImageReference from the specified map of raw messages.
 func UnmarshalImageReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(ImageReference)
@@ -23861,18 +23803,17 @@ const (
 // Constants associated with the Instance.Status property.
 // The status of the virtual server instance.
 const (
-	InstanceStatusFailedConst = "failed"
-	InstanceStatusPausedConst = "paused"
-	InstanceStatusPausingConst = "pausing"
-	InstanceStatusPendingConst = "pending"
+	InstanceStatusFailedConst     = "failed"
+	InstanceStatusPausedConst     = "paused"
+	InstanceStatusPausingConst    = "pausing"
+	InstanceStatusPendingConst    = "pending"
 	InstanceStatusRestartingConst = "restarting"
-	InstanceStatusResumingConst = "resuming"
-	InstanceStatusRunningConst = "running"
-	InstanceStatusStartingConst = "starting"
-	InstanceStatusStoppedConst = "stopped"
-	InstanceStatusStoppingConst = "stopping"
+	InstanceStatusResumingConst   = "resuming"
+	InstanceStatusRunningConst    = "running"
+	InstanceStatusStartingConst   = "starting"
+	InstanceStatusStoppedConst    = "stopped"
+	InstanceStatusStoppingConst   = "stopping"
 )
-
 
 // UnmarshalInstance unmarshals an instance of Instance from the specified map of raw messages.
 func UnmarshalInstance(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -24004,19 +23945,18 @@ type InstanceAction struct {
 // The current status of this action.
 const (
 	InstanceActionStatusCompletedConst = "completed"
-	InstanceActionStatusFailedConst = "failed"
-	InstanceActionStatusPendingConst = "pending"
-	InstanceActionStatusRunningConst = "running"
+	InstanceActionStatusFailedConst    = "failed"
+	InstanceActionStatusPendingConst   = "pending"
+	InstanceActionStatusRunningConst   = "running"
 )
 
 // Constants associated with the InstanceAction.Type property.
 // The type of action.
 const (
 	InstanceActionTypeRebootConst = "reboot"
-	InstanceActionTypeStartConst = "start"
-	InstanceActionTypeStopConst = "stop"
+	InstanceActionTypeStartConst  = "start"
+	InstanceActionTypeStopConst   = "stop"
 )
-
 
 // UnmarshalInstanceAction unmarshals an instance of InstanceAction from the specified map of raw messages.
 func UnmarshalInstanceAction(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -24076,7 +24016,6 @@ type InstanceCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalInstanceCollection unmarshals an instance of InstanceCollection from the specified map of raw messages.
 func UnmarshalInstanceCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceCollection)
@@ -24110,7 +24049,6 @@ type InstanceCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalInstanceCollectionFirst unmarshals an instance of InstanceCollectionFirst from the specified map of raw messages.
 func UnmarshalInstanceCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceCollectionFirst)
@@ -24127,7 +24065,6 @@ type InstanceCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalInstanceCollectionNext unmarshals an instance of InstanceCollectionNext from the specified map of raw messages.
 func UnmarshalInstanceCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -24175,7 +24112,7 @@ type InstanceDisk struct {
 // for and log unknown values. Optionally halt processing and surface the error, or bypass the resource on which the
 // unexpected property value was encountered.
 const (
-	InstanceDiskInterfaceTypeNvmeConst = "nvme"
+	InstanceDiskInterfaceTypeNvmeConst      = "nvme"
 	InstanceDiskInterfaceTypeVirtioBlkConst = "virtio_blk"
 )
 
@@ -24184,7 +24121,6 @@ const (
 const (
 	InstanceDiskResourceTypeInstanceDiskConst = "instance_disk"
 )
-
 
 // UnmarshalInstanceDisk unmarshals an instance of InstanceDisk from the specified map of raw messages.
 func UnmarshalInstanceDisk(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -24227,7 +24163,6 @@ type InstanceDiskCollection struct {
 	Disks []InstanceDisk `json:"disks" validate:"required"`
 }
 
-
 // UnmarshalInstanceDiskCollection unmarshals an instance of InstanceDiskCollection from the specified map of raw messages.
 func UnmarshalInstanceDiskCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceDiskCollection)
@@ -24253,7 +24188,6 @@ type InstanceGpu struct {
 	// The GPU model.
 	Model *string `json:"model" validate:"required"`
 }
-
 
 // UnmarshalInstanceGpu unmarshals an instance of InstanceGpu from the specified map of raw messages.
 func UnmarshalInstanceGpu(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -24338,12 +24272,11 @@ type InstanceGroup struct {
 //              `membership_count`
 // - `unhealthy`: Group is unable to reach `membership_count` instances.
 const (
-	InstanceGroupStatusDeletingConst = "deleting"
-	InstanceGroupStatusHealthyConst = "healthy"
-	InstanceGroupStatusScalingConst = "scaling"
+	InstanceGroupStatusDeletingConst  = "deleting"
+	InstanceGroupStatusHealthyConst   = "healthy"
+	InstanceGroupStatusScalingConst   = "scaling"
 	InstanceGroupStatusUnhealthyConst = "unhealthy"
 )
-
 
 // UnmarshalInstanceGroup unmarshals an instance of InstanceGroup from the specified map of raw messages.
 func UnmarshalInstanceGroup(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -24427,7 +24360,6 @@ type InstanceGroupCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalInstanceGroupCollection unmarshals an instance of InstanceGroupCollection from the specified map of raw messages.
 func UnmarshalInstanceGroupCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceGroupCollection)
@@ -24461,7 +24393,6 @@ type InstanceGroupCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalInstanceGroupCollectionFirst unmarshals an instance of InstanceGroupCollectionFirst from the specified map of raw messages.
 func UnmarshalInstanceGroupCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceGroupCollectionFirst)
@@ -24478,7 +24409,6 @@ type InstanceGroupCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalInstanceGroupCollectionNext unmarshals an instance of InstanceGroupCollectionNext from the specified map of raw messages.
 func UnmarshalInstanceGroupCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -24529,7 +24459,6 @@ type InstanceGroupManager struct {
 const (
 	InstanceGroupManagerManagerTypeAutoscaleConst = "autoscale"
 )
-
 
 // UnmarshalInstanceGroupManager unmarshals an instance of InstanceGroupManager from the specified map of raw messages.
 func UnmarshalInstanceGroupManager(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -24597,7 +24526,6 @@ type InstanceGroupManagerCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalInstanceGroupManagerCollection unmarshals an instance of InstanceGroupManagerCollection from the specified map of raw messages.
 func UnmarshalInstanceGroupManagerCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceGroupManagerCollection)
@@ -24631,7 +24559,6 @@ type InstanceGroupManagerCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalInstanceGroupManagerCollectionFirst unmarshals an instance of InstanceGroupManagerCollectionFirst from the specified map of raw messages.
 func UnmarshalInstanceGroupManagerCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceGroupManagerCollectionFirst)
@@ -24648,7 +24575,6 @@ type InstanceGroupManagerCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalInstanceGroupManagerCollectionNext unmarshals an instance of InstanceGroupManagerCollectionNext from the specified map of raw messages.
 func UnmarshalInstanceGroupManagerCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -24688,9 +24614,9 @@ type InstanceGroupManagerPolicy struct {
 // Constants associated with the InstanceGroupManagerPolicy.MetricType property.
 // The type of metric to be evaluated.
 const (
-	InstanceGroupManagerPolicyMetricTypeCpuConst = "cpu"
-	InstanceGroupManagerPolicyMetricTypeMemoryConst = "memory"
-	InstanceGroupManagerPolicyMetricTypeNetworkInConst = "network_in"
+	InstanceGroupManagerPolicyMetricTypeCpuConst        = "cpu"
+	InstanceGroupManagerPolicyMetricTypeMemoryConst     = "memory"
+	InstanceGroupManagerPolicyMetricTypeNetworkInConst  = "network_in"
 	InstanceGroupManagerPolicyMetricTypeNetworkOutConst = "network_out"
 )
 
@@ -24758,7 +24684,6 @@ type InstanceGroupManagerPolicyCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalInstanceGroupManagerPolicyCollection unmarshals an instance of InstanceGroupManagerPolicyCollection from the specified map of raw messages.
 func UnmarshalInstanceGroupManagerPolicyCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceGroupManagerPolicyCollection)
@@ -24792,7 +24717,6 @@ type InstanceGroupManagerPolicyCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalInstanceGroupManagerPolicyCollectionFirst unmarshals an instance of InstanceGroupManagerPolicyCollectionFirst from the specified map of raw messages.
 func UnmarshalInstanceGroupManagerPolicyCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceGroupManagerPolicyCollectionFirst)
@@ -24809,7 +24733,6 @@ type InstanceGroupManagerPolicyCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalInstanceGroupManagerPolicyCollectionNext unmarshals an instance of InstanceGroupManagerPolicyCollectionNext from the specified map of raw messages.
 func UnmarshalInstanceGroupManagerPolicyCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -24843,9 +24766,9 @@ type InstanceGroupManagerPolicyPrototype struct {
 // Constants associated with the InstanceGroupManagerPolicyPrototype.MetricType property.
 // The type of metric to be evaluated.
 const (
-	InstanceGroupManagerPolicyPrototypeMetricTypeCpuConst = "cpu"
-	InstanceGroupManagerPolicyPrototypeMetricTypeMemoryConst = "memory"
-	InstanceGroupManagerPolicyPrototypeMetricTypeNetworkInConst = "network_in"
+	InstanceGroupManagerPolicyPrototypeMetricTypeCpuConst        = "cpu"
+	InstanceGroupManagerPolicyPrototypeMetricTypeMemoryConst     = "memory"
+	InstanceGroupManagerPolicyPrototypeMetricTypeNetworkInConst  = "network_in"
 	InstanceGroupManagerPolicyPrototypeMetricTypeNetworkOutConst = "network_out"
 )
 
@@ -24898,7 +24821,6 @@ type InstanceGroupManagerPolicyReference struct {
 	// manager.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // UnmarshalInstanceGroupManagerPolicyReference unmarshals an instance of InstanceGroupManagerPolicyReference from the specified map of raw messages.
 func UnmarshalInstanceGroupManagerPolicyReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -25006,7 +24928,6 @@ type InstanceGroupManagerReference struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // UnmarshalInstanceGroupManagerReference unmarshals an instance of InstanceGroupManagerReference from the specified map of raw messages.
 func UnmarshalInstanceGroupManagerReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceGroupManagerReference)
@@ -25063,13 +24984,12 @@ type InstanceGroupMembership struct {
 // - `pending`: Membership is waiting for dependent resources
 // - `unhealthy`: Membership has unhealthy dependent resources.
 const (
-	InstanceGroupMembershipStatusDeletingConst = "deleting"
-	InstanceGroupMembershipStatusFailedConst = "failed"
-	InstanceGroupMembershipStatusHealthyConst = "healthy"
-	InstanceGroupMembershipStatusPendingConst = "pending"
+	InstanceGroupMembershipStatusDeletingConst  = "deleting"
+	InstanceGroupMembershipStatusFailedConst    = "failed"
+	InstanceGroupMembershipStatusHealthyConst   = "healthy"
+	InstanceGroupMembershipStatusPendingConst   = "pending"
 	InstanceGroupMembershipStatusUnhealthyConst = "unhealthy"
 )
-
 
 // UnmarshalInstanceGroupMembership unmarshals an instance of InstanceGroupMembership from the specified map of raw messages.
 func UnmarshalInstanceGroupMembership(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -25129,7 +25049,6 @@ type InstanceGroupMembershipCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalInstanceGroupMembershipCollection unmarshals an instance of InstanceGroupMembershipCollection from the specified map of raw messages.
 func UnmarshalInstanceGroupMembershipCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceGroupMembershipCollection)
@@ -25163,7 +25082,6 @@ type InstanceGroupMembershipCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalInstanceGroupMembershipCollectionFirst unmarshals an instance of InstanceGroupMembershipCollectionFirst from the specified map of raw messages.
 func UnmarshalInstanceGroupMembershipCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceGroupMembershipCollectionFirst)
@@ -25180,7 +25098,6 @@ type InstanceGroupMembershipCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalInstanceGroupMembershipCollectionNext unmarshals an instance of InstanceGroupMembershipCollectionNext from the specified map of raw messages.
 func UnmarshalInstanceGroupMembershipCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -25207,7 +25124,6 @@ type InstanceGroupReference struct {
 	// The user-defined name for this instance group.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // UnmarshalInstanceGroupReference unmarshals an instance of InstanceGroupReference from the specified map of raw messages.
 func UnmarshalInstanceGroupReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -25240,7 +25156,6 @@ type InstanceInitialization struct {
 	Password *InstanceInitializationPassword `json:"password,omitempty"`
 }
 
-
 // UnmarshalInstanceInitialization unmarshals an instance of InstanceInitialization from the specified map of raw messages.
 func UnmarshalInstanceInitialization(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceInitialization)
@@ -25264,7 +25179,6 @@ type InstanceInitializationPassword struct {
 	// The reference to the public SSH key used to encrypt the administrator password.
 	EncryptionKey KeyReferenceInstanceInitializationContextIntf `json:"encryption_key" validate:"required"`
 }
-
 
 // UnmarshalInstanceInitializationPassword unmarshals an instance of InstanceInitializationPassword from the specified map of raw messages.
 func UnmarshalInstanceInitializationPassword(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -25420,7 +25334,6 @@ type InstanceProfile struct {
 
 	VcpuCount InstanceProfileVcpuIntf `json:"vcpu_count" validate:"required"`
 }
-
 
 // UnmarshalInstanceProfile unmarshals an instance of InstanceProfile from the specified map of raw messages.
 func UnmarshalInstanceProfile(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -25582,7 +25495,6 @@ type InstanceProfileCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalInstanceProfileCollection unmarshals an instance of InstanceProfileCollection from the specified map of raw messages.
 func UnmarshalInstanceProfileCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceProfileCollection)
@@ -25616,7 +25528,6 @@ type InstanceProfileCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalInstanceProfileCollectionFirst unmarshals an instance of InstanceProfileCollectionFirst from the specified map of raw messages.
 func UnmarshalInstanceProfileCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceProfileCollectionFirst)
@@ -25633,7 +25544,6 @@ type InstanceProfileCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalInstanceProfileCollectionNext unmarshals an instance of InstanceProfileCollectionNext from the specified map of raw messages.
 func UnmarshalInstanceProfileCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -25654,7 +25564,6 @@ type InstanceProfileDisk struct {
 
 	SupportedInterfaceTypes *InstanceProfileDiskSupportedInterfaces `json:"supported_interface_types" validate:"required"`
 }
-
 
 // UnmarshalInstanceProfileDisk unmarshals an instance of InstanceProfileDisk from the specified map of raw messages.
 func UnmarshalInstanceProfileDisk(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -25854,7 +25763,7 @@ type InstanceProfileDiskSupportedInterfaces struct {
 // for and log unknown values. Optionally halt processing and surface the error, or bypass the resource on which the
 // unexpected property value was encountered.
 const (
-	InstanceProfileDiskSupportedInterfacesDefaultNvmeConst = "nvme"
+	InstanceProfileDiskSupportedInterfacesDefaultNvmeConst      = "nvme"
 	InstanceProfileDiskSupportedInterfacesDefaultVirtioBlkConst = "virtio_blk"
 )
 
@@ -25871,10 +25780,9 @@ const (
 // for and log unknown values. Optionally halt processing and surface the error, or bypass the resource on which the
 // unexpected property value was encountered.
 const (
-	InstanceProfileDiskSupportedInterfacesValuesNvmeConst = "nvme"
+	InstanceProfileDiskSupportedInterfacesValuesNvmeConst      = "nvme"
 	InstanceProfileDiskSupportedInterfacesValuesVirtioBlkConst = "virtio_blk"
 )
-
 
 // UnmarshalInstanceProfileDiskSupportedInterfaces unmarshals an instance of InstanceProfileDiskSupportedInterfaces from the specified map of raw messages.
 func UnmarshalInstanceProfileDiskSupportedInterfaces(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -25988,7 +25896,6 @@ const (
 	InstanceProfileGpuManufacturerTypeEnumConst = "enum"
 )
 
-
 // UnmarshalInstanceProfileGpuManufacturer unmarshals an instance of InstanceProfileGpuManufacturer from the specified map of raw messages.
 func UnmarshalInstanceProfileGpuManufacturer(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceProfileGpuManufacturer)
@@ -26096,7 +26003,6 @@ type InstanceProfileGpuModel struct {
 const (
 	InstanceProfileGpuModelTypeEnumConst = "enum"
 )
-
 
 // UnmarshalInstanceProfileGpuModel unmarshals an instance of InstanceProfileGpuModel from the specified map of raw messages.
 func UnmarshalInstanceProfileGpuModel(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -26244,7 +26150,6 @@ const (
 	InstanceProfileOsArchitectureTypeEnumConst = "enum"
 )
 
-
 // UnmarshalInstanceProfileOsArchitecture unmarshals an instance of InstanceProfileOsArchitecture from the specified map of raw messages.
 func UnmarshalInstanceProfileOsArchitecture(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceProfileOsArchitecture)
@@ -26313,7 +26218,6 @@ type InstanceProfileReference struct {
 	// The name for this virtual server instance profile.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // UnmarshalInstanceProfileReference unmarshals an instance of InstanceProfileReference from the specified map of raw messages.
 func UnmarshalInstanceProfileReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -26425,7 +26329,6 @@ type InstanceProfileVcpuArchitecture struct {
 const (
 	InstanceProfileVcpuArchitectureTypeFixedConst = "fixed"
 )
-
 
 // UnmarshalInstanceProfileVcpuArchitecture unmarshals an instance of InstanceProfileVcpuArchitecture from the specified map of raw messages.
 func UnmarshalInstanceProfileVcpuArchitecture(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -26593,7 +26496,6 @@ type InstanceReference struct {
 const (
 	InstanceReferenceResourceTypeInstanceConst = "instance"
 )
-
 
 // UnmarshalInstanceReference unmarshals an instance of InstanceReference from the specified map of raw messages.
 func UnmarshalInstanceReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -26791,7 +26693,6 @@ type InstanceTemplateCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalInstanceTemplateCollection unmarshals an instance of InstanceTemplateCollection from the specified map of raw messages.
 func UnmarshalInstanceTemplateCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceTemplateCollection)
@@ -26825,7 +26726,6 @@ type InstanceTemplateCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalInstanceTemplateCollectionFirst unmarshals an instance of InstanceTemplateCollectionFirst from the specified map of raw messages.
 func UnmarshalInstanceTemplateCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceTemplateCollectionFirst)
@@ -26842,7 +26742,6 @@ type InstanceTemplateCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalInstanceTemplateCollectionNext unmarshals an instance of InstanceTemplateCollectionNext from the specified map of raw messages.
 func UnmarshalInstanceTemplateCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -27034,7 +26933,6 @@ type InstanceTemplateReference struct {
 	ID *string `json:"id" validate:"required"`
 }
 
-
 // UnmarshalInstanceTemplateReference unmarshals an instance of InstanceTemplateReference from the specified map of raw messages.
 func UnmarshalInstanceTemplateReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(InstanceTemplateReference)
@@ -27062,7 +26960,6 @@ type InstanceVcpu struct {
 	// The number of VCPUs assigned.
 	Count *int64 `json:"count" validate:"required"`
 }
-
 
 // UnmarshalInstanceVcpu unmarshals an instance of InstanceVcpu from the specified map of raw messages.
 func UnmarshalInstanceVcpu(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -27119,7 +27016,6 @@ type Key struct {
 const (
 	KeyTypeRsaConst = "rsa"
 )
-
 
 // UnmarshalKey unmarshals an instance of Key from the specified map of raw messages.
 func UnmarshalKey(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -27187,7 +27083,6 @@ type KeyCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalKeyCollection unmarshals an instance of KeyCollection from the specified map of raw messages.
 func UnmarshalKeyCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(KeyCollection)
@@ -27221,7 +27116,6 @@ type KeyCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalKeyCollectionFirst unmarshals an instance of KeyCollectionFirst from the specified map of raw messages.
 func UnmarshalKeyCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(KeyCollectionFirst)
@@ -27238,7 +27132,6 @@ type KeyCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalKeyCollectionNext unmarshals an instance of KeyCollectionNext from the specified map of raw messages.
 func UnmarshalKeyCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -27363,7 +27256,6 @@ func UnmarshalKeyReferenceInstanceInitializationContext(m map[string]json.RawMes
 // LifecycleState : LifecycleState struct
 type LifecycleState struct {
 }
-
 
 // UnmarshalLifecycleState unmarshals an instance of LifecycleState from the specified map of raw messages.
 func UnmarshalLifecycleState(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -27660,10 +27552,10 @@ type ListFlowLogCollectorsOptions struct {
 // Constants associated with the ListFlowLogCollectorsOptions.TargetResourceType property.
 // Filters the collection to flow log collectors that target the specified resource type.
 const (
-	ListFlowLogCollectorsOptionsTargetResourceTypeInstanceConst = "instance"
+	ListFlowLogCollectorsOptionsTargetResourceTypeInstanceConst         = "instance"
 	ListFlowLogCollectorsOptionsTargetResourceTypeNetworkInterfaceConst = "network_interface"
-	ListFlowLogCollectorsOptionsTargetResourceTypeSubnetConst = "subnet"
-	ListFlowLogCollectorsOptionsTargetResourceTypeVPCConst = "vpc"
+	ListFlowLogCollectorsOptionsTargetResourceTypeSubnetConst           = "subnet"
+	ListFlowLogCollectorsOptionsTargetResourceTypeVPCConst              = "vpc"
 )
 
 // NewListFlowLogCollectorsOptions : Instantiate ListFlowLogCollectorsOptions
@@ -27820,7 +27712,7 @@ type ListImagesOptions struct {
 // Filters the collection to images with the specified visibility.
 const (
 	ListImagesOptionsVisibilityPrivateConst = "private"
-	ListImagesOptionsVisibilityPublicConst = "public"
+	ListImagesOptionsVisibilityPublicConst  = "public"
 )
 
 // NewListImagesOptions : Instantiate ListImagesOptions
@@ -27907,7 +27799,7 @@ type ListInstanceGroupManagerPoliciesOptions struct {
 // NewListInstanceGroupManagerPoliciesOptions : Instantiate ListInstanceGroupManagerPoliciesOptions
 func (*VpcV1) NewListInstanceGroupManagerPoliciesOptions(instanceGroupID string, instanceGroupManagerID string) *ListInstanceGroupManagerPoliciesOptions {
 	return &ListInstanceGroupManagerPoliciesOptions{
-		InstanceGroupID: core.StringPtr(instanceGroupID),
+		InstanceGroupID:        core.StringPtr(instanceGroupID),
 		InstanceGroupManagerID: core.StringPtr(instanceGroupManagerID),
 	}
 }
@@ -28036,7 +27928,7 @@ type ListInstanceNetworkInterfaceFloatingIpsOptions struct {
 // NewListInstanceNetworkInterfaceFloatingIpsOptions : Instantiate ListInstanceNetworkInterfaceFloatingIpsOptions
 func (*VpcV1) NewListInstanceNetworkInterfaceFloatingIpsOptions(instanceID string, networkInterfaceID string) *ListInstanceNetworkInterfaceFloatingIpsOptions {
 	return &ListInstanceNetworkInterfaceFloatingIpsOptions{
-		InstanceID: core.StringPtr(instanceID),
+		InstanceID:         core.StringPtr(instanceID),
 		NetworkInterfaceID: core.StringPtr(networkInterfaceID),
 	}
 }
@@ -28427,7 +28319,7 @@ type ListLoadBalancerListenerPoliciesOptions struct {
 func (*VpcV1) NewListLoadBalancerListenerPoliciesOptions(loadBalancerID string, listenerID string) *ListLoadBalancerListenerPoliciesOptions {
 	return &ListLoadBalancerListenerPoliciesOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ListenerID: core.StringPtr(listenerID),
+		ListenerID:     core.StringPtr(listenerID),
 	}
 }
 
@@ -28468,8 +28360,8 @@ type ListLoadBalancerListenerPolicyRulesOptions struct {
 func (*VpcV1) NewListLoadBalancerListenerPolicyRulesOptions(loadBalancerID string, listenerID string, policyID string) *ListLoadBalancerListenerPolicyRulesOptions {
 	return &ListLoadBalancerListenerPolicyRulesOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ListenerID: core.StringPtr(listenerID),
-		PolicyID: core.StringPtr(policyID),
+		ListenerID:     core.StringPtr(listenerID),
+		PolicyID:       core.StringPtr(policyID),
 	}
 }
 
@@ -28541,7 +28433,7 @@ type ListLoadBalancerPoolMembersOptions struct {
 func (*VpcV1) NewListLoadBalancerPoolMembersOptions(loadBalancerID string, poolID string) *ListLoadBalancerPoolMembersOptions {
 	return &ListLoadBalancerPoolMembersOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		PoolID: core.StringPtr(poolID),
+		PoolID:         core.StringPtr(poolID),
 	}
 }
 
@@ -28674,7 +28566,7 @@ type ListNetworkACLRulesOptions struct {
 // Constants associated with the ListNetworkACLRulesOptions.Direction property.
 // Filters the collection to rules with the specified direction.
 const (
-	ListNetworkACLRulesOptionsDirectionInboundConst = "inbound"
+	ListNetworkACLRulesOptionsDirectionInboundConst  = "inbound"
 	ListNetworkACLRulesOptionsDirectionOutboundConst = "outbound"
 )
 
@@ -28822,9 +28714,9 @@ type ListPrivateEndpointsOptions struct {
 // `-created_at` sorts the collection by the `created_at` field in descending order, and the value `name` sorts it by
 // the `name` field in ascending order.
 const (
-	ListPrivateEndpointsOptionsSortAddressConst = "address"
+	ListPrivateEndpointsOptionsSortAddressConst   = "address"
 	ListPrivateEndpointsOptionsSortCreatedAtConst = "created_at"
-	ListPrivateEndpointsOptionsSortNameConst = "name"
+	ListPrivateEndpointsOptionsSortNameConst      = "name"
 )
 
 // NewListPrivateEndpointsOptions : Instantiate ListPrivateEndpointsOptions
@@ -29114,9 +29006,9 @@ type ListSubnetReservedIpsOptions struct {
 // `-created_at` sorts the collection by the `created_at` field in descending order, and the value `name` sorts it by
 // the `name` field in ascending order.
 const (
-	ListSubnetReservedIpsOptionsSortAddressConst = "address"
+	ListSubnetReservedIpsOptionsSortAddressConst   = "address"
 	ListSubnetReservedIpsOptionsSortCreatedAtConst = "created_at"
-	ListSubnetReservedIpsOptionsSortNameConst = "name"
+	ListSubnetReservedIpsOptionsSortNameConst      = "name"
 )
 
 // NewListSubnetReservedIpsOptions : Instantiate ListSubnetReservedIpsOptions
@@ -29435,7 +29327,7 @@ type ListVPCRoutingTableRoutesOptions struct {
 // NewListVPCRoutingTableRoutesOptions : Instantiate ListVPCRoutingTableRoutesOptions
 func (*VpcV1) NewListVPCRoutingTableRoutesOptions(vpcID string, routingTableID string) *ListVPCRoutingTableRoutesOptions {
 	return &ListVPCRoutingTableRoutesOptions{
-		VPCID: core.StringPtr(vpcID),
+		VPCID:          core.StringPtr(vpcID),
 		RoutingTableID: core.StringPtr(routingTableID),
 	}
 }
@@ -29598,7 +29490,7 @@ type ListVPNGatewayConnectionLocalCidrsOptions struct {
 func (*VpcV1) NewListVPNGatewayConnectionLocalCidrsOptions(vpnGatewayID string, id string) *ListVPNGatewayConnectionLocalCidrsOptions {
 	return &ListVPNGatewayConnectionLocalCidrsOptions{
 		VPNGatewayID: core.StringPtr(vpnGatewayID),
-		ID: core.StringPtr(id),
+		ID:           core.StringPtr(id),
 	}
 }
 
@@ -29636,7 +29528,7 @@ type ListVPNGatewayConnectionPeerCidrsOptions struct {
 func (*VpcV1) NewListVPNGatewayConnectionPeerCidrsOptions(vpnGatewayID string, id string) *ListVPNGatewayConnectionPeerCidrsOptions {
 	return &ListVPNGatewayConnectionPeerCidrsOptions{
 		VPNGatewayID: core.StringPtr(vpnGatewayID),
-		ID: core.StringPtr(id),
+		ID:           core.StringPtr(id),
 	}
 }
 
@@ -29727,7 +29619,7 @@ type ListVPNGatewaysOptions struct {
 // the `name` field in ascending order.
 const (
 	ListVPNGatewaysOptionsSortCreatedAtConst = "created_at"
-	ListVPNGatewaysOptionsSortNameConst = "name"
+	ListVPNGatewaysOptionsSortNameConst      = "name"
 )
 
 // NewListVPNGatewaysOptions : Instantiate ListVPNGatewaysOptions
@@ -29826,20 +29718,19 @@ type LoadBalancer struct {
 // The operating status of this load balancer.
 const (
 	LoadBalancerOperatingStatusOfflineConst = "offline"
-	LoadBalancerOperatingStatusOnlineConst = "online"
+	LoadBalancerOperatingStatusOnlineConst  = "online"
 )
 
 // Constants associated with the LoadBalancer.ProvisioningStatus property.
 // The provisioning status of this load balancer.
 const (
-	LoadBalancerProvisioningStatusActiveConst = "active"
-	LoadBalancerProvisioningStatusCreatePendingConst = "create_pending"
-	LoadBalancerProvisioningStatusDeletePendingConst = "delete_pending"
-	LoadBalancerProvisioningStatusFailedConst = "failed"
+	LoadBalancerProvisioningStatusActiveConst             = "active"
+	LoadBalancerProvisioningStatusCreatePendingConst      = "create_pending"
+	LoadBalancerProvisioningStatusDeletePendingConst      = "delete_pending"
+	LoadBalancerProvisioningStatusFailedConst             = "failed"
 	LoadBalancerProvisioningStatusMaintenancePendingConst = "maintenance_pending"
-	LoadBalancerProvisioningStatusUpdatePendingConst = "update_pending"
+	LoadBalancerProvisioningStatusUpdatePendingConst      = "update_pending"
 )
-
 
 // UnmarshalLoadBalancer unmarshals an instance of LoadBalancer from the specified map of raw messages.
 func UnmarshalLoadBalancer(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -29917,7 +29808,6 @@ type LoadBalancerCollection struct {
 	// Collection of load balancers.
 	LoadBalancers []LoadBalancer `json:"load_balancers" validate:"required"`
 }
-
 
 // UnmarshalLoadBalancerCollection unmarshals an instance of LoadBalancerCollection from the specified map of raw messages.
 func UnmarshalLoadBalancerCollection(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -30012,22 +29902,21 @@ type LoadBalancerListener struct {
 // The listener protocol. Load balancers in the `network` family support `tcp`. Load balancers in the `application`
 // family support `tcp`, `http`, and `https`.
 const (
-	LoadBalancerListenerProtocolHTTPConst = "http"
+	LoadBalancerListenerProtocolHTTPConst  = "http"
 	LoadBalancerListenerProtocolHTTPSConst = "https"
-	LoadBalancerListenerProtocolTCPConst = "tcp"
+	LoadBalancerListenerProtocolTCPConst   = "tcp"
 )
 
 // Constants associated with the LoadBalancerListener.ProvisioningStatus property.
 // The provisioning status of this listener.
 const (
-	LoadBalancerListenerProvisioningStatusActiveConst = "active"
-	LoadBalancerListenerProvisioningStatusCreatePendingConst = "create_pending"
-	LoadBalancerListenerProvisioningStatusDeletePendingConst = "delete_pending"
-	LoadBalancerListenerProvisioningStatusFailedConst = "failed"
+	LoadBalancerListenerProvisioningStatusActiveConst             = "active"
+	LoadBalancerListenerProvisioningStatusCreatePendingConst      = "create_pending"
+	LoadBalancerListenerProvisioningStatusDeletePendingConst      = "delete_pending"
+	LoadBalancerListenerProvisioningStatusFailedConst             = "failed"
 	LoadBalancerListenerProvisioningStatusMaintenancePendingConst = "maintenance_pending"
-	LoadBalancerListenerProvisioningStatusUpdatePendingConst = "update_pending"
+	LoadBalancerListenerProvisioningStatusUpdatePendingConst      = "update_pending"
 )
-
 
 // UnmarshalLoadBalancerListener unmarshals an instance of LoadBalancerListener from the specified map of raw messages.
 func UnmarshalLoadBalancerListener(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -30082,7 +29971,6 @@ type LoadBalancerListenerCollection struct {
 	Listeners []LoadBalancerListener `json:"listeners" validate:"required"`
 }
 
-
 // UnmarshalLoadBalancerListenerCollection unmarshals an instance of LoadBalancerListenerCollection from the specified map of raw messages.
 func UnmarshalLoadBalancerListenerCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(LoadBalancerListenerCollection)
@@ -30128,22 +30016,21 @@ type LoadBalancerListenerPolicy struct {
 // Constants associated with the LoadBalancerListenerPolicy.Action property.
 // The policy action.
 const (
-	LoadBalancerListenerPolicyActionForwardConst = "forward"
+	LoadBalancerListenerPolicyActionForwardConst  = "forward"
 	LoadBalancerListenerPolicyActionRedirectConst = "redirect"
-	LoadBalancerListenerPolicyActionRejectConst = "reject"
+	LoadBalancerListenerPolicyActionRejectConst   = "reject"
 )
 
 // Constants associated with the LoadBalancerListenerPolicy.ProvisioningStatus property.
 // The provisioning status of this policy.
 const (
-	LoadBalancerListenerPolicyProvisioningStatusActiveConst = "active"
-	LoadBalancerListenerPolicyProvisioningStatusCreatePendingConst = "create_pending"
-	LoadBalancerListenerPolicyProvisioningStatusDeletePendingConst = "delete_pending"
-	LoadBalancerListenerPolicyProvisioningStatusFailedConst = "failed"
+	LoadBalancerListenerPolicyProvisioningStatusActiveConst             = "active"
+	LoadBalancerListenerPolicyProvisioningStatusCreatePendingConst      = "create_pending"
+	LoadBalancerListenerPolicyProvisioningStatusDeletePendingConst      = "delete_pending"
+	LoadBalancerListenerPolicyProvisioningStatusFailedConst             = "failed"
 	LoadBalancerListenerPolicyProvisioningStatusMaintenancePendingConst = "maintenance_pending"
-	LoadBalancerListenerPolicyProvisioningStatusUpdatePendingConst = "update_pending"
+	LoadBalancerListenerPolicyProvisioningStatusUpdatePendingConst      = "update_pending"
 )
-
 
 // UnmarshalLoadBalancerListenerPolicy unmarshals an instance of LoadBalancerListenerPolicy from the specified map of raw messages.
 func UnmarshalLoadBalancerListenerPolicy(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -30193,7 +30080,6 @@ type LoadBalancerListenerPolicyCollection struct {
 	// Collection of policies.
 	Policies []LoadBalancerListenerPolicy `json:"policies" validate:"required"`
 }
-
 
 // UnmarshalLoadBalancerListenerPolicyCollection unmarshals an instance of LoadBalancerListenerPolicyCollection from the specified map of raw messages.
 func UnmarshalLoadBalancerListenerPolicyCollection(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -30281,16 +30167,15 @@ type LoadBalancerListenerPolicyPrototype struct {
 // Constants associated with the LoadBalancerListenerPolicyPrototype.Action property.
 // The policy action.
 const (
-	LoadBalancerListenerPolicyPrototypeActionForwardConst = "forward"
+	LoadBalancerListenerPolicyPrototypeActionForwardConst  = "forward"
 	LoadBalancerListenerPolicyPrototypeActionRedirectConst = "redirect"
-	LoadBalancerListenerPolicyPrototypeActionRejectConst = "reject"
+	LoadBalancerListenerPolicyPrototypeActionRejectConst   = "reject"
 )
-
 
 // NewLoadBalancerListenerPolicyPrototype : Instantiate LoadBalancerListenerPolicyPrototype (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerListenerPolicyPrototype(action string, priority int64) (model *LoadBalancerListenerPolicyPrototype, err error) {
 	model = &LoadBalancerListenerPolicyPrototype{
-		Action: core.StringPtr(action),
+		Action:   core.StringPtr(action),
 		Priority: core.Int64Ptr(priority),
 	}
 	err = core.ValidateStruct(model, "required parameters")
@@ -30385,7 +30270,6 @@ type LoadBalancerListenerPolicyReference struct {
 	ID *string `json:"id" validate:"required"`
 }
 
-
 // UnmarshalLoadBalancerListenerPolicyReference unmarshals an instance of LoadBalancerListenerPolicyReference from the specified map of raw messages.
 func UnmarshalLoadBalancerListenerPolicyReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(LoadBalancerListenerPolicyReference)
@@ -30431,30 +30315,29 @@ type LoadBalancerListenerPolicyRule struct {
 // Constants associated with the LoadBalancerListenerPolicyRule.Condition property.
 // The condition of the rule.
 const (
-	LoadBalancerListenerPolicyRuleConditionContainsConst = "contains"
-	LoadBalancerListenerPolicyRuleConditionEqualsConst = "equals"
+	LoadBalancerListenerPolicyRuleConditionContainsConst     = "contains"
+	LoadBalancerListenerPolicyRuleConditionEqualsConst       = "equals"
 	LoadBalancerListenerPolicyRuleConditionMatchesRegexConst = "matches_regex"
 )
 
 // Constants associated with the LoadBalancerListenerPolicyRule.ProvisioningStatus property.
 // The provisioning status of this rule.
 const (
-	LoadBalancerListenerPolicyRuleProvisioningStatusActiveConst = "active"
-	LoadBalancerListenerPolicyRuleProvisioningStatusCreatePendingConst = "create_pending"
-	LoadBalancerListenerPolicyRuleProvisioningStatusDeletePendingConst = "delete_pending"
-	LoadBalancerListenerPolicyRuleProvisioningStatusFailedConst = "failed"
+	LoadBalancerListenerPolicyRuleProvisioningStatusActiveConst             = "active"
+	LoadBalancerListenerPolicyRuleProvisioningStatusCreatePendingConst      = "create_pending"
+	LoadBalancerListenerPolicyRuleProvisioningStatusDeletePendingConst      = "delete_pending"
+	LoadBalancerListenerPolicyRuleProvisioningStatusFailedConst             = "failed"
 	LoadBalancerListenerPolicyRuleProvisioningStatusMaintenancePendingConst = "maintenance_pending"
-	LoadBalancerListenerPolicyRuleProvisioningStatusUpdatePendingConst = "update_pending"
+	LoadBalancerListenerPolicyRuleProvisioningStatusUpdatePendingConst      = "update_pending"
 )
 
 // Constants associated with the LoadBalancerListenerPolicyRule.Type property.
 // The type of the rule.
 const (
-	LoadBalancerListenerPolicyRuleTypeHeaderConst = "header"
+	LoadBalancerListenerPolicyRuleTypeHeaderConst   = "header"
 	LoadBalancerListenerPolicyRuleTypeHostnameConst = "hostname"
-	LoadBalancerListenerPolicyRuleTypePathConst = "path"
+	LoadBalancerListenerPolicyRuleTypePathConst     = "path"
 )
-
 
 // UnmarshalLoadBalancerListenerPolicyRule unmarshals an instance of LoadBalancerListenerPolicyRule from the specified map of raw messages.
 func UnmarshalLoadBalancerListenerPolicyRule(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -30501,7 +30384,6 @@ type LoadBalancerListenerPolicyRuleCollection struct {
 	Rules []LoadBalancerListenerPolicyRule `json:"rules" validate:"required"`
 }
 
-
 // UnmarshalLoadBalancerListenerPolicyRuleCollection unmarshals an instance of LoadBalancerListenerPolicyRuleCollection from the specified map of raw messages.
 func UnmarshalLoadBalancerListenerPolicyRuleCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(LoadBalancerListenerPolicyRuleCollection)
@@ -30531,26 +30413,25 @@ type LoadBalancerListenerPolicyRulePrototype struct {
 // Constants associated with the LoadBalancerListenerPolicyRulePrototype.Condition property.
 // The condition of the rule.
 const (
-	LoadBalancerListenerPolicyRulePrototypeConditionContainsConst = "contains"
-	LoadBalancerListenerPolicyRulePrototypeConditionEqualsConst = "equals"
+	LoadBalancerListenerPolicyRulePrototypeConditionContainsConst     = "contains"
+	LoadBalancerListenerPolicyRulePrototypeConditionEqualsConst       = "equals"
 	LoadBalancerListenerPolicyRulePrototypeConditionMatchesRegexConst = "matches_regex"
 )
 
 // Constants associated with the LoadBalancerListenerPolicyRulePrototype.Type property.
 // The type of the rule.
 const (
-	LoadBalancerListenerPolicyRulePrototypeTypeHeaderConst = "header"
+	LoadBalancerListenerPolicyRulePrototypeTypeHeaderConst   = "header"
 	LoadBalancerListenerPolicyRulePrototypeTypeHostnameConst = "hostname"
-	LoadBalancerListenerPolicyRulePrototypeTypePathConst = "path"
+	LoadBalancerListenerPolicyRulePrototypeTypePathConst     = "path"
 )
-
 
 // NewLoadBalancerListenerPolicyRulePrototype : Instantiate LoadBalancerListenerPolicyRulePrototype (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerListenerPolicyRulePrototype(condition string, typeVar string, value string) (model *LoadBalancerListenerPolicyRulePrototype, err error) {
 	model = &LoadBalancerListenerPolicyRulePrototype{
 		Condition: core.StringPtr(condition),
-		Type: core.StringPtr(typeVar),
-		Value: core.StringPtr(value),
+		Type:      core.StringPtr(typeVar),
+		Value:     core.StringPtr(value),
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -30587,7 +30468,6 @@ type LoadBalancerListenerPolicyRuleReference struct {
 	// The rule's unique identifier.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // UnmarshalLoadBalancerListenerPolicyRuleReference unmarshals an instance of LoadBalancerListenerPolicyRuleReference from the specified map of raw messages.
 func UnmarshalLoadBalancerListenerPolicyRuleReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -30681,16 +30561,15 @@ type LoadBalancerListenerPrototypeLoadBalancerContext struct {
 // The listener protocol. Load balancers in the `network` family support `tcp`. Load balancers in the `application`
 // family support `tcp`, `http`, and `https`.
 const (
-	LoadBalancerListenerPrototypeLoadBalancerContextProtocolHTTPConst = "http"
+	LoadBalancerListenerPrototypeLoadBalancerContextProtocolHTTPConst  = "http"
 	LoadBalancerListenerPrototypeLoadBalancerContextProtocolHTTPSConst = "https"
-	LoadBalancerListenerPrototypeLoadBalancerContextProtocolTCPConst = "tcp"
+	LoadBalancerListenerPrototypeLoadBalancerContextProtocolTCPConst   = "tcp"
 )
-
 
 // NewLoadBalancerListenerPrototypeLoadBalancerContext : Instantiate LoadBalancerListenerPrototypeLoadBalancerContext (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerListenerPrototypeLoadBalancerContext(port int64, protocol string) (model *LoadBalancerListenerPrototypeLoadBalancerContext, err error) {
 	model = &LoadBalancerListenerPrototypeLoadBalancerContext{
-		Port: core.Int64Ptr(port),
+		Port:     core.Int64Ptr(port),
 		Protocol: core.StringPtr(protocol),
 	}
 	err = core.ValidateStruct(model, "required parameters")
@@ -30728,7 +30607,6 @@ type LoadBalancerListenerReference struct {
 	// The unique identifier for this load balancer listener.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // UnmarshalLoadBalancerListenerReference unmarshals an instance of LoadBalancerListenerReference from the specified map of raw messages.
 func UnmarshalLoadBalancerListenerReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -30788,8 +30666,8 @@ type LoadBalancerPool struct {
 // Constants associated with the LoadBalancerPool.Algorithm property.
 // The load balancing algorithm.
 const (
-	LoadBalancerPoolAlgorithmLeastConnectionsConst = "least_connections"
-	LoadBalancerPoolAlgorithmRoundRobinConst = "round_robin"
+	LoadBalancerPoolAlgorithmLeastConnectionsConst   = "least_connections"
+	LoadBalancerPoolAlgorithmRoundRobinConst         = "round_robin"
 	LoadBalancerPoolAlgorithmWeightedRoundRobinConst = "weighted_round_robin"
 )
 
@@ -30800,22 +30678,21 @@ const (
 // for and log unknown values. Optionally halt processing and surface the error, or bypass the pool on which the
 // unexpected property value was encountered.
 const (
-	LoadBalancerPoolProtocolHTTPConst = "http"
+	LoadBalancerPoolProtocolHTTPConst  = "http"
 	LoadBalancerPoolProtocolHTTPSConst = "https"
-	LoadBalancerPoolProtocolTCPConst = "tcp"
+	LoadBalancerPoolProtocolTCPConst   = "tcp"
 )
 
 // Constants associated with the LoadBalancerPool.ProvisioningStatus property.
 // The provisioning status of this pool.
 const (
-	LoadBalancerPoolProvisioningStatusActiveConst = "active"
-	LoadBalancerPoolProvisioningStatusCreatePendingConst = "create_pending"
-	LoadBalancerPoolProvisioningStatusDeletePendingConst = "delete_pending"
-	LoadBalancerPoolProvisioningStatusFailedConst = "failed"
+	LoadBalancerPoolProvisioningStatusActiveConst             = "active"
+	LoadBalancerPoolProvisioningStatusCreatePendingConst      = "create_pending"
+	LoadBalancerPoolProvisioningStatusDeletePendingConst      = "delete_pending"
+	LoadBalancerPoolProvisioningStatusFailedConst             = "failed"
 	LoadBalancerPoolProvisioningStatusMaintenancePendingConst = "maintenance_pending"
-	LoadBalancerPoolProvisioningStatusUpdatePendingConst = "update_pending"
+	LoadBalancerPoolProvisioningStatusUpdatePendingConst      = "update_pending"
 )
-
 
 // UnmarshalLoadBalancerPool unmarshals an instance of LoadBalancerPool from the specified map of raw messages.
 func UnmarshalLoadBalancerPool(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -30874,7 +30751,6 @@ type LoadBalancerPoolCollection struct {
 	Pools []LoadBalancerPool `json:"pools" validate:"required"`
 }
 
-
 // UnmarshalLoadBalancerPoolCollection unmarshals an instance of LoadBalancerPoolCollection from the specified map of raw messages.
 func UnmarshalLoadBalancerPoolCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(LoadBalancerPoolCollection)
@@ -30918,11 +30794,10 @@ type LoadBalancerPoolHealthMonitor struct {
 // for and log unknown values. Optionally halt processing and surface the error, or bypass the health monitor on which
 // the unexpected property value was encountered.
 const (
-	LoadBalancerPoolHealthMonitorTypeHTTPConst = "http"
+	LoadBalancerPoolHealthMonitorTypeHTTPConst  = "http"
 	LoadBalancerPoolHealthMonitorTypeHTTPSConst = "https"
-	LoadBalancerPoolHealthMonitorTypeTCPConst = "tcp"
+	LoadBalancerPoolHealthMonitorTypeTCPConst   = "tcp"
 )
-
 
 // UnmarshalLoadBalancerPoolHealthMonitor unmarshals an instance of LoadBalancerPoolHealthMonitor from the specified map of raw messages.
 func UnmarshalLoadBalancerPoolHealthMonitor(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -30980,19 +30855,18 @@ type LoadBalancerPoolHealthMonitorPatch struct {
 // Constants associated with the LoadBalancerPoolHealthMonitorPatch.Type property.
 // The protocol type of this load balancer pool health monitor.
 const (
-	LoadBalancerPoolHealthMonitorPatchTypeHTTPConst = "http"
+	LoadBalancerPoolHealthMonitorPatchTypeHTTPConst  = "http"
 	LoadBalancerPoolHealthMonitorPatchTypeHTTPSConst = "https"
-	LoadBalancerPoolHealthMonitorPatchTypeTCPConst = "tcp"
+	LoadBalancerPoolHealthMonitorPatchTypeTCPConst   = "tcp"
 )
-
 
 // NewLoadBalancerPoolHealthMonitorPatch : Instantiate LoadBalancerPoolHealthMonitorPatch (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerPoolHealthMonitorPatch(delay int64, maxRetries int64, timeout int64, typeVar string) (model *LoadBalancerPoolHealthMonitorPatch, err error) {
 	model = &LoadBalancerPoolHealthMonitorPatch{
-		Delay: core.Int64Ptr(delay),
+		Delay:      core.Int64Ptr(delay),
 		MaxRetries: core.Int64Ptr(maxRetries),
-		Timeout: core.Int64Ptr(timeout),
-		Type: core.StringPtr(typeVar),
+		Timeout:    core.Int64Ptr(timeout),
+		Type:       core.StringPtr(typeVar),
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -31053,19 +30927,18 @@ type LoadBalancerPoolHealthMonitorPrototype struct {
 // Constants associated with the LoadBalancerPoolHealthMonitorPrototype.Type property.
 // The protocol type of this load balancer pool health monitor.
 const (
-	LoadBalancerPoolHealthMonitorPrototypeTypeHTTPConst = "http"
+	LoadBalancerPoolHealthMonitorPrototypeTypeHTTPConst  = "http"
 	LoadBalancerPoolHealthMonitorPrototypeTypeHTTPSConst = "https"
-	LoadBalancerPoolHealthMonitorPrototypeTypeTCPConst = "tcp"
+	LoadBalancerPoolHealthMonitorPrototypeTypeTCPConst   = "tcp"
 )
-
 
 // NewLoadBalancerPoolHealthMonitorPrototype : Instantiate LoadBalancerPoolHealthMonitorPrototype (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerPoolHealthMonitorPrototype(delay int64, maxRetries int64, timeout int64, typeVar string) (model *LoadBalancerPoolHealthMonitorPrototype, err error) {
 	model = &LoadBalancerPoolHealthMonitorPrototype{
-		Delay: core.Int64Ptr(delay),
+		Delay:      core.Int64Ptr(delay),
 		MaxRetries: core.Int64Ptr(maxRetries),
-		Timeout: core.Int64Ptr(timeout),
-		Type: core.StringPtr(typeVar),
+		Timeout:    core.Int64Ptr(timeout),
+		Type:       core.StringPtr(typeVar),
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -31143,7 +31016,6 @@ type LoadBalancerPoolIdentityByName struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // NewLoadBalancerPoolIdentityByName : Instantiate LoadBalancerPoolIdentityByName (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerPoolIdentityByName(name string) (model *LoadBalancerPoolIdentityByName, err error) {
 	model = &LoadBalancerPoolIdentityByName{
@@ -31198,21 +31070,20 @@ type LoadBalancerPoolMember struct {
 // Health of the server member in the pool.
 const (
 	LoadBalancerPoolMemberHealthFaultedConst = "faulted"
-	LoadBalancerPoolMemberHealthOkConst = "ok"
+	LoadBalancerPoolMemberHealthOkConst      = "ok"
 	LoadBalancerPoolMemberHealthUnknownConst = "unknown"
 )
 
 // Constants associated with the LoadBalancerPoolMember.ProvisioningStatus property.
 // The provisioning status of this member.
 const (
-	LoadBalancerPoolMemberProvisioningStatusActiveConst = "active"
-	LoadBalancerPoolMemberProvisioningStatusCreatePendingConst = "create_pending"
-	LoadBalancerPoolMemberProvisioningStatusDeletePendingConst = "delete_pending"
-	LoadBalancerPoolMemberProvisioningStatusFailedConst = "failed"
+	LoadBalancerPoolMemberProvisioningStatusActiveConst             = "active"
+	LoadBalancerPoolMemberProvisioningStatusCreatePendingConst      = "create_pending"
+	LoadBalancerPoolMemberProvisioningStatusDeletePendingConst      = "delete_pending"
+	LoadBalancerPoolMemberProvisioningStatusFailedConst             = "failed"
 	LoadBalancerPoolMemberProvisioningStatusMaintenancePendingConst = "maintenance_pending"
-	LoadBalancerPoolMemberProvisioningStatusUpdatePendingConst = "update_pending"
+	LoadBalancerPoolMemberProvisioningStatusUpdatePendingConst      = "update_pending"
 )
-
 
 // UnmarshalLoadBalancerPoolMember unmarshals an instance of LoadBalancerPoolMember from the specified map of raw messages.
 func UnmarshalLoadBalancerPoolMember(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -31259,7 +31130,6 @@ type LoadBalancerPoolMemberCollection struct {
 	Members []LoadBalancerPoolMember `json:"members" validate:"required"`
 }
 
-
 // UnmarshalLoadBalancerPoolMemberCollection unmarshals an instance of LoadBalancerPoolMemberCollection from the specified map of raw messages.
 func UnmarshalLoadBalancerPoolMemberCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(LoadBalancerPoolMemberCollection)
@@ -31286,11 +31156,10 @@ type LoadBalancerPoolMemberPrototype struct {
 	Weight *int64 `json:"weight,omitempty"`
 }
 
-
 // NewLoadBalancerPoolMemberPrototype : Instantiate LoadBalancerPoolMemberPrototype (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerPoolMemberPrototype(port int64, target LoadBalancerPoolMemberTargetPrototypeIntf) (model *LoadBalancerPoolMemberPrototype, err error) {
 	model = &LoadBalancerPoolMemberPrototype{
-		Port: core.Int64Ptr(port),
+		Port:   core.Int64Ptr(port),
 		Target: target,
 	}
 	err = core.ValidateStruct(model, "required parameters")
@@ -31324,7 +31193,6 @@ type LoadBalancerPoolMemberReference struct {
 	// The unique identifier for this load balancer pool member.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // UnmarshalLoadBalancerPoolMemberReference unmarshals an instance of LoadBalancerPoolMemberReference from the specified map of raw messages.
 func UnmarshalLoadBalancerPoolMemberReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -31495,8 +31363,8 @@ type LoadBalancerPoolPrototype struct {
 // Constants associated with the LoadBalancerPoolPrototype.Algorithm property.
 // The load balancing algorithm.
 const (
-	LoadBalancerPoolPrototypeAlgorithmLeastConnectionsConst = "least_connections"
-	LoadBalancerPoolPrototypeAlgorithmRoundRobinConst = "round_robin"
+	LoadBalancerPoolPrototypeAlgorithmLeastConnectionsConst   = "least_connections"
+	LoadBalancerPoolPrototypeAlgorithmRoundRobinConst         = "round_robin"
 	LoadBalancerPoolPrototypeAlgorithmWeightedRoundRobinConst = "weighted_round_robin"
 )
 
@@ -31507,18 +31375,17 @@ const (
 // for and log unknown values. Optionally halt processing and surface the error, or bypass the pool on which the
 // unexpected property value was encountered.
 const (
-	LoadBalancerPoolPrototypeProtocolHTTPConst = "http"
+	LoadBalancerPoolPrototypeProtocolHTTPConst  = "http"
 	LoadBalancerPoolPrototypeProtocolHTTPSConst = "https"
-	LoadBalancerPoolPrototypeProtocolTCPConst = "tcp"
+	LoadBalancerPoolPrototypeProtocolTCPConst   = "tcp"
 )
-
 
 // NewLoadBalancerPoolPrototype : Instantiate LoadBalancerPoolPrototype (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerPoolPrototype(algorithm string, healthMonitor *LoadBalancerPoolHealthMonitorPrototype, protocol string) (model *LoadBalancerPoolPrototype, err error) {
 	model = &LoadBalancerPoolPrototype{
-		Algorithm: core.StringPtr(algorithm),
+		Algorithm:     core.StringPtr(algorithm),
 		HealthMonitor: healthMonitor,
-		Protocol: core.StringPtr(protocol),
+		Protocol:      core.StringPtr(protocol),
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -31567,7 +31434,6 @@ type LoadBalancerPoolReference struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // UnmarshalLoadBalancerPoolReference unmarshals an instance of LoadBalancerPoolReference from the specified map of raw messages.
 func UnmarshalLoadBalancerPoolReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(LoadBalancerPoolReference)
@@ -31599,7 +31465,6 @@ const (
 	LoadBalancerPoolSessionPersistenceTypeSourceIPConst = "source_ip"
 )
 
-
 // UnmarshalLoadBalancerPoolSessionPersistence unmarshals an instance of LoadBalancerPoolSessionPersistence from the specified map of raw messages.
 func UnmarshalLoadBalancerPoolSessionPersistence(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(LoadBalancerPoolSessionPersistence)
@@ -31622,7 +31487,6 @@ type LoadBalancerPoolSessionPersistencePatch struct {
 const (
 	LoadBalancerPoolSessionPersistencePatchTypeSourceIPConst = "source_ip"
 )
-
 
 // NewLoadBalancerPoolSessionPersistencePatch : Instantiate LoadBalancerPoolSessionPersistencePatch (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerPoolSessionPersistencePatch(typeVar string) (model *LoadBalancerPoolSessionPersistencePatch, err error) {
@@ -31656,7 +31520,6 @@ const (
 	LoadBalancerPoolSessionPersistencePrototypeTypeSourceIPConst = "source_ip"
 )
 
-
 // NewLoadBalancerPoolSessionPersistencePrototype : Instantiate LoadBalancerPoolSessionPersistencePrototype (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerPoolSessionPersistencePrototype(typeVar string) (model *LoadBalancerPoolSessionPersistencePrototype, err error) {
 	model = &LoadBalancerPoolSessionPersistencePrototype{
@@ -31688,7 +31551,6 @@ type LoadBalancerProfile struct {
 	// The name for this load balancer profile.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // UnmarshalLoadBalancerProfile unmarshals an instance of LoadBalancerProfile from the specified map of raw messages.
 func UnmarshalLoadBalancerProfile(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -31728,7 +31590,6 @@ type LoadBalancerProfileCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalLoadBalancerProfileCollection unmarshals an instance of LoadBalancerProfileCollection from the specified map of raw messages.
 func UnmarshalLoadBalancerProfileCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(LoadBalancerProfileCollection)
@@ -31762,7 +31623,6 @@ type LoadBalancerProfileCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalLoadBalancerProfileCollectionFirst unmarshals an instance of LoadBalancerProfileCollectionFirst from the specified map of raw messages.
 func UnmarshalLoadBalancerProfileCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(LoadBalancerProfileCollectionFirst)
@@ -31779,7 +31639,6 @@ type LoadBalancerProfileCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalLoadBalancerProfileCollectionNext unmarshals an instance of LoadBalancerProfileCollectionNext from the specified map of raw messages.
 func UnmarshalLoadBalancerProfileCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -31839,7 +31698,6 @@ type LoadBalancerProfileReference struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // UnmarshalLoadBalancerProfileReference unmarshals an instance of LoadBalancerProfileReference from the specified map of raw messages.
 func UnmarshalLoadBalancerProfileReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(LoadBalancerProfileReference)
@@ -31873,7 +31731,6 @@ type LoadBalancerStatistics struct {
 	// Current throughput (Mbps) of this load balancer.
 	Throughput *float32 `json:"throughput" validate:"required"`
 }
-
 
 // UnmarshalLoadBalancerStatistics unmarshals an instance of LoadBalancerStatistics from the specified map of raw messages.
 func UnmarshalLoadBalancerStatistics(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -31927,7 +31784,6 @@ type NetworkACL struct {
 	// The VPC this network ACL is a part of.
 	VPC *VPCReference `json:"vpc" validate:"required"`
 }
-
 
 // UnmarshalNetworkACL unmarshals an instance of NetworkACL from the specified map of raw messages.
 func UnmarshalNetworkACL(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -31991,7 +31847,6 @@ type NetworkACLCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalNetworkACLCollection unmarshals an instance of NetworkACLCollection from the specified map of raw messages.
 func UnmarshalNetworkACLCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(NetworkACLCollection)
@@ -32025,7 +31880,6 @@ type NetworkACLCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalNetworkACLCollectionFirst unmarshals an instance of NetworkACLCollectionFirst from the specified map of raw messages.
 func UnmarshalNetworkACLCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(NetworkACLCollectionFirst)
@@ -32042,7 +31896,6 @@ type NetworkACLCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalNetworkACLCollectionNext unmarshals an instance of NetworkACLCollectionNext from the specified map of raw messages.
 func UnmarshalNetworkACLCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -32172,7 +32025,6 @@ type NetworkACLReference struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // UnmarshalNetworkACLReference unmarshals an instance of NetworkACLReference from the specified map of raw messages.
 func UnmarshalNetworkACLReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(NetworkACLReference)
@@ -32260,13 +32112,13 @@ type NetworkACLRule struct {
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRuleActionAllowConst = "allow"
-	NetworkACLRuleActionDenyConst = "deny"
+	NetworkACLRuleActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRule.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRuleDirectionInboundConst = "inbound"
+	NetworkACLRuleDirectionInboundConst  = "inbound"
 	NetworkACLRuleDirectionOutboundConst = "outbound"
 )
 
@@ -32280,10 +32132,10 @@ const (
 // Constants associated with the NetworkACLRule.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRuleProtocolAllConst = "all"
+	NetworkACLRuleProtocolAllConst  = "all"
 	NetworkACLRuleProtocolIcmpConst = "icmp"
-	NetworkACLRuleProtocolTCPConst = "tcp"
-	NetworkACLRuleProtocolUDPConst = "udp"
+	NetworkACLRuleProtocolTCPConst  = "tcp"
+	NetworkACLRuleProtocolUDPConst  = "udp"
 )
 
 func (*NetworkACLRule) isaNetworkACLRule() bool {
@@ -32340,7 +32192,6 @@ type NetworkACLRuleCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalNetworkACLRuleCollection unmarshals an instance of NetworkACLRuleCollection from the specified map of raw messages.
 func UnmarshalNetworkACLRuleCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(NetworkACLRuleCollection)
@@ -32374,7 +32225,6 @@ type NetworkACLRuleCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalNetworkACLRuleCollectionFirst unmarshals an instance of NetworkACLRuleCollectionFirst from the specified map of raw messages.
 func UnmarshalNetworkACLRuleCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(NetworkACLRuleCollectionFirst)
@@ -32391,7 +32241,6 @@ type NetworkACLRuleCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalNetworkACLRuleCollectionNext unmarshals an instance of NetworkACLRuleCollectionNext from the specified map of raw messages.
 func UnmarshalNetworkACLRuleCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -32469,13 +32318,13 @@ type NetworkACLRuleItem struct {
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRuleItemActionAllowConst = "allow"
-	NetworkACLRuleItemActionDenyConst = "deny"
+	NetworkACLRuleItemActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRuleItem.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRuleItemDirectionInboundConst = "inbound"
+	NetworkACLRuleItemDirectionInboundConst  = "inbound"
 	NetworkACLRuleItemDirectionOutboundConst = "outbound"
 )
 
@@ -32489,10 +32338,10 @@ const (
 // Constants associated with the NetworkACLRuleItem.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRuleItemProtocolAllConst = "all"
+	NetworkACLRuleItemProtocolAllConst  = "all"
 	NetworkACLRuleItemProtocolIcmpConst = "icmp"
-	NetworkACLRuleItemProtocolTCPConst = "tcp"
-	NetworkACLRuleItemProtocolUDPConst = "udp"
+	NetworkACLRuleItemProtocolTCPConst  = "tcp"
+	NetworkACLRuleItemProtocolUDPConst  = "udp"
 )
 
 func (*NetworkACLRuleItem) isaNetworkACLRuleItem() bool {
@@ -32630,23 +32479,23 @@ type NetworkACLRulePrototype struct {
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRulePrototypeActionAllowConst = "allow"
-	NetworkACLRulePrototypeActionDenyConst = "deny"
+	NetworkACLRulePrototypeActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRulePrototype.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRulePrototypeDirectionInboundConst = "inbound"
+	NetworkACLRulePrototypeDirectionInboundConst  = "inbound"
 	NetworkACLRulePrototypeDirectionOutboundConst = "outbound"
 )
 
 // Constants associated with the NetworkACLRulePrototype.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRulePrototypeProtocolAllConst = "all"
+	NetworkACLRulePrototypeProtocolAllConst  = "all"
 	NetworkACLRulePrototypeProtocolIcmpConst = "icmp"
-	NetworkACLRulePrototypeProtocolTCPConst = "tcp"
-	NetworkACLRulePrototypeProtocolUDPConst = "udp"
+	NetworkACLRulePrototypeProtocolTCPConst  = "tcp"
+	NetworkACLRulePrototypeProtocolUDPConst  = "udp"
 )
 
 // Constants associated with the NetworkACLRulePrototype.IPVersion property.
@@ -32790,23 +32639,23 @@ type NetworkACLRulePrototypeNetworkACLContext struct {
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRulePrototypeNetworkACLContextActionAllowConst = "allow"
-	NetworkACLRulePrototypeNetworkACLContextActionDenyConst = "deny"
+	NetworkACLRulePrototypeNetworkACLContextActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRulePrototypeNetworkACLContext.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRulePrototypeNetworkACLContextDirectionInboundConst = "inbound"
+	NetworkACLRulePrototypeNetworkACLContextDirectionInboundConst  = "inbound"
 	NetworkACLRulePrototypeNetworkACLContextDirectionOutboundConst = "outbound"
 )
 
 // Constants associated with the NetworkACLRulePrototypeNetworkACLContext.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRulePrototypeNetworkACLContextProtocolAllConst = "all"
+	NetworkACLRulePrototypeNetworkACLContextProtocolAllConst  = "all"
 	NetworkACLRulePrototypeNetworkACLContextProtocolIcmpConst = "icmp"
-	NetworkACLRulePrototypeNetworkACLContextProtocolTCPConst = "tcp"
-	NetworkACLRulePrototypeNetworkACLContextProtocolUDPConst = "udp"
+	NetworkACLRulePrototypeNetworkACLContextProtocolTCPConst  = "tcp"
+	NetworkACLRulePrototypeNetworkACLContextProtocolUDPConst  = "udp"
 )
 
 // Constants associated with the NetworkACLRulePrototypeNetworkACLContext.IPVersion property.
@@ -32863,12 +32712,11 @@ type NetworkACLRuleReference struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // NewNetworkACLRuleReference : Instantiate NetworkACLRuleReference (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLRuleReference(href string, id string, name string) (model *NetworkACLRuleReference, err error) {
 	model = &NetworkACLRuleReference{
 		Href: core.StringPtr(href),
-		ID: core.StringPtr(id),
+		ID:   core.StringPtr(id),
 		Name: core.StringPtr(name),
 	}
 	err = core.ValidateStruct(model, "required parameters")
@@ -32947,17 +32795,16 @@ const (
 // The status of the network interface.
 const (
 	NetworkInterfaceStatusAvailableConst = "available"
-	NetworkInterfaceStatusFailedConst = "failed"
-	NetworkInterfaceStatusPendingConst = "pending"
+	NetworkInterfaceStatusFailedConst    = "failed"
+	NetworkInterfaceStatusPendingConst   = "pending"
 )
 
 // Constants associated with the NetworkInterface.Type property.
 // The type of this network interface as it relates to an instance.
 const (
-	NetworkInterfaceTypePrimaryConst = "primary"
+	NetworkInterfaceTypePrimaryConst   = "primary"
 	NetworkInterfaceTypeSecondaryConst = "secondary"
 )
-
 
 // UnmarshalNetworkInterface unmarshals an instance of NetworkInterface from the specified map of raw messages.
 func UnmarshalNetworkInterface(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -33024,7 +32871,6 @@ type NetworkInterfaceCollection struct {
 	NetworkInterfaces []NetworkInterface `json:"network_interfaces" validate:"required"`
 }
 
-
 // UnmarshalNetworkInterfaceCollection unmarshals an instance of NetworkInterfaceCollection from the specified map of raw messages.
 func UnmarshalNetworkInterfaceCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(NetworkInterfaceCollection)
@@ -33062,7 +32908,6 @@ type NetworkInterfaceInstanceContextReference struct {
 const (
 	NetworkInterfaceInstanceContextReferenceResourceTypeNetworkInterfaceConst = "network_interface"
 )
-
 
 // UnmarshalNetworkInterfaceInstanceContextReference unmarshals an instance of NetworkInterfaceInstanceContextReference from the specified map of raw messages.
 func UnmarshalNetworkInterfaceInstanceContextReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -33115,7 +32960,6 @@ type NetworkInterfacePrototype struct {
 	// The associated subnet.
 	Subnet SubnetIdentityIntf `json:"subnet" validate:"required"`
 }
-
 
 // NewNetworkInterfacePrototype : Instantiate NetworkInterfacePrototype (Generic Model Constructor)
 func (*VpcV1) NewNetworkInterfacePrototype(subnet SubnetIdentityIntf) (model *NetworkInterfacePrototype, err error) {
@@ -33177,7 +33021,6 @@ const (
 	NetworkInterfaceReferenceResourceTypeNetworkInterfaceConst = "network_interface"
 )
 
-
 // UnmarshalNetworkInterfaceReference unmarshals an instance of NetworkInterfaceReference from the specified map of raw messages.
 func UnmarshalNetworkInterfaceReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(NetworkInterfaceReference)
@@ -33231,7 +33074,6 @@ type OperatingSystem struct {
 	// The major release version of this operating system.
 	Version *string `json:"version" validate:"required"`
 }
-
 
 // UnmarshalOperatingSystem unmarshals an instance of OperatingSystem from the specified map of raw messages.
 func UnmarshalOperatingSystem(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -33288,7 +33130,6 @@ type OperatingSystemCollection struct {
 	OperatingSystems []OperatingSystem `json:"operating_systems" validate:"required"`
 }
 
-
 // UnmarshalOperatingSystemCollection unmarshals an instance of OperatingSystemCollection from the specified map of raw messages.
 func UnmarshalOperatingSystemCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(OperatingSystemCollection)
@@ -33318,7 +33159,6 @@ type OperatingSystemCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalOperatingSystemCollectionFirst unmarshals an instance of OperatingSystemCollectionFirst from the specified map of raw messages.
 func UnmarshalOperatingSystemCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(OperatingSystemCollectionFirst)
@@ -33335,7 +33175,6 @@ type OperatingSystemCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalOperatingSystemCollectionNext unmarshals an instance of OperatingSystemCollectionNext from the specified map of raw messages.
 func UnmarshalOperatingSystemCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -33429,11 +33268,10 @@ const (
 // The status of the volume.
 const (
 	PublicGatewayStatusAvailableConst = "available"
-	PublicGatewayStatusDeletingConst = "deleting"
-	PublicGatewayStatusFailedConst = "failed"
-	PublicGatewayStatusPendingConst = "pending"
+	PublicGatewayStatusDeletingConst  = "deleting"
+	PublicGatewayStatusFailedConst    = "failed"
+	PublicGatewayStatusPendingConst   = "pending"
 )
-
 
 // UnmarshalPublicGateway unmarshals an instance of PublicGateway from the specified map of raw messages.
 func UnmarshalPublicGateway(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -33505,7 +33343,6 @@ type PublicGatewayCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalPublicGatewayCollection unmarshals an instance of PublicGatewayCollection from the specified map of raw messages.
 func UnmarshalPublicGatewayCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(PublicGatewayCollection)
@@ -33539,7 +33376,6 @@ type PublicGatewayCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalPublicGatewayCollectionFirst unmarshals an instance of PublicGatewayCollectionFirst from the specified map of raw messages.
 func UnmarshalPublicGatewayCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(PublicGatewayCollectionFirst)
@@ -33556,7 +33392,6 @@ type PublicGatewayCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalPublicGatewayCollectionNext unmarshals an instance of PublicGatewayCollectionNext from the specified map of raw messages.
 func UnmarshalPublicGatewayCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -33586,7 +33421,6 @@ type PublicGatewayFloatingIP struct {
 	// The user-defined name for this floating IP.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // UnmarshalPublicGatewayFloatingIP unmarshals an instance of PublicGatewayFloatingIP from the specified map of raw messages.
 func UnmarshalPublicGatewayFloatingIP(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -33747,7 +33581,6 @@ const (
 	PublicGatewayReferenceResourceTypePublicGatewayConst = "public_gateway"
 )
 
-
 // UnmarshalPublicGatewayReference unmarshals an instance of PublicGatewayReference from the specified map of raw messages.
 func UnmarshalPublicGatewayReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(PublicGatewayReference)
@@ -33793,10 +33626,9 @@ type Region struct {
 // Constants associated with the Region.Status property.
 // The availability status of this region.
 const (
-	RegionStatusAvailableConst = "available"
+	RegionStatusAvailableConst   = "available"
 	RegionStatusUnavailableConst = "unavailable"
 )
-
 
 // UnmarshalRegion unmarshals an instance of Region from the specified map of raw messages.
 func UnmarshalRegion(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -33827,7 +33659,6 @@ type RegionCollection struct {
 	Regions []Region `json:"regions" validate:"required"`
 }
 
-
 // UnmarshalRegionCollection unmarshals an instance of RegionCollection from the specified map of raw messages.
 func UnmarshalRegionCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(RegionCollection)
@@ -33847,7 +33678,6 @@ type RegionReference struct {
 	// The name for this region.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // UnmarshalRegionReference unmarshals an instance of RegionReference from the specified map of raw messages.
 func UnmarshalRegionReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -33882,9 +33712,9 @@ type RemoveInstanceNetworkInterfaceFloatingIPOptions struct {
 // NewRemoveInstanceNetworkInterfaceFloatingIPOptions : Instantiate RemoveInstanceNetworkInterfaceFloatingIPOptions
 func (*VpcV1) NewRemoveInstanceNetworkInterfaceFloatingIPOptions(instanceID string, networkInterfaceID string, id string) *RemoveInstanceNetworkInterfaceFloatingIPOptions {
 	return &RemoveInstanceNetworkInterfaceFloatingIPOptions{
-		InstanceID: core.StringPtr(instanceID),
+		InstanceID:         core.StringPtr(instanceID),
 		NetworkInterfaceID: core.StringPtr(networkInterfaceID),
-		ID: core.StringPtr(id),
+		ID:                 core.StringPtr(id),
 	}
 }
 
@@ -33928,7 +33758,7 @@ type RemoveSecurityGroupNetworkInterfaceOptions struct {
 func (*VpcV1) NewRemoveSecurityGroupNetworkInterfaceOptions(securityGroupID string, id string) *RemoveSecurityGroupNetworkInterfaceOptions {
 	return &RemoveSecurityGroupNetworkInterfaceOptions{
 		SecurityGroupID: core.StringPtr(securityGroupID),
-		ID: core.StringPtr(id),
+		ID:              core.StringPtr(id),
 	}
 }
 
@@ -33972,8 +33802,8 @@ type RemoveVPNGatewayConnectionLocalCIDROptions struct {
 func (*VpcV1) NewRemoveVPNGatewayConnectionLocalCIDROptions(vpnGatewayID string, id string, cidrPrefix string, prefixLength string) *RemoveVPNGatewayConnectionLocalCIDROptions {
 	return &RemoveVPNGatewayConnectionLocalCIDROptions{
 		VPNGatewayID: core.StringPtr(vpnGatewayID),
-		ID: core.StringPtr(id),
-		CIDRPrefix: core.StringPtr(cidrPrefix),
+		ID:           core.StringPtr(id),
+		CIDRPrefix:   core.StringPtr(cidrPrefix),
 		PrefixLength: core.StringPtr(prefixLength),
 	}
 }
@@ -34030,8 +33860,8 @@ type RemoveVPNGatewayConnectionPeerCIDROptions struct {
 func (*VpcV1) NewRemoveVPNGatewayConnectionPeerCIDROptions(vpnGatewayID string, id string, cidrPrefix string, prefixLength string) *RemoveVPNGatewayConnectionPeerCIDROptions {
 	return &RemoveVPNGatewayConnectionPeerCIDROptions{
 		VPNGatewayID: core.StringPtr(vpnGatewayID),
-		ID: core.StringPtr(id),
-		CIDRPrefix: core.StringPtr(cidrPrefix),
+		ID:           core.StringPtr(id),
+		CIDRPrefix:   core.StringPtr(cidrPrefix),
 		PrefixLength: core.StringPtr(prefixLength),
 	}
 }
@@ -34085,8 +33915,8 @@ type ReplaceLoadBalancerPoolMembersOptions struct {
 func (*VpcV1) NewReplaceLoadBalancerPoolMembersOptions(loadBalancerID string, poolID string, members []LoadBalancerPoolMemberPrototype) *ReplaceLoadBalancerPoolMembersOptions {
 	return &ReplaceLoadBalancerPoolMembersOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		PoolID: core.StringPtr(poolID),
-		Members: members,
+		PoolID:         core.StringPtr(poolID),
+		Members:        members,
 	}
 }
 
@@ -34129,7 +33959,7 @@ type ReplaceSubnetNetworkACLOptions struct {
 // NewReplaceSubnetNetworkACLOptions : Instantiate ReplaceSubnetNetworkACLOptions
 func (*VpcV1) NewReplaceSubnetNetworkACLOptions(id string, networkACLIdentity NetworkACLIdentityIntf) *ReplaceSubnetNetworkACLOptions {
 	return &ReplaceSubnetNetworkACLOptions{
-		ID: core.StringPtr(id),
+		ID:                 core.StringPtr(id),
 		NetworkACLIdentity: networkACLIdentity,
 	}
 }
@@ -34167,7 +33997,7 @@ type ReplaceSubnetRoutingTableOptions struct {
 // NewReplaceSubnetRoutingTableOptions : Instantiate ReplaceSubnetRoutingTableOptions
 func (*VpcV1) NewReplaceSubnetRoutingTableOptions(id string, routingTableIdentity RoutingTableIdentityIntf) *ReplaceSubnetRoutingTableOptions {
 	return &ReplaceSubnetRoutingTableOptions{
-		ID: core.StringPtr(id),
+		ID:                   core.StringPtr(id),
 		RoutingTableIdentity: routingTableIdentity,
 	}
 }
@@ -34226,7 +34056,7 @@ type ReservedIP struct {
 // The owner of a reserved IP, defining whether it is managed by the user or the provider.
 const (
 	ReservedIPOwnerProviderConst = "provider"
-	ReservedIPOwnerUserConst = "user"
+	ReservedIPOwnerUserConst     = "user"
 )
 
 // Constants associated with the ReservedIP.ResourceType property.
@@ -34234,7 +34064,6 @@ const (
 const (
 	ReservedIPResourceTypeSubnetReservedIPConst = "subnet_reserved_ip"
 )
-
 
 // UnmarshalReservedIP unmarshals an instance of ReservedIP from the specified map of raw messages.
 func UnmarshalReservedIP(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -34298,7 +34127,6 @@ type ReservedIPCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalReservedIPCollection unmarshals an instance of ReservedIPCollection from the specified map of raw messages.
 func UnmarshalReservedIPCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(ReservedIPCollection)
@@ -34345,7 +34173,6 @@ type ReservedIPCollectionEndpointGatewayContext struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalReservedIPCollectionEndpointGatewayContext unmarshals an instance of ReservedIPCollectionEndpointGatewayContext from the specified map of raw messages.
 func UnmarshalReservedIPCollectionEndpointGatewayContext(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(ReservedIPCollectionEndpointGatewayContext)
@@ -34379,7 +34206,6 @@ type ReservedIPCollectionEndpointGatewayContextFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalReservedIPCollectionEndpointGatewayContextFirst unmarshals an instance of ReservedIPCollectionEndpointGatewayContextFirst from the specified map of raw messages.
 func UnmarshalReservedIPCollectionEndpointGatewayContextFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(ReservedIPCollectionEndpointGatewayContextFirst)
@@ -34396,7 +34222,6 @@ type ReservedIPCollectionEndpointGatewayContextNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalReservedIPCollectionEndpointGatewayContextNext unmarshals an instance of ReservedIPCollectionEndpointGatewayContextNext from the specified map of raw messages.
 func UnmarshalReservedIPCollectionEndpointGatewayContextNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -34415,7 +34240,6 @@ type ReservedIPCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalReservedIPCollectionFirst unmarshals an instance of ReservedIPCollectionFirst from the specified map of raw messages.
 func UnmarshalReservedIPCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(ReservedIPCollectionFirst)
@@ -34432,7 +34256,6 @@ type ReservedIPCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalReservedIPCollectionNext unmarshals an instance of ReservedIPCollectionNext from the specified map of raw messages.
 func UnmarshalReservedIPCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -34506,7 +34329,6 @@ type ReservedIPReference struct {
 const (
 	ReservedIPReferenceResourceTypeSubnetReservedIPConst = "subnet_reserved_ip"
 )
-
 
 // UnmarshalReservedIPReference unmarshals an instance of ReservedIPReference from the specified map of raw messages.
 func UnmarshalReservedIPReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -34632,7 +34454,6 @@ type ResourceGroupReference struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // UnmarshalResourceGroupReference unmarshals an instance of ResourceGroupReference from the specified map of raw messages.
 func UnmarshalResourceGroupReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(ResourceGroupReference)
@@ -34694,23 +34515,22 @@ type Route struct {
 // - `drop`: drop the packet.
 const (
 	RouteActionDelegateConst = "delegate"
-	RouteActionDeliverConst = "deliver"
-	RouteActionDropConst = "drop"
+	RouteActionDeliverConst  = "deliver"
+	RouteActionDropConst     = "drop"
 )
 
 // Constants associated with the Route.LifecycleState property.
 // The lifecycle state of the route.
 const (
-	RouteLifecycleStateDeletedConst = "deleted"
-	RouteLifecycleStateDeletingConst = "deleting"
-	RouteLifecycleStateFailedConst = "failed"
-	RouteLifecycleStatePendingConst = "pending"
-	RouteLifecycleStateStableConst = "stable"
+	RouteLifecycleStateDeletedConst   = "deleted"
+	RouteLifecycleStateDeletingConst  = "deleting"
+	RouteLifecycleStateFailedConst    = "failed"
+	RouteLifecycleStatePendingConst   = "pending"
+	RouteLifecycleStateStableConst    = "stable"
 	RouteLifecycleStateSuspendedConst = "suspended"
-	RouteLifecycleStateUpdatingConst = "updating"
-	RouteLifecycleStateWaitingConst = "waiting"
+	RouteLifecycleStateUpdatingConst  = "updating"
+	RouteLifecycleStateWaitingConst   = "waiting"
 )
-
 
 // UnmarshalRoute unmarshals an instance of Route from the specified map of raw messages.
 func UnmarshalRoute(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -34774,7 +34594,6 @@ type RouteCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalRouteCollection unmarshals an instance of RouteCollection from the specified map of raw messages.
 func UnmarshalRouteCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(RouteCollection)
@@ -34808,7 +34627,6 @@ type RouteCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalRouteCollectionFirst unmarshals an instance of RouteCollectionFirst from the specified map of raw messages.
 func UnmarshalRouteCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(RouteCollectionFirst)
@@ -34825,7 +34643,6 @@ type RouteCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalRouteCollectionNext unmarshals an instance of RouteCollectionNext from the specified map of raw messages.
 func UnmarshalRouteCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -34965,16 +34782,15 @@ type RoutePrototype struct {
 // - `drop`: drop the packet.
 const (
 	RoutePrototypeActionDelegateConst = "delegate"
-	RoutePrototypeActionDeliverConst = "deliver"
-	RoutePrototypeActionDropConst = "drop"
+	RoutePrototypeActionDeliverConst  = "deliver"
+	RoutePrototypeActionDropConst     = "drop"
 )
-
 
 // NewRoutePrototype : Instantiate RoutePrototype (Generic Model Constructor)
 func (*VpcV1) NewRoutePrototype(destination string, zone ZoneIdentityIntf) (model *RoutePrototype, err error) {
 	model = &RoutePrototype{
 		Destination: core.StringPtr(destination),
-		Zone: zone,
+		Zone:        zone,
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -35018,7 +34834,6 @@ type RouteReference struct {
 	// The user-defined name for this route.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // UnmarshalRouteReference unmarshals an instance of RouteReference from the specified map of raw messages.
 func UnmarshalRouteReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -35072,14 +34887,14 @@ type RoutingTable struct {
 // Constants associated with the RoutingTable.LifecycleState property.
 // The lifecycle state of the routing table.
 const (
-	RoutingTableLifecycleStateDeletedConst = "deleted"
-	RoutingTableLifecycleStateDeletingConst = "deleting"
-	RoutingTableLifecycleStateFailedConst = "failed"
-	RoutingTableLifecycleStatePendingConst = "pending"
-	RoutingTableLifecycleStateStableConst = "stable"
+	RoutingTableLifecycleStateDeletedConst   = "deleted"
+	RoutingTableLifecycleStateDeletingConst  = "deleting"
+	RoutingTableLifecycleStateFailedConst    = "failed"
+	RoutingTableLifecycleStatePendingConst   = "pending"
+	RoutingTableLifecycleStateStableConst    = "stable"
 	RoutingTableLifecycleStateSuspendedConst = "suspended"
-	RoutingTableLifecycleStateUpdatingConst = "updating"
-	RoutingTableLifecycleStateWaitingConst = "waiting"
+	RoutingTableLifecycleStateUpdatingConst  = "updating"
+	RoutingTableLifecycleStateWaitingConst   = "waiting"
 )
 
 // Constants associated with the RoutingTable.ResourceType property.
@@ -35087,7 +34902,6 @@ const (
 const (
 	RoutingTableResourceTypeRoutingTableConst = "routing_table"
 )
-
 
 // UnmarshalRoutingTable unmarshals an instance of RoutingTable from the specified map of raw messages.
 func UnmarshalRoutingTable(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -35151,7 +34965,6 @@ type RoutingTableCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalRoutingTableCollection unmarshals an instance of RoutingTableCollection from the specified map of raw messages.
 func UnmarshalRoutingTableCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(RoutingTableCollection)
@@ -35185,7 +34998,6 @@ type RoutingTableCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalRoutingTableCollectionFirst unmarshals an instance of RoutingTableCollectionFirst from the specified map of raw messages.
 func UnmarshalRoutingTableCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(RoutingTableCollectionFirst)
@@ -35202,7 +35014,6 @@ type RoutingTableCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalRoutingTableCollectionNext unmarshals an instance of RoutingTableCollectionNext from the specified map of raw messages.
 func UnmarshalRoutingTableCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -35271,7 +35082,6 @@ const (
 	RoutingTableReferenceResourceTypeRoutingTableConst = "routing_table"
 )
 
-
 // UnmarshalRoutingTableReference unmarshals an instance of RoutingTableReference from the specified map of raw messages.
 func UnmarshalRoutingTableReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(RoutingTableReference)
@@ -35324,7 +35134,6 @@ type SecurityGroup struct {
 	// The VPC this security group is a part of.
 	VPC *VPCReference `json:"vpc" validate:"required"`
 }
-
 
 // UnmarshalSecurityGroup unmarshals an instance of SecurityGroup from the specified map of raw messages.
 func UnmarshalSecurityGroup(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -35388,7 +35197,6 @@ type SecurityGroupCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalSecurityGroupCollection unmarshals an instance of SecurityGroupCollection from the specified map of raw messages.
 func UnmarshalSecurityGroupCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(SecurityGroupCollection)
@@ -35422,7 +35230,6 @@ type SecurityGroupCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalSecurityGroupCollectionFirst unmarshals an instance of SecurityGroupCollectionFirst from the specified map of raw messages.
 func UnmarshalSecurityGroupCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(SecurityGroupCollectionFirst)
@@ -35439,7 +35246,6 @@ type SecurityGroupCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalSecurityGroupCollectionNext unmarshals an instance of SecurityGroupCollectionNext from the specified map of raw messages.
 func UnmarshalSecurityGroupCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -35510,7 +35316,6 @@ type SecurityGroupReference struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // UnmarshalSecurityGroupReference unmarshals an instance of SecurityGroupReference from the specified map of raw messages.
 func UnmarshalSecurityGroupReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(SecurityGroupReference)
@@ -35579,7 +35384,7 @@ type SecurityGroupRule struct {
 // Constants associated with the SecurityGroupRule.Direction property.
 // The direction of traffic to enforce, either `inbound` or `outbound`.
 const (
-	SecurityGroupRuleDirectionInboundConst = "inbound"
+	SecurityGroupRuleDirectionInboundConst  = "inbound"
 	SecurityGroupRuleDirectionOutboundConst = "outbound"
 )
 
@@ -35594,10 +35399,10 @@ const (
 // Constants associated with the SecurityGroupRule.Protocol property.
 // The protocol to enforce.
 const (
-	SecurityGroupRuleProtocolAllConst = "all"
+	SecurityGroupRuleProtocolAllConst  = "all"
 	SecurityGroupRuleProtocolIcmpConst = "icmp"
-	SecurityGroupRuleProtocolTCPConst = "tcp"
-	SecurityGroupRuleProtocolUDPConst = "udp"
+	SecurityGroupRuleProtocolTCPConst  = "tcp"
+	SecurityGroupRuleProtocolUDPConst  = "udp"
 )
 
 func (*SecurityGroupRule) isaSecurityGroupRule() bool {
@@ -35640,7 +35445,6 @@ type SecurityGroupRuleCollection struct {
 	// Array of rules.
 	Rules []SecurityGroupRuleIntf `json:"rules" validate:"required"`
 }
-
 
 // UnmarshalSecurityGroupRuleCollection unmarshals an instance of SecurityGroupRuleCollection from the specified map of raw messages.
 func UnmarshalSecurityGroupRuleCollection(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -35901,7 +35705,7 @@ type SecurityGroupRulePrototype struct {
 // Constants associated with the SecurityGroupRulePrototype.Direction property.
 // The direction of traffic to enforce, either `inbound` or `outbound`.
 const (
-	SecurityGroupRulePrototypeDirectionInboundConst = "inbound"
+	SecurityGroupRulePrototypeDirectionInboundConst  = "inbound"
 	SecurityGroupRulePrototypeDirectionOutboundConst = "outbound"
 )
 
@@ -35916,10 +35720,10 @@ const (
 // Constants associated with the SecurityGroupRulePrototype.Protocol property.
 // The protocol to enforce.
 const (
-	SecurityGroupRulePrototypeProtocolAllConst = "all"
+	SecurityGroupRulePrototypeProtocolAllConst  = "all"
 	SecurityGroupRulePrototypeProtocolIcmpConst = "icmp"
-	SecurityGroupRulePrototypeProtocolTCPConst = "tcp"
-	SecurityGroupRulePrototypeProtocolUDPConst = "udp"
+	SecurityGroupRulePrototypeProtocolTCPConst  = "tcp"
+	SecurityGroupRulePrototypeProtocolUDPConst  = "udp"
 )
 
 func (*SecurityGroupRulePrototype) isaSecurityGroupRulePrototype() bool {
@@ -36315,7 +36119,7 @@ type SetSubnetPublicGatewayOptions struct {
 // NewSetSubnetPublicGatewayOptions : Instantiate SetSubnetPublicGatewayOptions
 func (*VpcV1) NewSetSubnetPublicGatewayOptions(id string, publicGatewayIdentity PublicGatewayIdentityIntf) *SetSubnetPublicGatewayOptions {
 	return &SetSubnetPublicGatewayOptions{
-		ID: core.StringPtr(id),
+		ID:                    core.StringPtr(id),
 		PublicGatewayIdentity: publicGatewayIdentity,
 	}
 }
@@ -36414,11 +36218,10 @@ const (
 // The status of the subnet.
 const (
 	SubnetStatusAvailableConst = "available"
-	SubnetStatusDeletingConst = "deleting"
-	SubnetStatusFailedConst = "failed"
-	SubnetStatusPendingConst = "pending"
+	SubnetStatusDeletingConst  = "deleting"
+	SubnetStatusFailedConst    = "failed"
+	SubnetStatusPendingConst   = "pending"
 )
-
 
 // UnmarshalSubnet unmarshals an instance of Subnet from the specified map of raw messages.
 func UnmarshalSubnet(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -36514,7 +36317,6 @@ type SubnetCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalSubnetCollection unmarshals an instance of SubnetCollection from the specified map of raw messages.
 func UnmarshalSubnetCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(SubnetCollection)
@@ -36548,7 +36350,6 @@ type SubnetCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalSubnetCollectionFirst unmarshals an instance of SubnetCollectionFirst from the specified map of raw messages.
 func UnmarshalSubnetCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(SubnetCollectionFirst)
@@ -36565,7 +36366,6 @@ type SubnetCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalSubnetCollectionNext unmarshals an instance of SubnetCollectionNext from the specified map of raw messages.
 func UnmarshalSubnetCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -36750,7 +36550,6 @@ type SubnetReference struct {
 const (
 	SubnetReferenceResourceTypeSubnetConst = "subnet"
 )
-
 
 // UnmarshalSubnetReference unmarshals an instance of SubnetReference from the specified map of raw messages.
 func UnmarshalSubnetReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -37055,16 +36854,16 @@ type UpdateIkePolicyOptions struct {
 // Constants associated with the UpdateIkePolicyOptions.AuthenticationAlgorithm property.
 // The authentication algorithm.
 const (
-	UpdateIkePolicyOptionsAuthenticationAlgorithmMd5Const = "md5"
-	UpdateIkePolicyOptionsAuthenticationAlgorithmSha1Const = "sha1"
+	UpdateIkePolicyOptionsAuthenticationAlgorithmMd5Const    = "md5"
+	UpdateIkePolicyOptionsAuthenticationAlgorithmSha1Const   = "sha1"
 	UpdateIkePolicyOptionsAuthenticationAlgorithmSha256Const = "sha256"
 )
 
 // Constants associated with the UpdateIkePolicyOptions.EncryptionAlgorithm property.
 // The encryption algorithm.
 const (
-	UpdateIkePolicyOptionsEncryptionAlgorithmAes128Const = "aes128"
-	UpdateIkePolicyOptionsEncryptionAlgorithmAes256Const = "aes256"
+	UpdateIkePolicyOptionsEncryptionAlgorithmAes128Const    = "aes128"
+	UpdateIkePolicyOptionsEncryptionAlgorithmAes256Const    = "aes256"
 	UpdateIkePolicyOptionsEncryptionAlgorithmTripleDesConst = "triple_des"
 )
 
@@ -37179,7 +36978,7 @@ type UpdateInstanceDiskOptions struct {
 func (*VpcV1) NewUpdateInstanceDiskOptions(instanceID string, id string) *UpdateInstanceDiskOptions {
 	return &UpdateInstanceDiskOptions{
 		InstanceID: core.StringPtr(instanceID),
-		ID: core.StringPtr(id),
+		ID:         core.StringPtr(id),
 	}
 }
 
@@ -37241,7 +37040,7 @@ type UpdateInstanceGroupManagerOptions struct {
 func (*VpcV1) NewUpdateInstanceGroupManagerOptions(instanceGroupID string, id string) *UpdateInstanceGroupManagerOptions {
 	return &UpdateInstanceGroupManagerOptions{
 		InstanceGroupID: core.StringPtr(instanceGroupID),
-		ID: core.StringPtr(id),
+		ID:              core.StringPtr(id),
 	}
 }
 
@@ -37327,18 +37126,18 @@ type UpdateInstanceGroupManagerPolicyOptions struct {
 // Constants associated with the UpdateInstanceGroupManagerPolicyOptions.MetricType property.
 // The type of metric to be evaluated.
 const (
-	UpdateInstanceGroupManagerPolicyOptionsMetricTypeCpuConst = "cpu"
-	UpdateInstanceGroupManagerPolicyOptionsMetricTypeMemoryConst = "memory"
-	UpdateInstanceGroupManagerPolicyOptionsMetricTypeNetworkInConst = "network_in"
+	UpdateInstanceGroupManagerPolicyOptionsMetricTypeCpuConst        = "cpu"
+	UpdateInstanceGroupManagerPolicyOptionsMetricTypeMemoryConst     = "memory"
+	UpdateInstanceGroupManagerPolicyOptionsMetricTypeNetworkInConst  = "network_in"
 	UpdateInstanceGroupManagerPolicyOptionsMetricTypeNetworkOutConst = "network_out"
 )
 
 // NewUpdateInstanceGroupManagerPolicyOptions : Instantiate UpdateInstanceGroupManagerPolicyOptions
 func (*VpcV1) NewUpdateInstanceGroupManagerPolicyOptions(instanceGroupID string, instanceGroupManagerID string, id string) *UpdateInstanceGroupManagerPolicyOptions {
 	return &UpdateInstanceGroupManagerPolicyOptions{
-		InstanceGroupID: core.StringPtr(instanceGroupID),
+		InstanceGroupID:        core.StringPtr(instanceGroupID),
 		InstanceGroupManagerID: core.StringPtr(instanceGroupManagerID),
-		ID: core.StringPtr(id),
+		ID:                     core.StringPtr(id),
 	}
 }
 
@@ -37403,7 +37202,7 @@ type UpdateInstanceGroupMembershipOptions struct {
 func (*VpcV1) NewUpdateInstanceGroupMembershipOptions(instanceGroupID string, id string) *UpdateInstanceGroupMembershipOptions {
 	return &UpdateInstanceGroupMembershipOptions{
 		InstanceGroupID: core.StringPtr(instanceGroupID),
-		ID: core.StringPtr(id),
+		ID:              core.StringPtr(id),
 	}
 }
 
@@ -37550,7 +37349,7 @@ type UpdateInstanceNetworkInterfaceOptions struct {
 func (*VpcV1) NewUpdateInstanceNetworkInterfaceOptions(instanceID string, id string) *UpdateInstanceNetworkInterfaceOptions {
 	return &UpdateInstanceNetworkInterfaceOptions{
 		InstanceID: core.StringPtr(instanceID),
-		ID: core.StringPtr(id),
+		ID:         core.StringPtr(id),
 	}
 }
 
@@ -37680,7 +37479,7 @@ type UpdateInstanceVolumeAttachmentOptions struct {
 func (*VpcV1) NewUpdateInstanceVolumeAttachmentOptions(instanceID string, id string) *UpdateInstanceVolumeAttachmentOptions {
 	return &UpdateInstanceVolumeAttachmentOptions{
 		InstanceID: core.StringPtr(instanceID),
-		ID: core.StringPtr(id),
+		ID:         core.StringPtr(id),
 	}
 }
 
@@ -37741,16 +37540,16 @@ type UpdateIpsecPolicyOptions struct {
 // Constants associated with the UpdateIpsecPolicyOptions.AuthenticationAlgorithm property.
 // The authentication algorithm.
 const (
-	UpdateIpsecPolicyOptionsAuthenticationAlgorithmMd5Const = "md5"
-	UpdateIpsecPolicyOptionsAuthenticationAlgorithmSha1Const = "sha1"
+	UpdateIpsecPolicyOptionsAuthenticationAlgorithmMd5Const    = "md5"
+	UpdateIpsecPolicyOptionsAuthenticationAlgorithmSha1Const   = "sha1"
 	UpdateIpsecPolicyOptionsAuthenticationAlgorithmSha256Const = "sha256"
 )
 
 // Constants associated with the UpdateIpsecPolicyOptions.EncryptionAlgorithm property.
 // The encryption algorithm.
 const (
-	UpdateIpsecPolicyOptionsEncryptionAlgorithmAes128Const = "aes128"
-	UpdateIpsecPolicyOptionsEncryptionAlgorithmAes256Const = "aes256"
+	UpdateIpsecPolicyOptionsEncryptionAlgorithmAes128Const    = "aes128"
+	UpdateIpsecPolicyOptionsEncryptionAlgorithmAes256Const    = "aes256"
 	UpdateIpsecPolicyOptionsEncryptionAlgorithmTripleDesConst = "triple_des"
 )
 
@@ -37758,9 +37557,9 @@ const (
 // Perfect Forward Secrecy.
 const (
 	UpdateIpsecPolicyOptionsPfsDisabledConst = "disabled"
-	UpdateIpsecPolicyOptionsPfsGroup14Const = "group_14"
-	UpdateIpsecPolicyOptionsPfsGroup2Const = "group_2"
-	UpdateIpsecPolicyOptionsPfsGroup5Const = "group_5"
+	UpdateIpsecPolicyOptionsPfsGroup14Const  = "group_14"
+	UpdateIpsecPolicyOptionsPfsGroup2Const   = "group_2"
+	UpdateIpsecPolicyOptionsPfsGroup5Const   = "group_5"
 )
 
 // NewUpdateIpsecPolicyOptions : Instantiate UpdateIpsecPolicyOptions
@@ -37882,16 +37681,16 @@ type UpdateLoadBalancerListenerOptions struct {
 // The listener protocol. Load balancers in the `network` family support `tcp`. Load balancers in the `application`
 // family support `tcp`, `http`, and `https`.
 const (
-	UpdateLoadBalancerListenerOptionsProtocolHTTPConst = "http"
+	UpdateLoadBalancerListenerOptionsProtocolHTTPConst  = "http"
 	UpdateLoadBalancerListenerOptionsProtocolHTTPSConst = "https"
-	UpdateLoadBalancerListenerOptionsProtocolTCPConst = "tcp"
+	UpdateLoadBalancerListenerOptionsProtocolTCPConst   = "tcp"
 )
 
 // NewUpdateLoadBalancerListenerOptions : Instantiate UpdateLoadBalancerListenerOptions
 func (*VpcV1) NewUpdateLoadBalancerListenerOptions(loadBalancerID string, id string) *UpdateLoadBalancerListenerOptions {
 	return &UpdateLoadBalancerListenerOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ID: core.StringPtr(id),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -37974,8 +37773,8 @@ type UpdateLoadBalancerListenerPolicyOptions struct {
 func (*VpcV1) NewUpdateLoadBalancerListenerPolicyOptions(loadBalancerID string, listenerID string, id string) *UpdateLoadBalancerListenerPolicyOptions {
 	return &UpdateLoadBalancerListenerPolicyOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ListenerID: core.StringPtr(listenerID),
-		ID: core.StringPtr(id),
+		ListenerID:     core.StringPtr(listenerID),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -38054,26 +37853,26 @@ type UpdateLoadBalancerListenerPolicyRuleOptions struct {
 // Constants associated with the UpdateLoadBalancerListenerPolicyRuleOptions.Condition property.
 // The condition of the rule.
 const (
-	UpdateLoadBalancerListenerPolicyRuleOptionsConditionContainsConst = "contains"
-	UpdateLoadBalancerListenerPolicyRuleOptionsConditionEqualsConst = "equals"
+	UpdateLoadBalancerListenerPolicyRuleOptionsConditionContainsConst     = "contains"
+	UpdateLoadBalancerListenerPolicyRuleOptionsConditionEqualsConst       = "equals"
 	UpdateLoadBalancerListenerPolicyRuleOptionsConditionMatchesRegexConst = "matches_regex"
 )
 
 // Constants associated with the UpdateLoadBalancerListenerPolicyRuleOptions.Type property.
 // The type of the rule.
 const (
-	UpdateLoadBalancerListenerPolicyRuleOptionsTypeHeaderConst = "header"
+	UpdateLoadBalancerListenerPolicyRuleOptionsTypeHeaderConst   = "header"
 	UpdateLoadBalancerListenerPolicyRuleOptionsTypeHostnameConst = "hostname"
-	UpdateLoadBalancerListenerPolicyRuleOptionsTypePathConst = "path"
+	UpdateLoadBalancerListenerPolicyRuleOptionsTypePathConst     = "path"
 )
 
 // NewUpdateLoadBalancerListenerPolicyRuleOptions : Instantiate UpdateLoadBalancerListenerPolicyRuleOptions
 func (*VpcV1) NewUpdateLoadBalancerListenerPolicyRuleOptions(loadBalancerID string, listenerID string, policyID string, id string) *UpdateLoadBalancerListenerPolicyRuleOptions {
 	return &UpdateLoadBalancerListenerPolicyRuleOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ListenerID: core.StringPtr(listenerID),
-		PolicyID: core.StringPtr(policyID),
-		ID: core.StringPtr(id),
+		ListenerID:     core.StringPtr(listenerID),
+		PolicyID:       core.StringPtr(policyID),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -38199,8 +37998,8 @@ type UpdateLoadBalancerPoolMemberOptions struct {
 func (*VpcV1) NewUpdateLoadBalancerPoolMemberOptions(loadBalancerID string, poolID string, id string) *UpdateLoadBalancerPoolMemberOptions {
 	return &UpdateLoadBalancerPoolMemberOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		PoolID: core.StringPtr(poolID),
-		ID: core.StringPtr(id),
+		PoolID:         core.StringPtr(poolID),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -38280,8 +38079,8 @@ type UpdateLoadBalancerPoolOptions struct {
 // Constants associated with the UpdateLoadBalancerPoolOptions.Algorithm property.
 // The load balancing algorithm.
 const (
-	UpdateLoadBalancerPoolOptionsAlgorithmLeastConnectionsConst = "least_connections"
-	UpdateLoadBalancerPoolOptionsAlgorithmRoundRobinConst = "round_robin"
+	UpdateLoadBalancerPoolOptionsAlgorithmLeastConnectionsConst   = "least_connections"
+	UpdateLoadBalancerPoolOptionsAlgorithmRoundRobinConst         = "round_robin"
 	UpdateLoadBalancerPoolOptionsAlgorithmWeightedRoundRobinConst = "weighted_round_robin"
 )
 
@@ -38292,16 +38091,16 @@ const (
 // for and log unknown values. Optionally halt processing and surface the error, or bypass the pool on which the
 // unexpected property value was encountered.
 const (
-	UpdateLoadBalancerPoolOptionsProtocolHTTPConst = "http"
+	UpdateLoadBalancerPoolOptionsProtocolHTTPConst  = "http"
 	UpdateLoadBalancerPoolOptionsProtocolHTTPSConst = "https"
-	UpdateLoadBalancerPoolOptionsProtocolTCPConst = "tcp"
+	UpdateLoadBalancerPoolOptionsProtocolTCPConst   = "tcp"
 )
 
 // NewUpdateLoadBalancerPoolOptions : Instantiate UpdateLoadBalancerPoolOptions
 func (*VpcV1) NewUpdateLoadBalancerPoolOptions(loadBalancerID string, id string) *UpdateLoadBalancerPoolOptions {
 	return &UpdateLoadBalancerPoolOptions{
 		LoadBalancerID: core.StringPtr(loadBalancerID),
-		ID: core.StringPtr(id),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -38443,13 +38242,13 @@ type UpdateNetworkACLRuleOptions struct {
 // Whether to allow or deny matching traffic.
 const (
 	UpdateNetworkACLRuleOptionsActionAllowConst = "allow"
-	UpdateNetworkACLRuleOptionsActionDenyConst = "deny"
+	UpdateNetworkACLRuleOptionsActionDenyConst  = "deny"
 )
 
 // Constants associated with the UpdateNetworkACLRuleOptions.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	UpdateNetworkACLRuleOptionsDirectionInboundConst = "inbound"
+	UpdateNetworkACLRuleOptionsDirectionInboundConst  = "inbound"
 	UpdateNetworkACLRuleOptionsDirectionOutboundConst = "outbound"
 )
 
@@ -38457,7 +38256,7 @@ const (
 func (*VpcV1) NewUpdateNetworkACLRuleOptions(networkACLID string, id string) *UpdateNetworkACLRuleOptions {
 	return &UpdateNetworkACLRuleOptions{
 		NetworkACLID: core.StringPtr(networkACLID),
-		ID: core.StringPtr(id),
+		ID:           core.StringPtr(id),
 	}
 }
 
@@ -38666,7 +38465,7 @@ type UpdateSecurityGroupRuleOptions struct {
 // Constants associated with the UpdateSecurityGroupRuleOptions.Direction property.
 // The direction of traffic to enforce, either `inbound` or `outbound`.
 const (
-	UpdateSecurityGroupRuleOptionsDirectionInboundConst = "inbound"
+	UpdateSecurityGroupRuleOptionsDirectionInboundConst  = "inbound"
 	UpdateSecurityGroupRuleOptionsDirectionOutboundConst = "outbound"
 )
 
@@ -38682,7 +38481,7 @@ const (
 func (*VpcV1) NewUpdateSecurityGroupRuleOptions(securityGroupID string, id string) *UpdateSecurityGroupRuleOptions {
 	return &UpdateSecurityGroupRuleOptions{
 		SecurityGroupID: core.StringPtr(securityGroupID),
-		ID: core.StringPtr(id),
+		ID:              core.StringPtr(id),
 	}
 }
 
@@ -38834,7 +38633,7 @@ type UpdateSubnetReservedIPOptions struct {
 func (*VpcV1) NewUpdateSubnetReservedIPOptions(subnetID string, id string) *UpdateSubnetReservedIPOptions {
 	return &UpdateSubnetReservedIPOptions{
 		SubnetID: core.StringPtr(subnetID),
-		ID: core.StringPtr(id),
+		ID:       core.StringPtr(id),
 	}
 }
 
@@ -38929,7 +38728,7 @@ type UpdateVPCAddressPrefixOptions struct {
 func (*VpcV1) NewUpdateVPCAddressPrefixOptions(vpcID string, id string) *UpdateVPCAddressPrefixOptions {
 	return &UpdateVPCAddressPrefixOptions{
 		VPCID: core.StringPtr(vpcID),
-		ID: core.StringPtr(id),
+		ID:    core.StringPtr(id),
 	}
 }
 
@@ -39019,7 +38818,7 @@ type UpdateVPCRouteOptions struct {
 func (*VpcV1) NewUpdateVPCRouteOptions(vpcID string, id string) *UpdateVPCRouteOptions {
 	return &UpdateVPCRouteOptions{
 		VPCID: core.StringPtr(vpcID),
-		ID: core.StringPtr(id),
+		ID:    core.StringPtr(id),
 	}
 }
 
@@ -39066,7 +38865,7 @@ type UpdateVPCRoutingTableOptions struct {
 func (*VpcV1) NewUpdateVPCRoutingTableOptions(vpcID string, id string) *UpdateVPCRoutingTableOptions {
 	return &UpdateVPCRoutingTableOptions{
 		VPCID: core.StringPtr(vpcID),
-		ID: core.StringPtr(id),
+		ID:    core.StringPtr(id),
 	}
 }
 
@@ -39115,9 +38914,9 @@ type UpdateVPCRoutingTableRouteOptions struct {
 // NewUpdateVPCRoutingTableRouteOptions : Instantiate UpdateVPCRoutingTableRouteOptions
 func (*VpcV1) NewUpdateVPCRoutingTableRouteOptions(vpcID string, routingTableID string, id string) *UpdateVPCRoutingTableRouteOptions {
 	return &UpdateVPCRoutingTableRouteOptions{
-		VPCID: core.StringPtr(vpcID),
+		VPCID:          core.StringPtr(vpcID),
 		RoutingTableID: core.StringPtr(routingTableID),
-		ID: core.StringPtr(id),
+		ID:             core.StringPtr(id),
 	}
 }
 
@@ -39189,7 +38988,7 @@ type UpdateVPNGatewayConnectionOptions struct {
 func (*VpcV1) NewUpdateVPNGatewayConnectionOptions(vpnGatewayID string, id string) *UpdateVPNGatewayConnectionOptions {
 	return &UpdateVPNGatewayConnectionOptions{
 		VPNGatewayID: core.StringPtr(vpnGatewayID),
-		ID: core.StringPtr(id),
+		ID:           core.StringPtr(id),
 	}
 }
 
@@ -39345,11 +39144,10 @@ const (
 // The status of this VPC.
 const (
 	VPCStatusAvailableConst = "available"
-	VPCStatusDeletingConst = "deleting"
-	VPCStatusFailedConst = "failed"
-	VPCStatusPendingConst = "pending"
+	VPCStatusDeletingConst  = "deleting"
+	VPCStatusFailedConst    = "failed"
+	VPCStatusPendingConst   = "pending"
 )
-
 
 // UnmarshalVPC unmarshals an instance of VPC from the specified map of raw messages.
 func UnmarshalVPC(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -39419,7 +39217,6 @@ type VpccseSourceIP struct {
 	Zone *ZoneReference `json:"zone" validate:"required"`
 }
 
-
 // UnmarshalVpccseSourceIP unmarshals an instance of VpccseSourceIP from the specified map of raw messages.
 func UnmarshalVpccseSourceIP(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VpccseSourceIP)
@@ -39454,7 +39251,6 @@ type VPCCollection struct {
 	Vpcs []VPC `json:"vpcs" validate:"required"`
 }
 
-
 // UnmarshalVPCCollection unmarshals an instance of VPCCollection from the specified map of raw messages.
 func UnmarshalVPCCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VPCCollection)
@@ -39488,7 +39284,6 @@ type VPCCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalVPCCollectionFirst unmarshals an instance of VPCCollectionFirst from the specified map of raw messages.
 func UnmarshalVPCCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VPCCollectionFirst)
@@ -39505,7 +39300,6 @@ type VPCCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalVPCCollectionNext unmarshals an instance of VPCCollectionNext from the specified map of raw messages.
 func UnmarshalVPCCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -39585,7 +39379,6 @@ const (
 	VPCReferenceResourceTypeVPCConst = "vpc"
 )
 
-
 // UnmarshalVPCReference unmarshals an instance of VPCReference from the specified map of raw messages.
 func UnmarshalVPCReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VPCReference)
@@ -39652,18 +39445,17 @@ type VPNGateway struct {
 // The mode of the VPN gateway.
 const (
 	VPNGatewayModePolicyConst = "policy"
-	VPNGatewayModeRouteConst = "route"
+	VPNGatewayModeRouteConst  = "route"
 )
 
 // Constants associated with the VPNGateway.Status property.
 // The status of the VPN gateway.
 const (
 	VPNGatewayStatusAvailableConst = "available"
-	VPNGatewayStatusDeletingConst = "deleting"
-	VPNGatewayStatusFailedConst = "failed"
-	VPNGatewayStatusPendingConst = "pending"
+	VPNGatewayStatusDeletingConst  = "deleting"
+	VPNGatewayStatusFailedConst    = "failed"
+	VPNGatewayStatusPendingConst   = "pending"
 )
-
 
 // UnmarshalVPNGateway unmarshals an instance of VPNGateway from the specified map of raw messages.
 func UnmarshalVPNGateway(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -39735,7 +39527,6 @@ type VPNGatewayCollection struct {
 	VPNGateways []VPNGateway `json:"vpn_gateways" validate:"required"`
 }
 
-
 // UnmarshalVPNGatewayCollection unmarshals an instance of VPNGatewayCollection from the specified map of raw messages.
 func UnmarshalVPNGatewayCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VPNGatewayCollection)
@@ -39769,7 +39560,6 @@ type VPNGatewayCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalVPNGatewayCollectionFirst unmarshals an instance of VPNGatewayCollectionFirst from the specified map of raw messages.
 func UnmarshalVPNGatewayCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VPNGatewayCollectionFirst)
@@ -39786,7 +39576,6 @@ type VPNGatewayCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalVPNGatewayCollectionNext unmarshals an instance of VPNGatewayCollectionNext from the specified map of raw messages.
 func UnmarshalVPNGatewayCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -39858,9 +39647,8 @@ const (
 // The status of a VPN connection.
 const (
 	VPNGatewayConnectionStatusDownConst = "down"
-	VPNGatewayConnectionStatusUpConst = "up"
+	VPNGatewayConnectionStatusUpConst   = "up"
 )
-
 
 // UnmarshalVPNGatewayConnection unmarshals an instance of VPNGatewayConnection from the specified map of raw messages.
 func UnmarshalVPNGatewayConnection(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -39935,7 +39723,6 @@ type VPNGatewayConnectionCollection struct {
 	Connections []VPNGatewayConnection `json:"connections" validate:"required"`
 }
 
-
 // UnmarshalVPNGatewayConnectionCollection unmarshals an instance of VPNGatewayConnectionCollection from the specified map of raw messages.
 func UnmarshalVPNGatewayConnectionCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VPNGatewayConnectionCollection)
@@ -39962,12 +39749,11 @@ type VPNGatewayConnectionDpd struct {
 // Constants associated with the VPNGatewayConnectionDpd.Action property.
 // Dead Peer Detection actions.
 const (
-	VPNGatewayConnectionDpdActionClearConst = "clear"
-	VPNGatewayConnectionDpdActionHoldConst = "hold"
-	VPNGatewayConnectionDpdActionNoneConst = "none"
+	VPNGatewayConnectionDpdActionClearConst   = "clear"
+	VPNGatewayConnectionDpdActionHoldConst    = "hold"
+	VPNGatewayConnectionDpdActionNoneConst    = "none"
 	VPNGatewayConnectionDpdActionRestartConst = "restart"
 )
-
 
 // UnmarshalVPNGatewayConnectionDpd unmarshals an instance of VPNGatewayConnectionDpd from the specified map of raw messages.
 func UnmarshalVPNGatewayConnectionDpd(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -40003,12 +39789,11 @@ type VPNGatewayConnectionDpdPrototype struct {
 // Constants associated with the VPNGatewayConnectionDpdPrototype.Action property.
 // Dead Peer Detection actions.
 const (
-	VPNGatewayConnectionDpdPrototypeActionClearConst = "clear"
-	VPNGatewayConnectionDpdPrototypeActionHoldConst = "hold"
-	VPNGatewayConnectionDpdPrototypeActionNoneConst = "none"
+	VPNGatewayConnectionDpdPrototypeActionClearConst   = "clear"
+	VPNGatewayConnectionDpdPrototypeActionHoldConst    = "hold"
+	VPNGatewayConnectionDpdPrototypeActionNoneConst    = "none"
 	VPNGatewayConnectionDpdPrototypeActionRestartConst = "restart"
 )
-
 
 // UnmarshalVPNGatewayConnectionDpdPrototype unmarshals an instance of VPNGatewayConnectionDpdPrototype from the specified map of raw messages.
 func UnmarshalVPNGatewayConnectionDpdPrototype(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -40035,7 +39820,6 @@ type VPNGatewayConnectionLocalCidRs struct {
 	LocalCidrs []string `json:"local_cidrs,omitempty"`
 }
 
-
 // UnmarshalVPNGatewayConnectionLocalCidRs unmarshals an instance of VPNGatewayConnectionLocalCidRs from the specified map of raw messages.
 func UnmarshalVPNGatewayConnectionLocalCidRs(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VPNGatewayConnectionLocalCidRs)
@@ -40052,7 +39836,6 @@ type VPNGatewayConnectionPeerCidRs struct {
 	// A collection of peer CIDRs for this resource.
 	PeerCidrs []string `json:"peer_cidrs,omitempty"`
 }
-
 
 // UnmarshalVPNGatewayConnectionPeerCidRs unmarshals an instance of VPNGatewayConnectionPeerCidRs from the specified map of raw messages.
 func UnmarshalVPNGatewayConnectionPeerCidRs(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -40076,7 +39859,6 @@ type VPNGatewayConnectionReference struct {
 	// The user-defined name for this VPN connection.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // UnmarshalVPNGatewayConnectionReference unmarshals an instance of VPNGatewayConnectionReference from the specified map of raw messages.
 func UnmarshalVPNGatewayConnectionReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -40112,7 +39894,7 @@ type VPNGatewayMember struct {
 // Constants associated with the VPNGatewayMember.Role property.
 // The high availability role assigned to the VPN gateway member.
 const (
-	VPNGatewayMemberRoleActiveConst = "active"
+	VPNGatewayMemberRoleActiveConst  = "active"
 	VPNGatewayMemberRoleStandbyConst = "standby"
 )
 
@@ -40120,11 +39902,10 @@ const (
 // The status of the VPN gateway member.
 const (
 	VPNGatewayMemberStatusAvailableConst = "available"
-	VPNGatewayMemberStatusDeletingConst = "deleting"
-	VPNGatewayMemberStatusFailedConst = "failed"
-	VPNGatewayMemberStatusPendingConst = "pending"
+	VPNGatewayMemberStatusDeletingConst  = "deleting"
+	VPNGatewayMemberStatusFailedConst    = "failed"
+	VPNGatewayMemberStatusPendingConst   = "pending"
 )
-
 
 // UnmarshalVPNGatewayMember unmarshals an instance of VPNGatewayMember from the specified map of raw messages.
 func UnmarshalVPNGatewayMember(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -40153,7 +39934,6 @@ type VPNGatewayMemberPublicIP struct {
 	Address *string `json:"address" validate:"required"`
 }
 
-
 // UnmarshalVPNGatewayMemberPublicIP unmarshals an instance of VPNGatewayMemberPublicIP from the specified map of raw messages.
 func UnmarshalVPNGatewayMemberPublicIP(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VPNGatewayMemberPublicIP)
@@ -40175,9 +39955,8 @@ type VPNGatewayMode struct {
 // The mode of the VPN gateway.
 const (
 	VPNGatewayModeModePolicyConst = "policy"
-	VPNGatewayModeModeRouteConst = "route"
+	VPNGatewayModeModeRouteConst  = "route"
 )
-
 
 // UnmarshalVPNGatewayMode unmarshals an instance of VPNGatewayMode from the specified map of raw messages.
 func UnmarshalVPNGatewayMode(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -40203,9 +39982,8 @@ type VPNGatewayTunnel struct {
 // The status of the VPN Tunnel.
 const (
 	VPNGatewayTunnelStatusDownConst = "down"
-	VPNGatewayTunnelStatusUpConst = "up"
+	VPNGatewayTunnelStatusUpConst   = "up"
 )
-
 
 // UnmarshalVPNGatewayTunnel unmarshals an instance of VPNGatewayTunnel from the specified map of raw messages.
 func UnmarshalVPNGatewayTunnel(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -40275,18 +40053,17 @@ type Volume struct {
 // The type of encryption used on the volume.
 const (
 	VolumeEncryptionProviderManagedConst = "provider_managed"
-	VolumeEncryptionUserManagedConst = "user_managed"
+	VolumeEncryptionUserManagedConst     = "user_managed"
 )
 
 // Constants associated with the Volume.Status property.
 // The status of the volume.
 const (
-	VolumeStatusAvailableConst = "available"
-	VolumeStatusFailedConst = "failed"
-	VolumeStatusPendingConst = "pending"
+	VolumeStatusAvailableConst       = "available"
+	VolumeStatusFailedConst          = "failed"
+	VolumeStatusPendingConst         = "pending"
 	VolumeStatusPendingDeletionConst = "pending_deletion"
 )
-
 
 // UnmarshalVolume unmarshals an instance of Volume from the specified map of raw messages.
 func UnmarshalVolume(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -40386,7 +40163,7 @@ type VolumeAttachment struct {
 // Constants associated with the VolumeAttachment.Status property.
 // The status of this volume attachment.
 const (
-	VolumeAttachmentStatusAttachedConst = "attached"
+	VolumeAttachmentStatusAttachedConst  = "attached"
 	VolumeAttachmentStatusAttachingConst = "attaching"
 	VolumeAttachmentStatusDetachingConst = "detaching"
 )
@@ -40397,7 +40174,6 @@ const (
 	VolumeAttachmentTypeBootConst = "boot"
 	VolumeAttachmentTypeDataConst = "data"
 )
-
 
 // UnmarshalVolumeAttachment unmarshals an instance of VolumeAttachment from the specified map of raw messages.
 func UnmarshalVolumeAttachment(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -40448,7 +40224,6 @@ type VolumeAttachmentCollection struct {
 	VolumeAttachments []VolumeAttachment `json:"volume_attachments" validate:"required"`
 }
 
-
 // UnmarshalVolumeAttachmentCollection unmarshals an instance of VolumeAttachmentCollection from the specified map of raw messages.
 func UnmarshalVolumeAttachmentCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VolumeAttachmentCollection)
@@ -40465,7 +40240,6 @@ type VolumeAttachmentDevice struct {
 	// A unique identifier for the device which is exposed to the instance operating system.
 	ID *string `json:"id,omitempty"`
 }
-
 
 // UnmarshalVolumeAttachmentDevice unmarshals an instance of VolumeAttachmentDevice from the specified map of raw messages.
 func UnmarshalVolumeAttachmentDevice(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -40490,7 +40264,6 @@ type VolumeAttachmentPrototypeInstanceByImageContext struct {
 	// new volume.
 	Volume *VolumePrototypeInstanceByImageContext `json:"volume" validate:"required"`
 }
-
 
 // NewVolumeAttachmentPrototypeInstanceByImageContext : Instantiate VolumeAttachmentPrototypeInstanceByImageContext (Generic Model Constructor)
 func (*VpcV1) NewVolumeAttachmentPrototypeInstanceByImageContext(volume *VolumePrototypeInstanceByImageContext) (model *VolumeAttachmentPrototypeInstanceByImageContext, err error) {
@@ -40532,7 +40305,6 @@ type VolumeAttachmentPrototypeInstanceContext struct {
 	// volume.
 	Volume VolumeAttachmentPrototypeInstanceContextVolumeIntf `json:"volume" validate:"required"`
 }
-
 
 // NewVolumeAttachmentPrototypeInstanceContext : Instantiate VolumeAttachmentPrototypeInstanceContext (Generic Model Constructor)
 func (*VpcV1) NewVolumeAttachmentPrototypeInstanceContext(volume VolumeAttachmentPrototypeInstanceContextVolumeIntf) (model *VolumeAttachmentPrototypeInstanceContext, err error) {
@@ -40663,7 +40435,6 @@ type VolumeAttachmentReferenceInstanceContext struct {
 	Volume *VolumeReference `json:"volume" validate:"required"`
 }
 
-
 // UnmarshalVolumeAttachmentReferenceInstanceContext unmarshals an instance of VolumeAttachmentReferenceInstanceContext from the specified map of raw messages.
 func UnmarshalVolumeAttachmentReferenceInstanceContext(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VolumeAttachmentReferenceInstanceContext)
@@ -40724,7 +40495,6 @@ const (
 	VolumeAttachmentReferenceVolumeContextTypeDataConst = "data"
 )
 
-
 // UnmarshalVolumeAttachmentReferenceVolumeContext unmarshals an instance of VolumeAttachmentReferenceVolumeContext from the specified map of raw messages.
 func UnmarshalVolumeAttachmentReferenceVolumeContext(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VolumeAttachmentReferenceVolumeContext)
@@ -40776,7 +40546,6 @@ type VolumeCollection struct {
 	Volumes []Volume `json:"volumes" validate:"required"`
 }
 
-
 // UnmarshalVolumeCollection unmarshals an instance of VolumeCollection from the specified map of raw messages.
 func UnmarshalVolumeCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VolumeCollection)
@@ -40806,7 +40575,6 @@ type VolumeCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalVolumeCollectionFirst unmarshals an instance of VolumeCollectionFirst from the specified map of raw messages.
 func UnmarshalVolumeCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VolumeCollectionFirst)
@@ -40823,7 +40591,6 @@ type VolumeCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalVolumeCollectionNext unmarshals an instance of VolumeCollectionNext from the specified map of raw messages.
 func UnmarshalVolumeCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -40891,7 +40658,6 @@ type VolumeProfile struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // UnmarshalVolumeProfile unmarshals an instance of VolumeProfile from the specified map of raw messages.
 func UnmarshalVolumeProfile(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VolumeProfile)
@@ -40930,7 +40696,6 @@ type VolumeProfileCollection struct {
 	TotalCount *int64 `json:"total_count" validate:"required"`
 }
 
-
 // UnmarshalVolumeProfileCollection unmarshals an instance of VolumeProfileCollection from the specified map of raw messages.
 func UnmarshalVolumeProfileCollection(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VolumeProfileCollection)
@@ -40964,7 +40729,6 @@ type VolumeProfileCollectionFirst struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // UnmarshalVolumeProfileCollectionFirst unmarshals an instance of VolumeProfileCollectionFirst from the specified map of raw messages.
 func UnmarshalVolumeProfileCollectionFirst(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VolumeProfileCollectionFirst)
@@ -40981,7 +40745,6 @@ type VolumeProfileCollectionNext struct {
 	// The URL for the next page of resources.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // UnmarshalVolumeProfileCollectionNext unmarshals an instance of VolumeProfileCollectionNext from the specified map of raw messages.
 func UnmarshalVolumeProfileCollectionNext(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -41037,7 +40800,6 @@ type VolumeProfileReference struct {
 	// The name for this volume profile.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // UnmarshalVolumeProfileReference unmarshals an instance of VolumeProfileReference from the specified map of raw messages.
 func UnmarshalVolumeProfileReference(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -41150,7 +40912,6 @@ type VolumePrototypeInstanceByImageContext struct {
 	Profile VolumeProfileIdentityIntf `json:"profile" validate:"required"`
 }
 
-
 // NewVolumePrototypeInstanceByImageContext : Instantiate VolumePrototypeInstanceByImageContext (Generic Model Constructor)
 func (*VpcV1) NewVolumePrototypeInstanceByImageContext(profile VolumeProfileIdentityIntf) (model *VolumePrototypeInstanceByImageContext, err error) {
 	model = &VolumePrototypeInstanceByImageContext{
@@ -41202,7 +40963,6 @@ type VolumeReference struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // UnmarshalVolumeReference unmarshals an instance of VolumeReference from the specified map of raw messages.
 func UnmarshalVolumeReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(VolumeReference)
@@ -41244,11 +41004,10 @@ type Zone struct {
 // Constants associated with the Zone.Status property.
 // The availability status of this zone.
 const (
-	ZoneStatusAvailableConst = "available"
-	ZoneStatusImpairedConst = "impaired"
+	ZoneStatusAvailableConst   = "available"
+	ZoneStatusImpairedConst    = "impaired"
 	ZoneStatusUnavailableConst = "unavailable"
 )
-
 
 // UnmarshalZone unmarshals an instance of Zone from the specified map of raw messages.
 func UnmarshalZone(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -41278,7 +41037,6 @@ type ZoneCollection struct {
 	// Collection of zones.
 	Zones []Zone `json:"zones" validate:"required"`
 }
-
 
 // UnmarshalZoneCollection unmarshals an instance of ZoneCollection from the specified map of raw messages.
 func UnmarshalZoneCollection(m map[string]json.RawMessage, result interface{}) (err error) {
@@ -41335,7 +41093,6 @@ type ZoneReference struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // UnmarshalZoneReference unmarshals an instance of ZoneReference from the specified map of raw messages.
 func UnmarshalZoneReference(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(ZoneReference)
@@ -41357,7 +41114,6 @@ type CertificateInstanceIdentityByCRN struct {
 	// The CRN for this certificate instance.
 	CRN *string `json:"crn" validate:"required"`
 }
-
 
 // NewCertificateInstanceIdentityByCRN : Instantiate CertificateInstanceIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewCertificateInstanceIdentityByCRN(crn string) (model *CertificateInstanceIdentityByCRN, err error) {
@@ -41389,7 +41145,6 @@ type CloudObjectStorageBucketIdentityByName struct {
 	// The globally unique name of this COS bucket.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // NewCloudObjectStorageBucketIdentityByName : Instantiate CloudObjectStorageBucketIdentityByName (Generic Model Constructor)
 func (*VpcV1) NewCloudObjectStorageBucketIdentityByName(name string) (model *CloudObjectStorageBucketIdentityByName, err error) {
@@ -41428,7 +41183,6 @@ const (
 	DedicatedHostProfileMemoryDependentTypeDependentConst = "dependent"
 )
 
-
 func (*DedicatedHostProfileMemoryDependent) isaDedicatedHostProfileMemory() bool {
 	return true
 }
@@ -41462,7 +41216,6 @@ type DedicatedHostProfileMemoryEnum struct {
 const (
 	DedicatedHostProfileMemoryEnumTypeEnumConst = "enum"
 )
-
 
 func (*DedicatedHostProfileMemoryEnum) isaDedicatedHostProfileMemory() bool {
 	return true
@@ -41502,7 +41255,6 @@ type DedicatedHostProfileMemoryFixed struct {
 const (
 	DedicatedHostProfileMemoryFixedTypeFixedConst = "fixed"
 )
-
 
 func (*DedicatedHostProfileMemoryFixed) isaDedicatedHostProfileMemory() bool {
 	return true
@@ -41548,7 +41300,6 @@ const (
 	DedicatedHostProfileMemoryRangeTypeRangeConst = "range"
 )
 
-
 func (*DedicatedHostProfileMemoryRange) isaDedicatedHostProfileMemory() bool {
 	return true
 }
@@ -41593,7 +41344,6 @@ const (
 	DedicatedHostProfilePortSpeedDependentTypeDependentConst = "dependent"
 )
 
-
 func (*DedicatedHostProfilePortSpeedDependent) isaDedicatedHostProfilePortSpeed() bool {
 	return true
 }
@@ -41624,7 +41374,6 @@ type DedicatedHostProfilePortSpeedFixed struct {
 const (
 	DedicatedHostProfilePortSpeedFixedTypeFixedConst = "fixed"
 )
-
 
 func (*DedicatedHostProfilePortSpeedFixed) isaDedicatedHostProfilePortSpeed() bool {
 	return true
@@ -41657,7 +41406,6 @@ type DedicatedHostProfileSocketDependent struct {
 const (
 	DedicatedHostProfileSocketDependentTypeDependentConst = "dependent"
 )
-
 
 func (*DedicatedHostProfileSocketDependent) isaDedicatedHostProfileSocket() bool {
 	return true
@@ -41692,7 +41440,6 @@ type DedicatedHostProfileSocketEnum struct {
 const (
 	DedicatedHostProfileSocketEnumTypeEnumConst = "enum"
 )
-
 
 func (*DedicatedHostProfileSocketEnum) isaDedicatedHostProfileSocket() bool {
 	return true
@@ -41732,7 +41479,6 @@ type DedicatedHostProfileSocketFixed struct {
 const (
 	DedicatedHostProfileSocketFixedTypeFixedConst = "fixed"
 )
-
 
 func (*DedicatedHostProfileSocketFixed) isaDedicatedHostProfileSocket() bool {
 	return true
@@ -41778,7 +41524,6 @@ const (
 	DedicatedHostProfileSocketRangeTypeRangeConst = "range"
 )
 
-
 func (*DedicatedHostProfileSocketRange) isaDedicatedHostProfileSocket() bool {
 	return true
 }
@@ -41823,7 +41568,6 @@ const (
 	DedicatedHostProfileVcpuDependentTypeDependentConst = "dependent"
 )
 
-
 func (*DedicatedHostProfileVcpuDependent) isaDedicatedHostProfileVcpu() bool {
 	return true
 }
@@ -41857,7 +41601,6 @@ type DedicatedHostProfileVcpuEnum struct {
 const (
 	DedicatedHostProfileVcpuEnumTypeEnumConst = "enum"
 )
-
 
 func (*DedicatedHostProfileVcpuEnum) isaDedicatedHostProfileVcpu() bool {
 	return true
@@ -41897,7 +41640,6 @@ type DedicatedHostProfileVcpuFixed struct {
 const (
 	DedicatedHostProfileVcpuFixedTypeFixedConst = "fixed"
 )
-
 
 func (*DedicatedHostProfileVcpuFixed) isaDedicatedHostProfileVcpu() bool {
 	return true
@@ -41943,7 +41685,6 @@ const (
 	DedicatedHostProfileVcpuRangeTypeRangeConst = "range"
 )
 
-
 func (*DedicatedHostProfileVcpuRange) isaDedicatedHostProfileVcpu() bool {
 	return true
 }
@@ -41982,7 +41723,6 @@ type DedicatedHostPrototypeGroupDedicatedHostGroupIdentityByCRN struct {
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewDedicatedHostPrototypeGroupDedicatedHostGroupIdentityByCRN : Instantiate DedicatedHostPrototypeGroupDedicatedHostGroupIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewDedicatedHostPrototypeGroupDedicatedHostGroupIdentityByCRN(crn string) (model *DedicatedHostPrototypeGroupDedicatedHostGroupIdentityByCRN, err error) {
 	model = &DedicatedHostPrototypeGroupDedicatedHostGroupIdentityByCRN{
@@ -42013,7 +41753,6 @@ type DedicatedHostPrototypeGroupDedicatedHostGroupIdentityByHref struct {
 	// The URL for this dedicated host group.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // NewDedicatedHostPrototypeGroupDedicatedHostGroupIdentityByHref : Instantiate DedicatedHostPrototypeGroupDedicatedHostGroupIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewDedicatedHostPrototypeGroupDedicatedHostGroupIdentityByHref(href string) (model *DedicatedHostPrototypeGroupDedicatedHostGroupIdentityByHref, err error) {
@@ -42046,7 +41785,6 @@ type DedicatedHostPrototypeGroupDedicatedHostGroupIdentityByID struct {
 	ID *string `json:"id" validate:"required"`
 }
 
-
 // NewDedicatedHostPrototypeGroupDedicatedHostGroupIdentityByID : Instantiate DedicatedHostPrototypeGroupDedicatedHostGroupIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewDedicatedHostPrototypeGroupDedicatedHostGroupIdentityByID(id string) (model *DedicatedHostPrototypeGroupDedicatedHostGroupIdentityByID, err error) {
 	model = &DedicatedHostPrototypeGroupDedicatedHostGroupIdentityByID{
@@ -42078,7 +41816,6 @@ type DedicatedHostPrototypeProfileDedicatedHostProfileIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewDedicatedHostPrototypeProfileDedicatedHostProfileIdentityByHref : Instantiate DedicatedHostPrototypeProfileDedicatedHostProfileIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewDedicatedHostPrototypeProfileDedicatedHostProfileIdentityByHref(href string) (model *DedicatedHostPrototypeProfileDedicatedHostProfileIdentityByHref, err error) {
 	model = &DedicatedHostPrototypeProfileDedicatedHostProfileIdentityByHref{
@@ -42109,7 +41846,6 @@ type DedicatedHostPrototypeProfileDedicatedHostProfileIdentityByName struct {
 	// The name for this dedicated host profile.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // NewDedicatedHostPrototypeProfileDedicatedHostProfileIdentityByName : Instantiate DedicatedHostPrototypeProfileDedicatedHostProfileIdentityByName (Generic Model Constructor)
 func (*VpcV1) NewDedicatedHostPrototypeProfileDedicatedHostProfileIdentityByName(name string) (model *DedicatedHostPrototypeProfileDedicatedHostProfileIdentityByName, err error) {
@@ -42143,7 +41879,6 @@ type EncryptionKeyIdentityByCRN struct {
 	// Service Root Key](https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-get-started) for this resource.
 	CRN *string `json:"crn" validate:"required"`
 }
-
 
 // NewEncryptionKeyIdentityByCRN : Instantiate EncryptionKeyIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewEncryptionKeyIdentityByCRN(crn string) (model *EncryptionKeyIdentityByCRN, err error) {
@@ -42223,7 +41958,6 @@ type EndpointGateway struct {
 const (
 	EndpointGatewayResourceTypeEndpointGatewayConst = "endpoint_gateway"
 )
-
 
 func (*EndpointGateway) isaEndpointGatewayIdentity() bool {
 	return true
@@ -42344,7 +42078,6 @@ type EndpointGatewayReservedIPReservedIPPrototypeTargetContext struct {
 	Subnet SubnetIdentityIntf `json:"subnet" validate:"required"`
 }
 
-
 // NewEndpointGatewayReservedIPReservedIPPrototypeTargetContext : Instantiate EndpointGatewayReservedIPReservedIPPrototypeTargetContext (Generic Model Constructor)
 func (*VpcV1) NewEndpointGatewayReservedIPReservedIPPrototypeTargetContext(subnet SubnetIdentityIntf) (model *EndpointGatewayReservedIPReservedIPPrototypeTargetContext, err error) {
 	model = &EndpointGatewayReservedIPReservedIPPrototypeTargetContext{
@@ -42392,7 +42125,7 @@ type EndpointGatewayTargetPrototypeProviderCloudServiceIdentity struct {
 // Constants associated with the EndpointGatewayTargetPrototypeProviderCloudServiceIdentity.ResourceType property.
 // The type of target for this endpoint gateway.
 const (
-	EndpointGatewayTargetPrototypeProviderCloudServiceIdentityResourceTypeProviderCloudServiceConst = "provider_cloud_service"
+	EndpointGatewayTargetPrototypeProviderCloudServiceIdentityResourceTypeProviderCloudServiceConst          = "provider_cloud_service"
 	EndpointGatewayTargetPrototypeProviderCloudServiceIdentityResourceTypeProviderInfrastructureServiceConst = "provider_infrastructure_service"
 )
 
@@ -42442,7 +42175,7 @@ type EndpointGatewayTargetPrototypeProviderInfrastructureServiceIdentity struct 
 // Constants associated with the EndpointGatewayTargetPrototypeProviderInfrastructureServiceIdentity.ResourceType property.
 // The type of target for this endpoint gateway.
 const (
-	EndpointGatewayTargetPrototypeProviderInfrastructureServiceIdentityResourceTypeProviderCloudServiceConst = "provider_cloud_service"
+	EndpointGatewayTargetPrototypeProviderInfrastructureServiceIdentityResourceTypeProviderCloudServiceConst          = "provider_cloud_service"
 	EndpointGatewayTargetPrototypeProviderInfrastructureServiceIdentityResourceTypeProviderInfrastructureServiceConst = "provider_infrastructure_service"
 )
 
@@ -42490,7 +42223,6 @@ const (
 	EndpointGatewayTargetProviderCloudServiceReferenceResourceTypeProviderCloudServiceConst = "provider_cloud_service"
 )
 
-
 func (*EndpointGatewayTargetProviderCloudServiceReference) isaEndpointGatewayTarget() bool {
 	return true
 }
@@ -42529,7 +42261,6 @@ const (
 	EndpointGatewayTargetProviderInfrastructureServiceReferenceResourceTypeProviderInfrastructureServiceConst = "provider_infrastructure_service"
 )
 
-
 func (*EndpointGatewayTargetProviderInfrastructureServiceReference) isaEndpointGatewayTarget() bool {
 	return true
 }
@@ -42555,7 +42286,6 @@ type FloatingIPByTargetTargetNetworkInterfaceIdentityByHref struct {
 	// The URL for this network interface.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // NewFloatingIPByTargetTargetNetworkInterfaceIdentityByHref : Instantiate FloatingIPByTargetTargetNetworkInterfaceIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewFloatingIPByTargetTargetNetworkInterfaceIdentityByHref(href string) (model *FloatingIPByTargetTargetNetworkInterfaceIdentityByHref, err error) {
@@ -42588,7 +42318,6 @@ type FloatingIPByTargetTargetNetworkInterfaceIdentityByID struct {
 	ID *string `json:"id" validate:"required"`
 }
 
-
 // NewFloatingIPByTargetTargetNetworkInterfaceIdentityByID : Instantiate FloatingIPByTargetTargetNetworkInterfaceIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewFloatingIPByTargetTargetNetworkInterfaceIdentityByID(id string) (model *FloatingIPByTargetTargetNetworkInterfaceIdentityByID, err error) {
 	model = &FloatingIPByTargetTargetNetworkInterfaceIdentityByID{
@@ -42620,7 +42349,6 @@ type FloatingIPPatchTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByHref
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewFloatingIPPatchTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByHref : Instantiate FloatingIPPatchTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewFloatingIPPatchTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByHref(href string) (model *FloatingIPPatchTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByHref, err error) {
 	model = &FloatingIPPatchTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByHref{
@@ -42651,7 +42379,6 @@ type FloatingIPPatchTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByID s
 	// The unique identifier for this network interface.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewFloatingIPPatchTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByID : Instantiate FloatingIPPatchTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewFloatingIPPatchTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByID(id string) (model *FloatingIPPatchTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByID, err error) {
@@ -42691,7 +42418,6 @@ type FloatingIPPrototypeFloatingIPByTarget struct {
 	// The network interface this floating IP is to be bound to.
 	Target FloatingIPByTargetTargetIntf `json:"target" validate:"required"`
 }
-
 
 // NewFloatingIPPrototypeFloatingIPByTarget : Instantiate FloatingIPPrototypeFloatingIPByTarget (Generic Model Constructor)
 func (*VpcV1) NewFloatingIPPrototypeFloatingIPByTarget(target FloatingIPByTargetTargetIntf) (model *FloatingIPPrototypeFloatingIPByTarget, err error) {
@@ -42739,7 +42465,6 @@ type FloatingIPPrototypeFloatingIPByZone struct {
 	// The identity of the zone to provision a floating IP in.
 	Zone ZoneIdentityIntf `json:"zone" validate:"required"`
 }
-
 
 // NewFloatingIPPrototypeFloatingIPByZone : Instantiate FloatingIPPrototypeFloatingIPByZone (Generic Model Constructor)
 func (*VpcV1) NewFloatingIPPrototypeFloatingIPByZone(zone ZoneIdentityIntf) (model *FloatingIPPrototypeFloatingIPByZone, err error) {
@@ -42798,7 +42523,6 @@ const (
 	FloatingIPTargetNetworkInterfaceReferenceResourceTypeNetworkInterfaceConst = "network_interface"
 )
 
-
 func (*FloatingIPTargetNetworkInterfaceReference) isaFloatingIPTarget() bool {
 	return true
 }
@@ -42854,7 +42578,6 @@ type FloatingIPTargetPublicGatewayReference struct {
 const (
 	FloatingIPTargetPublicGatewayReferenceResourceTypePublicGatewayConst = "public_gateway"
 )
-
 
 func (*FloatingIPTargetPublicGatewayReference) isaFloatingIPTarget() bool {
 	return true
@@ -43100,7 +42823,6 @@ const (
 	FlowLogCollectorTargetInstanceReferenceResourceTypeInstanceConst = "instance"
 )
 
-
 func (*FlowLogCollectorTargetInstanceReference) isaFlowLogCollectorTarget() bool {
 	return true
 }
@@ -43154,7 +42876,6 @@ const (
 	FlowLogCollectorTargetNetworkInterfaceReferenceTargetContextResourceTypeNetworkInterfaceConst = "network_interface"
 )
 
-
 func (*FlowLogCollectorTargetNetworkInterfaceReferenceTargetContext) isaFlowLogCollectorTarget() bool {
 	return true
 }
@@ -43206,7 +42927,6 @@ type FlowLogCollectorTargetSubnetReference struct {
 const (
 	FlowLogCollectorTargetSubnetReferenceResourceTypeSubnetConst = "subnet"
 )
-
 
 func (*FlowLogCollectorTargetSubnetReference) isaFlowLogCollectorTarget() bool {
 	return true
@@ -43264,7 +42984,6 @@ const (
 	FlowLogCollectorTargetVPCReferenceResourceTypeVPCConst = "vpc"
 )
 
-
 func (*FlowLogCollectorTargetVPCReference) isaFlowLogCollectorTarget() bool {
 	return true
 }
@@ -43303,7 +43022,6 @@ type IkePolicyIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewIkePolicyIdentityByHref : Instantiate IkePolicyIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewIkePolicyIdentityByHref(href string) (model *IkePolicyIdentityByHref, err error) {
 	model = &IkePolicyIdentityByHref{
@@ -43334,7 +43052,6 @@ type IkePolicyIdentityByID struct {
 	// The unique identifier for this IKE policy.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewIkePolicyIdentityByID : Instantiate IkePolicyIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewIkePolicyIdentityByID(id string) (model *IkePolicyIdentityByID, err error) {
@@ -43367,7 +43084,6 @@ type IPsecPolicyIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewIPsecPolicyIdentityByHref : Instantiate IPsecPolicyIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewIPsecPolicyIdentityByHref(href string) (model *IPsecPolicyIdentityByHref, err error) {
 	model = &IPsecPolicyIdentityByHref{
@@ -43398,7 +43114,6 @@ type IPsecPolicyIdentityByID struct {
 	// The unique identifier for this IPsec policy.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewIPsecPolicyIdentityByID : Instantiate IPsecPolicyIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewIPsecPolicyIdentityByID(id string) (model *IPsecPolicyIdentityByID, err error) {
@@ -43431,7 +43146,6 @@ type ImageIdentityByCRN struct {
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewImageIdentityByCRN : Instantiate ImageIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewImageIdentityByCRN(crn string) (model *ImageIdentityByCRN, err error) {
 	model = &ImageIdentityByCRN{
@@ -43463,7 +43177,6 @@ type ImageIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewImageIdentityByHref : Instantiate ImageIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewImageIdentityByHref(href string) (model *ImageIdentityByHref, err error) {
 	model = &ImageIdentityByHref{
@@ -43494,7 +43207,6 @@ type ImageIdentityByID struct {
 	// The unique identifier for this image.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewImageIdentityByID : Instantiate ImageIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewImageIdentityByID(id string) (model *ImageIdentityByID, err error) {
@@ -43538,11 +43250,10 @@ type ImagePrototypeImageByFile struct {
 	OperatingSystem OperatingSystemIdentityIntf `json:"operating_system" validate:"required"`
 }
 
-
 // NewImagePrototypeImageByFile : Instantiate ImagePrototypeImageByFile (Generic Model Constructor)
 func (*VpcV1) NewImagePrototypeImageByFile(file *ImageFilePrototype, operatingSystem OperatingSystemIdentityIntf) (model *ImagePrototypeImageByFile, err error) {
 	model = &ImagePrototypeImageByFile{
-		File: file,
+		File:            file,
 		OperatingSystem: operatingSystem,
 	}
 	err = core.ValidateStruct(model, "required parameters")
@@ -43596,9 +43307,9 @@ type InstanceGroupManagerPolicyPrototypeInstanceGroupManagerTargetPolicyPrototyp
 // Constants associated with the InstanceGroupManagerPolicyPrototypeInstanceGroupManagerTargetPolicyPrototype.MetricType property.
 // The type of metric to be evaluated.
 const (
-	InstanceGroupManagerPolicyPrototypeInstanceGroupManagerTargetPolicyPrototypeMetricTypeCpuConst = "cpu"
-	InstanceGroupManagerPolicyPrototypeInstanceGroupManagerTargetPolicyPrototypeMetricTypeMemoryConst = "memory"
-	InstanceGroupManagerPolicyPrototypeInstanceGroupManagerTargetPolicyPrototypeMetricTypeNetworkInConst = "network_in"
+	InstanceGroupManagerPolicyPrototypeInstanceGroupManagerTargetPolicyPrototypeMetricTypeCpuConst        = "cpu"
+	InstanceGroupManagerPolicyPrototypeInstanceGroupManagerTargetPolicyPrototypeMetricTypeMemoryConst     = "memory"
+	InstanceGroupManagerPolicyPrototypeInstanceGroupManagerTargetPolicyPrototypeMetricTypeNetworkInConst  = "network_in"
 	InstanceGroupManagerPolicyPrototypeInstanceGroupManagerTargetPolicyPrototypeMetricTypeNetworkOutConst = "network_out"
 )
 
@@ -43608,13 +43319,12 @@ const (
 	InstanceGroupManagerPolicyPrototypeInstanceGroupManagerTargetPolicyPrototypePolicyTypeTargetConst = "target"
 )
 
-
 // NewInstanceGroupManagerPolicyPrototypeInstanceGroupManagerTargetPolicyPrototype : Instantiate InstanceGroupManagerPolicyPrototypeInstanceGroupManagerTargetPolicyPrototype (Generic Model Constructor)
 func (*VpcV1) NewInstanceGroupManagerPolicyPrototypeInstanceGroupManagerTargetPolicyPrototype(metricType string, metricValue int64, policyType string) (model *InstanceGroupManagerPolicyPrototypeInstanceGroupManagerTargetPolicyPrototype, err error) {
 	model = &InstanceGroupManagerPolicyPrototypeInstanceGroupManagerTargetPolicyPrototype{
-		MetricType: core.StringPtr(metricType),
+		MetricType:  core.StringPtr(metricType),
 		MetricValue: core.Int64Ptr(metricValue),
-		PolicyType: core.StringPtr(policyType),
+		PolicyType:  core.StringPtr(policyType),
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -43673,9 +43383,9 @@ type InstanceGroupManagerPolicyInstanceGroupManagerTargetPolicy struct {
 // Constants associated with the InstanceGroupManagerPolicyInstanceGroupManagerTargetPolicy.MetricType property.
 // The type of metric to be evaluated.
 const (
-	InstanceGroupManagerPolicyInstanceGroupManagerTargetPolicyMetricTypeCpuConst = "cpu"
-	InstanceGroupManagerPolicyInstanceGroupManagerTargetPolicyMetricTypeMemoryConst = "memory"
-	InstanceGroupManagerPolicyInstanceGroupManagerTargetPolicyMetricTypeNetworkInConst = "network_in"
+	InstanceGroupManagerPolicyInstanceGroupManagerTargetPolicyMetricTypeCpuConst        = "cpu"
+	InstanceGroupManagerPolicyInstanceGroupManagerTargetPolicyMetricTypeMemoryConst     = "memory"
+	InstanceGroupManagerPolicyInstanceGroupManagerTargetPolicyMetricTypeNetworkInConst  = "network_in"
 	InstanceGroupManagerPolicyInstanceGroupManagerTargetPolicyMetricTypeNetworkOutConst = "network_out"
 )
 
@@ -43684,7 +43394,6 @@ const (
 const (
 	InstanceGroupManagerPolicyInstanceGroupManagerTargetPolicyPolicyTypeTargetConst = "target"
 )
-
 
 func (*InstanceGroupManagerPolicyInstanceGroupManagerTargetPolicy) isaInstanceGroupManagerPolicy() bool {
 	return true
@@ -43752,11 +43461,10 @@ const (
 	InstanceGroupManagerPrototypeInstanceGroupManagerAutoScalePrototypeManagerTypeAutoscaleConst = "autoscale"
 )
 
-
 // NewInstanceGroupManagerPrototypeInstanceGroupManagerAutoScalePrototype : Instantiate InstanceGroupManagerPrototypeInstanceGroupManagerAutoScalePrototype (Generic Model Constructor)
 func (*VpcV1) NewInstanceGroupManagerPrototypeInstanceGroupManagerAutoScalePrototype(managerType string, maxMembershipCount int64) (model *InstanceGroupManagerPrototypeInstanceGroupManagerAutoScalePrototype, err error) {
 	model = &InstanceGroupManagerPrototypeInstanceGroupManagerAutoScalePrototype{
-		ManagerType: core.StringPtr(managerType),
+		ManagerType:        core.StringPtr(managerType),
 		MaxMembershipCount: core.Int64Ptr(maxMembershipCount),
 	}
 	err = core.ValidateStruct(model, "required parameters")
@@ -43828,7 +43536,6 @@ const (
 	InstancePlacementDedicatedHostGroupReferenceResourceTypeDedicatedHostGroupConst = "dedicated_host_group"
 )
 
-
 func (*InstancePlacementDedicatedHostGroupReference) isaInstancePlacement() bool {
 	return true
 }
@@ -43885,7 +43592,6 @@ type InstancePlacementDedicatedHostReference struct {
 const (
 	InstancePlacementDedicatedHostReferenceResourceTypeDedicatedHostConst = "dedicated_host"
 )
-
 
 func (*InstancePlacementDedicatedHostReference) isaInstancePlacement() bool {
 	return true
@@ -44030,7 +43736,6 @@ const (
 	InstanceProfileBandwidthDependentTypeDependentConst = "dependent"
 )
 
-
 func (*InstanceProfileBandwidthDependent) isaInstanceProfileBandwidth() bool {
 	return true
 }
@@ -44065,7 +43770,6 @@ type InstanceProfileBandwidthEnum struct {
 const (
 	InstanceProfileBandwidthEnumTypeEnumConst = "enum"
 )
-
 
 func (*InstanceProfileBandwidthEnum) isaInstanceProfileBandwidth() bool {
 	return true
@@ -44105,7 +43809,6 @@ type InstanceProfileBandwidthFixed struct {
 const (
 	InstanceProfileBandwidthFixedTypeFixedConst = "fixed"
 )
-
 
 func (*InstanceProfileBandwidthFixed) isaInstanceProfileBandwidth() bool {
 	return true
@@ -44152,7 +43855,6 @@ const (
 	InstanceProfileBandwidthRangeTypeRangeConst = "range"
 )
 
-
 func (*InstanceProfileBandwidthRange) isaInstanceProfileBandwidth() bool {
 	return true
 }
@@ -44197,7 +43899,6 @@ const (
 	InstanceProfileDiskQuantityDependentTypeDependentConst = "dependent"
 )
 
-
 func (*InstanceProfileDiskQuantityDependent) isaInstanceProfileDiskQuantity() bool {
 	return true
 }
@@ -44231,7 +43932,6 @@ type InstanceProfileDiskQuantityEnum struct {
 const (
 	InstanceProfileDiskQuantityEnumTypeEnumConst = "enum"
 )
-
 
 func (*InstanceProfileDiskQuantityEnum) isaInstanceProfileDiskQuantity() bool {
 	return true
@@ -44271,7 +43971,6 @@ type InstanceProfileDiskQuantityFixed struct {
 const (
 	InstanceProfileDiskQuantityFixedTypeFixedConst = "fixed"
 )
-
 
 func (*InstanceProfileDiskQuantityFixed) isaInstanceProfileDiskQuantity() bool {
 	return true
@@ -44316,7 +44015,6 @@ type InstanceProfileDiskQuantityRange struct {
 const (
 	InstanceProfileDiskQuantityRangeTypeRangeConst = "range"
 )
-
 
 func (*InstanceProfileDiskQuantityRange) isaInstanceProfileDiskQuantity() bool {
 	return true
@@ -44363,7 +44061,6 @@ const (
 	InstanceProfileDiskSizeDependentTypeDependentConst = "dependent"
 )
 
-
 func (*InstanceProfileDiskSizeDependent) isaInstanceProfileDiskSize() bool {
 	return true
 }
@@ -44397,7 +44094,6 @@ type InstanceProfileDiskSizeEnum struct {
 const (
 	InstanceProfileDiskSizeEnumTypeEnumConst = "enum"
 )
-
 
 func (*InstanceProfileDiskSizeEnum) isaInstanceProfileDiskSize() bool {
 	return true
@@ -44437,7 +44133,6 @@ type InstanceProfileDiskSizeFixed struct {
 const (
 	InstanceProfileDiskSizeFixedTypeFixedConst = "fixed"
 )
-
 
 func (*InstanceProfileDiskSizeFixed) isaInstanceProfileDiskSize() bool {
 	return true
@@ -44483,7 +44178,6 @@ const (
 	InstanceProfileDiskSizeRangeTypeRangeConst = "range"
 )
 
-
 func (*InstanceProfileDiskSizeRange) isaInstanceProfileDiskSize() bool {
 	return true
 }
@@ -44528,7 +44222,6 @@ const (
 	InstanceProfileGpuDependentTypeDependentConst = "dependent"
 )
 
-
 func (*InstanceProfileGpuDependent) isaInstanceProfileGpu() bool {
 	return true
 }
@@ -44562,7 +44255,6 @@ type InstanceProfileGpuEnum struct {
 const (
 	InstanceProfileGpuEnumTypeEnumConst = "enum"
 )
-
 
 func (*InstanceProfileGpuEnum) isaInstanceProfileGpu() bool {
 	return true
@@ -44603,7 +44295,6 @@ const (
 	InstanceProfileGpuFixedTypeFixedConst = "fixed"
 )
 
-
 func (*InstanceProfileGpuFixed) isaInstanceProfileGpu() bool {
 	return true
 }
@@ -44635,7 +44326,6 @@ type InstanceProfileGpuMemoryDependent struct {
 const (
 	InstanceProfileGpuMemoryDependentTypeDependentConst = "dependent"
 )
-
 
 func (*InstanceProfileGpuMemoryDependent) isaInstanceProfileGpuMemory() bool {
 	return true
@@ -44670,7 +44360,6 @@ type InstanceProfileGpuMemoryEnum struct {
 const (
 	InstanceProfileGpuMemoryEnumTypeEnumConst = "enum"
 )
-
 
 func (*InstanceProfileGpuMemoryEnum) isaInstanceProfileGpuMemory() bool {
 	return true
@@ -44710,7 +44399,6 @@ type InstanceProfileGpuMemoryFixed struct {
 const (
 	InstanceProfileGpuMemoryFixedTypeFixedConst = "fixed"
 )
-
 
 func (*InstanceProfileGpuMemoryFixed) isaInstanceProfileGpuMemory() bool {
 	return true
@@ -44755,7 +44443,6 @@ type InstanceProfileGpuMemoryRange struct {
 const (
 	InstanceProfileGpuMemoryRangeTypeRangeConst = "range"
 )
-
 
 func (*InstanceProfileGpuMemoryRange) isaInstanceProfileGpuMemory() bool {
 	return true
@@ -44813,7 +44500,6 @@ const (
 	InstanceProfileGpuRangeTypeRangeConst = "range"
 )
 
-
 func (*InstanceProfileGpuRange) isaInstanceProfileGpu() bool {
 	return true
 }
@@ -44852,7 +44538,6 @@ type InstanceProfileIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewInstanceProfileIdentityByHref : Instantiate InstanceProfileIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewInstanceProfileIdentityByHref(href string) (model *InstanceProfileIdentityByHref, err error) {
 	model = &InstanceProfileIdentityByHref{
@@ -44883,7 +44568,6 @@ type InstanceProfileIdentityByName struct {
 	// The name for this virtual server instance profile.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // NewInstanceProfileIdentityByName : Instantiate InstanceProfileIdentityByName (Generic Model Constructor)
 func (*VpcV1) NewInstanceProfileIdentityByName(name string) (model *InstanceProfileIdentityByName, err error) {
@@ -44922,7 +44606,6 @@ const (
 	InstanceProfileMemoryDependentTypeDependentConst = "dependent"
 )
 
-
 func (*InstanceProfileMemoryDependent) isaInstanceProfileMemory() bool {
 	return true
 }
@@ -44956,7 +44639,6 @@ type InstanceProfileMemoryEnum struct {
 const (
 	InstanceProfileMemoryEnumTypeEnumConst = "enum"
 )
-
 
 func (*InstanceProfileMemoryEnum) isaInstanceProfileMemory() bool {
 	return true
@@ -44996,7 +44678,6 @@ type InstanceProfileMemoryFixed struct {
 const (
 	InstanceProfileMemoryFixedTypeFixedConst = "fixed"
 )
-
 
 func (*InstanceProfileMemoryFixed) isaInstanceProfileMemory() bool {
 	return true
@@ -45042,7 +44723,6 @@ const (
 	InstanceProfileMemoryRangeTypeRangeConst = "range"
 )
 
-
 func (*InstanceProfileMemoryRange) isaInstanceProfileMemory() bool {
 	return true
 }
@@ -45087,7 +44767,6 @@ const (
 	InstanceProfilePortSpeedDependentTypeDependentConst = "dependent"
 )
 
-
 func (*InstanceProfilePortSpeedDependent) isaInstanceProfilePortSpeed() bool {
 	return true
 }
@@ -45118,7 +44797,6 @@ type InstanceProfilePortSpeedFixed struct {
 const (
 	InstanceProfilePortSpeedFixedTypeFixedConst = "fixed"
 )
-
 
 func (*InstanceProfilePortSpeedFixed) isaInstanceProfilePortSpeed() bool {
 	return true
@@ -45151,7 +44829,6 @@ type InstanceProfileVcpuDependent struct {
 const (
 	InstanceProfileVcpuDependentTypeDependentConst = "dependent"
 )
-
 
 func (*InstanceProfileVcpuDependent) isaInstanceProfileVcpu() bool {
 	return true
@@ -45186,7 +44863,6 @@ type InstanceProfileVcpuEnum struct {
 const (
 	InstanceProfileVcpuEnumTypeEnumConst = "enum"
 )
-
 
 func (*InstanceProfileVcpuEnum) isaInstanceProfileVcpu() bool {
 	return true
@@ -45226,7 +44902,6 @@ type InstanceProfileVcpuFixed struct {
 const (
 	InstanceProfileVcpuFixedTypeFixedConst = "fixed"
 )
-
 
 func (*InstanceProfileVcpuFixed) isaInstanceProfileVcpu() bool {
 	return true
@@ -45271,7 +44946,6 @@ type InstanceProfileVcpuRange struct {
 const (
 	InstanceProfileVcpuRangeTypeRangeConst = "range"
 )
-
 
 func (*InstanceProfileVcpuRange) isaInstanceProfileVcpu() bool {
 	return true
@@ -45352,13 +45026,12 @@ type InstancePrototypeInstanceByImage struct {
 	Zone ZoneIdentityIntf `json:"zone" validate:"required"`
 }
 
-
 // NewInstancePrototypeInstanceByImage : Instantiate InstancePrototypeInstanceByImage (Generic Model Constructor)
 func (*VpcV1) NewInstancePrototypeInstanceByImage(image ImageIdentityIntf, primaryNetworkInterface *NetworkInterfacePrototype, zone ZoneIdentityIntf) (model *InstancePrototypeInstanceByImage, err error) {
 	model = &InstancePrototypeInstanceByImage{
-		Image: image,
+		Image:                   image,
 		PrimaryNetworkInterface: primaryNetworkInterface,
-		Zone: zone,
+		Zone:                    zone,
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -45478,7 +45151,6 @@ type InstancePrototypeInstanceBySourceTemplate struct {
 	Zone ZoneIdentityIntf `json:"zone,omitempty"`
 }
 
-
 // NewInstancePrototypeInstanceBySourceTemplate : Instantiate InstancePrototypeInstanceBySourceTemplate (Generic Model Constructor)
 func (*VpcV1) NewInstancePrototypeInstanceBySourceTemplate(sourceTemplate InstanceTemplateIdentityIntf) (model *InstancePrototypeInstanceBySourceTemplate, err error) {
 	model = &InstancePrototypeInstanceBySourceTemplate{
@@ -45562,7 +45234,6 @@ type InstanceTemplateIdentityByCRN struct {
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewInstanceTemplateIdentityByCRN : Instantiate InstanceTemplateIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewInstanceTemplateIdentityByCRN(crn string) (model *InstanceTemplateIdentityByCRN, err error) {
 	model = &InstanceTemplateIdentityByCRN{
@@ -45594,7 +45265,6 @@ type InstanceTemplateIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewInstanceTemplateIdentityByHref : Instantiate InstanceTemplateIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewInstanceTemplateIdentityByHref(href string) (model *InstanceTemplateIdentityByHref, err error) {
 	model = &InstanceTemplateIdentityByHref{
@@ -45625,7 +45295,6 @@ type InstanceTemplateIdentityByID struct {
 	// The unique identifier for this instance template.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewInstanceTemplateIdentityByID : Instantiate InstanceTemplateIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewInstanceTemplateIdentityByID(id string) (model *InstanceTemplateIdentityByID, err error) {
@@ -45699,13 +45368,12 @@ type InstanceTemplatePrototypeInstanceByImage struct {
 	Zone ZoneIdentityIntf `json:"zone" validate:"required"`
 }
 
-
 // NewInstanceTemplatePrototypeInstanceByImage : Instantiate InstanceTemplatePrototypeInstanceByImage (Generic Model Constructor)
 func (*VpcV1) NewInstanceTemplatePrototypeInstanceByImage(image ImageIdentityIntf, primaryNetworkInterface *NetworkInterfacePrototype, zone ZoneIdentityIntf) (model *InstanceTemplatePrototypeInstanceByImage, err error) {
 	model = &InstanceTemplatePrototypeInstanceByImage{
-		Image: image,
+		Image:                   image,
 		PrimaryNetworkInterface: primaryNetworkInterface,
-		Zone: zone,
+		Zone:                    zone,
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -45824,7 +45492,6 @@ type InstanceTemplatePrototypeInstanceBySourceTemplate struct {
 	// The identity of the zone to provision the virtual server instance in.
 	Zone ZoneIdentityIntf `json:"zone,omitempty"`
 }
-
 
 // NewInstanceTemplatePrototypeInstanceBySourceTemplate : Instantiate InstanceTemplatePrototypeInstanceBySourceTemplate (Generic Model Constructor)
 func (*VpcV1) NewInstanceTemplatePrototypeInstanceBySourceTemplate(sourceTemplate InstanceTemplateIdentityIntf) (model *InstanceTemplatePrototypeInstanceBySourceTemplate, err error) {
@@ -45959,7 +45626,6 @@ type InstanceTemplateInstanceByImage struct {
 	// The identity of the zone to provision the virtual server instance in.
 	Zone ZoneIdentityIntf `json:"zone" validate:"required"`
 }
-
 
 func (*InstanceTemplateInstanceByImage) isaInstanceTemplate() bool {
 	return true
@@ -46101,7 +45767,6 @@ type InstanceTemplateInstanceBySourceTemplate struct {
 	Zone ZoneIdentityIntf `json:"zone,omitempty"`
 }
 
-
 func (*InstanceTemplateInstanceBySourceTemplate) isaInstanceTemplate() bool {
 	return true
 }
@@ -46192,7 +45857,6 @@ type KeyIdentityByCRN struct {
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewKeyIdentityByCRN : Instantiate KeyIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewKeyIdentityByCRN(crn string) (model *KeyIdentityByCRN, err error) {
 	model = &KeyIdentityByCRN{
@@ -46225,7 +45889,6 @@ type KeyIdentityByFingerprint struct {
 	Fingerprint *string `json:"fingerprint" validate:"required"`
 }
 
-
 // NewKeyIdentityByFingerprint : Instantiate KeyIdentityByFingerprint (Generic Model Constructor)
 func (*VpcV1) NewKeyIdentityByFingerprint(fingerprint string) (model *KeyIdentityByFingerprint, err error) {
 	model = &KeyIdentityByFingerprint{
@@ -46256,7 +45919,6 @@ type KeyIdentityByHref struct {
 	// The URL for this key.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // NewKeyIdentityByHref : Instantiate KeyIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewKeyIdentityByHref(href string) (model *KeyIdentityByHref, err error) {
@@ -46289,7 +45951,6 @@ type KeyIdentityByID struct {
 	ID *string `json:"id" validate:"required"`
 }
 
-
 // NewKeyIdentityByID : Instantiate KeyIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewKeyIdentityByID(id string) (model *KeyIdentityByID, err error) {
 	model = &KeyIdentityByID{
@@ -46321,7 +45982,6 @@ type KeyReferenceInstanceInitializationContextKeyIdentityByFingerprint struct {
 	// `SHA256`).
 	Fingerprint *string `json:"fingerprint" validate:"required"`
 }
-
 
 func (*KeyReferenceInstanceInitializationContextKeyIdentityByFingerprint) isaKeyReferenceInstanceInitializationContext() bool {
 	return true
@@ -46357,7 +46017,6 @@ type KeyReferenceInstanceInitializationContextKeyReference struct {
 	// The user-defined name for this key.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 func (*KeyReferenceInstanceInitializationContextKeyReference) isaKeyReferenceInstanceInitializationContext() bool {
 	return true
@@ -46397,7 +46056,6 @@ type LoadBalancerIdentityByCRN struct {
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewLoadBalancerIdentityByCRN : Instantiate LoadBalancerIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerIdentityByCRN(crn string) (model *LoadBalancerIdentityByCRN, err error) {
 	model = &LoadBalancerIdentityByCRN{
@@ -46429,7 +46087,6 @@ type LoadBalancerIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewLoadBalancerIdentityByHref : Instantiate LoadBalancerIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerIdentityByHref(href string) (model *LoadBalancerIdentityByHref, err error) {
 	model = &LoadBalancerIdentityByHref{
@@ -46460,7 +46117,6 @@ type LoadBalancerIdentityByID struct {
 	// The unique identifier for this load balancer.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewLoadBalancerIdentityByID : Instantiate LoadBalancerIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerIdentityByID(id string) (model *LoadBalancerIdentityByID, err error) {
@@ -46495,7 +46151,6 @@ type LoadBalancerListenerPolicyPatchTargetLoadBalancerListenerPolicyRedirectURLP
 	// The redirect target URL.
 	URL *string `json:"url,omitempty"`
 }
-
 
 func (*LoadBalancerListenerPolicyPatchTargetLoadBalancerListenerPolicyRedirectURLPatch) isaLoadBalancerListenerPolicyPatchTarget() bool {
 	return true
@@ -46567,12 +46222,11 @@ type LoadBalancerListenerPolicyPrototypeTargetLoadBalancerListenerPolicyRedirect
 	URL *string `json:"url" validate:"required"`
 }
 
-
 // NewLoadBalancerListenerPolicyPrototypeTargetLoadBalancerListenerPolicyRedirectURLPrototype : Instantiate LoadBalancerListenerPolicyPrototypeTargetLoadBalancerListenerPolicyRedirectURLPrototype (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerListenerPolicyPrototypeTargetLoadBalancerListenerPolicyRedirectURLPrototype(httpStatusCode int64, url string) (model *LoadBalancerListenerPolicyPrototypeTargetLoadBalancerListenerPolicyRedirectURLPrototype, err error) {
 	model = &LoadBalancerListenerPolicyPrototypeTargetLoadBalancerListenerPolicyRedirectURLPrototype{
 		HTTPStatusCode: core.Int64Ptr(httpStatusCode),
-		URL: core.StringPtr(url),
+		URL:            core.StringPtr(url),
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -46648,7 +46302,6 @@ type LoadBalancerListenerPolicyTargetReferenceLoadBalancerListenerPolicyRedirect
 	URL *string `json:"url" validate:"required"`
 }
 
-
 func (*LoadBalancerListenerPolicyTargetReferenceLoadBalancerListenerPolicyRedirectURL) isaLoadBalancerListenerPolicyTargetReference() bool {
 	return true
 }
@@ -46681,7 +46334,6 @@ type LoadBalancerListenerPolicyTargetReferenceLoadBalancerPoolReference struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 func (*LoadBalancerListenerPolicyTargetReferenceLoadBalancerPoolReference) isaLoadBalancerListenerPolicyTargetReference() bool {
 	return true
 }
@@ -46711,7 +46363,6 @@ type LoadBalancerPoolIdentityByHref struct {
 	// The pool's canonical URL.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // NewLoadBalancerPoolIdentityByHref : Instantiate LoadBalancerPoolIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerPoolIdentityByHref(href string) (model *LoadBalancerPoolIdentityByHref, err error) {
@@ -46743,7 +46394,6 @@ type LoadBalancerPoolIdentityByID struct {
 	// The unique identifier for this load balancer pool.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewLoadBalancerPoolIdentityByID : Instantiate LoadBalancerPoolIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerPoolIdentityByID(id string) (model *LoadBalancerPoolIdentityByID, err error) {
@@ -46777,7 +46427,6 @@ type LoadBalancerPoolMemberTargetPrototypeIP struct {
 	// and surface the error, or bypass the resource on which the unexpected IP address format was encountered.
 	Address *string `json:"address" validate:"required"`
 }
-
 
 // NewLoadBalancerPoolMemberTargetPrototypeIP : Instantiate LoadBalancerPoolMemberTargetPrototypeIP (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerPoolMemberTargetPrototypeIP(address string) (model *LoadBalancerPoolMemberTargetPrototypeIP, err error) {
@@ -46861,7 +46510,6 @@ type LoadBalancerPoolMemberTargetIP struct {
 	Address *string `json:"address" validate:"required"`
 }
 
-
 func (*LoadBalancerPoolMemberTargetIP) isaLoadBalancerPoolMemberTarget() bool {
 	return true
 }
@@ -46902,7 +46550,6 @@ const (
 	LoadBalancerPoolMemberTargetInstanceReferenceResourceTypeInstanceConst = "instance"
 )
 
-
 func (*LoadBalancerPoolMemberTargetInstanceReference) isaLoadBalancerPoolMemberTarget() bool {
 	return true
 }
@@ -46941,7 +46588,6 @@ type LoadBalancerProfileIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewLoadBalancerProfileIdentityByHref : Instantiate LoadBalancerProfileIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerProfileIdentityByHref(href string) (model *LoadBalancerProfileIdentityByHref, err error) {
 	model = &LoadBalancerProfileIdentityByHref{
@@ -46972,7 +46618,6 @@ type LoadBalancerProfileIdentityByName struct {
 	// The name for this load balancer profile.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // NewLoadBalancerProfileIdentityByName : Instantiate LoadBalancerProfileIdentityByName (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerProfileIdentityByName(name string) (model *LoadBalancerProfileIdentityByName, err error) {
@@ -47005,7 +46650,6 @@ type NetworkACLIdentityByCRN struct {
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewNetworkACLIdentityByCRN : Instantiate NetworkACLIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLIdentityByCRN(crn string) (model *NetworkACLIdentityByCRN, err error) {
 	model = &NetworkACLIdentityByCRN{
@@ -47037,7 +46681,6 @@ type NetworkACLIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewNetworkACLIdentityByHref : Instantiate NetworkACLIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLIdentityByHref(href string) (model *NetworkACLIdentityByHref, err error) {
 	model = &NetworkACLIdentityByHref{
@@ -47068,7 +46711,6 @@ type NetworkACLIdentityByID struct {
 	// The unique identifier for this network ACL.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewNetworkACLIdentityByID : Instantiate NetworkACLIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLIdentityByID(id string) (model *NetworkACLIdentityByID, err error) {
@@ -47112,7 +46754,6 @@ type NetworkACLPrototypeNetworkACLByRules struct {
 	// created, resulting in all traffic being denied.
 	Rules []NetworkACLRulePrototypeNetworkACLContextIntf `json:"rules,omitempty"`
 }
-
 
 // NewNetworkACLPrototypeNetworkACLByRules : Instantiate NetworkACLPrototypeNetworkACLByRules (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLPrototypeNetworkACLByRules(vpc VPCIdentityIntf) (model *NetworkACLPrototypeNetworkACLByRules, err error) {
@@ -47168,11 +46809,10 @@ type NetworkACLPrototypeNetworkACLBySourceNetworkACL struct {
 	SourceNetworkACL NetworkACLIdentityIntf `json:"source_network_acl" validate:"required"`
 }
 
-
 // NewNetworkACLPrototypeNetworkACLBySourceNetworkACL : Instantiate NetworkACLPrototypeNetworkACLBySourceNetworkACL (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLPrototypeNetworkACLBySourceNetworkACL(vpc VPCIdentityIntf, sourceNetworkACL NetworkACLIdentityIntf) (model *NetworkACLPrototypeNetworkACLBySourceNetworkACL, err error) {
 	model = &NetworkACLPrototypeNetworkACLBySourceNetworkACL{
-		VPC: vpc,
+		VPC:              vpc,
 		SourceNetworkACL: sourceNetworkACL,
 	}
 	err = core.ValidateStruct(model, "required parameters")
@@ -47248,13 +46888,13 @@ type NetworkACLRuleItemNetworkACLRuleProtocolAll struct {
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRuleItemNetworkACLRuleProtocolAllActionAllowConst = "allow"
-	NetworkACLRuleItemNetworkACLRuleProtocolAllActionDenyConst = "deny"
+	NetworkACLRuleItemNetworkACLRuleProtocolAllActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRuleItemNetworkACLRuleProtocolAll.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRuleItemNetworkACLRuleProtocolAllDirectionInboundConst = "inbound"
+	NetworkACLRuleItemNetworkACLRuleProtocolAllDirectionInboundConst  = "inbound"
 	NetworkACLRuleItemNetworkACLRuleProtocolAllDirectionOutboundConst = "outbound"
 )
 
@@ -47268,12 +46908,11 @@ const (
 // Constants associated with the NetworkACLRuleItemNetworkACLRuleProtocolAll.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRuleItemNetworkACLRuleProtocolAllProtocolAllConst = "all"
+	NetworkACLRuleItemNetworkACLRuleProtocolAllProtocolAllConst  = "all"
 	NetworkACLRuleItemNetworkACLRuleProtocolAllProtocolIcmpConst = "icmp"
-	NetworkACLRuleItemNetworkACLRuleProtocolAllProtocolTCPConst = "tcp"
-	NetworkACLRuleItemNetworkACLRuleProtocolAllProtocolUDPConst = "udp"
+	NetworkACLRuleItemNetworkACLRuleProtocolAllProtocolTCPConst  = "tcp"
+	NetworkACLRuleItemNetworkACLRuleProtocolAllProtocolUDPConst  = "udp"
 )
-
 
 func (*NetworkACLRuleItemNetworkACLRuleProtocolAll) isaNetworkACLRuleItem() bool {
 	return true
@@ -47379,13 +47018,13 @@ type NetworkACLRuleItemNetworkACLRuleProtocolIcmp struct {
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRuleItemNetworkACLRuleProtocolIcmpActionAllowConst = "allow"
-	NetworkACLRuleItemNetworkACLRuleProtocolIcmpActionDenyConst = "deny"
+	NetworkACLRuleItemNetworkACLRuleProtocolIcmpActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRuleItemNetworkACLRuleProtocolIcmp.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRuleItemNetworkACLRuleProtocolIcmpDirectionInboundConst = "inbound"
+	NetworkACLRuleItemNetworkACLRuleProtocolIcmpDirectionInboundConst  = "inbound"
 	NetworkACLRuleItemNetworkACLRuleProtocolIcmpDirectionOutboundConst = "outbound"
 )
 
@@ -47399,12 +47038,11 @@ const (
 // Constants associated with the NetworkACLRuleItemNetworkACLRuleProtocolIcmp.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRuleItemNetworkACLRuleProtocolIcmpProtocolAllConst = "all"
+	NetworkACLRuleItemNetworkACLRuleProtocolIcmpProtocolAllConst  = "all"
 	NetworkACLRuleItemNetworkACLRuleProtocolIcmpProtocolIcmpConst = "icmp"
-	NetworkACLRuleItemNetworkACLRuleProtocolIcmpProtocolTCPConst = "tcp"
-	NetworkACLRuleItemNetworkACLRuleProtocolIcmpProtocolUDPConst = "udp"
+	NetworkACLRuleItemNetworkACLRuleProtocolIcmpProtocolTCPConst  = "tcp"
+	NetworkACLRuleItemNetworkACLRuleProtocolIcmpProtocolUDPConst  = "udp"
 )
-
 
 func (*NetworkACLRuleItemNetworkACLRuleProtocolIcmp) isaNetworkACLRuleItem() bool {
 	return true
@@ -47523,13 +47161,13 @@ type NetworkACLRuleItemNetworkACLRuleProtocolTcpudp struct {
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRuleItemNetworkACLRuleProtocolTcpudpActionAllowConst = "allow"
-	NetworkACLRuleItemNetworkACLRuleProtocolTcpudpActionDenyConst = "deny"
+	NetworkACLRuleItemNetworkACLRuleProtocolTcpudpActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRuleItemNetworkACLRuleProtocolTcpudp.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRuleItemNetworkACLRuleProtocolTcpudpDirectionInboundConst = "inbound"
+	NetworkACLRuleItemNetworkACLRuleProtocolTcpudpDirectionInboundConst  = "inbound"
 	NetworkACLRuleItemNetworkACLRuleProtocolTcpudpDirectionOutboundConst = "outbound"
 )
 
@@ -47543,12 +47181,11 @@ const (
 // Constants associated with the NetworkACLRuleItemNetworkACLRuleProtocolTcpudp.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRuleItemNetworkACLRuleProtocolTcpudpProtocolAllConst = "all"
+	NetworkACLRuleItemNetworkACLRuleProtocolTcpudpProtocolAllConst  = "all"
 	NetworkACLRuleItemNetworkACLRuleProtocolTcpudpProtocolIcmpConst = "icmp"
-	NetworkACLRuleItemNetworkACLRuleProtocolTcpudpProtocolTCPConst = "tcp"
-	NetworkACLRuleItemNetworkACLRuleProtocolTcpudpProtocolUDPConst = "udp"
+	NetworkACLRuleItemNetworkACLRuleProtocolTcpudpProtocolTCPConst  = "tcp"
+	NetworkACLRuleItemNetworkACLRuleProtocolTcpudpProtocolUDPConst  = "udp"
 )
-
 
 func (*NetworkACLRuleItemNetworkACLRuleProtocolTcpudp) isaNetworkACLRuleItem() bool {
 	return true
@@ -47628,7 +47265,6 @@ type NetworkACLRulePatchBeforeNetworkACLRuleIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewNetworkACLRulePatchBeforeNetworkACLRuleIdentityByHref : Instantiate NetworkACLRulePatchBeforeNetworkACLRuleIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLRulePatchBeforeNetworkACLRuleIdentityByHref(href string) (model *NetworkACLRulePatchBeforeNetworkACLRuleIdentityByHref, err error) {
 	model = &NetworkACLRulePatchBeforeNetworkACLRuleIdentityByHref{
@@ -47659,7 +47295,6 @@ type NetworkACLRulePatchBeforeNetworkACLRuleIdentityByID struct {
 	// The unique identifier for this Network ACL rule.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewNetworkACLRulePatchBeforeNetworkACLRuleIdentityByID : Instantiate NetworkACLRulePatchBeforeNetworkACLRuleIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLRulePatchBeforeNetworkACLRuleIdentityByID(id string) (model *NetworkACLRulePatchBeforeNetworkACLRuleIdentityByID, err error) {
@@ -47727,13 +47362,13 @@ type NetworkACLRuleProtocolAll struct {
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRuleProtocolAllActionAllowConst = "allow"
-	NetworkACLRuleProtocolAllActionDenyConst = "deny"
+	NetworkACLRuleProtocolAllActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRuleProtocolAll.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRuleProtocolAllDirectionInboundConst = "inbound"
+	NetworkACLRuleProtocolAllDirectionInboundConst  = "inbound"
 	NetworkACLRuleProtocolAllDirectionOutboundConst = "outbound"
 )
 
@@ -47747,12 +47382,11 @@ const (
 // Constants associated with the NetworkACLRuleProtocolAll.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRuleProtocolAllProtocolAllConst = "all"
+	NetworkACLRuleProtocolAllProtocolAllConst  = "all"
 	NetworkACLRuleProtocolAllProtocolIcmpConst = "icmp"
-	NetworkACLRuleProtocolAllProtocolTCPConst = "tcp"
-	NetworkACLRuleProtocolAllProtocolUDPConst = "udp"
+	NetworkACLRuleProtocolAllProtocolTCPConst  = "tcp"
+	NetworkACLRuleProtocolAllProtocolUDPConst  = "udp"
 )
-
 
 func (*NetworkACLRuleProtocolAll) isaNetworkACLRule() bool {
 	return true
@@ -47858,13 +47492,13 @@ type NetworkACLRuleProtocolIcmp struct {
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRuleProtocolIcmpActionAllowConst = "allow"
-	NetworkACLRuleProtocolIcmpActionDenyConst = "deny"
+	NetworkACLRuleProtocolIcmpActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRuleProtocolIcmp.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRuleProtocolIcmpDirectionInboundConst = "inbound"
+	NetworkACLRuleProtocolIcmpDirectionInboundConst  = "inbound"
 	NetworkACLRuleProtocolIcmpDirectionOutboundConst = "outbound"
 )
 
@@ -47878,12 +47512,11 @@ const (
 // Constants associated with the NetworkACLRuleProtocolIcmp.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRuleProtocolIcmpProtocolAllConst = "all"
+	NetworkACLRuleProtocolIcmpProtocolAllConst  = "all"
 	NetworkACLRuleProtocolIcmpProtocolIcmpConst = "icmp"
-	NetworkACLRuleProtocolIcmpProtocolTCPConst = "tcp"
-	NetworkACLRuleProtocolIcmpProtocolUDPConst = "udp"
+	NetworkACLRuleProtocolIcmpProtocolTCPConst  = "tcp"
+	NetworkACLRuleProtocolIcmpProtocolUDPConst  = "udp"
 )
-
 
 func (*NetworkACLRuleProtocolIcmp) isaNetworkACLRule() bool {
 	return true
@@ -48002,13 +47635,13 @@ type NetworkACLRuleProtocolTcpudp struct {
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRuleProtocolTcpudpActionAllowConst = "allow"
-	NetworkACLRuleProtocolTcpudpActionDenyConst = "deny"
+	NetworkACLRuleProtocolTcpudpActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRuleProtocolTcpudp.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRuleProtocolTcpudpDirectionInboundConst = "inbound"
+	NetworkACLRuleProtocolTcpudpDirectionInboundConst  = "inbound"
 	NetworkACLRuleProtocolTcpudpDirectionOutboundConst = "outbound"
 )
 
@@ -48022,12 +47655,11 @@ const (
 // Constants associated with the NetworkACLRuleProtocolTcpudp.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRuleProtocolTcpudpProtocolAllConst = "all"
+	NetworkACLRuleProtocolTcpudpProtocolAllConst  = "all"
 	NetworkACLRuleProtocolTcpudpProtocolIcmpConst = "icmp"
-	NetworkACLRuleProtocolTcpudpProtocolTCPConst = "tcp"
-	NetworkACLRuleProtocolTcpudpProtocolUDPConst = "udp"
+	NetworkACLRuleProtocolTcpudpProtocolTCPConst  = "tcp"
+	NetworkACLRuleProtocolTcpudpProtocolUDPConst  = "udp"
 )
-
 
 func (*NetworkACLRuleProtocolTcpudp) isaNetworkACLRule() bool {
 	return true
@@ -48107,7 +47739,6 @@ type NetworkACLRulePrototypeBeforeNetworkACLRuleIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewNetworkACLRulePrototypeBeforeNetworkACLRuleIdentityByHref : Instantiate NetworkACLRulePrototypeBeforeNetworkACLRuleIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLRulePrototypeBeforeNetworkACLRuleIdentityByHref(href string) (model *NetworkACLRulePrototypeBeforeNetworkACLRuleIdentityByHref, err error) {
 	model = &NetworkACLRulePrototypeBeforeNetworkACLRuleIdentityByHref{
@@ -48138,7 +47769,6 @@ type NetworkACLRulePrototypeBeforeNetworkACLRuleIdentityByID struct {
 	// The unique identifier for this Network ACL rule.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewNetworkACLRulePrototypeBeforeNetworkACLRuleIdentityByID : Instantiate NetworkACLRulePrototypeBeforeNetworkACLRuleIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLRulePrototypeBeforeNetworkACLRuleIdentityByID(id string) (model *NetworkACLRulePrototypeBeforeNetworkACLRuleIdentityByID, err error) {
@@ -48206,13 +47836,13 @@ type NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAll struct {
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAllActionAllowConst = "allow"
-	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAllActionDenyConst = "deny"
+	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAllActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAll.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAllDirectionInboundConst = "inbound"
+	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAllDirectionInboundConst  = "inbound"
 	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAllDirectionOutboundConst = "outbound"
 )
 
@@ -48226,26 +47856,25 @@ const (
 // Constants associated with the NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAll.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAllProtocolAllConst = "all"
+	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAllProtocolAllConst  = "all"
 	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAllProtocolIcmpConst = "icmp"
-	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAllProtocolTCPConst = "tcp"
-	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAllProtocolUDPConst = "udp"
+	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAllProtocolTCPConst  = "tcp"
+	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAllProtocolUDPConst  = "udp"
 )
-
 
 // NewNetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAll : Instantiate NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAll (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAll(action string, createdAt *strfmt.DateTime, destination string, direction string, href string, id string, ipVersion string, name string, protocol string, source string) (model *NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAll, err error) {
 	model = &NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolAll{
-		Action: core.StringPtr(action),
-		CreatedAt: createdAt,
+		Action:      core.StringPtr(action),
+		CreatedAt:   createdAt,
 		Destination: core.StringPtr(destination),
-		Direction: core.StringPtr(direction),
-		Href: core.StringPtr(href),
-		ID: core.StringPtr(id),
-		IPVersion: core.StringPtr(ipVersion),
-		Name: core.StringPtr(name),
-		Protocol: core.StringPtr(protocol),
-		Source: core.StringPtr(source),
+		Direction:   core.StringPtr(direction),
+		Href:        core.StringPtr(href),
+		ID:          core.StringPtr(id),
+		IPVersion:   core.StringPtr(ipVersion),
+		Name:        core.StringPtr(name),
+		Protocol:    core.StringPtr(protocol),
+		Source:      core.StringPtr(source),
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -48355,13 +47984,13 @@ type NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmp struct {
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmpActionAllowConst = "allow"
-	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmpActionDenyConst = "deny"
+	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmpActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmp.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmpDirectionInboundConst = "inbound"
+	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmpDirectionInboundConst  = "inbound"
 	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmpDirectionOutboundConst = "outbound"
 )
 
@@ -48375,26 +48004,25 @@ const (
 // Constants associated with the NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmp.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmpProtocolAllConst = "all"
+	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmpProtocolAllConst  = "all"
 	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmpProtocolIcmpConst = "icmp"
-	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmpProtocolTCPConst = "tcp"
-	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmpProtocolUDPConst = "udp"
+	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmpProtocolTCPConst  = "tcp"
+	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmpProtocolUDPConst  = "udp"
 )
-
 
 // NewNetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmp : Instantiate NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmp (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmp(action string, createdAt *strfmt.DateTime, destination string, direction string, href string, id string, ipVersion string, name string, protocol string, source string) (model *NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmp, err error) {
 	model = &NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolIcmp{
-		Action: core.StringPtr(action),
-		CreatedAt: createdAt,
+		Action:      core.StringPtr(action),
+		CreatedAt:   createdAt,
 		Destination: core.StringPtr(destination),
-		Direction: core.StringPtr(direction),
-		Href: core.StringPtr(href),
-		ID: core.StringPtr(id),
-		IPVersion: core.StringPtr(ipVersion),
-		Name: core.StringPtr(name),
-		Protocol: core.StringPtr(protocol),
-		Source: core.StringPtr(source),
+		Direction:   core.StringPtr(direction),
+		Href:        core.StringPtr(href),
+		ID:          core.StringPtr(id),
+		IPVersion:   core.StringPtr(ipVersion),
+		Name:        core.StringPtr(name),
+		Protocol:    core.StringPtr(protocol),
+		Source:      core.StringPtr(source),
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -48517,13 +48145,13 @@ type NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudp struct
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudpActionAllowConst = "allow"
-	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudpActionDenyConst = "deny"
+	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudpActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudp.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudpDirectionInboundConst = "inbound"
+	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudpDirectionInboundConst  = "inbound"
 	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudpDirectionOutboundConst = "outbound"
 )
 
@@ -48537,26 +48165,25 @@ const (
 // Constants associated with the NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudp.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudpProtocolAllConst = "all"
+	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudpProtocolAllConst  = "all"
 	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudpProtocolIcmpConst = "icmp"
-	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudpProtocolTCPConst = "tcp"
-	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudpProtocolUDPConst = "udp"
+	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudpProtocolTCPConst  = "tcp"
+	NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudpProtocolUDPConst  = "udp"
 )
-
 
 // NewNetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudp : Instantiate NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudp (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudp(action string, createdAt *strfmt.DateTime, destination string, direction string, href string, id string, ipVersion string, name string, protocol string, source string) (model *NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudp, err error) {
 	model = &NetworkACLRulePrototypeNetworkACLContextNetworkACLRuleProtocolTcpudp{
-		Action: core.StringPtr(action),
-		CreatedAt: createdAt,
+		Action:      core.StringPtr(action),
+		CreatedAt:   createdAt,
 		Destination: core.StringPtr(destination),
-		Direction: core.StringPtr(direction),
-		Href: core.StringPtr(href),
-		ID: core.StringPtr(id),
-		IPVersion: core.StringPtr(ipVersion),
-		Name: core.StringPtr(name),
-		Protocol: core.StringPtr(protocol),
-		Source: core.StringPtr(source),
+		Direction:   core.StringPtr(direction),
+		Href:        core.StringPtr(href),
+		ID:          core.StringPtr(id),
+		IPVersion:   core.StringPtr(ipVersion),
+		Name:        core.StringPtr(name),
+		Protocol:    core.StringPtr(protocol),
+		Source:      core.StringPtr(source),
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -48675,13 +48302,13 @@ type NetworkACLRulePrototypeNetworkACLRuleProtocolAll struct {
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRulePrototypeNetworkACLRuleProtocolAllActionAllowConst = "allow"
-	NetworkACLRulePrototypeNetworkACLRuleProtocolAllActionDenyConst = "deny"
+	NetworkACLRulePrototypeNetworkACLRuleProtocolAllActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRulePrototypeNetworkACLRuleProtocolAll.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRulePrototypeNetworkACLRuleProtocolAllDirectionInboundConst = "inbound"
+	NetworkACLRulePrototypeNetworkACLRuleProtocolAllDirectionInboundConst  = "inbound"
 	NetworkACLRulePrototypeNetworkACLRuleProtocolAllDirectionOutboundConst = "outbound"
 )
 
@@ -48695,26 +48322,25 @@ const (
 // Constants associated with the NetworkACLRulePrototypeNetworkACLRuleProtocolAll.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRulePrototypeNetworkACLRuleProtocolAllProtocolAllConst = "all"
+	NetworkACLRulePrototypeNetworkACLRuleProtocolAllProtocolAllConst  = "all"
 	NetworkACLRulePrototypeNetworkACLRuleProtocolAllProtocolIcmpConst = "icmp"
-	NetworkACLRulePrototypeNetworkACLRuleProtocolAllProtocolTCPConst = "tcp"
-	NetworkACLRulePrototypeNetworkACLRuleProtocolAllProtocolUDPConst = "udp"
+	NetworkACLRulePrototypeNetworkACLRuleProtocolAllProtocolTCPConst  = "tcp"
+	NetworkACLRulePrototypeNetworkACLRuleProtocolAllProtocolUDPConst  = "udp"
 )
-
 
 // NewNetworkACLRulePrototypeNetworkACLRuleProtocolAll : Instantiate NetworkACLRulePrototypeNetworkACLRuleProtocolAll (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLRulePrototypeNetworkACLRuleProtocolAll(action string, createdAt *strfmt.DateTime, destination string, direction string, href string, id string, ipVersion string, name string, protocol string, source string) (model *NetworkACLRulePrototypeNetworkACLRuleProtocolAll, err error) {
 	model = &NetworkACLRulePrototypeNetworkACLRuleProtocolAll{
-		Action: core.StringPtr(action),
-		CreatedAt: createdAt,
+		Action:      core.StringPtr(action),
+		CreatedAt:   createdAt,
 		Destination: core.StringPtr(destination),
-		Direction: core.StringPtr(direction),
-		Href: core.StringPtr(href),
-		ID: core.StringPtr(id),
-		IPVersion: core.StringPtr(ipVersion),
-		Name: core.StringPtr(name),
-		Protocol: core.StringPtr(protocol),
-		Source: core.StringPtr(source),
+		Direction:   core.StringPtr(direction),
+		Href:        core.StringPtr(href),
+		ID:          core.StringPtr(id),
+		IPVersion:   core.StringPtr(ipVersion),
+		Name:        core.StringPtr(name),
+		Protocol:    core.StringPtr(protocol),
+		Source:      core.StringPtr(source),
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -48824,13 +48450,13 @@ type NetworkACLRulePrototypeNetworkACLRuleProtocolIcmp struct {
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRulePrototypeNetworkACLRuleProtocolIcmpActionAllowConst = "allow"
-	NetworkACLRulePrototypeNetworkACLRuleProtocolIcmpActionDenyConst = "deny"
+	NetworkACLRulePrototypeNetworkACLRuleProtocolIcmpActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRulePrototypeNetworkACLRuleProtocolIcmp.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRulePrototypeNetworkACLRuleProtocolIcmpDirectionInboundConst = "inbound"
+	NetworkACLRulePrototypeNetworkACLRuleProtocolIcmpDirectionInboundConst  = "inbound"
 	NetworkACLRulePrototypeNetworkACLRuleProtocolIcmpDirectionOutboundConst = "outbound"
 )
 
@@ -48844,26 +48470,25 @@ const (
 // Constants associated with the NetworkACLRulePrototypeNetworkACLRuleProtocolIcmp.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRulePrototypeNetworkACLRuleProtocolIcmpProtocolAllConst = "all"
+	NetworkACLRulePrototypeNetworkACLRuleProtocolIcmpProtocolAllConst  = "all"
 	NetworkACLRulePrototypeNetworkACLRuleProtocolIcmpProtocolIcmpConst = "icmp"
-	NetworkACLRulePrototypeNetworkACLRuleProtocolIcmpProtocolTCPConst = "tcp"
-	NetworkACLRulePrototypeNetworkACLRuleProtocolIcmpProtocolUDPConst = "udp"
+	NetworkACLRulePrototypeNetworkACLRuleProtocolIcmpProtocolTCPConst  = "tcp"
+	NetworkACLRulePrototypeNetworkACLRuleProtocolIcmpProtocolUDPConst  = "udp"
 )
-
 
 // NewNetworkACLRulePrototypeNetworkACLRuleProtocolIcmp : Instantiate NetworkACLRulePrototypeNetworkACLRuleProtocolIcmp (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLRulePrototypeNetworkACLRuleProtocolIcmp(action string, createdAt *strfmt.DateTime, destination string, direction string, href string, id string, ipVersion string, name string, protocol string, source string) (model *NetworkACLRulePrototypeNetworkACLRuleProtocolIcmp, err error) {
 	model = &NetworkACLRulePrototypeNetworkACLRuleProtocolIcmp{
-		Action: core.StringPtr(action),
-		CreatedAt: createdAt,
+		Action:      core.StringPtr(action),
+		CreatedAt:   createdAt,
 		Destination: core.StringPtr(destination),
-		Direction: core.StringPtr(direction),
-		Href: core.StringPtr(href),
-		ID: core.StringPtr(id),
-		IPVersion: core.StringPtr(ipVersion),
-		Name: core.StringPtr(name),
-		Protocol: core.StringPtr(protocol),
-		Source: core.StringPtr(source),
+		Direction:   core.StringPtr(direction),
+		Href:        core.StringPtr(href),
+		ID:          core.StringPtr(id),
+		IPVersion:   core.StringPtr(ipVersion),
+		Name:        core.StringPtr(name),
+		Protocol:    core.StringPtr(protocol),
+		Source:      core.StringPtr(source),
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -48986,13 +48611,13 @@ type NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudp struct {
 // Whether to allow or deny matching traffic.
 const (
 	NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudpActionAllowConst = "allow"
-	NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudpActionDenyConst = "deny"
+	NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudpActionDenyConst  = "deny"
 )
 
 // Constants associated with the NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudp.Direction property.
 // Whether the traffic to be matched is `inbound` or `outbound`.
 const (
-	NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudpDirectionInboundConst = "inbound"
+	NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudpDirectionInboundConst  = "inbound"
 	NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudpDirectionOutboundConst = "outbound"
 )
 
@@ -49006,26 +48631,25 @@ const (
 // Constants associated with the NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudp.Protocol property.
 // The protocol to enforce.
 const (
-	NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudpProtocolAllConst = "all"
+	NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudpProtocolAllConst  = "all"
 	NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudpProtocolIcmpConst = "icmp"
-	NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudpProtocolTCPConst = "tcp"
-	NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudpProtocolUDPConst = "udp"
+	NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudpProtocolTCPConst  = "tcp"
+	NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudpProtocolUDPConst  = "udp"
 )
-
 
 // NewNetworkACLRulePrototypeNetworkACLRuleProtocolTcpudp : Instantiate NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudp (Generic Model Constructor)
 func (*VpcV1) NewNetworkACLRulePrototypeNetworkACLRuleProtocolTcpudp(action string, createdAt *strfmt.DateTime, destination string, direction string, href string, id string, ipVersion string, name string, protocol string, source string) (model *NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudp, err error) {
 	model = &NetworkACLRulePrototypeNetworkACLRuleProtocolTcpudp{
-		Action: core.StringPtr(action),
-		CreatedAt: createdAt,
+		Action:      core.StringPtr(action),
+		CreatedAt:   createdAt,
 		Destination: core.StringPtr(destination),
-		Direction: core.StringPtr(direction),
-		Href: core.StringPtr(href),
-		ID: core.StringPtr(id),
-		IPVersion: core.StringPtr(ipVersion),
-		Name: core.StringPtr(name),
-		Protocol: core.StringPtr(protocol),
-		Source: core.StringPtr(source),
+		Direction:   core.StringPtr(direction),
+		Href:        core.StringPtr(href),
+		ID:          core.StringPtr(id),
+		IPVersion:   core.StringPtr(ipVersion),
+		Name:        core.StringPtr(name),
+		Protocol:    core.StringPtr(protocol),
+		Source:      core.StringPtr(source),
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -49109,7 +48733,6 @@ type OperatingSystemIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewOperatingSystemIdentityByHref : Instantiate OperatingSystemIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewOperatingSystemIdentityByHref(href string) (model *OperatingSystemIdentityByHref, err error) {
 	model = &OperatingSystemIdentityByHref{
@@ -49140,7 +48763,6 @@ type OperatingSystemIdentityByName struct {
 	// The unique name of the operating system.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // NewOperatingSystemIdentityByName : Instantiate OperatingSystemIdentityByName (Generic Model Constructor)
 func (*VpcV1) NewOperatingSystemIdentityByName(name string) (model *OperatingSystemIdentityByName, err error) {
@@ -49173,7 +48795,6 @@ type PublicGatewayIdentityByCRN struct {
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewPublicGatewayIdentityByCRN : Instantiate PublicGatewayIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewPublicGatewayIdentityByCRN(crn string) (model *PublicGatewayIdentityByCRN, err error) {
 	model = &PublicGatewayIdentityByCRN{
@@ -49205,7 +48826,6 @@ type PublicGatewayIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewPublicGatewayIdentityByHref : Instantiate PublicGatewayIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewPublicGatewayIdentityByHref(href string) (model *PublicGatewayIdentityByHref, err error) {
 	model = &PublicGatewayIdentityByHref{
@@ -49236,7 +48856,6 @@ type PublicGatewayIdentityByID struct {
 	// The unique identifier for this public gateway.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewPublicGatewayIdentityByID : Instantiate PublicGatewayIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewPublicGatewayIdentityByID(id string) (model *PublicGatewayIdentityByID, err error) {
@@ -49331,7 +48950,6 @@ type PublicGatewayPrototypeFloatingIPFloatingIPPrototypeTargetContext struct {
 	ResourceGroup ResourceGroupIdentityIntf `json:"resource_group,omitempty"`
 }
 
-
 func (*PublicGatewayPrototypeFloatingIPFloatingIPPrototypeTargetContext) isaPublicGatewayPrototypeFloatingIP() bool {
 	return true
 }
@@ -49425,7 +49043,6 @@ const (
 	ReservedIPTargetEndpointGatewayReferenceResourceTypeEndpointGatewayConst = "endpoint_gateway"
 )
 
-
 func (*ReservedIPTargetEndpointGatewayReference) isaReservedIPTarget() bool {
 	return true
 }
@@ -49464,7 +49081,6 @@ type ResourceGroupIdentityByID struct {
 	ID *string `json:"id" validate:"required"`
 }
 
-
 // NewResourceGroupIdentityByID : Instantiate ResourceGroupIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewResourceGroupIdentityByID(id string) (model *ResourceGroupIdentityByID, err error) {
 	model = &ResourceGroupIdentityByID{
@@ -49497,7 +49113,6 @@ type RouteNextHopIP struct {
 	// and surface the error, or bypass the resource on which the unexpected IP address format was encountered.
 	Address *string `json:"address" validate:"required"`
 }
-
 
 func (*RouteNextHopIP) isaRouteNextHop() bool {
 	return true
@@ -49564,7 +49179,6 @@ type RouteNextHopPrototypeRouteNextHopIP struct {
 	Address *string `json:"address" validate:"required"`
 }
 
-
 // NewRouteNextHopPrototypeRouteNextHopIP : Instantiate RouteNextHopPrototypeRouteNextHopIP (Generic Model Constructor)
 func (*VpcV1) NewRouteNextHopPrototypeRouteNextHopIP(address string) (model *RouteNextHopPrototypeRouteNextHopIP, err error) {
 	model = &RouteNextHopPrototypeRouteNextHopIP{
@@ -49602,7 +49216,6 @@ type RouteNextHopVPNGatewayConnectionReference struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 func (*RouteNextHopVPNGatewayConnectionReference) isaRouteNextHop() bool {
 	return true
 }
@@ -49632,7 +49245,6 @@ type RoutingTableIdentityByHref struct {
 	// The URL for this routing table.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // NewRoutingTableIdentityByHref : Instantiate RoutingTableIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewRoutingTableIdentityByHref(href string) (model *RoutingTableIdentityByHref, err error) {
@@ -49665,7 +49277,6 @@ type RoutingTableIdentityByID struct {
 	ID *string `json:"id" validate:"required"`
 }
 
-
 // NewRoutingTableIdentityByID : Instantiate RoutingTableIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewRoutingTableIdentityByID(id string) (model *RoutingTableIdentityByID, err error) {
 	model = &RoutingTableIdentityByID{
@@ -49696,7 +49307,6 @@ type SecurityGroupIdentityByCRN struct {
 	// The security group's CRN.
 	CRN *string `json:"crn" validate:"required"`
 }
-
 
 // NewSecurityGroupIdentityByCRN : Instantiate SecurityGroupIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupIdentityByCRN(crn string) (model *SecurityGroupIdentityByCRN, err error) {
@@ -49729,7 +49339,6 @@ type SecurityGroupIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewSecurityGroupIdentityByHref : Instantiate SecurityGroupIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupIdentityByHref(href string) (model *SecurityGroupIdentityByHref, err error) {
 	model = &SecurityGroupIdentityByHref{
@@ -49760,7 +49369,6 @@ type SecurityGroupIdentityByID struct {
 	// The unique identifier for this security group.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewSecurityGroupIdentityByID : Instantiate SecurityGroupIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupIdentityByID(id string) (model *SecurityGroupIdentityByID, err error) {
@@ -49795,7 +49403,6 @@ type SecurityGroupRulePatchRemoteCIDR struct {
 	CIDRBlock *string `json:"cidr_block" validate:"required"`
 }
 
-
 // NewSecurityGroupRulePatchRemoteCIDR : Instantiate SecurityGroupRulePatchRemoteCIDR (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePatchRemoteCIDR(cidrBlock string) (model *SecurityGroupRulePatchRemoteCIDR, err error) {
 	model = &SecurityGroupRulePatchRemoteCIDR{
@@ -49828,7 +49435,6 @@ type SecurityGroupRulePatchRemoteIP struct {
 	// and surface the error, or bypass the resource on which the unexpected IP address format was encountered.
 	Address *string `json:"address" validate:"required"`
 }
-
 
 // NewSecurityGroupRulePatchRemoteIP : Instantiate SecurityGroupRulePatchRemoteIP (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePatchRemoteIP(address string) (model *SecurityGroupRulePatchRemoteIP, err error) {
@@ -49934,7 +49540,7 @@ type SecurityGroupRuleProtocolAll struct {
 // Constants associated with the SecurityGroupRuleProtocolAll.Direction property.
 // The direction of traffic to enforce, either `inbound` or `outbound`.
 const (
-	SecurityGroupRuleProtocolAllDirectionInboundConst = "inbound"
+	SecurityGroupRuleProtocolAllDirectionInboundConst  = "inbound"
 	SecurityGroupRuleProtocolAllDirectionOutboundConst = "outbound"
 )
 
@@ -49949,12 +49555,11 @@ const (
 // Constants associated with the SecurityGroupRuleProtocolAll.Protocol property.
 // The protocol to enforce.
 const (
-	SecurityGroupRuleProtocolAllProtocolAllConst = "all"
+	SecurityGroupRuleProtocolAllProtocolAllConst  = "all"
 	SecurityGroupRuleProtocolAllProtocolIcmpConst = "icmp"
-	SecurityGroupRuleProtocolAllProtocolTCPConst = "tcp"
-	SecurityGroupRuleProtocolAllProtocolUDPConst = "udp"
+	SecurityGroupRuleProtocolAllProtocolTCPConst  = "tcp"
+	SecurityGroupRuleProtocolAllProtocolUDPConst  = "udp"
 )
-
 
 func (*SecurityGroupRuleProtocolAll) isaSecurityGroupRule() bool {
 	return true
@@ -50000,7 +49605,6 @@ type SecurityGroupRuleProtocolAllRemoteCIDR struct {
 	CIDRBlock *string `json:"cidr_block" validate:"required"`
 }
 
-
 func (*SecurityGroupRuleProtocolAllRemoteCIDR) isaSecurityGroupRuleProtocolAllRemote() bool {
 	return true
 }
@@ -50024,7 +49628,6 @@ type SecurityGroupRuleProtocolAllRemoteIP struct {
 	// and surface the error, or bypass the resource on which the unexpected IP address format was encountered.
 	Address *string `json:"address" validate:"required"`
 }
-
 
 func (*SecurityGroupRuleProtocolAllRemoteIP) isaSecurityGroupRuleProtocolAllRemote() bool {
 	return true
@@ -50056,7 +49659,6 @@ type SecurityGroupRuleProtocolAllRemoteSecurityGroupReference struct {
 	// The user-defined name for this security group. Names must be unique within the VPC the security group resides in.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 func (*SecurityGroupRuleProtocolAllRemoteSecurityGroupReference) isaSecurityGroupRuleProtocolAllRemote() bool {
 	return true
@@ -50124,7 +49726,7 @@ type SecurityGroupRuleProtocolIcmp struct {
 // Constants associated with the SecurityGroupRuleProtocolIcmp.Direction property.
 // The direction of traffic to enforce, either `inbound` or `outbound`.
 const (
-	SecurityGroupRuleProtocolIcmpDirectionInboundConst = "inbound"
+	SecurityGroupRuleProtocolIcmpDirectionInboundConst  = "inbound"
 	SecurityGroupRuleProtocolIcmpDirectionOutboundConst = "outbound"
 )
 
@@ -50139,12 +49741,11 @@ const (
 // Constants associated with the SecurityGroupRuleProtocolIcmp.Protocol property.
 // The protocol to enforce.
 const (
-	SecurityGroupRuleProtocolIcmpProtocolAllConst = "all"
+	SecurityGroupRuleProtocolIcmpProtocolAllConst  = "all"
 	SecurityGroupRuleProtocolIcmpProtocolIcmpConst = "icmp"
-	SecurityGroupRuleProtocolIcmpProtocolTCPConst = "tcp"
-	SecurityGroupRuleProtocolIcmpProtocolUDPConst = "udp"
+	SecurityGroupRuleProtocolIcmpProtocolTCPConst  = "tcp"
+	SecurityGroupRuleProtocolIcmpProtocolUDPConst  = "udp"
 )
-
 
 func (*SecurityGroupRuleProtocolIcmp) isaSecurityGroupRule() bool {
 	return true
@@ -50198,7 +49799,6 @@ type SecurityGroupRuleProtocolIcmpRemoteCIDR struct {
 	CIDRBlock *string `json:"cidr_block" validate:"required"`
 }
 
-
 func (*SecurityGroupRuleProtocolIcmpRemoteCIDR) isaSecurityGroupRuleProtocolIcmpRemote() bool {
 	return true
 }
@@ -50222,7 +49822,6 @@ type SecurityGroupRuleProtocolIcmpRemoteIP struct {
 	// and surface the error, or bypass the resource on which the unexpected IP address format was encountered.
 	Address *string `json:"address" validate:"required"`
 }
-
 
 func (*SecurityGroupRuleProtocolIcmpRemoteIP) isaSecurityGroupRuleProtocolIcmpRemote() bool {
 	return true
@@ -50254,7 +49853,6 @@ type SecurityGroupRuleProtocolIcmpRemoteSecurityGroupReference struct {
 	// The user-defined name for this security group. Names must be unique within the VPC the security group resides in.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 func (*SecurityGroupRuleProtocolIcmpRemoteSecurityGroupReference) isaSecurityGroupRuleProtocolIcmpRemote() bool {
 	return true
@@ -50320,7 +49918,7 @@ type SecurityGroupRuleProtocolTcpudp struct {
 // Constants associated with the SecurityGroupRuleProtocolTcpudp.Direction property.
 // The direction of traffic to enforce, either `inbound` or `outbound`.
 const (
-	SecurityGroupRuleProtocolTcpudpDirectionInboundConst = "inbound"
+	SecurityGroupRuleProtocolTcpudpDirectionInboundConst  = "inbound"
 	SecurityGroupRuleProtocolTcpudpDirectionOutboundConst = "outbound"
 )
 
@@ -50335,12 +49933,11 @@ const (
 // Constants associated with the SecurityGroupRuleProtocolTcpudp.Protocol property.
 // The protocol to enforce.
 const (
-	SecurityGroupRuleProtocolTcpudpProtocolAllConst = "all"
+	SecurityGroupRuleProtocolTcpudpProtocolAllConst  = "all"
 	SecurityGroupRuleProtocolTcpudpProtocolIcmpConst = "icmp"
-	SecurityGroupRuleProtocolTcpudpProtocolTCPConst = "tcp"
-	SecurityGroupRuleProtocolTcpudpProtocolUDPConst = "udp"
+	SecurityGroupRuleProtocolTcpudpProtocolTCPConst  = "tcp"
+	SecurityGroupRuleProtocolTcpudpProtocolUDPConst  = "udp"
 )
-
 
 func (*SecurityGroupRuleProtocolTcpudp) isaSecurityGroupRule() bool {
 	return true
@@ -50394,7 +49991,6 @@ type SecurityGroupRulePrototypeRemoteCIDR struct {
 	CIDRBlock *string `json:"cidr_block" validate:"required"`
 }
 
-
 // NewSecurityGroupRulePrototypeRemoteCIDR : Instantiate SecurityGroupRulePrototypeRemoteCIDR (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeRemoteCIDR(cidrBlock string) (model *SecurityGroupRulePrototypeRemoteCIDR, err error) {
 	model = &SecurityGroupRulePrototypeRemoteCIDR{
@@ -50427,7 +50023,6 @@ type SecurityGroupRulePrototypeRemoteIP struct {
 	// and surface the error, or bypass the resource on which the unexpected IP address format was encountered.
 	Address *string `json:"address" validate:"required"`
 }
-
 
 // NewSecurityGroupRulePrototypeRemoteIP : Instantiate SecurityGroupRulePrototypeRemoteIP (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeRemoteIP(address string) (model *SecurityGroupRulePrototypeRemoteIP, err error) {
@@ -50511,7 +50106,6 @@ type SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteCIDR struct {
 	CIDRBlock *string `json:"cidr_block" validate:"required"`
 }
 
-
 // NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteCIDR : Instantiate SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteCIDR (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteCIDR(cidrBlock string) (model *SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteCIDR, err error) {
 	model = &SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteCIDR{
@@ -50544,7 +50138,6 @@ type SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteIP struct {
 	// and surface the error, or bypass the resource on which the unexpected IP address format was encountered.
 	Address *string `json:"address" validate:"required"`
 }
-
 
 // NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteIP : Instantiate SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteIP (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteIP(address string) (model *SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteIP, err error) {
@@ -50586,13 +50179,12 @@ type SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteSecurityGroupRe
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteSecurityGroupReference : Instantiate SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteSecurityGroupReference (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteSecurityGroupReference(crn string, href string, id string, name string) (model *SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteSecurityGroupReference, err error) {
 	model = &SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteSecurityGroupReference{
-		CRN: core.StringPtr(crn),
+		CRN:  core.StringPtr(crn),
 		Href: core.StringPtr(href),
-		ID: core.StringPtr(id),
+		ID:   core.StringPtr(id),
 		Name: core.StringPtr(name),
 	}
 	err = core.ValidateStruct(model, "required parameters")
@@ -50635,7 +50227,6 @@ type SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteCIDR struct {
 	CIDRBlock *string `json:"cidr_block" validate:"required"`
 }
 
-
 // NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteCIDR : Instantiate SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteCIDR (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteCIDR(cidrBlock string) (model *SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteCIDR, err error) {
 	model = &SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteCIDR{
@@ -50668,7 +50259,6 @@ type SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteIP struct {
 	// and surface the error, or bypass the resource on which the unexpected IP address format was encountered.
 	Address *string `json:"address" validate:"required"`
 }
-
 
 // NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteIP : Instantiate SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteIP (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteIP(address string) (model *SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteIP, err error) {
@@ -50710,13 +50300,12 @@ type SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteSecurityGroupR
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteSecurityGroupReference : Instantiate SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteSecurityGroupReference (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteSecurityGroupReference(crn string, href string, id string, name string) (model *SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteSecurityGroupReference, err error) {
 	model = &SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteSecurityGroupReference{
-		CRN: core.StringPtr(crn),
+		CRN:  core.StringPtr(crn),
 		Href: core.StringPtr(href),
-		ID: core.StringPtr(id),
+		ID:   core.StringPtr(id),
 		Name: core.StringPtr(name),
 	}
 	err = core.ValidateStruct(model, "required parameters")
@@ -50759,7 +50348,6 @@ type SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteCIDR struct 
 	CIDRBlock *string `json:"cidr_block" validate:"required"`
 }
 
-
 // NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteCIDR : Instantiate SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteCIDR (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteCIDR(cidrBlock string) (model *SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteCIDR, err error) {
 	model = &SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteCIDR{
@@ -50792,7 +50380,6 @@ type SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteIP struct {
 	// and surface the error, or bypass the resource on which the unexpected IP address format was encountered.
 	Address *string `json:"address" validate:"required"`
 }
-
 
 // NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteIP : Instantiate SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteIP (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteIP(address string) (model *SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteIP, err error) {
@@ -50834,13 +50421,12 @@ type SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteSecurityGrou
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteSecurityGroupReference : Instantiate SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteSecurityGroupReference (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteSecurityGroupReference(crn string, href string, id string, name string) (model *SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteSecurityGroupReference, err error) {
 	model = &SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteSecurityGroupReference{
-		CRN: core.StringPtr(crn),
+		CRN:  core.StringPtr(crn),
 		Href: core.StringPtr(href),
-		ID: core.StringPtr(id),
+		ID:   core.StringPtr(id),
 		Name: core.StringPtr(name),
 	}
 	err = core.ValidateStruct(model, "required parameters")
@@ -50905,7 +50491,7 @@ type SecurityGroupRulePrototypeSecurityGroupRuleProtocolAll struct {
 // Constants associated with the SecurityGroupRulePrototypeSecurityGroupRuleProtocolAll.Direction property.
 // The direction of traffic to enforce, either `inbound` or `outbound`.
 const (
-	SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllDirectionInboundConst = "inbound"
+	SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllDirectionInboundConst  = "inbound"
 	SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllDirectionOutboundConst = "outbound"
 )
 
@@ -50920,20 +50506,19 @@ const (
 // Constants associated with the SecurityGroupRulePrototypeSecurityGroupRuleProtocolAll.Protocol property.
 // The protocol to enforce.
 const (
-	SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllProtocolAllConst = "all"
+	SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllProtocolAllConst  = "all"
 	SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllProtocolIcmpConst = "icmp"
-	SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllProtocolTCPConst = "tcp"
-	SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllProtocolUDPConst = "udp"
+	SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllProtocolTCPConst  = "tcp"
+	SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllProtocolUDPConst  = "udp"
 )
-
 
 // NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolAll : Instantiate SecurityGroupRulePrototypeSecurityGroupRuleProtocolAll (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolAll(direction string, href string, id string, remote SecurityGroupRulePrototypeSecurityGroupRuleProtocolAllRemoteIntf) (model *SecurityGroupRulePrototypeSecurityGroupRuleProtocolAll, err error) {
 	model = &SecurityGroupRulePrototypeSecurityGroupRuleProtocolAll{
 		Direction: core.StringPtr(direction),
-		Href: core.StringPtr(href),
-		ID: core.StringPtr(id),
-		Remote: remote,
+		Href:      core.StringPtr(href),
+		ID:        core.StringPtr(id),
+		Remote:    remote,
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -51013,7 +50598,7 @@ type SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmp struct {
 // Constants associated with the SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmp.Direction property.
 // The direction of traffic to enforce, either `inbound` or `outbound`.
 const (
-	SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpDirectionInboundConst = "inbound"
+	SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpDirectionInboundConst  = "inbound"
 	SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpDirectionOutboundConst = "outbound"
 )
 
@@ -51028,20 +50613,19 @@ const (
 // Constants associated with the SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmp.Protocol property.
 // The protocol to enforce.
 const (
-	SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpProtocolAllConst = "all"
+	SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpProtocolAllConst  = "all"
 	SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpProtocolIcmpConst = "icmp"
-	SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpProtocolTCPConst = "tcp"
-	SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpProtocolUDPConst = "udp"
+	SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpProtocolTCPConst  = "tcp"
+	SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpProtocolUDPConst  = "udp"
 )
-
 
 // NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmp : Instantiate SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmp (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmp(direction string, href string, id string, remote SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmpRemoteIntf) (model *SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmp, err error) {
 	model = &SecurityGroupRulePrototypeSecurityGroupRuleProtocolIcmp{
 		Direction: core.StringPtr(direction),
-		Href: core.StringPtr(href),
-		ID: core.StringPtr(id),
-		Remote: remote,
+		Href:      core.StringPtr(href),
+		ID:        core.StringPtr(id),
+		Remote:    remote,
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -51128,7 +50712,7 @@ type SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudp struct {
 // Constants associated with the SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudp.Direction property.
 // The direction of traffic to enforce, either `inbound` or `outbound`.
 const (
-	SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpDirectionInboundConst = "inbound"
+	SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpDirectionInboundConst  = "inbound"
 	SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpDirectionOutboundConst = "outbound"
 )
 
@@ -51143,20 +50727,19 @@ const (
 // Constants associated with the SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudp.Protocol property.
 // The protocol to enforce.
 const (
-	SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpProtocolAllConst = "all"
+	SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpProtocolAllConst  = "all"
 	SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpProtocolIcmpConst = "icmp"
-	SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpProtocolTCPConst = "tcp"
-	SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpProtocolUDPConst = "udp"
+	SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpProtocolTCPConst  = "tcp"
+	SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpProtocolUDPConst  = "udp"
 )
-
 
 // NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudp : Instantiate SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudp (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudp(direction string, href string, id string, remote SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudpRemoteIntf) (model *SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudp, err error) {
 	model = &SecurityGroupRulePrototypeSecurityGroupRuleProtocolTcpudp{
 		Direction: core.StringPtr(direction),
-		Href: core.StringPtr(href),
-		ID: core.StringPtr(id),
-		Remote: remote,
+		Href:      core.StringPtr(href),
+		ID:        core.StringPtr(id),
+		Remote:    remote,
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -51214,7 +50797,6 @@ type SecurityGroupRuleRemoteCIDR struct {
 	CIDRBlock *string `json:"cidr_block" validate:"required"`
 }
 
-
 func (*SecurityGroupRuleRemoteCIDR) isaSecurityGroupRuleRemote() bool {
 	return true
 }
@@ -51238,7 +50820,6 @@ type SecurityGroupRuleRemoteIP struct {
 	// and surface the error, or bypass the resource on which the unexpected IP address format was encountered.
 	Address *string `json:"address" validate:"required"`
 }
-
 
 func (*SecurityGroupRuleRemoteIP) isaSecurityGroupRuleRemote() bool {
 	return true
@@ -51270,7 +50851,6 @@ type SecurityGroupRuleRemoteSecurityGroupReference struct {
 	// The user-defined name for this security group. Names must be unique within the VPC the security group resides in.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 func (*SecurityGroupRuleRemoteSecurityGroupReference) isaSecurityGroupRuleRemote() bool {
 	return true
@@ -51306,7 +50886,6 @@ type SubnetIdentityByCRN struct {
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewSubnetIdentityByCRN : Instantiate SubnetIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewSubnetIdentityByCRN(crn string) (model *SubnetIdentityByCRN, err error) {
 	model = &SubnetIdentityByCRN{
@@ -51338,7 +50917,6 @@ type SubnetIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewSubnetIdentityByHref : Instantiate SubnetIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewSubnetIdentityByHref(href string) (model *SubnetIdentityByHref, err error) {
 	model = &SubnetIdentityByHref{
@@ -51369,7 +50947,6 @@ type SubnetIdentityByID struct {
 	// The unique identifier for this subnet.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewSubnetIdentityByID : Instantiate SubnetIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewSubnetIdentityByID(id string) (model *SubnetIdentityByID, err error) {
@@ -51440,11 +51017,10 @@ const (
 	SubnetPrototypeSubnetByCIDRIPVersionIpv6Const = "ipv6"
 )
 
-
 // NewSubnetPrototypeSubnetByCIDR : Instantiate SubnetPrototypeSubnetByCIDR (Generic Model Constructor)
 func (*VpcV1) NewSubnetPrototypeSubnetByCIDR(vpc VPCIdentityIntf, ipv4CIDRBlock string) (model *SubnetPrototypeSubnetByCIDR, err error) {
 	model = &SubnetPrototypeSubnetByCIDR{
-		VPC: vpc,
+		VPC:           vpc,
 		Ipv4CIDRBlock: core.StringPtr(ipv4CIDRBlock),
 	}
 	err = core.ValidateStruct(model, "required parameters")
@@ -51541,13 +51117,12 @@ const (
 	SubnetPrototypeSubnetByTotalCountIPVersionIpv6Const = "ipv6"
 )
 
-
 // NewSubnetPrototypeSubnetByTotalCount : Instantiate SubnetPrototypeSubnetByTotalCount (Generic Model Constructor)
 func (*VpcV1) NewSubnetPrototypeSubnetByTotalCount(vpc VPCIdentityIntf, totalIpv4AddressCount int64, zone ZoneIdentityIntf) (model *SubnetPrototypeSubnetByTotalCount, err error) {
 	model = &SubnetPrototypeSubnetByTotalCount{
-		VPC: vpc,
+		VPC:                   vpc,
 		TotalIpv4AddressCount: core.Int64Ptr(totalIpv4AddressCount),
-		Zone: zone,
+		Zone:                  zone,
 	}
 	err = core.ValidateStruct(model, "required parameters")
 	return
@@ -51607,7 +51182,6 @@ type VPCIdentityByCRN struct {
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewVPCIdentityByCRN : Instantiate VPCIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewVPCIdentityByCRN(crn string) (model *VPCIdentityByCRN, err error) {
 	model = &VPCIdentityByCRN{
@@ -51639,7 +51213,6 @@ type VPCIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewVPCIdentityByHref : Instantiate VPCIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewVPCIdentityByHref(href string) (model *VPCIdentityByHref, err error) {
 	model = &VPCIdentityByHref{
@@ -51670,7 +51243,6 @@ type VPCIdentityByID struct {
 	// The unique identifier for this VPC.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewVPCIdentityByID : Instantiate VPCIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewVPCIdentityByID(id string) (model *VPCIdentityByID, err error) {
@@ -51817,7 +51389,6 @@ type VolumeIdentityByCRN struct {
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewVolumeIdentityByCRN : Instantiate VolumeIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewVolumeIdentityByCRN(crn string) (model *VolumeIdentityByCRN, err error) {
 	model = &VolumeIdentityByCRN{
@@ -51848,7 +51419,6 @@ type VolumeIdentityByHref struct {
 	// The URL for this volume.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // NewVolumeIdentityByHref : Instantiate VolumeIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewVolumeIdentityByHref(href string) (model *VolumeIdentityByHref, err error) {
@@ -51881,7 +51451,6 @@ type VolumeIdentityByID struct {
 	ID *string `json:"id" validate:"required"`
 }
 
-
 // NewVolumeIdentityByID : Instantiate VolumeIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewVolumeIdentityByID(id string) (model *VolumeIdentityByID, err error) {
 	model = &VolumeIdentityByID{
@@ -51913,7 +51482,6 @@ type VolumeProfileIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewVolumeProfileIdentityByHref : Instantiate VolumeProfileIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewVolumeProfileIdentityByHref(href string) (model *VolumeProfileIdentityByHref, err error) {
 	model = &VolumeProfileIdentityByHref{
@@ -51944,7 +51512,6 @@ type VolumeProfileIdentityByName struct {
 	// The name for this volume profile.
 	Name *string `json:"name" validate:"required"`
 }
-
 
 // NewVolumeProfileIdentityByName : Instantiate VolumeProfileIdentityByName (Generic Model Constructor)
 func (*VpcV1) NewVolumeProfileIdentityByName(name string) (model *VolumeProfileIdentityByName, err error) {
@@ -52000,12 +51567,11 @@ type VolumePrototypeVolumeByCapacity struct {
 	Capacity *int64 `json:"capacity" validate:"required"`
 }
 
-
 // NewVolumePrototypeVolumeByCapacity : Instantiate VolumePrototypeVolumeByCapacity (Generic Model Constructor)
 func (*VpcV1) NewVolumePrototypeVolumeByCapacity(profile VolumeProfileIdentityIntf, zone ZoneIdentityIntf, capacity int64) (model *VolumePrototypeVolumeByCapacity, err error) {
 	model = &VolumePrototypeVolumeByCapacity{
-		Profile: profile,
-		Zone: zone,
+		Profile:  profile,
+		Zone:     zone,
 		Capacity: core.Int64Ptr(capacity),
 	}
 	err = core.ValidateStruct(model, "required parameters")
@@ -52058,7 +51624,6 @@ type ZoneIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewZoneIdentityByHref : Instantiate ZoneIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewZoneIdentityByHref(href string) (model *ZoneIdentityByHref, err error) {
 	model = &ZoneIdentityByHref{
@@ -52090,7 +51655,6 @@ type ZoneIdentityByName struct {
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // NewZoneIdentityByName : Instantiate ZoneIdentityByName (Generic Model Constructor)
 func (*VpcV1) NewZoneIdentityByName(name string) (model *ZoneIdentityByName, err error) {
 	model = &ZoneIdentityByName{
@@ -52121,7 +51685,6 @@ type EndpointGatewayReservedIPReservedIPIdentityReservedIPIdentityByHref struct 
 	// The URL for this reserved IP.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // NewEndpointGatewayReservedIPReservedIPIdentityReservedIPIdentityByHref : Instantiate EndpointGatewayReservedIPReservedIPIdentityReservedIPIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewEndpointGatewayReservedIPReservedIPIdentityReservedIPIdentityByHref(href string) (model *EndpointGatewayReservedIPReservedIPIdentityReservedIPIdentityByHref, err error) {
@@ -52158,7 +51721,6 @@ type EndpointGatewayReservedIPReservedIPIdentityReservedIPIdentityByID struct {
 	ID *string `json:"id" validate:"required"`
 }
 
-
 // NewEndpointGatewayReservedIPReservedIPIdentityReservedIPIdentityByID : Instantiate EndpointGatewayReservedIPReservedIPIdentityReservedIPIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewEndpointGatewayReservedIPReservedIPIdentityReservedIPIdentityByID(id string) (model *EndpointGatewayReservedIPReservedIPIdentityReservedIPIdentityByID, err error) {
 	model = &EndpointGatewayReservedIPReservedIPIdentityReservedIPIdentityByID{
@@ -52193,7 +51755,6 @@ type EndpointGatewayTargetPrototypeProviderCloudServiceIdentityProviderCloudServ
 	// The CRN for this provider cloud service, or the CRN for the user's instance of a provider cloud service.
 	CRN *string `json:"crn" validate:"required"`
 }
-
 
 // NewEndpointGatewayTargetPrototypeProviderCloudServiceIdentityProviderCloudServiceIdentityByCRN : Instantiate EndpointGatewayTargetPrototypeProviderCloudServiceIdentityProviderCloudServiceIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewEndpointGatewayTargetPrototypeProviderCloudServiceIdentityProviderCloudServiceIdentityByCRN(crn string) (model *EndpointGatewayTargetPrototypeProviderCloudServiceIdentityProviderCloudServiceIdentityByCRN, err error) {
@@ -52233,7 +51794,6 @@ type EndpointGatewayTargetPrototypeProviderInfrastructureServiceIdentityProvider
 	Name *string `json:"name" validate:"required"`
 }
 
-
 // NewEndpointGatewayTargetPrototypeProviderInfrastructureServiceIdentityProviderInfrastructureServiceIdentityByName : Instantiate EndpointGatewayTargetPrototypeProviderInfrastructureServiceIdentityProviderInfrastructureServiceIdentityByName (Generic Model Constructor)
 func (*VpcV1) NewEndpointGatewayTargetPrototypeProviderInfrastructureServiceIdentityProviderInfrastructureServiceIdentityByName(name string) (model *EndpointGatewayTargetPrototypeProviderInfrastructureServiceIdentityProviderInfrastructureServiceIdentityByName, err error) {
 	model = &EndpointGatewayTargetPrototypeProviderInfrastructureServiceIdentityProviderInfrastructureServiceIdentityByName{
@@ -52268,7 +51828,6 @@ type FlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByCRN struct
 	// The CRN for this virtual server instance.
 	CRN *string `json:"crn" validate:"required"`
 }
-
 
 // NewFlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByCRN : Instantiate FlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewFlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByCRN(crn string) (model *FlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByCRN, err error) {
@@ -52305,7 +51864,6 @@ type FlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByHref struc
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewFlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByHref : Instantiate FlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewFlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByHref(href string) (model *FlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByHref, err error) {
 	model = &FlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByHref{
@@ -52340,7 +51898,6 @@ type FlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByID struct 
 	// The unique identifier for this virtual server instance.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewFlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByID : Instantiate FlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewFlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByID(id string) (model *FlowLogCollectorPrototypeTargetInstanceIdentityInstanceIdentityByID, err error) {
@@ -52377,7 +51934,6 @@ type FlowLogCollectorPrototypeTargetNetworkInterfaceIdentityNetworkInterfaceIden
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewFlowLogCollectorPrototypeTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByHref : Instantiate FlowLogCollectorPrototypeTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewFlowLogCollectorPrototypeTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByHref(href string) (model *FlowLogCollectorPrototypeTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByHref, err error) {
 	model = &FlowLogCollectorPrototypeTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByHref{
@@ -52412,7 +51968,6 @@ type FlowLogCollectorPrototypeTargetNetworkInterfaceIdentityNetworkInterfaceIden
 	// The unique identifier for this network interface.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewFlowLogCollectorPrototypeTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByID : Instantiate FlowLogCollectorPrototypeTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewFlowLogCollectorPrototypeTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByID(id string) (model *FlowLogCollectorPrototypeTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByID, err error) {
@@ -52449,7 +52004,6 @@ type FlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByCRN struct {
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewFlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByCRN : Instantiate FlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewFlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByCRN(crn string) (model *FlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByCRN, err error) {
 	model = &FlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByCRN{
@@ -52484,7 +52038,6 @@ type FlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByHref struct {
 	// The URL for this subnet.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // NewFlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByHref : Instantiate FlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewFlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByHref(href string) (model *FlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByHref, err error) {
@@ -52521,7 +52074,6 @@ type FlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByID struct {
 	ID *string `json:"id" validate:"required"`
 }
 
-
 // NewFlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByID : Instantiate FlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewFlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByID(id string) (model *FlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByID, err error) {
 	model = &FlowLogCollectorPrototypeTargetSubnetIdentitySubnetIdentityByID{
@@ -52556,7 +52108,6 @@ type FlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByCRN struct {
 	// The CRN for this VPC.
 	CRN *string `json:"crn" validate:"required"`
 }
-
 
 // NewFlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByCRN : Instantiate FlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewFlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByCRN(crn string) (model *FlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByCRN, err error) {
@@ -52593,7 +52144,6 @@ type FlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByHref struct {
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewFlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByHref : Instantiate FlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewFlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByHref(href string) (model *FlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByHref, err error) {
 	model = &FlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByHref{
@@ -52628,7 +52178,6 @@ type FlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByID struct {
 	// The unique identifier for this VPC.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewFlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByID : Instantiate FlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewFlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByID(id string) (model *FlowLogCollectorPrototypeTargetVPCIdentityVPCIdentityByID, err error) {
@@ -52665,7 +52214,6 @@ type InstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdent
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewInstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdentityByCRN : Instantiate InstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewInstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdentityByCRN(crn string) (model *InstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdentityByCRN, err error) {
 	model = &InstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdentityByCRN{
@@ -52700,7 +52248,6 @@ type InstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdent
 	// The URL for this dedicated host group.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // NewInstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdentityByHref : Instantiate InstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewInstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdentityByHref(href string) (model *InstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdentityByHref, err error) {
@@ -52737,7 +52284,6 @@ type InstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdent
 	ID *string `json:"id" validate:"required"`
 }
 
-
 // NewInstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdentityByID : Instantiate InstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewInstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdentityByID(id string) (model *InstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdentityByID, err error) {
 	model = &InstancePlacementPrototypeDedicatedHostGroupIdentityDedicatedHostGroupIdentityByID{
@@ -52772,7 +52318,6 @@ type InstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByCRN s
 	// The CRN for this dedicated host.
 	CRN *string `json:"crn" validate:"required"`
 }
-
 
 // NewInstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByCRN : Instantiate InstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewInstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByCRN(crn string) (model *InstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByCRN, err error) {
@@ -52809,7 +52354,6 @@ type InstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByHref 
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewInstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByHref : Instantiate InstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewInstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByHref(href string) (model *InstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByHref, err error) {
 	model = &InstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByHref{
@@ -52844,7 +52388,6 @@ type InstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByID st
 	// The unique identifier for this dedicated host.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewInstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByID : Instantiate InstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewInstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByID(id string) (model *InstancePlacementPrototypeDedicatedHostIdentityDedicatedHostIdentityByID, err error) {
@@ -52881,7 +52424,6 @@ type LoadBalancerListenerPolicyPatchTargetLoadBalancerPoolIdentityLoadBalancerPo
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewLoadBalancerListenerPolicyPatchTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByHref : Instantiate LoadBalancerListenerPolicyPatchTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerListenerPolicyPatchTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByHref(href string) (model *LoadBalancerListenerPolicyPatchTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByHref, err error) {
 	model = &LoadBalancerListenerPolicyPatchTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByHref{
@@ -52916,7 +52458,6 @@ type LoadBalancerListenerPolicyPatchTargetLoadBalancerPoolIdentityLoadBalancerPo
 	// The unique identifier for this load balancer pool.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewLoadBalancerListenerPolicyPatchTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByID : Instantiate LoadBalancerListenerPolicyPatchTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerListenerPolicyPatchTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByID(id string) (model *LoadBalancerListenerPolicyPatchTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByID, err error) {
@@ -52953,7 +52494,6 @@ type LoadBalancerListenerPolicyPrototypeTargetLoadBalancerPoolIdentityLoadBalanc
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewLoadBalancerListenerPolicyPrototypeTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByHref : Instantiate LoadBalancerListenerPolicyPrototypeTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerListenerPolicyPrototypeTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByHref(href string) (model *LoadBalancerListenerPolicyPrototypeTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByHref, err error) {
 	model = &LoadBalancerListenerPolicyPrototypeTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByHref{
@@ -52988,7 +52528,6 @@ type LoadBalancerListenerPolicyPrototypeTargetLoadBalancerPoolIdentityLoadBalanc
 	// The unique identifier for this load balancer pool.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewLoadBalancerListenerPolicyPrototypeTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByID : Instantiate LoadBalancerListenerPolicyPrototypeTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerListenerPolicyPrototypeTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByID(id string) (model *LoadBalancerListenerPolicyPrototypeTargetLoadBalancerPoolIdentityLoadBalancerPoolIdentityByID, err error) {
@@ -53025,7 +52564,6 @@ type LoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByCRN 
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewLoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByCRN : Instantiate LoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByCRN(crn string) (model *LoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByCRN, err error) {
 	model = &LoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByCRN{
@@ -53060,7 +52598,6 @@ type LoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByHref
 	// The URL for this virtual server instance.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // NewLoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByHref : Instantiate LoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByHref(href string) (model *LoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByHref, err error) {
@@ -53097,7 +52634,6 @@ type LoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByID s
 	ID *string `json:"id" validate:"required"`
 }
 
-
 // NewLoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByID : Instantiate LoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewLoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByID(id string) (model *LoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByID, err error) {
 	model = &LoadBalancerPoolMemberTargetPrototypeInstanceIdentityInstanceIdentityByID{
@@ -53132,7 +52668,6 @@ type PublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByAddre
 	// The globally unique IP address.
 	Address *string `json:"address" validate:"required"`
 }
-
 
 // NewPublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByAddress : Instantiate PublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByAddress (Generic Model Constructor)
 func (*VpcV1) NewPublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByAddress(address string) (model *PublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByAddress, err error) {
@@ -53169,7 +52704,6 @@ type PublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByCRN s
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewPublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByCRN : Instantiate PublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewPublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByCRN(crn string) (model *PublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByCRN, err error) {
 	model = &PublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByCRN{
@@ -53204,7 +52738,6 @@ type PublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByHref 
 	// The URL for this floating IP.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // NewPublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByHref : Instantiate PublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewPublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByHref(href string) (model *PublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByHref, err error) {
@@ -53241,7 +52774,6 @@ type PublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByID st
 	ID *string `json:"id" validate:"required"`
 }
 
-
 // NewPublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByID : Instantiate PublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewPublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByID(id string) (model *PublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByID, err error) {
 	model = &PublicGatewayPrototypeFloatingIPFloatingIPIdentityFloatingIPIdentityByID{
@@ -53276,7 +52808,6 @@ type ReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByCR
 	// The CRN for this endpoint gateway.
 	CRN *string `json:"crn" validate:"required"`
 }
-
 
 // NewReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByCRN : Instantiate ReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByCRN(crn string) (model *ReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByCRN, err error) {
@@ -53313,7 +52844,6 @@ type ReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByHr
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByHref : Instantiate ReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByHref(href string) (model *ReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByHref, err error) {
 	model = &ReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByHref{
@@ -53348,7 +52878,6 @@ type ReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByID
 	// The unique identifier for this endpoint gateway.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByID : Instantiate ReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByID(id string) (model *ReservedIPPrototypeTargetEndpointGatewayIdentityEndpointGatewayIdentityByID, err error) {
@@ -53385,7 +52914,6 @@ type RouteNextHopPrototypeRouteNextHopConnectionRouteNextHopConnectionVPNGateway
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewRouteNextHopPrototypeRouteNextHopConnectionRouteNextHopConnectionVPNGatewayConnectionIdentityByHref : Instantiate RouteNextHopPrototypeRouteNextHopConnectionRouteNextHopConnectionVPNGatewayConnectionIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewRouteNextHopPrototypeRouteNextHopConnectionRouteNextHopConnectionVPNGatewayConnectionIdentityByHref(href string) (model *RouteNextHopPrototypeRouteNextHopConnectionRouteNextHopConnectionVPNGatewayConnectionIdentityByHref, err error) {
 	model = &RouteNextHopPrototypeRouteNextHopConnectionRouteNextHopConnectionVPNGatewayConnectionIdentityByHref{
@@ -53420,7 +52948,6 @@ type RouteNextHopPrototypeRouteNextHopConnectionRouteNextHopConnectionVPNGateway
 	// The unique identifier for this VPN connection.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewRouteNextHopPrototypeRouteNextHopConnectionRouteNextHopConnectionVPNGatewayConnectionIdentityByID : Instantiate RouteNextHopPrototypeRouteNextHopConnectionRouteNextHopConnectionVPNGatewayConnectionIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewRouteNextHopPrototypeRouteNextHopConnectionRouteNextHopConnectionVPNGatewayConnectionIdentityByID(id string) (model *RouteNextHopPrototypeRouteNextHopConnectionRouteNextHopConnectionVPNGatewayConnectionIdentityByID, err error) {
@@ -53457,7 +52984,6 @@ type SecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByCRN
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewSecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByCRN : Instantiate SecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByCRN(crn string) (model *SecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByCRN, err error) {
 	model = &SecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByCRN{
@@ -53492,7 +53018,6 @@ type SecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByHre
 	// The security group's canonical URL.
 	Href *string `json:"href" validate:"required"`
 }
-
 
 // NewSecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByHref : Instantiate SecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByHref(href string) (model *SecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByHref, err error) {
@@ -53529,7 +53054,6 @@ type SecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByID 
 	ID *string `json:"id" validate:"required"`
 }
 
-
 // NewSecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByID : Instantiate SecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByID(id string) (model *SecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByID, err error) {
 	model = &SecurityGroupRulePatchRemoteSecurityGroupIdentitySecurityGroupIdentityByID{
@@ -53564,7 +53088,6 @@ type SecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityB
 	// The security group's CRN.
 	CRN *string `json:"crn" validate:"required"`
 }
-
 
 // NewSecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityByCRN : Instantiate SecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityByCRN(crn string) (model *SecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityByCRN, err error) {
@@ -53601,7 +53124,6 @@ type SecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityB
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewSecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityByHref : Instantiate SecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityByHref(href string) (model *SecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityByHref, err error) {
 	model = &SecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityByHref{
@@ -53636,7 +53158,6 @@ type SecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityB
 	// The unique identifier for this security group.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewSecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityByID : Instantiate SecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewSecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityByID(id string) (model *SecurityGroupRulePrototypeRemoteSecurityGroupIdentitySecurityGroupIdentityByID, err error) {
@@ -53673,7 +53194,6 @@ type VolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityB
 	CRN *string `json:"crn" validate:"required"`
 }
 
-
 // NewVolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityByCRN : Instantiate VolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityByCRN (Generic Model Constructor)
 func (*VpcV1) NewVolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityByCRN(crn string) (model *VolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityByCRN, err error) {
 	model = &VolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityByCRN{
@@ -53709,7 +53229,6 @@ type VolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityB
 	Href *string `json:"href" validate:"required"`
 }
 
-
 // NewVolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityByHref : Instantiate VolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityByHref (Generic Model Constructor)
 func (*VpcV1) NewVolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityByHref(href string) (model *VolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityByHref, err error) {
 	model = &VolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityByHref{
@@ -53744,7 +53263,6 @@ type VolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityB
 	// The unique identifier for this volume.
 	ID *string `json:"id" validate:"required"`
 }
-
 
 // NewVolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityByID : Instantiate VolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityByID (Generic Model Constructor)
 func (*VpcV1) NewVolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityByID(id string) (model *VolumeAttachmentPrototypeInstanceContextVolumeVolumeIdentityVolumeIdentityByID, err error) {
@@ -53797,11 +53315,10 @@ type VolumeAttachmentPrototypeInstanceContextVolumeVolumePrototypeInstanceContex
 	Capacity *int64 `json:"capacity" validate:"required"`
 }
 
-
 // NewVolumeAttachmentPrototypeInstanceContextVolumeVolumePrototypeInstanceContextVolumePrototypeInstanceContextVolumeByCapacity : Instantiate VolumeAttachmentPrototypeInstanceContextVolumeVolumePrototypeInstanceContextVolumePrototypeInstanceContextVolumeByCapacity (Generic Model Constructor)
 func (*VpcV1) NewVolumeAttachmentPrototypeInstanceContextVolumeVolumePrototypeInstanceContextVolumePrototypeInstanceContextVolumeByCapacity(profile VolumeProfileIdentityIntf, capacity int64) (model *VolumeAttachmentPrototypeInstanceContextVolumeVolumePrototypeInstanceContextVolumePrototypeInstanceContextVolumeByCapacity, err error) {
 	model = &VolumeAttachmentPrototypeInstanceContextVolumeVolumePrototypeInstanceContextVolumePrototypeInstanceContextVolumeByCapacity{
-		Profile: profile,
+		Profile:  profile,
 		Capacity: core.Int64Ptr(capacity),
 	}
 	err = core.ValidateStruct(model, "required parameters")

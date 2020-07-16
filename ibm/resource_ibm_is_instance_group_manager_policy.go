@@ -24,13 +24,13 @@ func resourceIBMISInstanceGroupManagerPolicy() *schema.Resource {
 				Description: "instance group manager policy name",
 			},
 
-			"instance_group_id": {
+			"instance_group": {
 				Type:        schema.TypeString,
 				Required:    true,
 				Description: "instance group ID",
 			},
 
-			"instance_group_manager_id": {
+			"instance_group_manager": {
 				Type:        schema.TypeString,
 				Required:    true,
 				Description: "Instance group manager ID",
@@ -38,19 +38,19 @@ func resourceIBMISInstanceGroupManagerPolicy() *schema.Resource {
 
 			"metric_type": {
 				Type:        schema.TypeString,
-				Optional:    true,
+				Required:    true,
 				Description: "The type of metric to be evaluated",
 			},
 
 			"metric_value": {
 				Type:        schema.TypeInt,
-				Optional:    true,
+				Required:    true,
 				Description: "The metric value to be evaluated",
 			},
 
 			"policy_type": {
 				Type:        schema.TypeString,
-				Optional:    true,
+				Required:    true,
 				Description: "The type of Policy for the Instance Group",
 			},
 		},
@@ -58,8 +58,8 @@ func resourceIBMISInstanceGroupManagerPolicy() *schema.Resource {
 }
 
 func resourceIBMISInstanceGroupManagerPolicyCreate(d *schema.ResourceData, meta interface{}) error {
-	instanceGroupID := d.Get("instance_group_id").(string)
-	instanceGroupManagerID := d.Get("instance_group_manager_id").(string)
+	instanceGroupID := d.Get("instance_group").(string)
+	instanceGroupManagerID := d.Get("instance_group_manager").(string)
 
 	sess, err := myvpcClient(meta)
 	if err != nil {
@@ -68,25 +68,15 @@ func resourceIBMISInstanceGroupManagerPolicyCreate(d *schema.ResourceData, meta 
 
 	instanceGroupManagerPolicyPrototype := vpcv1.InstanceGroupManagerPolicyPrototype{}
 
-	if v, ok := d.GetOk("name"); ok {
-		name := v.(string)
-		instanceGroupManagerPolicyPrototype.Name = &name
-	}
+	name := d.Get("name").(string)
+	metricType := d.Get("metric_type").(string)
+	metricValue := int64(d.Get("metric_value").(int))
+	policyType := d.Get("policy_type").(string)
 
-	if v, ok := d.GetOk("metric_type"); ok {
-		metricType := v.(string)
-		instanceGroupManagerPolicyPrototype.MetricType = &metricType
-	}
-
-	if v, ok := d.GetOk("metric_value"); ok {
-		metricValue := int64(v.(int))
-		instanceGroupManagerPolicyPrototype.MetricValue = &metricValue
-	}
-
-	if v, ok := d.GetOk("policy_type"); ok {
-		policyType := v.(string)
-		instanceGroupManagerPolicyPrototype.PolicyType = &policyType
-	}
+	instanceGroupManagerPolicyPrototype.Name = &name
+	instanceGroupManagerPolicyPrototype.MetricType = &metricType
+	instanceGroupManagerPolicyPrototype.MetricValue = &metricValue
+	instanceGroupManagerPolicyPrototype.PolicyType = &policyType
 
 	createInstanceGroupManagerPolicyOptions := vpcv1.CreateInstanceGroupManagerPolicyOptions{
 		InstanceGroupID:                     &instanceGroupID,
@@ -137,8 +127,8 @@ func resourceIBMISInstanceGroupManagerPolicyUpdate(d *schema.ResourceData, meta 
 
 	if changed {
 		instanceGroupManagerPolicyID := d.Id()
-		instanceGroupID := d.Get("instance_group_id").(string)
-		instanceGroupManagerID := d.Get("instance_group_manager_id").(string)
+		instanceGroupID := d.Get("instance_group").(string)
+		instanceGroupManagerID := d.Get("instance_group_manager").(string)
 		updateInstanceGroupManagerPolicyOptions.ID = &instanceGroupManagerPolicyID
 		updateInstanceGroupManagerPolicyOptions.InstanceGroupID = &instanceGroupID
 		updateInstanceGroupManagerPolicyOptions.InstanceGroupManagerID = &instanceGroupManagerID
@@ -162,8 +152,8 @@ func resourceIBMISInstanceGroupManagerPolicyRead(d *schema.ResourceData, meta in
 	}
 
 	instanceGroupManagerPolicyID := d.Id()
-	instanceGroupManagerID := d.Get("instance_group_manager_id").(string)
-	instanceGroupID := d.Get("instance_group_id").(string)
+	instanceGroupManagerID := d.Get("instance_group_manager").(string)
+	instanceGroupID := d.Get("instance_group").(string)
 
 	getInstanceGroupManagerPolicyOptions := vpcv1.GetInstanceGroupManagerPolicyOptions{
 		ID:                     &instanceGroupManagerPolicyID,
@@ -193,8 +183,8 @@ func resourceIBMISInstanceGroupManagerPolicyDelete(d *schema.ResourceData, meta 
 		return err
 	}
 	instanceGroupManagerPolicyID := d.Id()
-	instanceGroupID := d.Get("instance_group_id").(string)
-	instanceGroupManagerID := d.Get("instance_group_manager_id").(string)
+	instanceGroupID := d.Get("instance_group").(string)
+	instanceGroupManagerID := d.Get("instance_group_manager").(string)
 	deleteInstanceGroupManagerPolicyOptions := vpcv1.DeleteInstanceGroupManagerPolicyOptions{
 		ID:                     &instanceGroupManagerPolicyID,
 		InstanceGroupManagerID: &instanceGroupManagerID,
@@ -218,8 +208,8 @@ func resourceIBMISInstanceGroupManagerPolicyExists(d *schema.ResourceData, meta 
 	}
 
 	instanceGroupManagerPolicyID := d.Id()
-	instanceGroupManagerID := d.Get("instance_group_manager_id").(string)
-	instanceGroupID := d.Get("instance_group_id").(string)
+	instanceGroupManagerID := d.Get("instance_group_manager").(string)
+	instanceGroupID := d.Get("instance_group").(string)
 
 	getInstanceGroupManagerPolicyOptions := vpcv1.GetInstanceGroupManagerPolicyOptions{
 		ID:                     &instanceGroupManagerPolicyID,

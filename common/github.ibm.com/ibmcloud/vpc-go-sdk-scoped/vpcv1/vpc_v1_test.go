@@ -34,19 +34,19 @@ import (
 
 var _ = Describe(`VpcV1`, func() {
 	var testServer *httptest.Server
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -54,7 +54,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -75,7 +75,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -91,7 +91,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -115,7 +115,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -133,12 +133,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -181,7 +181,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -237,7 +237,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -254,7 +254,7 @@ var _ = Describe(`VpcV1`, func() {
 				listDedicatedHostGroupsOptionsModel.Limit = core.Int64Ptr(int64(1))
 				listDedicatedHostGroupsOptionsModel.ResourceGroupID = core.StringPtr("testString")
 				listDedicatedHostGroupsOptionsModel.ZoneName = core.StringPtr("testString")
- 				listDedicatedHostGroupsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listDedicatedHostGroupsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListDedicatedHostGroups(listDedicatedHostGroupsOptionsModel)
@@ -266,7 +266,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -316,7 +316,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -371,7 +371,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -395,7 +395,7 @@ var _ = Describe(`VpcV1`, func() {
 				createDedicatedHostGroupOptionsModel.Name = core.StringPtr("my-host-group")
 				createDedicatedHostGroupOptionsModel.ResourceGroup = resourceGroupIdentityModel
 				createDedicatedHostGroupOptionsModel.Zone = zoneIdentityModel
- 				createDedicatedHostGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createDedicatedHostGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateDedicatedHostGroup(createDedicatedHostGroupOptionsModel)
@@ -407,7 +407,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -463,7 +463,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -476,7 +476,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteDedicatedHostGroupOptions model
 				deleteDedicatedHostGroupOptionsModel := new(vpcv1.DeleteDedicatedHostGroupOptions)
 				deleteDedicatedHostGroupOptionsModel.ID = core.StringPtr("testString")
- 				deleteDedicatedHostGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteDedicatedHostGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteDedicatedHostGroup(deleteDedicatedHostGroupOptionsModel)
@@ -487,7 +487,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -539,7 +539,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -584,7 +584,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -598,7 +598,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetDedicatedHostGroupOptions model
 				getDedicatedHostGroupOptionsModel := new(vpcv1.GetDedicatedHostGroupOptions)
 				getDedicatedHostGroupOptionsModel.ID = core.StringPtr("testString")
- 				getDedicatedHostGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getDedicatedHostGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetDedicatedHostGroup(getDedicatedHostGroupOptionsModel)
@@ -610,7 +610,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -664,7 +664,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -710,7 +710,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -725,7 +725,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateDedicatedHostGroupOptionsModel := new(vpcv1.UpdateDedicatedHostGroupOptions)
 				updateDedicatedHostGroupOptionsModel.ID = core.StringPtr("testString")
 				updateDedicatedHostGroupOptionsModel.Name = core.StringPtr("my-host-group")
- 				updateDedicatedHostGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateDedicatedHostGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateDedicatedHostGroup(updateDedicatedHostGroupOptionsModel)
@@ -737,7 +737,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -796,7 +796,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -846,7 +846,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -861,7 +861,7 @@ var _ = Describe(`VpcV1`, func() {
 				listDedicatedHostProfilesOptionsModel := new(vpcv1.ListDedicatedHostProfilesOptions)
 				listDedicatedHostProfilesOptionsModel.Start = core.StringPtr("testString")
 				listDedicatedHostProfilesOptionsModel.Limit = core.Int64Ptr(int64(1))
- 				listDedicatedHostProfilesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listDedicatedHostProfilesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListDedicatedHostProfiles(listDedicatedHostProfilesOptionsModel)
@@ -873,7 +873,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -921,7 +921,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -966,7 +966,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -980,7 +980,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetDedicatedHostProfileOptions model
 				getDedicatedHostProfileOptionsModel := new(vpcv1.GetDedicatedHostProfileOptions)
 				getDedicatedHostProfileOptionsModel.Name = core.StringPtr("testString")
- 				getDedicatedHostProfileOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getDedicatedHostProfileOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetDedicatedHostProfile(getDedicatedHostProfileOptionsModel)
@@ -992,7 +992,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1056,7 +1056,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1115,7 +1115,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1133,7 +1133,7 @@ var _ = Describe(`VpcV1`, func() {
 				listDedicatedHostsOptionsModel.Limit = core.Int64Ptr(int64(1))
 				listDedicatedHostsOptionsModel.ResourceGroupID = core.StringPtr("testString")
 				listDedicatedHostsOptionsModel.ZoneName = core.StringPtr("testString")
- 				listDedicatedHostsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listDedicatedHostsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListDedicatedHosts(listDedicatedHostsOptionsModel)
@@ -1145,7 +1145,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1196,7 +1196,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1257,7 +1257,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1287,7 +1287,7 @@ var _ = Describe(`VpcV1`, func() {
 				createDedicatedHostOptionsModel.InstancePlacementEnabled = core.BoolPtr(true)
 				createDedicatedHostOptionsModel.Name = core.StringPtr("my-host")
 				createDedicatedHostOptionsModel.ResourceGroup = resourceGroupIdentityModel
- 				createDedicatedHostOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createDedicatedHostOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateDedicatedHost(createDedicatedHostOptionsModel)
@@ -1299,7 +1299,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1368,7 +1368,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1381,7 +1381,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteDedicatedHostOptions model
 				deleteDedicatedHostOptionsModel := new(vpcv1.DeleteDedicatedHostOptions)
 				deleteDedicatedHostOptionsModel.ID = core.StringPtr("testString")
- 				deleteDedicatedHostOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteDedicatedHostOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteDedicatedHost(deleteDedicatedHostOptionsModel)
@@ -1392,7 +1392,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1444,7 +1444,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1489,7 +1489,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1503,7 +1503,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetDedicatedHostOptions model
 				getDedicatedHostOptionsModel := new(vpcv1.GetDedicatedHostOptions)
 				getDedicatedHostOptionsModel.ID = core.StringPtr("testString")
- 				getDedicatedHostOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getDedicatedHostOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetDedicatedHost(getDedicatedHostOptionsModel)
@@ -1515,7 +1515,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1569,7 +1569,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1616,7 +1616,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1632,7 +1632,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateDedicatedHostOptionsModel.ID = core.StringPtr("testString")
 				updateDedicatedHostOptionsModel.InstancePlacementEnabled = core.BoolPtr(true)
 				updateDedicatedHostOptionsModel.Name = core.StringPtr("my-host")
- 				updateDedicatedHostOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateDedicatedHostOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateDedicatedHost(updateDedicatedHostOptionsModel)
@@ -1644,7 +1644,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1676,19 +1676,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -1696,7 +1696,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -1717,7 +1717,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -1733,7 +1733,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -1757,7 +1757,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -1775,12 +1775,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -1823,7 +1823,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1879,7 +1879,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1896,7 +1896,7 @@ var _ = Describe(`VpcV1`, func() {
 				listEndpointGatewaysOptionsModel.Start = core.StringPtr("testString")
 				listEndpointGatewaysOptionsModel.Limit = core.Int64Ptr(int64(1))
 				listEndpointGatewaysOptionsModel.ResourceGroupID = core.StringPtr("testString")
- 				listEndpointGatewaysOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listEndpointGatewaysOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListEndpointGateways(listEndpointGatewaysOptionsModel)
@@ -1908,7 +1908,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -1958,7 +1958,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2023,7 +2023,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2057,7 +2057,7 @@ var _ = Describe(`VpcV1`, func() {
 				createEndpointGatewayOptionsModel.Ips = []vpcv1.EndpointGatewayReservedIPIntf{endpointGatewayReservedIPModel}
 				createEndpointGatewayOptionsModel.Name = core.StringPtr("my-endpoint-gateway")
 				createEndpointGatewayOptionsModel.ResourceGroup = resourceGroupIdentityModel
- 				createEndpointGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createEndpointGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateEndpointGateway(createEndpointGatewayOptionsModel)
@@ -2069,7 +2069,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2142,7 +2142,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2155,7 +2155,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteEndpointGatewayOptions model
 				deleteEndpointGatewayOptionsModel := new(vpcv1.DeleteEndpointGatewayOptions)
 				deleteEndpointGatewayOptionsModel.EndpointGatewayID = core.StringPtr("testString")
- 				deleteEndpointGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteEndpointGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteEndpointGateway(deleteEndpointGatewayOptionsModel)
@@ -2166,7 +2166,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2218,7 +2218,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2263,7 +2263,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2277,7 +2277,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetEndpointGatewayOptions model
 				getEndpointGatewayOptionsModel := new(vpcv1.GetEndpointGatewayOptions)
 				getEndpointGatewayOptionsModel.EndpointGatewayID = core.StringPtr("testString")
- 				getEndpointGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getEndpointGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetEndpointGateway(getEndpointGatewayOptionsModel)
@@ -2289,7 +2289,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2343,7 +2343,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2389,7 +2389,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2404,7 +2404,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateEndpointGatewayOptionsModel := new(vpcv1.UpdateEndpointGatewayOptions)
 				updateEndpointGatewayOptionsModel.EndpointGatewayID = core.StringPtr("testString")
 				updateEndpointGatewayOptionsModel.Name = core.StringPtr("my-endpoint-gateway")
- 				updateEndpointGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateEndpointGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateEndpointGateway(updateEndpointGatewayOptionsModel)
@@ -2416,7 +2416,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2477,7 +2477,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2531,7 +2531,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2548,7 +2548,7 @@ var _ = Describe(`VpcV1`, func() {
 				listPrivateEndpointsOptionsModel.Start = core.StringPtr("testString")
 				listPrivateEndpointsOptionsModel.Limit = core.Int64Ptr(int64(1))
 				listPrivateEndpointsOptionsModel.Sort = core.StringPtr("name")
- 				listPrivateEndpointsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listPrivateEndpointsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListPrivateEndpoints(listPrivateEndpointsOptionsModel)
@@ -2560,7 +2560,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2616,7 +2616,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2630,7 +2630,7 @@ var _ = Describe(`VpcV1`, func() {
 				deletePrivateEndpointOptionsModel := new(vpcv1.DeletePrivateEndpointOptions)
 				deletePrivateEndpointOptionsModel.EndpointGatewayID = core.StringPtr("testString")
 				deletePrivateEndpointOptionsModel.ID = core.StringPtr("testString")
- 				deletePrivateEndpointOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deletePrivateEndpointOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeletePrivateEndpoint(deletePrivateEndpointOptionsModel)
@@ -2641,7 +2641,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2694,7 +2694,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2740,7 +2740,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2755,7 +2755,7 @@ var _ = Describe(`VpcV1`, func() {
 				getPrivateEndpointOptionsModel := new(vpcv1.GetPrivateEndpointOptions)
 				getPrivateEndpointOptionsModel.EndpointGatewayID = core.StringPtr("testString")
 				getPrivateEndpointOptionsModel.ID = core.StringPtr("testString")
- 				getPrivateEndpointOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getPrivateEndpointOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetPrivateEndpoint(getPrivateEndpointOptionsModel)
@@ -2767,7 +2767,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2822,7 +2822,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2868,7 +2868,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2883,7 +2883,7 @@ var _ = Describe(`VpcV1`, func() {
 				createPrivateEndpointOptionsModel := new(vpcv1.CreatePrivateEndpointOptions)
 				createPrivateEndpointOptionsModel.EndpointGatewayID = core.StringPtr("testString")
 				createPrivateEndpointOptionsModel.ID = core.StringPtr("testString")
- 				createPrivateEndpointOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createPrivateEndpointOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreatePrivateEndpoint(createPrivateEndpointOptionsModel)
@@ -2895,7 +2895,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -2926,19 +2926,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -2946,7 +2946,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -2967,7 +2967,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -2983,7 +2983,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -3007,7 +3007,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -3025,12 +3025,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -3071,7 +3071,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3124,7 +3124,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3140,7 +3140,7 @@ var _ = Describe(`VpcV1`, func() {
 				listFloatingIpsOptionsModel.Start = core.StringPtr("testString")
 				listFloatingIpsOptionsModel.Limit = core.Int64Ptr(int64(1))
 				listFloatingIpsOptionsModel.ResourceGroupID = core.StringPtr("testString")
- 				listFloatingIpsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listFloatingIpsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListFloatingIps(listFloatingIpsOptionsModel)
@@ -3152,7 +3152,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3201,7 +3201,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3260,7 +3260,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3288,7 +3288,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the CreateFloatingIPOptions model
 				createFloatingIPOptionsModel := new(vpcv1.CreateFloatingIPOptions)
 				createFloatingIPOptionsModel.FloatingIPPrototype = floatingIPPrototypeModel
- 				createFloatingIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createFloatingIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateFloatingIP(createFloatingIPOptionsModel)
@@ -3300,7 +3300,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3367,7 +3367,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3380,7 +3380,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteFloatingIPOptions model
 				deleteFloatingIPOptionsModel := new(vpcv1.DeleteFloatingIPOptions)
 				deleteFloatingIPOptionsModel.ID = core.StringPtr("testString")
- 				deleteFloatingIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteFloatingIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteFloatingIP(deleteFloatingIPOptionsModel)
@@ -3391,7 +3391,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3443,7 +3443,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3488,7 +3488,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3502,7 +3502,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetFloatingIPOptions model
 				getFloatingIPOptionsModel := new(vpcv1.GetFloatingIPOptions)
 				getFloatingIPOptionsModel.ID = core.StringPtr("testString")
- 				getFloatingIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getFloatingIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetFloatingIP(getFloatingIPOptionsModel)
@@ -3514,7 +3514,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3568,7 +3568,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3619,7 +3619,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3639,7 +3639,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateFloatingIPOptionsModel.ID = core.StringPtr("testString")
 				updateFloatingIPOptionsModel.Name = core.StringPtr("my-floating-ip")
 				updateFloatingIPOptionsModel.Target = floatingIPPatchTargetNetworkInterfaceIdentityModel
- 				updateFloatingIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateFloatingIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateFloatingIP(updateFloatingIPOptionsModel)
@@ -3651,7 +3651,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3687,19 +3687,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -3707,7 +3707,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -3728,7 +3728,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -3744,7 +3744,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -3768,7 +3768,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -3786,12 +3786,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -3844,7 +3844,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3915,7 +3915,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -3937,7 +3937,7 @@ var _ = Describe(`VpcV1`, func() {
 				listFlowLogCollectorsOptionsModel.VPCName = core.StringPtr("testString")
 				listFlowLogCollectorsOptionsModel.TargetID = core.StringPtr("testString")
 				listFlowLogCollectorsOptionsModel.TargetResourceType = core.StringPtr("vpc")
- 				listFlowLogCollectorsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listFlowLogCollectorsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListFlowLogCollectors(listFlowLogCollectorsOptionsModel)
@@ -3949,7 +3949,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4004,7 +4004,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4065,7 +4065,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4095,7 +4095,7 @@ var _ = Describe(`VpcV1`, func() {
 				createFlowLogCollectorOptionsModel.Active = core.BoolPtr(false)
 				createFlowLogCollectorOptionsModel.Name = core.StringPtr("my-flow-log-collector")
 				createFlowLogCollectorOptionsModel.ResourceGroup = resourceGroupIdentityModel
- 				createFlowLogCollectorOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createFlowLogCollectorOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateFlowLogCollector(createFlowLogCollectorOptionsModel)
@@ -4107,7 +4107,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4176,7 +4176,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4189,7 +4189,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteFlowLogCollectorOptions model
 				deleteFlowLogCollectorOptionsModel := new(vpcv1.DeleteFlowLogCollectorOptions)
 				deleteFlowLogCollectorOptionsModel.ID = core.StringPtr("testString")
- 				deleteFlowLogCollectorOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteFlowLogCollectorOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteFlowLogCollector(deleteFlowLogCollectorOptionsModel)
@@ -4200,7 +4200,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4252,7 +4252,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4297,7 +4297,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4311,7 +4311,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetFlowLogCollectorOptions model
 				getFlowLogCollectorOptionsModel := new(vpcv1.GetFlowLogCollectorOptions)
 				getFlowLogCollectorOptionsModel.ID = core.StringPtr("testString")
- 				getFlowLogCollectorOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getFlowLogCollectorOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetFlowLogCollector(getFlowLogCollectorOptionsModel)
@@ -4323,7 +4323,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4377,7 +4377,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4424,7 +4424,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4440,7 +4440,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateFlowLogCollectorOptionsModel.ID = core.StringPtr("testString")
 				updateFlowLogCollectorOptionsModel.Active = core.BoolPtr(true)
 				updateFlowLogCollectorOptionsModel.Name = core.StringPtr("my-flow-log-collector")
- 				updateFlowLogCollectorOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateFlowLogCollectorOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateFlowLogCollector(updateFlowLogCollectorOptionsModel)
@@ -4452,7 +4452,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4484,19 +4484,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -4504,7 +4504,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -4525,7 +4525,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -4541,7 +4541,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -4565,7 +4565,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -4583,12 +4583,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -4623,7 +4623,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4667,7 +4667,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4680,7 +4680,7 @@ var _ = Describe(`VpcV1`, func() {
 
 				// Construct an instance of the ListRegionsOptions model
 				listRegionsOptionsModel := new(vpcv1.ListRegionsOptions)
- 				listRegionsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listRegionsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListRegions(listRegionsOptionsModel)
@@ -4692,7 +4692,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4738,7 +4738,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4783,7 +4783,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4797,7 +4797,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetRegionOptions model
 				getRegionOptionsModel := new(vpcv1.GetRegionOptions)
 				getRegionOptionsModel.Name = core.StringPtr("testString")
- 				getRegionOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getRegionOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetRegion(getRegionOptionsModel)
@@ -4809,7 +4809,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4863,7 +4863,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4908,7 +4908,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4922,7 +4922,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the ListRegionZonesOptions model
 				listRegionZonesOptionsModel := new(vpcv1.ListRegionZonesOptions)
 				listRegionZonesOptionsModel.RegionName = core.StringPtr("testString")
- 				listRegionZonesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listRegionZonesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListRegionZones(listRegionZonesOptionsModel)
@@ -4934,7 +4934,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -4988,7 +4988,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5034,7 +5034,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5049,7 +5049,7 @@ var _ = Describe(`VpcV1`, func() {
 				getRegionZoneOptionsModel := new(vpcv1.GetRegionZoneOptions)
 				getRegionZoneOptionsModel.RegionName = core.StringPtr("testString")
 				getRegionZoneOptionsModel.ZoneName = core.StringPtr("testString")
- 				getRegionZoneOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getRegionZoneOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetRegionZone(getRegionZoneOptionsModel)
@@ -5061,7 +5061,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5092,19 +5092,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -5112,7 +5112,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -5133,7 +5133,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -5149,7 +5149,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -5173,7 +5173,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -5191,12 +5191,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -5241,7 +5241,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5300,7 +5300,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5318,7 +5318,7 @@ var _ = Describe(`VpcV1`, func() {
 				listImagesOptionsModel.ResourceGroupID = core.StringPtr("testString")
 				listImagesOptionsModel.Name = core.StringPtr("testString")
 				listImagesOptionsModel.Visibility = core.StringPtr("private")
- 				listImagesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listImagesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListImages(listImagesOptionsModel)
@@ -5330,7 +5330,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5381,7 +5381,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5445,7 +5445,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5478,7 +5478,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the CreateImageOptions model
 				createImageOptionsModel := new(vpcv1.CreateImageOptions)
 				createImageOptionsModel.ImagePrototype = imagePrototypeModel
- 				createImageOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createImageOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateImage(createImageOptionsModel)
@@ -5490,7 +5490,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5562,7 +5562,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5575,7 +5575,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteImageOptions model
 				deleteImageOptionsModel := new(vpcv1.DeleteImageOptions)
 				deleteImageOptionsModel.ID = core.StringPtr("testString")
- 				deleteImageOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteImageOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteImage(deleteImageOptionsModel)
@@ -5586,7 +5586,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5638,7 +5638,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5683,7 +5683,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5697,7 +5697,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetImageOptions model
 				getImageOptionsModel := new(vpcv1.GetImageOptions)
 				getImageOptionsModel.ID = core.StringPtr("testString")
- 				getImageOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getImageOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetImage(getImageOptionsModel)
@@ -5709,7 +5709,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5763,7 +5763,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5809,7 +5809,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5824,7 +5824,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateImageOptionsModel := new(vpcv1.UpdateImageOptions)
 				updateImageOptionsModel.ID = core.StringPtr("testString")
 				updateImageOptionsModel.Name = core.StringPtr("my-image")
- 				updateImageOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateImageOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateImage(updateImageOptionsModel)
@@ -5836,7 +5836,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5895,7 +5895,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5945,7 +5945,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -5960,7 +5960,7 @@ var _ = Describe(`VpcV1`, func() {
 				listOperatingSystemsOptionsModel := new(vpcv1.ListOperatingSystemsOptions)
 				listOperatingSystemsOptionsModel.Start = core.StringPtr("testString")
 				listOperatingSystemsOptionsModel.Limit = core.Int64Ptr(int64(1))
- 				listOperatingSystemsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listOperatingSystemsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListOperatingSystems(listOperatingSystemsOptionsModel)
@@ -5972,7 +5972,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6020,7 +6020,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6065,7 +6065,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6079,7 +6079,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetOperatingSystemOptions model
 				getOperatingSystemOptionsModel := new(vpcv1.GetOperatingSystemOptions)
 				getOperatingSystemOptionsModel.Name = core.StringPtr("testString")
- 				getOperatingSystemOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getOperatingSystemOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetOperatingSystem(getOperatingSystemOptionsModel)
@@ -6091,7 +6091,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6121,19 +6121,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -6141,7 +6141,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -6162,7 +6162,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -6178,7 +6178,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -6202,7 +6202,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -6220,12 +6220,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -6264,7 +6264,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6314,7 +6314,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6329,7 +6329,7 @@ var _ = Describe(`VpcV1`, func() {
 				listInstanceGroupsOptionsModel := new(vpcv1.ListInstanceGroupsOptions)
 				listInstanceGroupsOptionsModel.Start = core.StringPtr("testString")
 				listInstanceGroupsOptionsModel.Limit = core.Int64Ptr(int64(1))
- 				listInstanceGroupsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listInstanceGroupsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListInstanceGroups(listInstanceGroupsOptionsModel)
@@ -6341,7 +6341,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6389,7 +6389,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6461,7 +6461,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6502,7 +6502,7 @@ var _ = Describe(`VpcV1`, func() {
 				createInstanceGroupOptionsModel.MembershipCount = core.Int64Ptr(int64(10))
 				createInstanceGroupOptionsModel.Name = core.StringPtr("my-instance-group")
 				createInstanceGroupOptionsModel.ResourceGroup = resourceGroupIdentityModel
- 				createInstanceGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createInstanceGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateInstanceGroup(createInstanceGroupOptionsModel)
@@ -6514,7 +6514,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6594,7 +6594,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6607,7 +6607,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteInstanceGroupOptions model
 				deleteInstanceGroupOptionsModel := new(vpcv1.DeleteInstanceGroupOptions)
 				deleteInstanceGroupOptionsModel.ID = core.StringPtr("testString")
- 				deleteInstanceGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteInstanceGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteInstanceGroup(deleteInstanceGroupOptionsModel)
@@ -6618,7 +6618,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6670,7 +6670,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6715,7 +6715,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6729,7 +6729,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetInstanceGroupOptions model
 				getInstanceGroupOptionsModel := new(vpcv1.GetInstanceGroupOptions)
 				getInstanceGroupOptionsModel.ID = core.StringPtr("testString")
- 				getInstanceGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getInstanceGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetInstanceGroup(getInstanceGroupOptionsModel)
@@ -6741,7 +6741,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6795,7 +6795,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6863,7 +6863,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6900,7 +6900,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateInstanceGroupOptionsModel.MembershipCount = core.Int64Ptr(int64(10))
 				updateInstanceGroupOptionsModel.Name = core.StringPtr("my-instance-group")
 				updateInstanceGroupOptionsModel.Subnets = []vpcv1.SubnetIdentityIntf{subnetIdentityModel}
- 				updateInstanceGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateInstanceGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateInstanceGroup(updateInstanceGroupOptionsModel)
@@ -6912,7 +6912,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -6988,7 +6988,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7001,7 +7001,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteInstanceGroupLoadBalancerOptions model
 				deleteInstanceGroupLoadBalancerOptionsModel := new(vpcv1.DeleteInstanceGroupLoadBalancerOptions)
 				deleteInstanceGroupLoadBalancerOptionsModel.InstanceGroupID = core.StringPtr("testString")
- 				deleteInstanceGroupLoadBalancerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteInstanceGroupLoadBalancerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteInstanceGroupLoadBalancer(deleteInstanceGroupLoadBalancerOptionsModel)
@@ -7012,7 +7012,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7064,7 +7064,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7109,7 +7109,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7123,7 +7123,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the ListInstanceGroupManagersOptions model
 				listInstanceGroupManagersOptionsModel := new(vpcv1.ListInstanceGroupManagersOptions)
 				listInstanceGroupManagersOptionsModel.InstanceGroupID = core.StringPtr("testString")
- 				listInstanceGroupManagersOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listInstanceGroupManagersOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListInstanceGroupManagers(listInstanceGroupManagersOptionsModel)
@@ -7135,7 +7135,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7189,7 +7189,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7245,7 +7245,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7270,7 +7270,7 @@ var _ = Describe(`VpcV1`, func() {
 				createInstanceGroupManagerOptionsModel := new(vpcv1.CreateInstanceGroupManagerOptions)
 				createInstanceGroupManagerOptionsModel.InstanceGroupID = core.StringPtr("testString")
 				createInstanceGroupManagerOptionsModel.InstanceGroupManagerPrototype = instanceGroupManagerPrototypeModel
- 				createInstanceGroupManagerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createInstanceGroupManagerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateInstanceGroupManager(createInstanceGroupManagerOptionsModel)
@@ -7282,7 +7282,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7346,7 +7346,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7360,7 +7360,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteInstanceGroupManagerOptionsModel := new(vpcv1.DeleteInstanceGroupManagerOptions)
 				deleteInstanceGroupManagerOptionsModel.InstanceGroupID = core.StringPtr("testString")
 				deleteInstanceGroupManagerOptionsModel.ID = core.StringPtr("testString")
- 				deleteInstanceGroupManagerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteInstanceGroupManagerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteInstanceGroupManager(deleteInstanceGroupManagerOptionsModel)
@@ -7371,7 +7371,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7424,7 +7424,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7470,7 +7470,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7485,7 +7485,7 @@ var _ = Describe(`VpcV1`, func() {
 				getInstanceGroupManagerOptionsModel := new(vpcv1.GetInstanceGroupManagerOptions)
 				getInstanceGroupManagerOptionsModel.InstanceGroupID = core.StringPtr("testString")
 				getInstanceGroupManagerOptionsModel.ID = core.StringPtr("testString")
- 				getInstanceGroupManagerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getInstanceGroupManagerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetInstanceGroupManager(getInstanceGroupManagerOptionsModel)
@@ -7497,7 +7497,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7552,7 +7552,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7604,7 +7604,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7625,7 +7625,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateInstanceGroupManagerOptionsModel.MaxMembershipCount = core.Int64Ptr(int64(10))
 				updateInstanceGroupManagerOptionsModel.MinMembershipCount = core.Int64Ptr(int64(10))
 				updateInstanceGroupManagerOptionsModel.Name = core.StringPtr("my-instance-group-manager")
- 				updateInstanceGroupManagerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateInstanceGroupManagerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateInstanceGroupManager(updateInstanceGroupManagerOptionsModel)
@@ -7637,7 +7637,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7698,7 +7698,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7744,7 +7744,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7759,7 +7759,7 @@ var _ = Describe(`VpcV1`, func() {
 				listInstanceGroupManagerPoliciesOptionsModel := new(vpcv1.ListInstanceGroupManagerPoliciesOptions)
 				listInstanceGroupManagerPoliciesOptionsModel.InstanceGroupID = core.StringPtr("testString")
 				listInstanceGroupManagerPoliciesOptionsModel.InstanceGroupManagerID = core.StringPtr("testString")
- 				listInstanceGroupManagerPoliciesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listInstanceGroupManagerPoliciesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListInstanceGroupManagerPolicies(listInstanceGroupManagerPoliciesOptionsModel)
@@ -7771,7 +7771,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7826,7 +7826,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7880,7 +7880,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7903,7 +7903,7 @@ var _ = Describe(`VpcV1`, func() {
 				createInstanceGroupManagerPolicyOptionsModel.InstanceGroupID = core.StringPtr("testString")
 				createInstanceGroupManagerPolicyOptionsModel.InstanceGroupManagerID = core.StringPtr("testString")
 				createInstanceGroupManagerPolicyOptionsModel.InstanceGroupManagerPolicyPrototype = instanceGroupManagerPolicyPrototypeModel
- 				createInstanceGroupManagerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createInstanceGroupManagerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateInstanceGroupManagerPolicy(createInstanceGroupManagerPolicyOptionsModel)
@@ -7915,7 +7915,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7977,7 +7977,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -7992,7 +7992,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteInstanceGroupManagerPolicyOptionsModel.InstanceGroupID = core.StringPtr("testString")
 				deleteInstanceGroupManagerPolicyOptionsModel.InstanceGroupManagerID = core.StringPtr("testString")
 				deleteInstanceGroupManagerPolicyOptionsModel.ID = core.StringPtr("testString")
- 				deleteInstanceGroupManagerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteInstanceGroupManagerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteInstanceGroupManagerPolicy(deleteInstanceGroupManagerPolicyOptionsModel)
@@ -8003,7 +8003,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8057,7 +8057,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8104,7 +8104,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8120,7 +8120,7 @@ var _ = Describe(`VpcV1`, func() {
 				getInstanceGroupManagerPolicyOptionsModel.InstanceGroupID = core.StringPtr("testString")
 				getInstanceGroupManagerPolicyOptionsModel.InstanceGroupManagerID = core.StringPtr("testString")
 				getInstanceGroupManagerPolicyOptionsModel.ID = core.StringPtr("testString")
- 				getInstanceGroupManagerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getInstanceGroupManagerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetInstanceGroupManagerPolicy(getInstanceGroupManagerPolicyOptionsModel)
@@ -8132,7 +8132,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8188,7 +8188,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8238,7 +8238,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8257,7 +8257,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateInstanceGroupManagerPolicyOptionsModel.MetricType = core.StringPtr("cpu")
 				updateInstanceGroupManagerPolicyOptionsModel.MetricValue = core.Int64Ptr(int64(38))
 				updateInstanceGroupManagerPolicyOptionsModel.Name = core.StringPtr("my-instance-group-manager-policy")
- 				updateInstanceGroupManagerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateInstanceGroupManagerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateInstanceGroupManagerPolicy(updateInstanceGroupManagerPolicyOptionsModel)
@@ -8269,7 +8269,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8327,7 +8327,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8340,7 +8340,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteInstanceGroupMembershipsOptions model
 				deleteInstanceGroupMembershipsOptionsModel := new(vpcv1.DeleteInstanceGroupMembershipsOptions)
 				deleteInstanceGroupMembershipsOptionsModel.InstanceGroupID = core.StringPtr("testString")
- 				deleteInstanceGroupMembershipsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteInstanceGroupMembershipsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteInstanceGroupMemberships(deleteInstanceGroupMembershipsOptionsModel)
@@ -8351,7 +8351,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8403,7 +8403,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8448,7 +8448,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8462,7 +8462,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the ListInstanceGroupMembershipsOptions model
 				listInstanceGroupMembershipsOptionsModel := new(vpcv1.ListInstanceGroupMembershipsOptions)
 				listInstanceGroupMembershipsOptionsModel.InstanceGroupID = core.StringPtr("testString")
- 				listInstanceGroupMembershipsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listInstanceGroupMembershipsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListInstanceGroupMemberships(listInstanceGroupMembershipsOptionsModel)
@@ -8474,7 +8474,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8527,7 +8527,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8541,7 +8541,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteInstanceGroupMembershipOptionsModel := new(vpcv1.DeleteInstanceGroupMembershipOptions)
 				deleteInstanceGroupMembershipOptionsModel.InstanceGroupID = core.StringPtr("testString")
 				deleteInstanceGroupMembershipOptionsModel.ID = core.StringPtr("testString")
- 				deleteInstanceGroupMembershipOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteInstanceGroupMembershipOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteInstanceGroupMembership(deleteInstanceGroupMembershipOptionsModel)
@@ -8552,7 +8552,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8605,7 +8605,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8651,7 +8651,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8666,7 +8666,7 @@ var _ = Describe(`VpcV1`, func() {
 				getInstanceGroupMembershipOptionsModel := new(vpcv1.GetInstanceGroupMembershipOptions)
 				getInstanceGroupMembershipOptionsModel.InstanceGroupID = core.StringPtr("testString")
 				getInstanceGroupMembershipOptionsModel.ID = core.StringPtr("testString")
- 				getInstanceGroupMembershipOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getInstanceGroupMembershipOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetInstanceGroupMembership(getInstanceGroupMembershipOptionsModel)
@@ -8678,7 +8678,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8733,7 +8733,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8780,7 +8780,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8796,7 +8796,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateInstanceGroupMembershipOptionsModel.InstanceGroupID = core.StringPtr("testString")
 				updateInstanceGroupMembershipOptionsModel.ID = core.StringPtr("testString")
 				updateInstanceGroupMembershipOptionsModel.Name = core.StringPtr("my-instance-group-membership")
- 				updateInstanceGroupMembershipOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateInstanceGroupMembershipOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateInstanceGroupMembership(updateInstanceGroupMembershipOptionsModel)
@@ -8808,7 +8808,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -8840,19 +8840,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -8860,7 +8860,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -8881,7 +8881,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -8897,7 +8897,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -8921,7 +8921,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -8939,12 +8939,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -8983,7 +8983,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9033,7 +9033,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9048,7 +9048,7 @@ var _ = Describe(`VpcV1`, func() {
 				listInstanceProfilesOptionsModel := new(vpcv1.ListInstanceProfilesOptions)
 				listInstanceProfilesOptionsModel.Start = core.StringPtr("testString")
 				listInstanceProfilesOptionsModel.Limit = core.Int64Ptr(int64(1))
- 				listInstanceProfilesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listInstanceProfilesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListInstanceProfiles(listInstanceProfilesOptionsModel)
@@ -9060,7 +9060,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9108,7 +9108,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9153,7 +9153,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9167,7 +9167,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetInstanceProfileOptions model
 				getInstanceProfileOptionsModel := new(vpcv1.GetInstanceProfileOptions)
 				getInstanceProfileOptionsModel.Name = core.StringPtr("testString")
- 				getInstanceProfileOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getInstanceProfileOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetInstanceProfile(getInstanceProfileOptionsModel)
@@ -9179,7 +9179,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9233,7 +9233,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9277,7 +9277,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9290,7 +9290,7 @@ var _ = Describe(`VpcV1`, func() {
 
 				// Construct an instance of the ListInstanceTemplatesOptions model
 				listInstanceTemplatesOptionsModel := new(vpcv1.ListInstanceTemplatesOptions)
- 				listInstanceTemplatesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listInstanceTemplatesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListInstanceTemplates(listInstanceTemplatesOptionsModel)
@@ -9302,7 +9302,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9348,7 +9348,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9485,7 +9485,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9591,7 +9591,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the CreateInstanceTemplateOptions model
 				createInstanceTemplateOptionsModel := new(vpcv1.CreateInstanceTemplateOptions)
 				createInstanceTemplateOptionsModel.InstanceTemplatePrototype = instanceTemplatePrototypeModel
- 				createInstanceTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createInstanceTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateInstanceTemplate(createInstanceTemplateOptionsModel)
@@ -9603,7 +9603,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9748,7 +9748,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9761,7 +9761,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteInstanceTemplateOptions model
 				deleteInstanceTemplateOptionsModel := new(vpcv1.DeleteInstanceTemplateOptions)
 				deleteInstanceTemplateOptionsModel.ID = core.StringPtr("testString")
- 				deleteInstanceTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteInstanceTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteInstanceTemplate(deleteInstanceTemplateOptionsModel)
@@ -9772,7 +9772,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9824,7 +9824,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9869,7 +9869,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9883,7 +9883,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetInstanceTemplateOptions model
 				getInstanceTemplateOptionsModel := new(vpcv1.GetInstanceTemplateOptions)
 				getInstanceTemplateOptionsModel.ID = core.StringPtr("testString")
- 				getInstanceTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getInstanceTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetInstanceTemplate(getInstanceTemplateOptionsModel)
@@ -9895,7 +9895,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9949,7 +9949,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -9995,7 +9995,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -10010,7 +10010,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateInstanceTemplateOptionsModel := new(vpcv1.UpdateInstanceTemplateOptions)
 				updateInstanceTemplateOptionsModel.ID = core.StringPtr("testString")
 				updateInstanceTemplateOptionsModel.Name = core.StringPtr("my-instance-template")
- 				updateInstanceTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateInstanceTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateInstanceTemplate(updateInstanceTemplateOptionsModel)
@@ -10022,7 +10022,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -10103,7 +10103,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -10186,7 +10186,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -10212,7 +10212,7 @@ var _ = Describe(`VpcV1`, func() {
 				listInstancesOptionsModel.DedicatedHostID = core.StringPtr("testString")
 				listInstancesOptionsModel.DedicatedHostCRN = core.StringPtr("testString")
 				listInstancesOptionsModel.DedicatedHostName = core.StringPtr("testString")
- 				listInstancesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listInstancesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListInstances(listInstancesOptionsModel)
@@ -10224,7 +10224,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -10283,7 +10283,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -10420,7 +10420,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -10526,7 +10526,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the CreateInstanceOptions model
 				createInstanceOptionsModel := new(vpcv1.CreateInstanceOptions)
 				createInstanceOptionsModel.InstancePrototype = instancePrototypeModel
- 				createInstanceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createInstanceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateInstance(createInstanceOptionsModel)
@@ -10538,7 +10538,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -10683,7 +10683,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -10696,7 +10696,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteInstanceOptions model
 				deleteInstanceOptionsModel := new(vpcv1.DeleteInstanceOptions)
 				deleteInstanceOptionsModel.ID = core.StringPtr("testString")
- 				deleteInstanceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteInstanceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteInstance(deleteInstanceOptionsModel)
@@ -10707,7 +10707,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -10759,7 +10759,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -10804,7 +10804,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -10818,7 +10818,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetInstanceOptions model
 				getInstanceOptionsModel := new(vpcv1.GetInstanceOptions)
 				getInstanceOptionsModel.ID = core.StringPtr("testString")
- 				getInstanceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getInstanceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetInstance(getInstanceOptionsModel)
@@ -10830,7 +10830,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -10884,7 +10884,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -10930,7 +10930,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -10945,7 +10945,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateInstanceOptionsModel := new(vpcv1.UpdateInstanceOptions)
 				updateInstanceOptionsModel.ID = core.StringPtr("testString")
 				updateInstanceOptionsModel.Name = core.StringPtr("my-instance")
- 				updateInstanceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateInstanceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateInstance(updateInstanceOptionsModel)
@@ -10957,7 +10957,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11012,7 +11012,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11057,7 +11057,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11071,7 +11071,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetInstanceInitializationOptions model
 				getInstanceInitializationOptionsModel := new(vpcv1.GetInstanceInitializationOptions)
 				getInstanceInitializationOptionsModel.ID = core.StringPtr("testString")
- 				getInstanceInitializationOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getInstanceInitializationOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetInstanceInitialization(getInstanceInitializationOptionsModel)
@@ -11083,7 +11083,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11137,7 +11137,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11184,7 +11184,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11200,7 +11200,7 @@ var _ = Describe(`VpcV1`, func() {
 				createInstanceActionOptionsModel.InstanceID = core.StringPtr("testString")
 				createInstanceActionOptionsModel.Type = core.StringPtr("reboot")
 				createInstanceActionOptionsModel.Force = core.BoolPtr(true)
- 				createInstanceActionOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createInstanceActionOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateInstanceAction(createInstanceActionOptionsModel)
@@ -11212,7 +11212,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11268,7 +11268,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11313,7 +11313,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11327,7 +11327,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the ListInstanceDisksOptions model
 				listInstanceDisksOptionsModel := new(vpcv1.ListInstanceDisksOptions)
 				listInstanceDisksOptionsModel.InstanceID = core.StringPtr("testString")
- 				listInstanceDisksOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listInstanceDisksOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListInstanceDisks(listInstanceDisksOptionsModel)
@@ -11339,7 +11339,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11393,7 +11393,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11439,7 +11439,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11454,7 +11454,7 @@ var _ = Describe(`VpcV1`, func() {
 				getInstanceDiskOptionsModel := new(vpcv1.GetInstanceDiskOptions)
 				getInstanceDiskOptionsModel.InstanceID = core.StringPtr("testString")
 				getInstanceDiskOptionsModel.ID = core.StringPtr("testString")
- 				getInstanceDiskOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getInstanceDiskOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetInstanceDisk(getInstanceDiskOptionsModel)
@@ -11466,7 +11466,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11521,7 +11521,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11568,7 +11568,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11584,7 +11584,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateInstanceDiskOptionsModel.InstanceID = core.StringPtr("testString")
 				updateInstanceDiskOptionsModel.ID = core.StringPtr("testString")
 				updateInstanceDiskOptionsModel.Name = core.StringPtr("my-instance-disk-updated")
- 				updateInstanceDiskOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateInstanceDiskOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateInstanceDisk(updateInstanceDiskOptionsModel)
@@ -11596,7 +11596,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11652,7 +11652,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11697,7 +11697,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11711,7 +11711,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the ListInstanceNetworkInterfacesOptions model
 				listInstanceNetworkInterfacesOptionsModel := new(vpcv1.ListInstanceNetworkInterfacesOptions)
 				listInstanceNetworkInterfacesOptionsModel.InstanceID = core.StringPtr("testString")
- 				listInstanceNetworkInterfacesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listInstanceNetworkInterfacesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListInstanceNetworkInterfaces(listInstanceNetworkInterfacesOptionsModel)
@@ -11723,7 +11723,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11777,7 +11777,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11835,7 +11835,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11862,7 +11862,7 @@ var _ = Describe(`VpcV1`, func() {
 				createInstanceNetworkInterfaceOptionsModel.Name = core.StringPtr("my-network-interface")
 				createInstanceNetworkInterfaceOptionsModel.PrimaryIpv4Address = core.StringPtr("10.0.0.5")
 				createInstanceNetworkInterfaceOptionsModel.SecurityGroups = []vpcv1.SecurityGroupIdentityIntf{securityGroupIdentityModel}
- 				createInstanceNetworkInterfaceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createInstanceNetworkInterfaceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateInstanceNetworkInterface(createInstanceNetworkInterfaceOptionsModel)
@@ -11874,7 +11874,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11940,7 +11940,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -11954,7 +11954,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteInstanceNetworkInterfaceOptionsModel := new(vpcv1.DeleteInstanceNetworkInterfaceOptions)
 				deleteInstanceNetworkInterfaceOptionsModel.InstanceID = core.StringPtr("testString")
 				deleteInstanceNetworkInterfaceOptionsModel.ID = core.StringPtr("testString")
- 				deleteInstanceNetworkInterfaceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteInstanceNetworkInterfaceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteInstanceNetworkInterface(deleteInstanceNetworkInterfaceOptionsModel)
@@ -11965,7 +11965,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12018,7 +12018,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12064,7 +12064,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12079,7 +12079,7 @@ var _ = Describe(`VpcV1`, func() {
 				getInstanceNetworkInterfaceOptionsModel := new(vpcv1.GetInstanceNetworkInterfaceOptions)
 				getInstanceNetworkInterfaceOptionsModel.InstanceID = core.StringPtr("testString")
 				getInstanceNetworkInterfaceOptionsModel.ID = core.StringPtr("testString")
- 				getInstanceNetworkInterfaceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getInstanceNetworkInterfaceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetInstanceNetworkInterface(getInstanceNetworkInterfaceOptionsModel)
@@ -12091,7 +12091,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12146,7 +12146,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12194,7 +12194,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12211,7 +12211,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateInstanceNetworkInterfaceOptionsModel.ID = core.StringPtr("testString")
 				updateInstanceNetworkInterfaceOptionsModel.AllowIPSpoofing = core.BoolPtr(true)
 				updateInstanceNetworkInterfaceOptionsModel.Name = core.StringPtr("my-network-interface")
- 				updateInstanceNetworkInterfaceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateInstanceNetworkInterfaceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateInstanceNetworkInterface(updateInstanceNetworkInterfaceOptionsModel)
@@ -12223,7 +12223,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12280,7 +12280,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12326,7 +12326,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12341,7 +12341,7 @@ var _ = Describe(`VpcV1`, func() {
 				listInstanceNetworkInterfaceFloatingIpsOptionsModel := new(vpcv1.ListInstanceNetworkInterfaceFloatingIpsOptions)
 				listInstanceNetworkInterfaceFloatingIpsOptionsModel.InstanceID = core.StringPtr("testString")
 				listInstanceNetworkInterfaceFloatingIpsOptionsModel.NetworkInterfaceID = core.StringPtr("testString")
- 				listInstanceNetworkInterfaceFloatingIpsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listInstanceNetworkInterfaceFloatingIpsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListInstanceNetworkInterfaceFloatingIps(listInstanceNetworkInterfaceFloatingIpsOptionsModel)
@@ -12353,7 +12353,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12407,7 +12407,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12422,7 +12422,7 @@ var _ = Describe(`VpcV1`, func() {
 				removeInstanceNetworkInterfaceFloatingIPOptionsModel.InstanceID = core.StringPtr("testString")
 				removeInstanceNetworkInterfaceFloatingIPOptionsModel.NetworkInterfaceID = core.StringPtr("testString")
 				removeInstanceNetworkInterfaceFloatingIPOptionsModel.ID = core.StringPtr("testString")
- 				removeInstanceNetworkInterfaceFloatingIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				removeInstanceNetworkInterfaceFloatingIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.RemoveInstanceNetworkInterfaceFloatingIP(removeInstanceNetworkInterfaceFloatingIPOptionsModel)
@@ -12433,7 +12433,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12487,7 +12487,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12534,7 +12534,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12550,7 +12550,7 @@ var _ = Describe(`VpcV1`, func() {
 				getInstanceNetworkInterfaceFloatingIPOptionsModel.InstanceID = core.StringPtr("testString")
 				getInstanceNetworkInterfaceFloatingIPOptionsModel.NetworkInterfaceID = core.StringPtr("testString")
 				getInstanceNetworkInterfaceFloatingIPOptionsModel.ID = core.StringPtr("testString")
- 				getInstanceNetworkInterfaceFloatingIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getInstanceNetworkInterfaceFloatingIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetInstanceNetworkInterfaceFloatingIP(getInstanceNetworkInterfaceFloatingIPOptionsModel)
@@ -12562,7 +12562,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12618,7 +12618,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12665,7 +12665,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12681,7 +12681,7 @@ var _ = Describe(`VpcV1`, func() {
 				addInstanceNetworkInterfaceFloatingIPOptionsModel.InstanceID = core.StringPtr("testString")
 				addInstanceNetworkInterfaceFloatingIPOptionsModel.NetworkInterfaceID = core.StringPtr("testString")
 				addInstanceNetworkInterfaceFloatingIPOptionsModel.ID = core.StringPtr("testString")
- 				addInstanceNetworkInterfaceFloatingIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				addInstanceNetworkInterfaceFloatingIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.AddInstanceNetworkInterfaceFloatingIP(addInstanceNetworkInterfaceFloatingIPOptionsModel)
@@ -12693,7 +12693,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12749,7 +12749,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12794,7 +12794,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12808,7 +12808,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the ListInstanceVolumeAttachmentsOptions model
 				listInstanceVolumeAttachmentsOptionsModel := new(vpcv1.ListInstanceVolumeAttachmentsOptions)
 				listInstanceVolumeAttachmentsOptionsModel.InstanceID = core.StringPtr("testString")
- 				listInstanceVolumeAttachmentsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listInstanceVolumeAttachmentsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListInstanceVolumeAttachments(listInstanceVolumeAttachmentsOptionsModel)
@@ -12820,7 +12820,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12874,7 +12874,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12926,7 +12926,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -12947,7 +12947,7 @@ var _ = Describe(`VpcV1`, func() {
 				createInstanceVolumeAttachmentOptionsModel.Volume = volumeIdentityModel
 				createInstanceVolumeAttachmentOptionsModel.DeleteVolumeOnInstanceDelete = core.BoolPtr(true)
 				createInstanceVolumeAttachmentOptionsModel.Name = core.StringPtr("my-volume-attachment")
- 				createInstanceVolumeAttachmentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createInstanceVolumeAttachmentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateInstanceVolumeAttachment(createInstanceVolumeAttachmentOptionsModel)
@@ -12959,7 +12959,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13019,7 +13019,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13033,7 +13033,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteInstanceVolumeAttachmentOptionsModel := new(vpcv1.DeleteInstanceVolumeAttachmentOptions)
 				deleteInstanceVolumeAttachmentOptionsModel.InstanceID = core.StringPtr("testString")
 				deleteInstanceVolumeAttachmentOptionsModel.ID = core.StringPtr("testString")
- 				deleteInstanceVolumeAttachmentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteInstanceVolumeAttachmentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteInstanceVolumeAttachment(deleteInstanceVolumeAttachmentOptionsModel)
@@ -13044,7 +13044,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13097,7 +13097,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13143,7 +13143,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13158,7 +13158,7 @@ var _ = Describe(`VpcV1`, func() {
 				getInstanceVolumeAttachmentOptionsModel := new(vpcv1.GetInstanceVolumeAttachmentOptions)
 				getInstanceVolumeAttachmentOptionsModel.InstanceID = core.StringPtr("testString")
 				getInstanceVolumeAttachmentOptionsModel.ID = core.StringPtr("testString")
- 				getInstanceVolumeAttachmentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getInstanceVolumeAttachmentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetInstanceVolumeAttachment(getInstanceVolumeAttachmentOptionsModel)
@@ -13170,7 +13170,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13225,7 +13225,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13273,7 +13273,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13290,7 +13290,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateInstanceVolumeAttachmentOptionsModel.ID = core.StringPtr("testString")
 				updateInstanceVolumeAttachmentOptionsModel.DeleteVolumeOnInstanceDelete = core.BoolPtr(true)
 				updateInstanceVolumeAttachmentOptionsModel.Name = core.StringPtr("my-volume-attachment")
- 				updateInstanceVolumeAttachmentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateInstanceVolumeAttachmentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateInstanceVolumeAttachment(updateInstanceVolumeAttachmentOptionsModel)
@@ -13302,7 +13302,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13335,19 +13335,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -13355,7 +13355,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -13376,7 +13376,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -13392,7 +13392,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -13416,7 +13416,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -13434,12 +13434,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -13478,7 +13478,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13528,7 +13528,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13543,7 +13543,7 @@ var _ = Describe(`VpcV1`, func() {
 				listLoadBalancerProfilesOptionsModel := new(vpcv1.ListLoadBalancerProfilesOptions)
 				listLoadBalancerProfilesOptionsModel.Start = core.StringPtr("testString")
 				listLoadBalancerProfilesOptionsModel.Limit = core.Int64Ptr(int64(1))
- 				listLoadBalancerProfilesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listLoadBalancerProfilesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListLoadBalancerProfiles(listLoadBalancerProfilesOptionsModel)
@@ -13555,7 +13555,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13603,7 +13603,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13648,7 +13648,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13662,7 +13662,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetLoadBalancerProfileOptions model
 				getLoadBalancerProfileOptionsModel := new(vpcv1.GetLoadBalancerProfileOptions)
 				getLoadBalancerProfileOptionsModel.Name = core.StringPtr("testString")
- 				getLoadBalancerProfileOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getLoadBalancerProfileOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetLoadBalancerProfile(getLoadBalancerProfileOptionsModel)
@@ -13674,7 +13674,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13730,7 +13730,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13777,7 +13777,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13791,7 +13791,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the ListLoadBalancersOptions model
 				listLoadBalancersOptionsModel := new(vpcv1.ListLoadBalancersOptions)
 				listLoadBalancersOptionsModel.ResourceGroupID = core.StringPtr("testString")
- 				listLoadBalancersOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listLoadBalancersOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListLoadBalancers(listLoadBalancersOptionsModel)
@@ -13803,7 +13803,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13850,7 +13850,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -13956,7 +13956,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14031,7 +14031,7 @@ var _ = Describe(`VpcV1`, func() {
 				createLoadBalancerOptionsModel.Pools = []vpcv1.LoadBalancerPoolPrototype{*loadBalancerPoolPrototypeModel}
 				createLoadBalancerOptionsModel.Profile = loadBalancerProfileIdentityModel
 				createLoadBalancerOptionsModel.ResourceGroup = resourceGroupIdentityModel
- 				createLoadBalancerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createLoadBalancerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateLoadBalancer(createLoadBalancerOptionsModel)
@@ -14043,7 +14043,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14157,7 +14157,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14170,7 +14170,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteLoadBalancerOptions model
 				deleteLoadBalancerOptionsModel := new(vpcv1.DeleteLoadBalancerOptions)
 				deleteLoadBalancerOptionsModel.ID = core.StringPtr("testString")
- 				deleteLoadBalancerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteLoadBalancerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteLoadBalancer(deleteLoadBalancerOptionsModel)
@@ -14181,7 +14181,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14233,7 +14233,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14278,7 +14278,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14292,7 +14292,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetLoadBalancerOptions model
 				getLoadBalancerOptionsModel := new(vpcv1.GetLoadBalancerOptions)
 				getLoadBalancerOptionsModel.ID = core.StringPtr("testString")
- 				getLoadBalancerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getLoadBalancerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetLoadBalancer(getLoadBalancerOptionsModel)
@@ -14304,7 +14304,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14358,7 +14358,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14404,7 +14404,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14419,7 +14419,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateLoadBalancerOptionsModel := new(vpcv1.UpdateLoadBalancerOptions)
 				updateLoadBalancerOptionsModel.ID = core.StringPtr("testString")
 				updateLoadBalancerOptionsModel.Name = core.StringPtr("my-load-balancer")
- 				updateLoadBalancerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateLoadBalancerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateLoadBalancer(updateLoadBalancerOptionsModel)
@@ -14431,7 +14431,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14486,7 +14486,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14531,7 +14531,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14545,7 +14545,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetLoadBalancerStatisticsOptions model
 				getLoadBalancerStatisticsOptionsModel := new(vpcv1.GetLoadBalancerStatisticsOptions)
 				getLoadBalancerStatisticsOptionsModel.ID = core.StringPtr("testString")
- 				getLoadBalancerStatisticsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getLoadBalancerStatisticsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetLoadBalancerStatistics(getLoadBalancerStatisticsOptionsModel)
@@ -14557,7 +14557,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14611,7 +14611,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14656,7 +14656,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14670,7 +14670,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the ListLoadBalancerListenersOptions model
 				listLoadBalancerListenersOptionsModel := new(vpcv1.ListLoadBalancerListenersOptions)
 				listLoadBalancerListenersOptionsModel.LoadBalancerID = core.StringPtr("testString")
- 				listLoadBalancerListenersOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listLoadBalancerListenersOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListLoadBalancerListeners(listLoadBalancerListenersOptionsModel)
@@ -14682,7 +14682,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14736,7 +14736,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14814,7 +14814,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14861,7 +14861,7 @@ var _ = Describe(`VpcV1`, func() {
 				createLoadBalancerListenerOptionsModel.ConnectionLimit = core.Int64Ptr(int64(2000))
 				createLoadBalancerListenerOptionsModel.DefaultPool = loadBalancerPoolIdentityModel
 				createLoadBalancerListenerOptionsModel.Policies = []vpcv1.LoadBalancerListenerPolicyPrototype{*loadBalancerListenerPolicyPrototypeModel}
- 				createLoadBalancerListenerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createLoadBalancerListenerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateLoadBalancerListener(createLoadBalancerListenerOptionsModel)
@@ -14873,7 +14873,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14959,7 +14959,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -14973,7 +14973,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteLoadBalancerListenerOptionsModel := new(vpcv1.DeleteLoadBalancerListenerOptions)
 				deleteLoadBalancerListenerOptionsModel.LoadBalancerID = core.StringPtr("testString")
 				deleteLoadBalancerListenerOptionsModel.ID = core.StringPtr("testString")
- 				deleteLoadBalancerListenerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteLoadBalancerListenerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteLoadBalancerListener(deleteLoadBalancerListenerOptionsModel)
@@ -14984,7 +14984,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15037,7 +15037,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15083,7 +15083,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15098,7 +15098,7 @@ var _ = Describe(`VpcV1`, func() {
 				getLoadBalancerListenerOptionsModel := new(vpcv1.GetLoadBalancerListenerOptions)
 				getLoadBalancerListenerOptionsModel.LoadBalancerID = core.StringPtr("testString")
 				getLoadBalancerListenerOptionsModel.ID = core.StringPtr("testString")
- 				getLoadBalancerListenerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getLoadBalancerListenerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetLoadBalancerListener(getLoadBalancerListenerOptionsModel)
@@ -15110,7 +15110,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15165,7 +15165,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15224,7 +15224,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15252,7 +15252,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateLoadBalancerListenerOptionsModel.DefaultPool = loadBalancerPoolIdentityModel
 				updateLoadBalancerListenerOptionsModel.Port = core.Int64Ptr(int64(443))
 				updateLoadBalancerListenerOptionsModel.Protocol = core.StringPtr("http")
- 				updateLoadBalancerListenerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateLoadBalancerListenerOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateLoadBalancerListener(updateLoadBalancerListenerOptionsModel)
@@ -15264,7 +15264,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15332,7 +15332,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15378,7 +15378,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15393,7 +15393,7 @@ var _ = Describe(`VpcV1`, func() {
 				listLoadBalancerListenerPoliciesOptionsModel := new(vpcv1.ListLoadBalancerListenerPoliciesOptions)
 				listLoadBalancerListenerPoliciesOptionsModel.LoadBalancerID = core.StringPtr("testString")
 				listLoadBalancerListenerPoliciesOptionsModel.ListenerID = core.StringPtr("testString")
- 				listLoadBalancerListenerPoliciesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listLoadBalancerListenerPoliciesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListLoadBalancerListenerPolicies(listLoadBalancerListenerPoliciesOptionsModel)
@@ -15405,7 +15405,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15460,7 +15460,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15522,7 +15522,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15553,7 +15553,7 @@ var _ = Describe(`VpcV1`, func() {
 				createLoadBalancerListenerPolicyOptionsModel.Name = core.StringPtr("my-policy")
 				createLoadBalancerListenerPolicyOptionsModel.Rules = []vpcv1.LoadBalancerListenerPolicyRulePrototype{*loadBalancerListenerPolicyRulePrototypeModel}
 				createLoadBalancerListenerPolicyOptionsModel.Target = loadBalancerListenerPolicyPrototypeTargetModel
- 				createLoadBalancerListenerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createLoadBalancerListenerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateLoadBalancerListenerPolicy(createLoadBalancerListenerPolicyOptionsModel)
@@ -15565,7 +15565,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15635,7 +15635,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15650,7 +15650,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteLoadBalancerListenerPolicyOptionsModel.LoadBalancerID = core.StringPtr("testString")
 				deleteLoadBalancerListenerPolicyOptionsModel.ListenerID = core.StringPtr("testString")
 				deleteLoadBalancerListenerPolicyOptionsModel.ID = core.StringPtr("testString")
- 				deleteLoadBalancerListenerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteLoadBalancerListenerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteLoadBalancerListenerPolicy(deleteLoadBalancerListenerPolicyOptionsModel)
@@ -15661,7 +15661,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15715,7 +15715,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15762,7 +15762,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15778,7 +15778,7 @@ var _ = Describe(`VpcV1`, func() {
 				getLoadBalancerListenerPolicyOptionsModel.LoadBalancerID = core.StringPtr("testString")
 				getLoadBalancerListenerPolicyOptionsModel.ListenerID = core.StringPtr("testString")
 				getLoadBalancerListenerPolicyOptionsModel.ID = core.StringPtr("testString")
- 				getLoadBalancerListenerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getLoadBalancerListenerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetLoadBalancerListenerPolicy(getLoadBalancerListenerPolicyOptionsModel)
@@ -15790,7 +15790,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15846,7 +15846,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15900,7 +15900,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15923,7 +15923,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateLoadBalancerListenerPolicyOptionsModel.Name = core.StringPtr("my-policy")
 				updateLoadBalancerListenerPolicyOptionsModel.Priority = core.Int64Ptr(int64(5))
 				updateLoadBalancerListenerPolicyOptionsModel.Target = loadBalancerListenerPolicyPatchTargetModel
- 				updateLoadBalancerListenerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateLoadBalancerListenerPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateLoadBalancerListenerPolicy(updateLoadBalancerListenerPolicyOptionsModel)
@@ -15935,7 +15935,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -15998,7 +15998,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16045,7 +16045,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16061,7 +16061,7 @@ var _ = Describe(`VpcV1`, func() {
 				listLoadBalancerListenerPolicyRulesOptionsModel.LoadBalancerID = core.StringPtr("testString")
 				listLoadBalancerListenerPolicyRulesOptionsModel.ListenerID = core.StringPtr("testString")
 				listLoadBalancerListenerPolicyRulesOptionsModel.PolicyID = core.StringPtr("testString")
- 				listLoadBalancerListenerPolicyRulesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listLoadBalancerListenerPolicyRulesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListLoadBalancerListenerPolicyRules(listLoadBalancerListenerPolicyRulesOptionsModel)
@@ -16073,7 +16073,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16129,7 +16129,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16180,7 +16180,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16200,7 +16200,7 @@ var _ = Describe(`VpcV1`, func() {
 				createLoadBalancerListenerPolicyRuleOptionsModel.Type = core.StringPtr("header")
 				createLoadBalancerListenerPolicyRuleOptionsModel.Value = core.StringPtr("testString")
 				createLoadBalancerListenerPolicyRuleOptionsModel.Field = core.StringPtr("MY-APP-HEADER")
- 				createLoadBalancerListenerPolicyRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createLoadBalancerListenerPolicyRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateLoadBalancerListenerPolicyRule(createLoadBalancerListenerPolicyRuleOptionsModel)
@@ -16212,7 +16212,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16271,7 +16271,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16287,7 +16287,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteLoadBalancerListenerPolicyRuleOptionsModel.ListenerID = core.StringPtr("testString")
 				deleteLoadBalancerListenerPolicyRuleOptionsModel.PolicyID = core.StringPtr("testString")
 				deleteLoadBalancerListenerPolicyRuleOptionsModel.ID = core.StringPtr("testString")
- 				deleteLoadBalancerListenerPolicyRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteLoadBalancerListenerPolicyRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteLoadBalancerListenerPolicyRule(deleteLoadBalancerListenerPolicyRuleOptionsModel)
@@ -16298,7 +16298,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16353,7 +16353,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16401,7 +16401,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16418,7 +16418,7 @@ var _ = Describe(`VpcV1`, func() {
 				getLoadBalancerListenerPolicyRuleOptionsModel.ListenerID = core.StringPtr("testString")
 				getLoadBalancerListenerPolicyRuleOptionsModel.PolicyID = core.StringPtr("testString")
 				getLoadBalancerListenerPolicyRuleOptionsModel.ID = core.StringPtr("testString")
- 				getLoadBalancerListenerPolicyRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getLoadBalancerListenerPolicyRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetLoadBalancerListenerPolicyRule(getLoadBalancerListenerPolicyRuleOptionsModel)
@@ -16430,7 +16430,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16487,7 +16487,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16539,7 +16539,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16560,7 +16560,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateLoadBalancerListenerPolicyRuleOptionsModel.Field = core.StringPtr("MY-APP-HEADER")
 				updateLoadBalancerListenerPolicyRuleOptionsModel.Type = core.StringPtr("header")
 				updateLoadBalancerListenerPolicyRuleOptionsModel.Value = core.StringPtr("testString")
- 				updateLoadBalancerListenerPolicyRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateLoadBalancerListenerPolicyRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateLoadBalancerListenerPolicyRule(updateLoadBalancerListenerPolicyRuleOptionsModel)
@@ -16572,7 +16572,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16633,7 +16633,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16678,7 +16678,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16692,7 +16692,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the ListLoadBalancerPoolsOptions model
 				listLoadBalancerPoolsOptionsModel := new(vpcv1.ListLoadBalancerPoolsOptions)
 				listLoadBalancerPoolsOptionsModel.LoadBalancerID = core.StringPtr("testString")
- 				listLoadBalancerPoolsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listLoadBalancerPoolsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListLoadBalancerPools(listLoadBalancerPoolsOptionsModel)
@@ -16704,7 +16704,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16758,7 +16758,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16832,7 +16832,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16875,7 +16875,7 @@ var _ = Describe(`VpcV1`, func() {
 				createLoadBalancerPoolOptionsModel.Members = []vpcv1.LoadBalancerPoolMemberPrototype{*loadBalancerPoolMemberPrototypeModel}
 				createLoadBalancerPoolOptionsModel.Name = core.StringPtr("my-load-balancer-pool")
 				createLoadBalancerPoolOptionsModel.SessionPersistence = loadBalancerPoolSessionPersistencePrototypeModel
- 				createLoadBalancerPoolOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createLoadBalancerPoolOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateLoadBalancerPool(createLoadBalancerPoolOptionsModel)
@@ -16887,7 +16887,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16969,7 +16969,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -16983,7 +16983,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteLoadBalancerPoolOptionsModel := new(vpcv1.DeleteLoadBalancerPoolOptions)
 				deleteLoadBalancerPoolOptionsModel.LoadBalancerID = core.StringPtr("testString")
 				deleteLoadBalancerPoolOptionsModel.ID = core.StringPtr("testString")
- 				deleteLoadBalancerPoolOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteLoadBalancerPoolOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteLoadBalancerPool(deleteLoadBalancerPoolOptionsModel)
@@ -16994,7 +16994,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17047,7 +17047,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17093,7 +17093,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17108,7 +17108,7 @@ var _ = Describe(`VpcV1`, func() {
 				getLoadBalancerPoolOptionsModel := new(vpcv1.GetLoadBalancerPoolOptions)
 				getLoadBalancerPoolOptionsModel.LoadBalancerID = core.StringPtr("testString")
 				getLoadBalancerPoolOptionsModel.ID = core.StringPtr("testString")
- 				getLoadBalancerPoolOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getLoadBalancerPoolOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetLoadBalancerPool(getLoadBalancerPoolOptionsModel)
@@ -17120,7 +17120,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17175,7 +17175,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17239,7 +17239,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17272,7 +17272,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateLoadBalancerPoolOptionsModel.Name = core.StringPtr("my-load-balancer-pool")
 				updateLoadBalancerPoolOptionsModel.Protocol = core.StringPtr("http")
 				updateLoadBalancerPoolOptionsModel.SessionPersistence = loadBalancerPoolSessionPersistencePatchModel
- 				updateLoadBalancerPoolOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateLoadBalancerPoolOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateLoadBalancerPool(updateLoadBalancerPoolOptionsModel)
@@ -17284,7 +17284,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17357,7 +17357,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17403,7 +17403,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17418,7 +17418,7 @@ var _ = Describe(`VpcV1`, func() {
 				listLoadBalancerPoolMembersOptionsModel := new(vpcv1.ListLoadBalancerPoolMembersOptions)
 				listLoadBalancerPoolMembersOptionsModel.LoadBalancerID = core.StringPtr("testString")
 				listLoadBalancerPoolMembersOptionsModel.PoolID = core.StringPtr("testString")
- 				listLoadBalancerPoolMembersOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listLoadBalancerPoolMembersOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListLoadBalancerPoolMembers(listLoadBalancerPoolMembersOptionsModel)
@@ -17430,7 +17430,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17485,7 +17485,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17538,7 +17538,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17560,7 +17560,7 @@ var _ = Describe(`VpcV1`, func() {
 				createLoadBalancerPoolMemberOptionsModel.Port = core.Int64Ptr(int64(80))
 				createLoadBalancerPoolMemberOptionsModel.Target = loadBalancerPoolMemberTargetPrototypeModel
 				createLoadBalancerPoolMemberOptionsModel.Weight = core.Int64Ptr(int64(50))
- 				createLoadBalancerPoolMemberOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createLoadBalancerPoolMemberOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateLoadBalancerPoolMember(createLoadBalancerPoolMemberOptionsModel)
@@ -17572,7 +17572,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17634,7 +17634,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17691,7 +17691,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17717,7 +17717,7 @@ var _ = Describe(`VpcV1`, func() {
 				replaceLoadBalancerPoolMembersOptionsModel.LoadBalancerID = core.StringPtr("testString")
 				replaceLoadBalancerPoolMembersOptionsModel.PoolID = core.StringPtr("testString")
 				replaceLoadBalancerPoolMembersOptionsModel.Members = []vpcv1.LoadBalancerPoolMemberPrototype{*loadBalancerPoolMemberPrototypeModel}
- 				replaceLoadBalancerPoolMembersOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				replaceLoadBalancerPoolMembersOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ReplaceLoadBalancerPoolMembers(replaceLoadBalancerPoolMembersOptionsModel)
@@ -17729,7 +17729,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17794,7 +17794,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17809,7 +17809,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteLoadBalancerPoolMemberOptionsModel.LoadBalancerID = core.StringPtr("testString")
 				deleteLoadBalancerPoolMemberOptionsModel.PoolID = core.StringPtr("testString")
 				deleteLoadBalancerPoolMemberOptionsModel.ID = core.StringPtr("testString")
- 				deleteLoadBalancerPoolMemberOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteLoadBalancerPoolMemberOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteLoadBalancerPoolMember(deleteLoadBalancerPoolMemberOptionsModel)
@@ -17820,7 +17820,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17874,7 +17874,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17921,7 +17921,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -17937,7 +17937,7 @@ var _ = Describe(`VpcV1`, func() {
 				getLoadBalancerPoolMemberOptionsModel.LoadBalancerID = core.StringPtr("testString")
 				getLoadBalancerPoolMemberOptionsModel.PoolID = core.StringPtr("testString")
 				getLoadBalancerPoolMemberOptionsModel.ID = core.StringPtr("testString")
- 				getLoadBalancerPoolMemberOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getLoadBalancerPoolMemberOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetLoadBalancerPoolMember(getLoadBalancerPoolMemberOptionsModel)
@@ -17949,7 +17949,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18005,7 +18005,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18059,7 +18059,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18082,7 +18082,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateLoadBalancerPoolMemberOptionsModel.Port = core.Int64Ptr(int64(80))
 				updateLoadBalancerPoolMemberOptionsModel.Target = loadBalancerPoolMemberTargetPrototypeModel
 				updateLoadBalancerPoolMemberOptionsModel.Weight = core.Int64Ptr(int64(50))
- 				updateLoadBalancerPoolMemberOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateLoadBalancerPoolMemberOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateLoadBalancerPoolMember(updateLoadBalancerPoolMemberOptionsModel)
@@ -18094,7 +18094,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18133,19 +18133,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -18153,7 +18153,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -18174,7 +18174,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -18190,7 +18190,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -18214,7 +18214,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -18232,12 +18232,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -18278,7 +18278,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18331,7 +18331,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18347,7 +18347,7 @@ var _ = Describe(`VpcV1`, func() {
 				listNetworkAclsOptionsModel.Start = core.StringPtr("testString")
 				listNetworkAclsOptionsModel.Limit = core.Int64Ptr(int64(1))
 				listNetworkAclsOptionsModel.ResourceGroupID = core.StringPtr("testString")
- 				listNetworkAclsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listNetworkAclsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListNetworkAcls(listNetworkAclsOptionsModel)
@@ -18359,7 +18359,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18408,7 +18408,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18490,7 +18490,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18541,7 +18541,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the CreateNetworkACLOptions model
 				createNetworkACLOptionsModel := new(vpcv1.CreateNetworkACLOptions)
 				createNetworkACLOptionsModel.NetworkACLPrototype = networkACLPrototypeModel
- 				createNetworkACLOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createNetworkACLOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateNetworkACL(createNetworkACLOptionsModel)
@@ -18553,7 +18553,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18636,7 +18636,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18649,7 +18649,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteNetworkACLOptions model
 				deleteNetworkACLOptionsModel := new(vpcv1.DeleteNetworkACLOptions)
 				deleteNetworkACLOptionsModel.ID = core.StringPtr("testString")
- 				deleteNetworkACLOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteNetworkACLOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteNetworkACL(deleteNetworkACLOptionsModel)
@@ -18660,7 +18660,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18712,7 +18712,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18757,7 +18757,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18771,7 +18771,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetNetworkACLOptions model
 				getNetworkACLOptionsModel := new(vpcv1.GetNetworkACLOptions)
 				getNetworkACLOptionsModel.ID = core.StringPtr("testString")
- 				getNetworkACLOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getNetworkACLOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetNetworkACL(getNetworkACLOptionsModel)
@@ -18783,7 +18783,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18837,7 +18837,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18883,7 +18883,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18898,7 +18898,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateNetworkACLOptionsModel := new(vpcv1.UpdateNetworkACLOptions)
 				updateNetworkACLOptionsModel.ID = core.StringPtr("testString")
 				updateNetworkACLOptionsModel.Name = core.StringPtr("my-network-acl")
- 				updateNetworkACLOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateNetworkACLOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateNetworkACL(updateNetworkACLOptionsModel)
@@ -18910,7 +18910,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -18971,7 +18971,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19025,7 +19025,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19042,7 +19042,7 @@ var _ = Describe(`VpcV1`, func() {
 				listNetworkACLRulesOptionsModel.Start = core.StringPtr("testString")
 				listNetworkACLRulesOptionsModel.Limit = core.Int64Ptr(int64(1))
 				listNetworkACLRulesOptionsModel.Direction = core.StringPtr("inbound")
- 				listNetworkACLRulesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listNetworkACLRulesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListNetworkACLRules(listNetworkACLRulesOptionsModel)
@@ -19054,7 +19054,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19111,7 +19111,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19177,7 +19177,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19212,7 +19212,7 @@ var _ = Describe(`VpcV1`, func() {
 				createNetworkACLRuleOptionsModel := new(vpcv1.CreateNetworkACLRuleOptions)
 				createNetworkACLRuleOptionsModel.NetworkACLID = core.StringPtr("testString")
 				createNetworkACLRuleOptionsModel.NetworkACLRulePrototype = networkACLRulePrototypeModel
- 				createNetworkACLRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createNetworkACLRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateNetworkACLRule(createNetworkACLRuleOptionsModel)
@@ -19224,7 +19224,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19298,7 +19298,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19312,7 +19312,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteNetworkACLRuleOptionsModel := new(vpcv1.DeleteNetworkACLRuleOptions)
 				deleteNetworkACLRuleOptionsModel.NetworkACLID = core.StringPtr("testString")
 				deleteNetworkACLRuleOptionsModel.ID = core.StringPtr("testString")
- 				deleteNetworkACLRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteNetworkACLRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteNetworkACLRule(deleteNetworkACLRuleOptionsModel)
@@ -19323,7 +19323,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19376,7 +19376,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19422,7 +19422,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19437,7 +19437,7 @@ var _ = Describe(`VpcV1`, func() {
 				getNetworkACLRuleOptionsModel := new(vpcv1.GetNetworkACLRuleOptions)
 				getNetworkACLRuleOptionsModel.NetworkACLID = core.StringPtr("testString")
 				getNetworkACLRuleOptionsModel.ID = core.StringPtr("testString")
- 				getNetworkACLRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getNetworkACLRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetNetworkACLRule(getNetworkACLRuleOptionsModel)
@@ -19449,7 +19449,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19504,7 +19504,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19566,7 +19566,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19597,7 +19597,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateNetworkACLRuleOptionsModel.SourcePortMax = core.Int64Ptr(int64(65535))
 				updateNetworkACLRuleOptionsModel.SourcePortMin = core.Int64Ptr(int64(49152))
 				updateNetworkACLRuleOptionsModel.Type = core.Int64Ptr(int64(8))
- 				updateNetworkACLRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateNetworkACLRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateNetworkACLRule(updateNetworkACLRuleOptionsModel)
@@ -19609,7 +19609,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19656,19 +19656,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -19676,7 +19676,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -19697,7 +19697,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -19713,7 +19713,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -19737,7 +19737,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -19755,12 +19755,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -19801,7 +19801,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19854,7 +19854,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19870,7 +19870,7 @@ var _ = Describe(`VpcV1`, func() {
 				listPublicGatewaysOptionsModel.Start = core.StringPtr("testString")
 				listPublicGatewaysOptionsModel.Limit = core.Int64Ptr(int64(1))
 				listPublicGatewaysOptionsModel.ResourceGroupID = core.StringPtr("testString")
- 				listPublicGatewaysOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listPublicGatewaysOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListPublicGateways(listPublicGatewaysOptionsModel)
@@ -19882,7 +19882,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19931,7 +19931,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -19996,7 +19996,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20030,7 +20030,7 @@ var _ = Describe(`VpcV1`, func() {
 				createPublicGatewayOptionsModel.FloatingIP = publicGatewayPrototypeFloatingIPModel
 				createPublicGatewayOptionsModel.Name = core.StringPtr("my-public-gateway")
 				createPublicGatewayOptionsModel.ResourceGroup = resourceGroupIdentityModel
- 				createPublicGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createPublicGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreatePublicGateway(createPublicGatewayOptionsModel)
@@ -20042,7 +20042,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20115,7 +20115,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20128,7 +20128,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeletePublicGatewayOptions model
 				deletePublicGatewayOptionsModel := new(vpcv1.DeletePublicGatewayOptions)
 				deletePublicGatewayOptionsModel.ID = core.StringPtr("testString")
- 				deletePublicGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deletePublicGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeletePublicGateway(deletePublicGatewayOptionsModel)
@@ -20139,7 +20139,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20191,7 +20191,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20236,7 +20236,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20250,7 +20250,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetPublicGatewayOptions model
 				getPublicGatewayOptionsModel := new(vpcv1.GetPublicGatewayOptions)
 				getPublicGatewayOptionsModel.ID = core.StringPtr("testString")
- 				getPublicGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getPublicGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetPublicGateway(getPublicGatewayOptionsModel)
@@ -20262,7 +20262,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20316,7 +20316,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20362,7 +20362,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20377,7 +20377,7 @@ var _ = Describe(`VpcV1`, func() {
 				updatePublicGatewayOptionsModel := new(vpcv1.UpdatePublicGatewayOptions)
 				updatePublicGatewayOptionsModel.ID = core.StringPtr("testString")
 				updatePublicGatewayOptionsModel.Name = core.StringPtr("my-public-gateway")
- 				updatePublicGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updatePublicGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdatePublicGateway(updatePublicGatewayOptionsModel)
@@ -20389,7 +20389,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20420,19 +20420,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -20440,7 +20440,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -20461,7 +20461,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -20477,7 +20477,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -20501,7 +20501,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -20519,12 +20519,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -20565,7 +20565,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20618,7 +20618,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20634,7 +20634,7 @@ var _ = Describe(`VpcV1`, func() {
 				listKeysOptionsModel.Start = core.StringPtr("testString")
 				listKeysOptionsModel.Limit = core.Int64Ptr(int64(1))
 				listKeysOptionsModel.ResourceGroupID = core.StringPtr("testString")
- 				listKeysOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listKeysOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListKeys(listKeysOptionsModel)
@@ -20646,7 +20646,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20695,7 +20695,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20747,7 +20747,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20768,7 +20768,7 @@ var _ = Describe(`VpcV1`, func() {
 				createKeyOptionsModel.Name = core.StringPtr("my-key")
 				createKeyOptionsModel.ResourceGroup = resourceGroupIdentityModel
 				createKeyOptionsModel.Type = core.StringPtr("rsa")
- 				createKeyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createKeyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateKey(createKeyOptionsModel)
@@ -20780,7 +20780,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20840,7 +20840,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20853,7 +20853,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteKeyOptions model
 				deleteKeyOptionsModel := new(vpcv1.DeleteKeyOptions)
 				deleteKeyOptionsModel.ID = core.StringPtr("testString")
- 				deleteKeyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteKeyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteKey(deleteKeyOptionsModel)
@@ -20864,7 +20864,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20916,7 +20916,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20961,7 +20961,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -20975,7 +20975,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetKeyOptions model
 				getKeyOptionsModel := new(vpcv1.GetKeyOptions)
 				getKeyOptionsModel.ID = core.StringPtr("testString")
- 				getKeyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getKeyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetKey(getKeyOptionsModel)
@@ -20987,7 +20987,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21041,7 +21041,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21087,7 +21087,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21102,7 +21102,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateKeyOptionsModel := new(vpcv1.UpdateKeyOptions)
 				updateKeyOptionsModel.ID = core.StringPtr("testString")
 				updateKeyOptionsModel.Name = core.StringPtr("my-key")
- 				updateKeyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateKeyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateKey(updateKeyOptionsModel)
@@ -21114,7 +21114,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21145,19 +21145,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -21165,7 +21165,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -21186,7 +21186,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -21202,7 +21202,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -21226,7 +21226,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -21244,12 +21244,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -21296,7 +21296,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21358,7 +21358,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21377,7 +21377,7 @@ var _ = Describe(`VpcV1`, func() {
 				listSecurityGroupsOptionsModel.VPCID = core.StringPtr("testString")
 				listSecurityGroupsOptionsModel.VPCCRN = core.StringPtr("testString")
 				listSecurityGroupsOptionsModel.VPCName = core.StringPtr("testString")
- 				listSecurityGroupsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listSecurityGroupsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListSecurityGroups(listSecurityGroupsOptionsModel)
@@ -21389,7 +21389,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21441,7 +21441,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21512,7 +21512,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21552,7 +21552,7 @@ var _ = Describe(`VpcV1`, func() {
 				createSecurityGroupOptionsModel.Name = core.StringPtr("my-security-group")
 				createSecurityGroupOptionsModel.ResourceGroup = resourceGroupIdentityModel
 				createSecurityGroupOptionsModel.Rules = []vpcv1.SecurityGroupRulePrototypeIntf{securityGroupRulePrototypeModel}
- 				createSecurityGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createSecurityGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateSecurityGroup(createSecurityGroupOptionsModel)
@@ -21564,7 +21564,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21643,7 +21643,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21656,7 +21656,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteSecurityGroupOptions model
 				deleteSecurityGroupOptionsModel := new(vpcv1.DeleteSecurityGroupOptions)
 				deleteSecurityGroupOptionsModel.ID = core.StringPtr("testString")
- 				deleteSecurityGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteSecurityGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteSecurityGroup(deleteSecurityGroupOptionsModel)
@@ -21667,7 +21667,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21719,7 +21719,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21764,7 +21764,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21778,7 +21778,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetSecurityGroupOptions model
 				getSecurityGroupOptionsModel := new(vpcv1.GetSecurityGroupOptions)
 				getSecurityGroupOptionsModel.ID = core.StringPtr("testString")
- 				getSecurityGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getSecurityGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetSecurityGroup(getSecurityGroupOptionsModel)
@@ -21790,7 +21790,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21844,7 +21844,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21890,7 +21890,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21905,7 +21905,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateSecurityGroupOptionsModel := new(vpcv1.UpdateSecurityGroupOptions)
 				updateSecurityGroupOptionsModel.ID = core.StringPtr("testString")
 				updateSecurityGroupOptionsModel.Name = core.StringPtr("my-security-group")
- 				updateSecurityGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateSecurityGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateSecurityGroup(updateSecurityGroupOptionsModel)
@@ -21917,7 +21917,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -21972,7 +21972,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22017,7 +22017,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22031,7 +22031,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the ListSecurityGroupNetworkInterfacesOptions model
 				listSecurityGroupNetworkInterfacesOptionsModel := new(vpcv1.ListSecurityGroupNetworkInterfacesOptions)
 				listSecurityGroupNetworkInterfacesOptionsModel.SecurityGroupID = core.StringPtr("testString")
- 				listSecurityGroupNetworkInterfacesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listSecurityGroupNetworkInterfacesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListSecurityGroupNetworkInterfaces(listSecurityGroupNetworkInterfacesOptionsModel)
@@ -22043,7 +22043,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22096,7 +22096,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22110,7 +22110,7 @@ var _ = Describe(`VpcV1`, func() {
 				removeSecurityGroupNetworkInterfaceOptionsModel := new(vpcv1.RemoveSecurityGroupNetworkInterfaceOptions)
 				removeSecurityGroupNetworkInterfaceOptionsModel.SecurityGroupID = core.StringPtr("testString")
 				removeSecurityGroupNetworkInterfaceOptionsModel.ID = core.StringPtr("testString")
- 				removeSecurityGroupNetworkInterfaceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				removeSecurityGroupNetworkInterfaceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.RemoveSecurityGroupNetworkInterface(removeSecurityGroupNetworkInterfaceOptionsModel)
@@ -22121,7 +22121,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22174,7 +22174,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22220,7 +22220,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22235,7 +22235,7 @@ var _ = Describe(`VpcV1`, func() {
 				getSecurityGroupNetworkInterfaceOptionsModel := new(vpcv1.GetSecurityGroupNetworkInterfaceOptions)
 				getSecurityGroupNetworkInterfaceOptionsModel.SecurityGroupID = core.StringPtr("testString")
 				getSecurityGroupNetworkInterfaceOptionsModel.ID = core.StringPtr("testString")
- 				getSecurityGroupNetworkInterfaceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getSecurityGroupNetworkInterfaceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetSecurityGroupNetworkInterface(getSecurityGroupNetworkInterfaceOptionsModel)
@@ -22247,7 +22247,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22302,7 +22302,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22348,7 +22348,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22363,7 +22363,7 @@ var _ = Describe(`VpcV1`, func() {
 				addSecurityGroupNetworkInterfaceOptionsModel := new(vpcv1.AddSecurityGroupNetworkInterfaceOptions)
 				addSecurityGroupNetworkInterfaceOptionsModel.SecurityGroupID = core.StringPtr("testString")
 				addSecurityGroupNetworkInterfaceOptionsModel.ID = core.StringPtr("testString")
- 				addSecurityGroupNetworkInterfaceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				addSecurityGroupNetworkInterfaceOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.AddSecurityGroupNetworkInterface(addSecurityGroupNetworkInterfaceOptionsModel)
@@ -22375,7 +22375,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22430,7 +22430,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22475,7 +22475,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22489,7 +22489,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the ListSecurityGroupRulesOptions model
 				listSecurityGroupRulesOptionsModel := new(vpcv1.ListSecurityGroupRulesOptions)
 				listSecurityGroupRulesOptionsModel.SecurityGroupID = core.StringPtr("testString")
- 				listSecurityGroupRulesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listSecurityGroupRulesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListSecurityGroupRules(listSecurityGroupRulesOptionsModel)
@@ -22501,7 +22501,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22555,7 +22555,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22616,7 +22616,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22646,7 +22646,7 @@ var _ = Describe(`VpcV1`, func() {
 				createSecurityGroupRuleOptionsModel := new(vpcv1.CreateSecurityGroupRuleOptions)
 				createSecurityGroupRuleOptionsModel.SecurityGroupID = core.StringPtr("testString")
 				createSecurityGroupRuleOptionsModel.SecurityGroupRulePrototype = securityGroupRulePrototypeModel
- 				createSecurityGroupRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createSecurityGroupRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateSecurityGroupRule(createSecurityGroupRuleOptionsModel)
@@ -22658,7 +22658,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22727,7 +22727,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22741,7 +22741,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteSecurityGroupRuleOptionsModel := new(vpcv1.DeleteSecurityGroupRuleOptions)
 				deleteSecurityGroupRuleOptionsModel.SecurityGroupID = core.StringPtr("testString")
 				deleteSecurityGroupRuleOptionsModel.ID = core.StringPtr("testString")
- 				deleteSecurityGroupRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteSecurityGroupRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteSecurityGroupRule(deleteSecurityGroupRuleOptionsModel)
@@ -22752,7 +22752,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22805,7 +22805,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22851,7 +22851,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22866,7 +22866,7 @@ var _ = Describe(`VpcV1`, func() {
 				getSecurityGroupRuleOptionsModel := new(vpcv1.GetSecurityGroupRuleOptions)
 				getSecurityGroupRuleOptionsModel.SecurityGroupID = core.StringPtr("testString")
 				getSecurityGroupRuleOptionsModel.ID = core.StringPtr("testString")
- 				getSecurityGroupRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getSecurityGroupRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetSecurityGroupRule(getSecurityGroupRuleOptionsModel)
@@ -22878,7 +22878,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22933,7 +22933,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -22990,7 +22990,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23016,7 +23016,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateSecurityGroupRuleOptionsModel.PortMin = core.Int64Ptr(int64(22))
 				updateSecurityGroupRuleOptionsModel.Remote = securityGroupRulePatchRemoteModel
 				updateSecurityGroupRuleOptionsModel.Type = core.Int64Ptr(int64(8))
- 				updateSecurityGroupRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateSecurityGroupRuleOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateSecurityGroupRule(updateSecurityGroupRuleOptionsModel)
@@ -23028,7 +23028,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23070,19 +23070,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -23090,7 +23090,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -23111,7 +23111,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -23127,7 +23127,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -23151,7 +23151,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -23169,12 +23169,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -23219,7 +23219,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23278,7 +23278,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23296,7 +23296,7 @@ var _ = Describe(`VpcV1`, func() {
 				listSubnetsOptionsModel.ResourceGroupID = core.StringPtr("testString")
 				listSubnetsOptionsModel.RoutingTableID = core.StringPtr("testString")
 				listSubnetsOptionsModel.RoutingTableName = core.StringPtr("testString")
- 				listSubnetsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listSubnetsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListSubnets(listSubnetsOptionsModel)
@@ -23308,7 +23308,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23359,7 +23359,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23440,7 +23440,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23490,7 +23490,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the CreateSubnetOptions model
 				createSubnetOptionsModel := new(vpcv1.CreateSubnetOptions)
 				createSubnetOptionsModel.SubnetPrototype = subnetPrototypeModel
- 				createSubnetOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createSubnetOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateSubnet(createSubnetOptionsModel)
@@ -23502,7 +23502,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23591,7 +23591,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23604,7 +23604,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteSubnetOptions model
 				deleteSubnetOptionsModel := new(vpcv1.DeleteSubnetOptions)
 				deleteSubnetOptionsModel.ID = core.StringPtr("testString")
- 				deleteSubnetOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteSubnetOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteSubnet(deleteSubnetOptionsModel)
@@ -23615,7 +23615,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23667,7 +23667,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23712,7 +23712,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23726,7 +23726,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetSubnetOptions model
 				getSubnetOptionsModel := new(vpcv1.GetSubnetOptions)
 				getSubnetOptionsModel.ID = core.StringPtr("testString")
- 				getSubnetOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getSubnetOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetSubnet(getSubnetOptionsModel)
@@ -23738,7 +23738,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23792,7 +23792,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23853,7 +23853,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23883,7 +23883,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateSubnetOptionsModel.NetworkACL = networkACLIdentityModel
 				updateSubnetOptionsModel.PublicGateway = publicGatewayIdentityModel
 				updateSubnetOptionsModel.RoutingTable = routingTableIdentityModel
- 				updateSubnetOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateSubnetOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateSubnet(updateSubnetOptionsModel)
@@ -23895,7 +23895,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -23965,7 +23965,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24010,7 +24010,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24024,7 +24024,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetSubnetNetworkACLOptions model
 				getSubnetNetworkACLOptionsModel := new(vpcv1.GetSubnetNetworkACLOptions)
 				getSubnetNetworkACLOptionsModel.ID = core.StringPtr("testString")
- 				getSubnetNetworkACLOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getSubnetNetworkACLOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetSubnetNetworkACL(getSubnetNetworkACLOptionsModel)
@@ -24036,7 +24036,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24090,7 +24090,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24140,7 +24140,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24159,7 +24159,7 @@ var _ = Describe(`VpcV1`, func() {
 				replaceSubnetNetworkACLOptionsModel := new(vpcv1.ReplaceSubnetNetworkACLOptions)
 				replaceSubnetNetworkACLOptionsModel.ID = core.StringPtr("testString")
 				replaceSubnetNetworkACLOptionsModel.NetworkACLIdentity = networkACLIdentityModel
- 				replaceSubnetNetworkACLOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				replaceSubnetNetworkACLOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ReplaceSubnetNetworkACL(replaceSubnetNetworkACLOptionsModel)
@@ -24171,7 +24171,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24229,7 +24229,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24242,7 +24242,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the UnsetSubnetPublicGatewayOptions model
 				unsetSubnetPublicGatewayOptionsModel := new(vpcv1.UnsetSubnetPublicGatewayOptions)
 				unsetSubnetPublicGatewayOptionsModel.ID = core.StringPtr("testString")
- 				unsetSubnetPublicGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				unsetSubnetPublicGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.UnsetSubnetPublicGateway(unsetSubnetPublicGatewayOptionsModel)
@@ -24253,7 +24253,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24305,7 +24305,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24350,7 +24350,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24364,7 +24364,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetSubnetPublicGatewayOptions model
 				getSubnetPublicGatewayOptionsModel := new(vpcv1.GetSubnetPublicGatewayOptions)
 				getSubnetPublicGatewayOptionsModel.ID = core.StringPtr("testString")
- 				getSubnetPublicGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getSubnetPublicGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetSubnetPublicGateway(getSubnetPublicGatewayOptionsModel)
@@ -24376,7 +24376,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24430,7 +24430,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24480,7 +24480,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24499,7 +24499,7 @@ var _ = Describe(`VpcV1`, func() {
 				setSubnetPublicGatewayOptionsModel := new(vpcv1.SetSubnetPublicGatewayOptions)
 				setSubnetPublicGatewayOptionsModel.ID = core.StringPtr("testString")
 				setSubnetPublicGatewayOptionsModel.PublicGatewayIdentity = publicGatewayIdentityModel
- 				setSubnetPublicGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				setSubnetPublicGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.SetSubnetPublicGateway(setSubnetPublicGatewayOptionsModel)
@@ -24511,7 +24511,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24570,7 +24570,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24615,7 +24615,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24629,7 +24629,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetSubnetRoutingTableOptions model
 				getSubnetRoutingTableOptionsModel := new(vpcv1.GetSubnetRoutingTableOptions)
 				getSubnetRoutingTableOptionsModel.ID = core.StringPtr("testString")
- 				getSubnetRoutingTableOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getSubnetRoutingTableOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetSubnetRoutingTable(getSubnetRoutingTableOptionsModel)
@@ -24641,7 +24641,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24695,7 +24695,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24745,7 +24745,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24764,7 +24764,7 @@ var _ = Describe(`VpcV1`, func() {
 				replaceSubnetRoutingTableOptionsModel := new(vpcv1.ReplaceSubnetRoutingTableOptions)
 				replaceSubnetRoutingTableOptionsModel.ID = core.StringPtr("testString")
 				replaceSubnetRoutingTableOptionsModel.RoutingTableIdentity = routingTableIdentityModel
- 				replaceSubnetRoutingTableOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				replaceSubnetRoutingTableOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ReplaceSubnetRoutingTable(replaceSubnetRoutingTableOptionsModel)
@@ -24776,7 +24776,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24843,7 +24843,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24900,7 +24900,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24918,7 +24918,7 @@ var _ = Describe(`VpcV1`, func() {
 				listSubnetReservedIpsOptionsModel.Limit = core.Int64Ptr(int64(1))
 				listSubnetReservedIpsOptionsModel.ResourceGroupID = core.StringPtr("testString")
 				listSubnetReservedIpsOptionsModel.Sort = core.StringPtr("name")
- 				listSubnetReservedIpsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listSubnetReservedIpsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListSubnetReservedIps(listSubnetReservedIpsOptionsModel)
@@ -24930,7 +24930,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -24988,7 +24988,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25040,7 +25040,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25061,7 +25061,7 @@ var _ = Describe(`VpcV1`, func() {
 				createSubnetReservedIPOptionsModel.AutoDelete = core.BoolPtr(false)
 				createSubnetReservedIPOptionsModel.Name = core.StringPtr("my-reserved-ip")
 				createSubnetReservedIPOptionsModel.Target = reservedIPPrototypeTargetModel
- 				createSubnetReservedIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createSubnetReservedIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateSubnetReservedIP(createSubnetReservedIPOptionsModel)
@@ -25073,7 +25073,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25133,7 +25133,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25147,7 +25147,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteSubnetReservedIPOptionsModel := new(vpcv1.DeleteSubnetReservedIPOptions)
 				deleteSubnetReservedIPOptionsModel.SubnetID = core.StringPtr("testString")
 				deleteSubnetReservedIPOptionsModel.ID = core.StringPtr("testString")
- 				deleteSubnetReservedIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteSubnetReservedIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteSubnetReservedIP(deleteSubnetReservedIPOptionsModel)
@@ -25158,7 +25158,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25211,7 +25211,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25257,7 +25257,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25272,7 +25272,7 @@ var _ = Describe(`VpcV1`, func() {
 				getSubnetReservedIPOptionsModel := new(vpcv1.GetSubnetReservedIPOptions)
 				getSubnetReservedIPOptionsModel.SubnetID = core.StringPtr("testString")
 				getSubnetReservedIPOptionsModel.ID = core.StringPtr("testString")
- 				getSubnetReservedIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getSubnetReservedIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetSubnetReservedIP(getSubnetReservedIPOptionsModel)
@@ -25284,7 +25284,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25339,7 +25339,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25387,7 +25387,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25404,7 +25404,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateSubnetReservedIPOptionsModel.ID = core.StringPtr("testString")
 				updateSubnetReservedIPOptionsModel.AutoDelete = core.BoolPtr(false)
 				updateSubnetReservedIPOptionsModel.Name = core.StringPtr("my-reserved-ip")
- 				updateSubnetReservedIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateSubnetReservedIPOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateSubnetReservedIP(updateSubnetReservedIPOptionsModel)
@@ -25416,7 +25416,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25449,19 +25449,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -25469,7 +25469,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -25490,7 +25490,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -25506,7 +25506,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -25530,7 +25530,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -25548,12 +25548,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -25585,7 +25585,6 @@ var _ = Describe(`VpcV1`, func() {
 
 					Expect(req.URL.Query()["resource_group.id"]).To(Equal([]string{"testString"}))
 
-
 					// TODO: Add check for classic_access query parameter
 
 					res.Header().Set("Content-type", "application/json")
@@ -25597,7 +25596,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25642,7 +25641,6 @@ var _ = Describe(`VpcV1`, func() {
 
 					Expect(req.URL.Query()["resource_group.id"]).To(Equal([]string{"testString"}))
 
-
 					// TODO: Add check for classic_access query parameter
 
 					res.Header().Set("Content-type", "application/json")
@@ -25654,7 +25652,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25671,7 +25669,7 @@ var _ = Describe(`VpcV1`, func() {
 				listVpcsOptionsModel.Limit = core.Int64Ptr(int64(1))
 				listVpcsOptionsModel.ResourceGroupID = core.StringPtr("testString")
 				listVpcsOptionsModel.ClassicAccess = core.BoolPtr(true)
- 				listVpcsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listVpcsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListVpcs(listVpcsOptionsModel)
@@ -25683,7 +25681,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25733,7 +25731,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25785,7 +25783,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25806,7 +25804,7 @@ var _ = Describe(`VpcV1`, func() {
 				createVPCOptionsModel.ClassicAccess = core.BoolPtr(false)
 				createVPCOptionsModel.Name = core.StringPtr("my-vpc")
 				createVPCOptionsModel.ResourceGroup = resourceGroupIdentityModel
- 				createVPCOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createVPCOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateVPC(createVPCOptionsModel)
@@ -25818,7 +25816,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25871,7 +25869,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25884,7 +25882,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteVPCOptions model
 				deleteVPCOptionsModel := new(vpcv1.DeleteVPCOptions)
 				deleteVPCOptionsModel.ID = core.StringPtr("testString")
- 				deleteVPCOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteVPCOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteVPC(deleteVPCOptionsModel)
@@ -25895,7 +25893,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25947,7 +25945,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -25992,7 +25990,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26006,7 +26004,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetVPCOptions model
 				getVPCOptionsModel := new(vpcv1.GetVPCOptions)
 				getVPCOptionsModel.ID = core.StringPtr("testString")
- 				getVPCOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getVPCOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetVPC(getVPCOptionsModel)
@@ -26018,7 +26016,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26072,7 +26070,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26118,7 +26116,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26133,7 +26131,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateVPCOptionsModel := new(vpcv1.UpdateVPCOptions)
 				updateVPCOptionsModel.ID = core.StringPtr("testString")
 				updateVPCOptionsModel.Name = core.StringPtr("my-vpc")
- 				updateVPCOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateVPCOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateVPC(updateVPCOptionsModel)
@@ -26145,7 +26143,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26200,7 +26198,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26245,7 +26243,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26259,7 +26257,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetVPCDefaultNetworkACLOptions model
 				getVPCDefaultNetworkACLOptionsModel := new(vpcv1.GetVPCDefaultNetworkACLOptions)
 				getVPCDefaultNetworkACLOptionsModel.ID = core.StringPtr("testString")
- 				getVPCDefaultNetworkACLOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getVPCDefaultNetworkACLOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetVPCDefaultNetworkACL(getVPCDefaultNetworkACLOptionsModel)
@@ -26271,7 +26269,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26325,7 +26323,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26370,7 +26368,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26384,7 +26382,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetVPCDefaultRoutingTableOptions model
 				getVPCDefaultRoutingTableOptionsModel := new(vpcv1.GetVPCDefaultRoutingTableOptions)
 				getVPCDefaultRoutingTableOptionsModel.ID = core.StringPtr("testString")
- 				getVPCDefaultRoutingTableOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getVPCDefaultRoutingTableOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetVPCDefaultRoutingTable(getVPCDefaultRoutingTableOptionsModel)
@@ -26396,7 +26394,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26450,7 +26448,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26495,7 +26493,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26509,7 +26507,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetVPCDefaultSecurityGroupOptions model
 				getVPCDefaultSecurityGroupOptionsModel := new(vpcv1.GetVPCDefaultSecurityGroupOptions)
 				getVPCDefaultSecurityGroupOptionsModel.ID = core.StringPtr("testString")
- 				getVPCDefaultSecurityGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getVPCDefaultSecurityGroupOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetVPCDefaultSecurityGroup(getVPCDefaultSecurityGroupOptionsModel)
@@ -26521,7 +26519,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26579,7 +26577,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26630,7 +26628,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26646,7 +26644,7 @@ var _ = Describe(`VpcV1`, func() {
 				listVPCAddressPrefixesOptionsModel.VPCID = core.StringPtr("testString")
 				listVPCAddressPrefixesOptionsModel.Start = core.StringPtr("testString")
 				listVPCAddressPrefixesOptionsModel.Limit = core.Int64Ptr(int64(1))
- 				listVPCAddressPrefixesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listVPCAddressPrefixesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListVPCAddressPrefixes(listVPCAddressPrefixesOptionsModel)
@@ -26658,7 +26656,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26714,7 +26712,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26767,7 +26765,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26789,7 +26787,7 @@ var _ = Describe(`VpcV1`, func() {
 				createVPCAddressPrefixOptionsModel.Zone = zoneIdentityModel
 				createVPCAddressPrefixOptionsModel.IsDefault = core.BoolPtr(true)
 				createVPCAddressPrefixOptionsModel.Name = core.StringPtr("my-address-prefix-2")
- 				createVPCAddressPrefixOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createVPCAddressPrefixOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateVPCAddressPrefix(createVPCAddressPrefixOptionsModel)
@@ -26801,7 +26799,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26862,7 +26860,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26876,7 +26874,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteVPCAddressPrefixOptionsModel := new(vpcv1.DeleteVPCAddressPrefixOptions)
 				deleteVPCAddressPrefixOptionsModel.VPCID = core.StringPtr("testString")
 				deleteVPCAddressPrefixOptionsModel.ID = core.StringPtr("testString")
- 				deleteVPCAddressPrefixOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteVPCAddressPrefixOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteVPCAddressPrefix(deleteVPCAddressPrefixOptionsModel)
@@ -26887,7 +26885,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26940,7 +26938,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -26986,7 +26984,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27001,7 +26999,7 @@ var _ = Describe(`VpcV1`, func() {
 				getVPCAddressPrefixOptionsModel := new(vpcv1.GetVPCAddressPrefixOptions)
 				getVPCAddressPrefixOptionsModel.VPCID = core.StringPtr("testString")
 				getVPCAddressPrefixOptionsModel.ID = core.StringPtr("testString")
- 				getVPCAddressPrefixOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getVPCAddressPrefixOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetVPCAddressPrefix(getVPCAddressPrefixOptionsModel)
@@ -27013,7 +27011,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27068,7 +27066,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27116,7 +27114,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27133,7 +27131,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateVPCAddressPrefixOptionsModel.ID = core.StringPtr("testString")
 				updateVPCAddressPrefixOptionsModel.IsDefault = core.BoolPtr(false)
 				updateVPCAddressPrefixOptionsModel.Name = core.StringPtr("my-address-prefix-2")
- 				updateVPCAddressPrefixOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateVPCAddressPrefixOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateVPCAddressPrefix(updateVPCAddressPrefixOptionsModel)
@@ -27145,7 +27143,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27208,7 +27206,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27262,7 +27260,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27279,7 +27277,7 @@ var _ = Describe(`VpcV1`, func() {
 				listVPCRoutesOptionsModel.ZoneName = core.StringPtr("testString")
 				listVPCRoutesOptionsModel.Start = core.StringPtr("testString")
 				listVPCRoutesOptionsModel.Limit = core.Int64Ptr(int64(1))
- 				listVPCRoutesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listVPCRoutesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListVPCRoutes(listVPCRoutesOptionsModel)
@@ -27291,7 +27289,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27348,7 +27346,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27406,7 +27404,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27433,7 +27431,7 @@ var _ = Describe(`VpcV1`, func() {
 				createVPCRouteOptionsModel.Action = core.StringPtr("delegate")
 				createVPCRouteOptionsModel.Name = core.StringPtr("my-route-2")
 				createVPCRouteOptionsModel.NextHop = routeNextHopPrototypeModel
- 				createVPCRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createVPCRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateVPCRoute(createVPCRouteOptionsModel)
@@ -27445,7 +27443,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27511,7 +27509,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27525,7 +27523,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteVPCRouteOptionsModel := new(vpcv1.DeleteVPCRouteOptions)
 				deleteVPCRouteOptionsModel.VPCID = core.StringPtr("testString")
 				deleteVPCRouteOptionsModel.ID = core.StringPtr("testString")
- 				deleteVPCRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteVPCRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteVPCRoute(deleteVPCRouteOptionsModel)
@@ -27536,7 +27534,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27589,7 +27587,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27635,7 +27633,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27650,7 +27648,7 @@ var _ = Describe(`VpcV1`, func() {
 				getVPCRouteOptionsModel := new(vpcv1.GetVPCRouteOptions)
 				getVPCRouteOptionsModel.VPCID = core.StringPtr("testString")
 				getVPCRouteOptionsModel.ID = core.StringPtr("testString")
- 				getVPCRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getVPCRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetVPCRoute(getVPCRouteOptionsModel)
@@ -27662,7 +27660,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27717,7 +27715,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27764,7 +27762,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27780,7 +27778,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateVPCRouteOptionsModel.VPCID = core.StringPtr("testString")
 				updateVPCRouteOptionsModel.ID = core.StringPtr("testString")
 				updateVPCRouteOptionsModel.Name = core.StringPtr("my-route-2")
- 				updateVPCRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateVPCRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateVPCRoute(updateVPCRouteOptionsModel)
@@ -27792,7 +27790,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27843,7 +27841,6 @@ var _ = Describe(`VpcV1`, func() {
 
 					Expect(req.URL.Query()["limit"]).To(Equal([]string{fmt.Sprint(int64(1))}))
 
-
 					// TODO: Add check for is_default query parameter
 
 					res.Header().Set("Content-type", "application/json")
@@ -27855,7 +27852,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27898,7 +27895,6 @@ var _ = Describe(`VpcV1`, func() {
 
 					Expect(req.URL.Query()["limit"]).To(Equal([]string{fmt.Sprint(int64(1))}))
 
-
 					// TODO: Add check for is_default query parameter
 
 					res.Header().Set("Content-type", "application/json")
@@ -27910,7 +27906,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27927,7 +27923,7 @@ var _ = Describe(`VpcV1`, func() {
 				listVPCRoutingTablesOptionsModel.Start = core.StringPtr("testString")
 				listVPCRoutingTablesOptionsModel.Limit = core.Int64Ptr(int64(1))
 				listVPCRoutingTablesOptionsModel.IsDefault = core.BoolPtr(true)
- 				listVPCRoutingTablesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listVPCRoutingTablesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListVPCRoutingTables(listVPCRoutingTablesOptionsModel)
@@ -27939,7 +27935,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -27996,7 +27992,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28059,7 +28055,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28091,7 +28087,7 @@ var _ = Describe(`VpcV1`, func() {
 				createVPCRoutingTableOptionsModel.VPCID = core.StringPtr("testString")
 				createVPCRoutingTableOptionsModel.Name = core.StringPtr("my-routing-table-2")
 				createVPCRoutingTableOptionsModel.Routes = []vpcv1.RoutePrototype{*routePrototypeModel}
- 				createVPCRoutingTableOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createVPCRoutingTableOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateVPCRoutingTable(createVPCRoutingTableOptionsModel)
@@ -28103,7 +28099,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28174,7 +28170,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28188,7 +28184,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteVPCRoutingTableOptionsModel := new(vpcv1.DeleteVPCRoutingTableOptions)
 				deleteVPCRoutingTableOptionsModel.VPCID = core.StringPtr("testString")
 				deleteVPCRoutingTableOptionsModel.ID = core.StringPtr("testString")
- 				deleteVPCRoutingTableOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteVPCRoutingTableOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteVPCRoutingTable(deleteVPCRoutingTableOptionsModel)
@@ -28199,7 +28195,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28252,7 +28248,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28298,7 +28294,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28313,7 +28309,7 @@ var _ = Describe(`VpcV1`, func() {
 				getVPCRoutingTableOptionsModel := new(vpcv1.GetVPCRoutingTableOptions)
 				getVPCRoutingTableOptionsModel.VPCID = core.StringPtr("testString")
 				getVPCRoutingTableOptionsModel.ID = core.StringPtr("testString")
- 				getVPCRoutingTableOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getVPCRoutingTableOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetVPCRoutingTable(getVPCRoutingTableOptionsModel)
@@ -28325,7 +28321,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28380,7 +28376,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28427,7 +28423,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28443,7 +28439,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateVPCRoutingTableOptionsModel.VPCID = core.StringPtr("testString")
 				updateVPCRoutingTableOptionsModel.ID = core.StringPtr("testString")
 				updateVPCRoutingTableOptionsModel.Name = core.StringPtr("my-routing-table-2")
- 				updateVPCRoutingTableOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateVPCRoutingTableOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateVPCRoutingTable(updateVPCRoutingTableOptionsModel)
@@ -28455,7 +28451,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28515,7 +28511,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28567,7 +28563,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28584,7 +28580,7 @@ var _ = Describe(`VpcV1`, func() {
 				listVPCRoutingTableRoutesOptionsModel.RoutingTableID = core.StringPtr("testString")
 				listVPCRoutingTableRoutesOptionsModel.Start = core.StringPtr("testString")
 				listVPCRoutingTableRoutesOptionsModel.Limit = core.Int64Ptr(int64(1))
- 				listVPCRoutingTableRoutesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listVPCRoutingTableRoutesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListVPCRoutingTableRoutes(listVPCRoutingTableRoutesOptionsModel)
@@ -28596,7 +28592,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28653,7 +28649,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28712,7 +28708,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28740,7 +28736,7 @@ var _ = Describe(`VpcV1`, func() {
 				createVPCRoutingTableRouteOptionsModel.Action = core.StringPtr("delegate")
 				createVPCRoutingTableRouteOptionsModel.Name = core.StringPtr("my-route-2")
 				createVPCRoutingTableRouteOptionsModel.NextHop = routeNextHopPrototypeModel
- 				createVPCRoutingTableRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createVPCRoutingTableRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateVPCRoutingTableRoute(createVPCRoutingTableRouteOptionsModel)
@@ -28752,7 +28748,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28819,7 +28815,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28834,7 +28830,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteVPCRoutingTableRouteOptionsModel.VPCID = core.StringPtr("testString")
 				deleteVPCRoutingTableRouteOptionsModel.RoutingTableID = core.StringPtr("testString")
 				deleteVPCRoutingTableRouteOptionsModel.ID = core.StringPtr("testString")
- 				deleteVPCRoutingTableRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteVPCRoutingTableRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteVPCRoutingTableRoute(deleteVPCRoutingTableRouteOptionsModel)
@@ -28845,7 +28841,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28899,7 +28895,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28946,7 +28942,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -28962,7 +28958,7 @@ var _ = Describe(`VpcV1`, func() {
 				getVPCRoutingTableRouteOptionsModel.VPCID = core.StringPtr("testString")
 				getVPCRoutingTableRouteOptionsModel.RoutingTableID = core.StringPtr("testString")
 				getVPCRoutingTableRouteOptionsModel.ID = core.StringPtr("testString")
- 				getVPCRoutingTableRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getVPCRoutingTableRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetVPCRoutingTableRoute(getVPCRoutingTableRouteOptionsModel)
@@ -28974,7 +28970,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29030,7 +29026,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29078,7 +29074,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29095,7 +29091,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateVPCRoutingTableRouteOptionsModel.RoutingTableID = core.StringPtr("testString")
 				updateVPCRoutingTableRouteOptionsModel.ID = core.StringPtr("testString")
 				updateVPCRoutingTableRouteOptionsModel.Name = core.StringPtr("my-route-2")
- 				updateVPCRoutingTableRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateVPCRoutingTableRouteOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateVPCRoutingTableRoute(updateVPCRoutingTableRouteOptionsModel)
@@ -29107,7 +29103,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29140,19 +29136,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -29160,7 +29156,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -29181,7 +29177,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -29197,7 +29193,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -29221,7 +29217,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -29239,12 +29235,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -29283,7 +29279,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29333,7 +29329,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29348,7 +29344,7 @@ var _ = Describe(`VpcV1`, func() {
 				listIkePoliciesOptionsModel := new(vpcv1.ListIkePoliciesOptions)
 				listIkePoliciesOptionsModel.Start = core.StringPtr("testString")
 				listIkePoliciesOptionsModel.Limit = core.Int64Ptr(int64(1))
- 				listIkePoliciesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listIkePoliciesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListIkePolicies(listIkePoliciesOptionsModel)
@@ -29360,7 +29356,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29408,7 +29404,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29463,7 +29459,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29487,7 +29483,7 @@ var _ = Describe(`VpcV1`, func() {
 				createIkePolicyOptionsModel.KeyLifetime = core.Int64Ptr(int64(28800))
 				createIkePolicyOptionsModel.Name = core.StringPtr("my-ike-policy")
 				createIkePolicyOptionsModel.ResourceGroup = resourceGroupIdentityModel
- 				createIkePolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createIkePolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateIkePolicy(createIkePolicyOptionsModel)
@@ -29499,7 +29495,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29562,7 +29558,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29575,7 +29571,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteIkePolicyOptions model
 				deleteIkePolicyOptionsModel := new(vpcv1.DeleteIkePolicyOptions)
 				deleteIkePolicyOptionsModel.ID = core.StringPtr("testString")
- 				deleteIkePolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteIkePolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteIkePolicy(deleteIkePolicyOptionsModel)
@@ -29586,7 +29582,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29638,7 +29634,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29683,7 +29679,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29697,7 +29693,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetIkePolicyOptions model
 				getIkePolicyOptionsModel := new(vpcv1.GetIkePolicyOptions)
 				getIkePolicyOptionsModel.ID = core.StringPtr("testString")
- 				getIkePolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getIkePolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetIkePolicy(getIkePolicyOptionsModel)
@@ -29709,7 +29705,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29763,7 +29759,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29814,7 +29810,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29834,7 +29830,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateIkePolicyOptionsModel.IkeVersion = core.Int64Ptr(int64(1))
 				updateIkePolicyOptionsModel.KeyLifetime = core.Int64Ptr(int64(28800))
 				updateIkePolicyOptionsModel.Name = core.StringPtr("my-ike-policy")
- 				updateIkePolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateIkePolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateIkePolicy(updateIkePolicyOptionsModel)
@@ -29846,7 +29842,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29906,7 +29902,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29951,7 +29947,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -29965,7 +29961,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the ListIkePolicyConnectionsOptions model
 				listIkePolicyConnectionsOptionsModel := new(vpcv1.ListIkePolicyConnectionsOptions)
 				listIkePolicyConnectionsOptionsModel.ID = core.StringPtr("testString")
- 				listIkePolicyConnectionsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listIkePolicyConnectionsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListIkePolicyConnections(listIkePolicyConnectionsOptionsModel)
@@ -29977,7 +29973,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30035,7 +30031,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30085,7 +30081,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30100,7 +30096,7 @@ var _ = Describe(`VpcV1`, func() {
 				listIpsecPoliciesOptionsModel := new(vpcv1.ListIpsecPoliciesOptions)
 				listIpsecPoliciesOptionsModel.Start = core.StringPtr("testString")
 				listIpsecPoliciesOptionsModel.Limit = core.Int64Ptr(int64(1))
- 				listIpsecPoliciesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listIpsecPoliciesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListIpsecPolicies(listIpsecPoliciesOptionsModel)
@@ -30112,7 +30108,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30160,7 +30156,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30214,7 +30210,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30237,7 +30233,7 @@ var _ = Describe(`VpcV1`, func() {
 				createIpsecPolicyOptionsModel.KeyLifetime = core.Int64Ptr(int64(3600))
 				createIpsecPolicyOptionsModel.Name = core.StringPtr("my-ipsec-policy")
 				createIpsecPolicyOptionsModel.ResourceGroup = resourceGroupIdentityModel
- 				createIpsecPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createIpsecPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateIpsecPolicy(createIpsecPolicyOptionsModel)
@@ -30249,7 +30245,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30311,7 +30307,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30324,7 +30320,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteIpsecPolicyOptions model
 				deleteIpsecPolicyOptionsModel := new(vpcv1.DeleteIpsecPolicyOptions)
 				deleteIpsecPolicyOptionsModel.ID = core.StringPtr("testString")
- 				deleteIpsecPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteIpsecPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteIpsecPolicy(deleteIpsecPolicyOptionsModel)
@@ -30335,7 +30331,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30387,7 +30383,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30432,7 +30428,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30446,7 +30442,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetIpsecPolicyOptions model
 				getIpsecPolicyOptionsModel := new(vpcv1.GetIpsecPolicyOptions)
 				getIpsecPolicyOptionsModel.ID = core.StringPtr("testString")
- 				getIpsecPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getIpsecPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetIpsecPolicy(getIpsecPolicyOptionsModel)
@@ -30458,7 +30454,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30512,7 +30508,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30562,7 +30558,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30581,7 +30577,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateIpsecPolicyOptionsModel.KeyLifetime = core.Int64Ptr(int64(3600))
 				updateIpsecPolicyOptionsModel.Name = core.StringPtr("my-ipsec-policy")
 				updateIpsecPolicyOptionsModel.Pfs = core.StringPtr("disabled")
- 				updateIpsecPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateIpsecPolicyOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateIpsecPolicy(updateIpsecPolicyOptionsModel)
@@ -30593,7 +30589,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30652,7 +30648,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30697,7 +30693,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30711,7 +30707,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the ListIpsecPolicyConnectionsOptions model
 				listIpsecPolicyConnectionsOptionsModel := new(vpcv1.ListIpsecPolicyConnectionsOptions)
 				listIpsecPolicyConnectionsOptionsModel.ID = core.StringPtr("testString")
- 				listIpsecPolicyConnectionsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listIpsecPolicyConnectionsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListIpsecPolicyConnections(listIpsecPolicyConnectionsOptionsModel)
@@ -30723,7 +30719,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30776,7 +30772,6 @@ var _ = Describe(`VpcV1`, func() {
 
 					Expect(req.URL.Query()["sort"]).To(Equal([]string{"name"}))
 
-
 					// TODO: Add check for mode query parameter
 
 					res.Header().Set("Content-type", "application/json")
@@ -30788,7 +30783,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30840,7 +30835,6 @@ var _ = Describe(`VpcV1`, func() {
 
 					Expect(req.URL.Query()["sort"]).To(Equal([]string{"name"}))
 
-
 					// TODO: Add check for mode query parameter
 
 					res.Header().Set("Content-type", "application/json")
@@ -30852,7 +30846,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30874,7 +30868,7 @@ var _ = Describe(`VpcV1`, func() {
 				listVPNGatewaysOptionsModel.ResourceGroupID = core.StringPtr("testString")
 				listVPNGatewaysOptionsModel.Sort = core.StringPtr("name")
 				listVPNGatewaysOptionsModel.Mode = vpnGatewayModeModel
- 				listVPNGatewaysOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listVPNGatewaysOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListVPNGateways(listVPNGatewaysOptionsModel)
@@ -30886,7 +30880,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30941,7 +30935,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -30997,7 +30991,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31022,7 +31016,7 @@ var _ = Describe(`VpcV1`, func() {
 				createVPNGatewayOptionsModel.Mode = core.StringPtr("route")
 				createVPNGatewayOptionsModel.Name = core.StringPtr("my-vpn-gateway")
 				createVPNGatewayOptionsModel.ResourceGroup = resourceGroupIdentityModel
- 				createVPNGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createVPNGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateVPNGateway(createVPNGatewayOptionsModel)
@@ -31034,7 +31028,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31098,7 +31092,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31111,7 +31105,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteVPNGatewayOptions model
 				deleteVPNGatewayOptionsModel := new(vpcv1.DeleteVPNGatewayOptions)
 				deleteVPNGatewayOptionsModel.ID = core.StringPtr("testString")
- 				deleteVPNGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteVPNGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteVPNGateway(deleteVPNGatewayOptionsModel)
@@ -31122,7 +31116,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31174,7 +31168,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31219,7 +31213,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31233,7 +31227,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetVPNGatewayOptions model
 				getVPNGatewayOptionsModel := new(vpcv1.GetVPNGatewayOptions)
 				getVPNGatewayOptionsModel.ID = core.StringPtr("testString")
- 				getVPNGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getVPNGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetVPNGateway(getVPNGatewayOptionsModel)
@@ -31245,7 +31239,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31299,7 +31293,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31345,7 +31339,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31360,7 +31354,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateVPNGatewayOptionsModel := new(vpcv1.UpdateVPNGatewayOptions)
 				updateVPNGatewayOptionsModel.ID = core.StringPtr("testString")
 				updateVPNGatewayOptionsModel.Name = core.StringPtr("my-vpn-gateway")
- 				updateVPNGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateVPNGatewayOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateVPNGateway(updateVPNGatewayOptionsModel)
@@ -31372,7 +31366,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31429,7 +31423,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31477,7 +31471,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31492,7 +31486,7 @@ var _ = Describe(`VpcV1`, func() {
 				listVPNGatewayConnectionsOptionsModel := new(vpcv1.ListVPNGatewayConnectionsOptions)
 				listVPNGatewayConnectionsOptionsModel.VPNGatewayID = core.StringPtr("testString")
 				listVPNGatewayConnectionsOptionsModel.Status = core.StringPtr("testString")
- 				listVPNGatewayConnectionsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listVPNGatewayConnectionsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListVPNGatewayConnections(listVPNGatewayConnectionsOptionsModel)
@@ -31504,7 +31498,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31559,7 +31553,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31627,7 +31621,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31664,7 +31658,7 @@ var _ = Describe(`VpcV1`, func() {
 				createVPNGatewayConnectionOptionsModel.LocalCidrs = []string{"192.168.1.0/24"}
 				createVPNGatewayConnectionOptionsModel.Name = core.StringPtr("my-vpn-connection")
 				createVPNGatewayConnectionOptionsModel.PeerCidrs = []string{"10.45.1.0/24"}
- 				createVPNGatewayConnectionOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createVPNGatewayConnectionOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateVPNGatewayConnection(createVPNGatewayConnectionOptionsModel)
@@ -31676,7 +31670,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31752,7 +31746,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31766,7 +31760,7 @@ var _ = Describe(`VpcV1`, func() {
 				deleteVPNGatewayConnectionOptionsModel := new(vpcv1.DeleteVPNGatewayConnectionOptions)
 				deleteVPNGatewayConnectionOptionsModel.VPNGatewayID = core.StringPtr("testString")
 				deleteVPNGatewayConnectionOptionsModel.ID = core.StringPtr("testString")
- 				deleteVPNGatewayConnectionOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteVPNGatewayConnectionOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteVPNGatewayConnection(deleteVPNGatewayConnectionOptionsModel)
@@ -31777,7 +31771,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31830,7 +31824,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31876,7 +31870,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31891,7 +31885,7 @@ var _ = Describe(`VpcV1`, func() {
 				getVPNGatewayConnectionOptionsModel := new(vpcv1.GetVPNGatewayConnectionOptions)
 				getVPNGatewayConnectionOptionsModel.VPNGatewayID = core.StringPtr("testString")
 				getVPNGatewayConnectionOptionsModel.ID = core.StringPtr("testString")
- 				getVPNGatewayConnectionOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getVPNGatewayConnectionOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetVPNGatewayConnection(getVPNGatewayConnectionOptionsModel)
@@ -31903,7 +31897,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -31958,7 +31952,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32025,7 +32019,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32061,7 +32055,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateVPNGatewayConnectionOptionsModel.Name = core.StringPtr("my-vpn-connection")
 				updateVPNGatewayConnectionOptionsModel.PeerAddress = core.StringPtr("169.21.50.5")
 				updateVPNGatewayConnectionOptionsModel.Psk = core.StringPtr("lkj14b1oi0alcniejkso")
- 				updateVPNGatewayConnectionOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateVPNGatewayConnectionOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateVPNGatewayConnection(updateVPNGatewayConnectionOptionsModel)
@@ -32073,7 +32067,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32149,7 +32143,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32195,7 +32189,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32210,7 +32204,7 @@ var _ = Describe(`VpcV1`, func() {
 				listVPNGatewayConnectionLocalCidrsOptionsModel := new(vpcv1.ListVPNGatewayConnectionLocalCidrsOptions)
 				listVPNGatewayConnectionLocalCidrsOptionsModel.VPNGatewayID = core.StringPtr("testString")
 				listVPNGatewayConnectionLocalCidrsOptionsModel.ID = core.StringPtr("testString")
- 				listVPNGatewayConnectionLocalCidrsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listVPNGatewayConnectionLocalCidrsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListVPNGatewayConnectionLocalCidrs(listVPNGatewayConnectionLocalCidrsOptionsModel)
@@ -32222,7 +32216,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32276,7 +32270,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32292,7 +32286,7 @@ var _ = Describe(`VpcV1`, func() {
 				removeVPNGatewayConnectionLocalCIDROptionsModel.ID = core.StringPtr("testString")
 				removeVPNGatewayConnectionLocalCIDROptionsModel.CIDRPrefix = core.StringPtr("testString")
 				removeVPNGatewayConnectionLocalCIDROptionsModel.PrefixLength = core.StringPtr("testString")
- 				removeVPNGatewayConnectionLocalCIDROptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				removeVPNGatewayConnectionLocalCIDROptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.RemoveVPNGatewayConnectionLocalCIDR(removeVPNGatewayConnectionLocalCIDROptionsModel)
@@ -32303,7 +32297,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32357,7 +32351,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32373,7 +32367,7 @@ var _ = Describe(`VpcV1`, func() {
 				checkVPNGatewayConnectionLocalCIDROptionsModel.ID = core.StringPtr("testString")
 				checkVPNGatewayConnectionLocalCIDROptionsModel.CIDRPrefix = core.StringPtr("testString")
 				checkVPNGatewayConnectionLocalCIDROptionsModel.PrefixLength = core.StringPtr("testString")
- 				checkVPNGatewayConnectionLocalCIDROptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				checkVPNGatewayConnectionLocalCIDROptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.CheckVPNGatewayConnectionLocalCIDR(checkVPNGatewayConnectionLocalCIDROptionsModel)
@@ -32384,7 +32378,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32438,7 +32432,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32454,7 +32448,7 @@ var _ = Describe(`VpcV1`, func() {
 				addVPNGatewayConnectionLocalCIDROptionsModel.ID = core.StringPtr("testString")
 				addVPNGatewayConnectionLocalCIDROptionsModel.CIDRPrefix = core.StringPtr("testString")
 				addVPNGatewayConnectionLocalCIDROptionsModel.PrefixLength = core.StringPtr("testString")
- 				addVPNGatewayConnectionLocalCIDROptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				addVPNGatewayConnectionLocalCIDROptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.AddVPNGatewayConnectionLocalCIDR(addVPNGatewayConnectionLocalCIDROptionsModel)
@@ -32465,7 +32459,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32520,7 +32514,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32566,7 +32560,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32581,7 +32575,7 @@ var _ = Describe(`VpcV1`, func() {
 				listVPNGatewayConnectionPeerCidrsOptionsModel := new(vpcv1.ListVPNGatewayConnectionPeerCidrsOptions)
 				listVPNGatewayConnectionPeerCidrsOptionsModel.VPNGatewayID = core.StringPtr("testString")
 				listVPNGatewayConnectionPeerCidrsOptionsModel.ID = core.StringPtr("testString")
- 				listVPNGatewayConnectionPeerCidrsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listVPNGatewayConnectionPeerCidrsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListVPNGatewayConnectionPeerCidrs(listVPNGatewayConnectionPeerCidrsOptionsModel)
@@ -32593,7 +32587,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32647,7 +32641,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32663,7 +32657,7 @@ var _ = Describe(`VpcV1`, func() {
 				removeVPNGatewayConnectionPeerCIDROptionsModel.ID = core.StringPtr("testString")
 				removeVPNGatewayConnectionPeerCIDROptionsModel.CIDRPrefix = core.StringPtr("testString")
 				removeVPNGatewayConnectionPeerCIDROptionsModel.PrefixLength = core.StringPtr("testString")
- 				removeVPNGatewayConnectionPeerCIDROptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				removeVPNGatewayConnectionPeerCIDROptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.RemoveVPNGatewayConnectionPeerCIDR(removeVPNGatewayConnectionPeerCIDROptionsModel)
@@ -32674,7 +32668,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32728,7 +32722,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32744,7 +32738,7 @@ var _ = Describe(`VpcV1`, func() {
 				checkVPNGatewayConnectionPeerCIDROptionsModel.ID = core.StringPtr("testString")
 				checkVPNGatewayConnectionPeerCIDROptionsModel.CIDRPrefix = core.StringPtr("testString")
 				checkVPNGatewayConnectionPeerCIDROptionsModel.PrefixLength = core.StringPtr("testString")
- 				checkVPNGatewayConnectionPeerCIDROptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				checkVPNGatewayConnectionPeerCIDROptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.CheckVPNGatewayConnectionPeerCIDR(checkVPNGatewayConnectionPeerCIDROptionsModel)
@@ -32755,7 +32749,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32809,7 +32803,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32825,7 +32819,7 @@ var _ = Describe(`VpcV1`, func() {
 				addVPNGatewayConnectionPeerCIDROptionsModel.ID = core.StringPtr("testString")
 				addVPNGatewayConnectionPeerCIDROptionsModel.CIDRPrefix = core.StringPtr("testString")
 				addVPNGatewayConnectionPeerCIDROptionsModel.PrefixLength = core.StringPtr("testString")
- 				addVPNGatewayConnectionPeerCIDROptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				addVPNGatewayConnectionPeerCIDROptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.AddVPNGatewayConnectionPeerCIDR(addVPNGatewayConnectionPeerCIDROptionsModel)
@@ -32836,7 +32830,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -32867,19 +32861,19 @@ var _ = Describe(`VpcV1`, func() {
 			})
 		})
 	})
-    Describe(`Service constructor tests`, func() {
+	Describe(`Service constructor tests`, func() {
 		version := "testString"
 		It(`Instantiate service client`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			Expect(testService).ToNot(BeNil())
 			Expect(testServiceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 			Expect(testService).To(BeNil())
@@ -32887,7 +32881,7 @@ var _ = Describe(`VpcV1`, func() {
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
 			testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
-				URL: "https://vpcv1/api",
+				URL:     "https://vpcv1/api",
 				Version: core.StringPtr(version),
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
@@ -32908,7 +32902,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "noauth",
 			}
 
@@ -32924,7 +32918,7 @@ var _ = Describe(`VpcV1`, func() {
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
 				testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-					URL: "https://testService/api",
+					URL:     "https://testService/api",
 					Version: core.StringPtr(version),
 				})
 				Expect(testService).ToNot(BeNil())
@@ -32948,7 +32942,7 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_URL": "https://vpcv1/api",
+				"VPC_URL":       "https://vpcv1/api",
 				"VPC_AUTH_TYPE": "someOtherAuth",
 			}
 
@@ -32966,12 +32960,12 @@ var _ = Describe(`VpcV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"VPC_AUTH_TYPE":   "NOAuth",
+				"VPC_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
 			testService, testServiceErr := vpcv1.NewVpcV1UsingExternalConfig(&vpcv1.VpcV1Options{
-				URL: "{BAD_URL_STRING",
+				URL:     "{BAD_URL_STRING",
 				Version: core.StringPtr(version),
 			})
 
@@ -33010,7 +33004,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33060,7 +33054,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33075,7 +33069,7 @@ var _ = Describe(`VpcV1`, func() {
 				listVolumeProfilesOptionsModel := new(vpcv1.ListVolumeProfilesOptions)
 				listVolumeProfilesOptionsModel.Start = core.StringPtr("testString")
 				listVolumeProfilesOptionsModel.Limit = core.Int64Ptr(int64(1))
- 				listVolumeProfilesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listVolumeProfilesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListVolumeProfiles(listVolumeProfilesOptionsModel)
@@ -33087,7 +33081,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33135,7 +33129,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33180,7 +33174,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33194,7 +33188,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetVolumeProfileOptions model
 				getVolumeProfileOptionsModel := new(vpcv1.GetVolumeProfileOptions)
 				getVolumeProfileOptionsModel.Name = core.StringPtr("testString")
- 				getVolumeProfileOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getVolumeProfileOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetVolumeProfile(getVolumeProfileOptionsModel)
@@ -33206,7 +33200,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33268,7 +33262,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33324,7 +33318,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33341,7 +33335,7 @@ var _ = Describe(`VpcV1`, func() {
 				listVolumesOptionsModel.Limit = core.Int64Ptr(int64(1))
 				listVolumesOptionsModel.Name = core.StringPtr("testString")
 				listVolumesOptionsModel.ZoneName = core.StringPtr("testString")
- 				listVolumesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				listVolumesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.ListVolumes(listVolumesOptionsModel)
@@ -33353,7 +33347,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33403,7 +33397,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33474,7 +33468,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33514,7 +33508,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the CreateVolumeOptions model
 				createVolumeOptionsModel := new(vpcv1.CreateVolumeOptions)
 				createVolumeOptionsModel.VolumePrototype = volumePrototypeModel
- 				createVolumeOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				createVolumeOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.CreateVolume(createVolumeOptionsModel)
@@ -33526,7 +33520,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33605,7 +33599,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33618,7 +33612,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the DeleteVolumeOptions model
 				deleteVolumeOptionsModel := new(vpcv1.DeleteVolumeOptions)
 				deleteVolumeOptionsModel.ID = core.StringPtr("testString")
- 				deleteVolumeOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				deleteVolumeOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				response, operationErr = testService.DeleteVolume(deleteVolumeOptionsModel)
@@ -33629,7 +33623,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33681,7 +33675,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33726,7 +33720,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33740,7 +33734,7 @@ var _ = Describe(`VpcV1`, func() {
 				// Construct an instance of the GetVolumeOptions model
 				getVolumeOptionsModel := new(vpcv1.GetVolumeOptions)
 				getVolumeOptionsModel.ID = core.StringPtr("testString")
- 				getVolumeOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				getVolumeOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.GetVolume(getVolumeOptionsModel)
@@ -33752,7 +33746,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33806,7 +33800,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33852,7 +33846,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33867,7 +33861,7 @@ var _ = Describe(`VpcV1`, func() {
 				updateVolumeOptionsModel := new(vpcv1.UpdateVolumeOptions)
 				updateVolumeOptionsModel.ID = core.StringPtr("testString")
 				updateVolumeOptionsModel.Name = core.StringPtr("my-volume")
- 				updateVolumeOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				updateVolumeOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
 				result, response, operationErr = testService.UpdateVolume(updateVolumeOptionsModel)
@@ -33879,7 +33873,7 @@ var _ = Describe(`VpcV1`, func() {
 				testService, testServiceErr := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
-					Version: core.StringPtr(version),
+					Version:       core.StringPtr(version),
 				})
 				Expect(testServiceErr).To(BeNil())
 				Expect(testService).ToNot(BeNil())
@@ -33916,7 +33910,7 @@ var _ = Describe(`VpcV1`, func() {
 			testService, _ := vpcv1.NewVpcV1(&vpcv1.VpcV1Options{
 				URL:           "http://vpcv1modelgenerator.com",
 				Authenticator: &core.NoAuthAuthenticator{},
-				Version: core.StringPtr(version),
+				Version:       core.StringPtr(version),
 			})
 			It(`Invoke NewAddInstanceNetworkInterfaceFloatingIPOptions successfully`, func() {
 				// Construct an instance of the AddInstanceNetworkInterfaceFloatingIPOptions model
