@@ -10,8 +10,9 @@ import (
 )
 
 const (
-	SCALING = "scaling"
-	HEALTHY = "healthy"
+	SCALING  = "scaling"
+	HEALTHY  = "healthy"
+	DELETING = "deleting"
 )
 
 func resourceIBMISInstanceGroup() *schema.Resource {
@@ -293,6 +294,11 @@ func resourceIBMISInstanceGroupDelete(d *schema.ResourceData, meta interface{}) 
 		}
 		return fmt.Errorf("Error Deleting the InstanceGroup: %s\n%s", err, response)
 	}
+
+	_, deleteError := waitForInstanceGroupDelete(d, meta)
+	if deleteError != nil {
+		return deleteError
+	}
 	return nil
 }
 
@@ -341,6 +347,27 @@ func waitForHealthyInstanceGroup(d *schema.ResourceData, meta interface{}) (inte
 		Delay:        10 * time.Second,
 		MinTimeout:   5 * time.Second,
 		PollInterval: 5 * time.Second,
+	}
+
+	return healthStateConf.WaitForState()
+
+}
+
+func waitForInstanceGroupDelete(d *schema.ResourceData, meta interface{}) (interface{}, error) {
+	healthStateConf := &resource.StateChangeConf{
+		Pending: []string{HEALTHY},
+		Target:  []string{DELETING},
+		Refresh: func() (interface{}, string, error) {
+			resp, err := resourceIBMISInstanceGroupExists(d, meta)
+			if resp {
+				return resp, HEALTHY, nil
+			}
+			return resp, DELETING, err
+		},
+		Timeout:      d.Timeout(schema.TimeoutDelete),
+		Delay:        20 * time.Second,
+		MinTimeout:   5 * time.Second,
+		PollInterval: 10 * time.Second,
 	}
 
 	return healthStateConf.WaitForState()
