@@ -812,7 +812,7 @@ func isWaitForInstanceAvailable(instanceC *vpcv1.VpcV1, id string, timeout time.
 
 	stateConf := &resource.StateChangeConf{
 		Pending:    []string{"retry", isInstanceProvisioning},
-		Target:     []string{isInstanceStatusRunning, "available", "failed", ""},
+		Target:     []string{isInstanceStatusRunning, "available", "failed", "starting",""},
 		Refresh:    isInstanceRefreshFunc(instanceC, id, d),
 		Timeout:    timeout,
 		Delay:      10 * time.Second,
