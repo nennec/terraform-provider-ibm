@@ -815,7 +815,7 @@ func isWaitForInstanceAvailable(instanceC *vpcv1.VpcV1, id string, timeout time.
 		Target:     []string{isInstanceStatusRunning, "available", "failed", "starting",""},
 		Refresh:    isInstanceRefreshFunc(instanceC, id, d),
 		Timeout:    timeout,
-		Delay:      10 * time.Second,
+		Delay:      5 * time.Second,
 		MinTimeout: 10 * time.Second,
 	}
 
