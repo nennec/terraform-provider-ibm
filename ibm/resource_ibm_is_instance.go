@@ -834,7 +834,7 @@ func isClassicInstanceRefreshFunc(instanceC *vpcclassicv1.VpcClassicV1, id strin
 
 		d.Set(isInstanceStatus, *instance.Status)
 
-		if *instance.Status == "available" || *instance.Status == "failed" || *instance.Status == "running" {
+		if *instance.Status == "available" || *instance.Status == "failed" || *instance.Status == "running" || *instance.Status == "starting" {
 			return instance, *instance.Status, nil
 		}
 
